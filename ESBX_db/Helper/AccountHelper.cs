@@ -211,7 +211,7 @@ namespace ESBX_db.Helper
                 smtp.Send(mailMessage);
             }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 condition = false;
             }
