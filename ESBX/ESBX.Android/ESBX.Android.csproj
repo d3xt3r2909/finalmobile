@@ -115,6 +115,12 @@
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ESBX_MyPLC\ESBX_MyPLC.csproj">
+      <Project>{2e00ec40-83fa-4fd5-a2ff-2dd81fa8f835}</Project>
+      <Name>ESBX_MyPLC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\ESBX\ESBX.projitems" Label="Shared" Condition="Exists('..\ESBX\ESBX.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

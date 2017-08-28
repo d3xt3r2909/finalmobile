@@ -147,6 +147,12 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ESBX_MyPLC\ESBX_MyPLC.csproj">
+      <Project>{2e00ec40-83fa-4fd5-a2ff-2dd81fa8f835}</Project>
+      <Name>ESBX_MyPLC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
