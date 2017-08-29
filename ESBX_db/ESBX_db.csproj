@@ -82,6 +82,7 @@
     <Compile Include="ViewModel\AccountLoginVM.cs" />
     <Compile Include="ViewModel\AccountRegistrationVM.cs" />
     <Compile Include="ViewModel\EmailVm.cs" />
+    <Compile Include="ViewModel\KomentariMobileVM.cs" />
     <Compile Include="ViewModel\Korisnici_NepovjerljiviResult.cs" />
     <Compile Include="ViewModel\Korisnici_OsobljeResult.cs" />
     <Compile Include="ViewModel\KorpaForDg.cs" />

@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DobavljaciController.cs" />
     <Compile Include="Controllers\GradoviController.cs" />
+    <Compile Include="Controllers\KomentariController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\KorpaController.cs" />
     <Compile Include="Controllers\KreiranjeSalateController.cs" />
