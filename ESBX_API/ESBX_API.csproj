@@ -136,6 +136,7 @@
     <Compile Include="Controllers\GradoviController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\KorpaController.cs" />
+    <Compile Include="Controllers\KreiranjeSalateController.cs" />
     <Compile Include="Controllers\NagradnaIgraController.cs" />
     <Compile Include="Controllers\NarudbaReportController.cs" />
     <Compile Include="Controllers\OsobljeController.cs" />

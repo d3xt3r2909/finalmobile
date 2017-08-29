@@ -8,7 +8,7 @@ namespace ESBX
 		{
 			InitializeComponent();
 
-			MainPage = new ESBX.MainPage();
+			MainPage = new ESBX.KreiranjeSalate();
 		}
 
 		protected override void OnStart ()
