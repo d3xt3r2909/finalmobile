@@ -13,13 +13,13 @@ using Xamarin.Forms.Xaml;
 
 namespace ESBX
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PregledOcjena : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PregledOcjena : ContentPage
+    {
         private WebAPIHelper komentariService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Komentari");
-        public PregledOcjena ()
-		{
-			InitializeComponent ();
+        public PregledOcjena()
+        {
+            InitializeComponent();
 
 
             HttpResponseMessage response = komentariService.GetResponse();
