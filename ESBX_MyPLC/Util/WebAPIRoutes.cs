@@ -8,7 +8,7 @@ namespace ESBX_MyPLC.Util
 {
     public static class WebApiRoutes
     {
-        public const string URL_ROUTE = "http://localhost:58050/";
+        public const string URL_ROUTE = "http://hci148.app.fit.ba/";
         public const string LOGIN_ROUTE = "api/account/login";
         public const string GET_ULOGA_BY_KORISNIK = "api/account/uloge/";
         public const string GET_VRSTE_SASTOJAKA = "api/sastojci/vrstesastojaka/";

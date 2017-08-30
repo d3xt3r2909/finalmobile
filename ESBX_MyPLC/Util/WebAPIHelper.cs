@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ESBX_MyPLC.Util
 {
@@ -67,14 +68,17 @@ namespace ESBX_MyPLC.Util
             return Client.GetAsync(Route + "/" + action + "/" + DatumOd + "/" + DatumDo).Result;
         }
 
-        //public HttpResponseMessage PostResponse(object account)
-        //{
-        //    return Client.PostAsJsonAsync(Route, account).Result;
-        //}
-        //public HttpResponseMessage PostCustomRouteResponse(string route, object mObject)
-        //{
-        //    return Client.PostAsJsonAsync(route, mObject).Result;
-        //}
+        public HttpResponseMessage PostResponse(object account)
+        {
+            var jsonObject = new StringContent(JsonConvert.SerializeObject(account), Encoding.UTF8, "application/json");
+            return Client.PostAsync(Route, jsonObject).Result;
+        }
+
+        public HttpResponseMessage PostCustomRouteResponse(string route, object mObject)
+        {
+            var jsonObject = new StringContent(JsonConvert.SerializeObject(mObject), Encoding.UTF8, "application/json");
+            return Client.PostAsync(route, jsonObject).Result;
+        }
 
         //public HttpResponseMessage PutResponse(int id, object existingObject)
         //{
