@@ -46,7 +46,7 @@ namespace ESBX
 
         private void registracijaButton_Clicked(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new KreiranjeSalate());
+            this.Navigation.PushAsync(new Registracija());
         }
     }
 }

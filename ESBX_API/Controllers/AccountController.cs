@@ -2,9 +2,13 @@
 using ESBX_db.Helper;
 using ESBX_db.Models;
 using ESBX_db.ViewModel;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 
 namespace ESBX_API.Controllers
 {
@@ -48,19 +52,24 @@ namespace ESBX_API.Controllers
         }
 
         [HttpPost]
-        [Route("api/account/Registration")]
+        [Route(WebApiRoutes.POST_REGISTER)]
         public HttpResponseMessage Registration(AccountRegistrationVm account)
         {
             if (!ModelState.IsValid)
             {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
+                List<string> errors = new List<string>();
+                foreach (var pair in ModelState)
+                    if (pair.Value.Errors.Count > 0)
+                        errors.Add(pair.Value.Errors.Select(error => error.ErrorMessage).FirstOrDefault().ToString());
+
+                return Request.CreateResponse(HttpStatusCode.BadRequest, errors);
             }
 
             HttpStatusCode response = AccountHelper.CreateAccount(account, AccountHelper.GetUloge(Constants.ULOGA_KORISNIK));
 
             if (HttpStatusCode.Conflict == response)
             {
-                return Request.CreateResponse(HttpStatusCode.Conflict);
+                return Request.CreateResponse(HttpStatusCode.Conflict, "Korisnicki nalog vec postoji");
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, response);

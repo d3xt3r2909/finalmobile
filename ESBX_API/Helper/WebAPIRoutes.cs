@@ -9,6 +9,7 @@ namespace ESBX_API.Helper
     {
         public const string URL_ROUTE = "http://localhost:58050/";
         public const string LOGIN_ROUTE = "api/account/login";
+        public const string POST_REGISTER = "api/account/Registration";
         public const string GET_ULOGA_BY_KORISNIK = "api/account/uloge/";
         public const string GET_VRSTE_SASTOJAKA = "api/sastojci/vrstesastojaka/";
         public const string DELETE_VRSTE_SASTOJAKA = "api/sastojci/deletebyid/";
@@ -22,5 +23,7 @@ namespace ESBX_API.Helper
         public const string GET_REPORT_PREGLED_DANA = "api/narudzbe/GetPregledDana/";
         public const string POST_ZAVRSI_NARUDZBU = "api/narudzbe/zavrsi/";
         public const string POST_DOWNLOAD_RACUN = "api/korpa/downloadracun/";
+        public const string GET_GRADOVI = "api/gradovi";
+
     }
 }

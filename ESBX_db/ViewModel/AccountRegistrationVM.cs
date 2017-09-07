@@ -43,8 +43,6 @@ namespace ESBX_db.ViewModel
         //[DataType(DataType.Date, ErrorMessage = "Današnji datum ne može biti odabran kao datum Vašeg rođenja.")]
         public DateTime DatumRodjenja { get; set; }
 
-        public List<Grad> Gradovi { get; set; }
         public int GradId { get; set; }
-
     }
 }

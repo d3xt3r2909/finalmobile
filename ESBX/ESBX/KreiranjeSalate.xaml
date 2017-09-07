@@ -26,11 +26,6 @@
                 <Button x:Name="btnDodajUKorpu" Text="Dodaj u korpu" Grid.Row="3" Grid.Column="1" Clicked="btnDodajUKorpu_Clicked"></Button>
 
             </Grid>
-
-
         </StackLayout>
-
-
-
     </ContentPage.Content>
 </ContentPage>

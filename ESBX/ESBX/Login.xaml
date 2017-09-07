@@ -1,53 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESBX.Login">
-    <StackLayout VerticalOptions="CenterAndExpand" Margin="15">
+             x:Class="ESBX.Login"
+             NavigationPage.HasNavigationBar="false">
+
+    <StackLayout VerticalOptions="CenterAndExpand">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
+
                 <!--SLIKA-->
                 <RowDefinition Height="Auto"></RowDefinition>
                 <!--USER-->
-                <RowDefinition Height="Auto"></RowDefinition>
-                <!--LOZINKA-->
-                <RowDefinition Height="Auto"></RowDefinition>
-                <!--DUGMAD-->
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Image Source="esslogo.png" Grid.Row="0" Grid.ColumnSpan="2"></Image>
-            <Label Text="Email: " 
-                   FontSize="18"  
-                   VerticalTextAlignment="Center" 
-                   Grid.Row="1">
-            </Label>
-            <Entry x:Name="emailInput" 
-                   Text="nihad.delic91@gmail.com"
-                   Grid.Column="1" 
-                   Grid.Row="1">
-            </Entry>
-            <Label Text="Lozinka: " 
-                   FontSize="18"   
-                   VerticalTextAlignment="Center"
-                   Grid.Row="2">
-            </Label>
-            <Entry x:Name="lozinkaInput" 
-                   Text="nihadnela" 
-                   Grid.Column="1" 
-                   FontSize="18"   
-                   Grid.Row="2">
-            </Entry>
-            <Button x:Name="registracijaButton" 
-                    Text="Registracija" 
-                    Clicked="registracijaButton_Clicked"   
-                    Grid.Column ="0" 
-                    Grid.Row="3">
-            </Button>
-            <Button x:Name="prijavaButton" Text="Prijava"  Clicked="prijavaButton_Clicked" Grid.Column="1" Grid.Row="3"></Button>
+            <BoxView Color="#303030" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <Image 
+                Source="esslogo.png" 
+                Grid.Row="0" 
+                Grid.ColumnSpan="2">
+            </Image>
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Margin="18,40,18,18">
+                <Label
+                Text="Email: " 
+                FontSize="18"  
+                VerticalTextAlignment="Center">
+                </Label>
+                <Entry 
+                x:Name="emailInput" 
+                Text="nihad.delic91@gmail.com">
+                </Entry>
+                <Label 
+                Text="Lozinka: " 
+                FontSize="18"   
+                VerticalTextAlignment="Center">
+                </Label>
+                <Entry 
+                x:Name="lozinkaInput" 
+                Text="nihadnela" 
+                FontSize="18"   >
+                </Entry>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Margin="18">
+                <Button 
+                x:Name="prijavaButton" 
+                Text="Prijava"  
+                Clicked="prijavaButton_Clicked"
+                >
+                </Button>
+
+                <Label
+                    Text="ili"
+                    HorizontalTextAlignment="Center"
+                    ></Label>
+                <Button 
+                x:Name="registracijaButton"
+                Text="Registracija" 
+                Clicked="registracijaButton_Clicked" >
+                </Button>
+            </StackLayout>
         </Grid>
     </StackLayout>
 </ContentPage>

@@ -1,7 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESBX.Registracija">
+             x:Class="ESBX.Registracija"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="Registracija">
 
-    <Button Text="Registracija" x:Name="registracijaButton" Clicked="registracijaButton_Clicked"></Button>
+    <StackLayout HorizontalOptions="CenterAndExpand" Margin="18">
+        <!--<ToolbarItem Text="Komentari"></ToolbarItem>-->
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+
+                <!--IME I PREZIME-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--EMAIL-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--LOZINKA-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--Adresa stanovanja-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--Telefon-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--Grad-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--Datum rodjenja-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+                <!--BUTTON REGISTRACIJA-->
+                <RowDefinition Height="Auto"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="imeInput" Placeholder="Ime" Grid.Row="1" Grid.Column="0"></Entry>
+        
+            <Entry x:Name="prezimeInput" Placeholder="Prezime" Grid.Row="1" Grid.Column="1"></Entry>
+
+            <Entry x:Name="emailInput" Placeholder="Email adresa" Grid.Row="2" Grid.ColumnSpan="2"></Entry>
+
+            <Entry x:Name="lozinkaInput" Placeholder="Lozinka" IsPassword="True" Grid.Row="3" Grid.ColumnSpan="2"></Entry>
+
+            <Entry x:Name="adresaInput" Placeholder="Adresa stanovanja" Grid.Row="4" Grid.ColumnSpan="2"></Entry>
+
+            <Entry x:Name="telefonInput" Placeholder="Kontakt telefon" Grid.Row="5" Grid.ColumnSpan="2"></Entry>
+
+            <Picker x:Name="gradInput" Title="Odabir grada" Grid.Row="6"  Grid.ColumnSpan="2"></Picker>
+
+            <DatePicker x:Name="datumRodjenjaInput" Grid.Row="7" MaximumDate="{x:Static sys:DateTime.Now}" Date="{x:Static sys:DateTime.Now}" Format="dd-MM-yyyy"  Grid.ColumnSpan="2"></DatePicker>
+
+            <Button Text="Registracija" Grid.Row="8" Grid.ColumnSpan="2" x:Name="registracijaButton" Clicked="registracijaButton_Clicked"></Button>
+        </Grid>
+
+    </StackLayout>
 </ContentPage>

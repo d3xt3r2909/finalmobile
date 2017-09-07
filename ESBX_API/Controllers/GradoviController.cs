@@ -1,4 +1,5 @@
-﻿using ESBX_db.DAL;
+﻿using ESBX_API.Helper;
+using ESBX_db.DAL;
 using ESBX_db.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,9 @@ namespace ESBX_API.Controllers
 
         MContext ctx = new MContext();
 
-        public List<Grad> GetKorisnici()
+        [HttpGet]
+        [Route(WebApiRoutes.GET_GRADOVI)]
+        public List<Grad> GetGradovi()
         {
             return ctx.Gradovi.ToList();
         }
