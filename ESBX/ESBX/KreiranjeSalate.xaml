@@ -21,7 +21,7 @@
                 <Label Text="Dresing:" FontSize="16" Grid.Row="2"></Label>
 
                 <Picker x:Name="GlavniPicker" Title="Odaberite sastojak" Grid.Column="1"  Grid.ColumnSpan="1"></Picker>
-                <Button x:Name="btnSporedni" Text="Odaberite sastojke" Grid.Column="1" Grid.Row="1"></Button>
+                <Button x:Name="btnSporedni" Text="Odaberite sastojke" Grid.Column="1" Grid.Row="1" Clicked="btnSporedni_Clicked"></Button>
                 <Picker x:Name="DresingPicker" Title="Odaberite dresing" Grid.Row="2" Grid.Column="1"></Picker>
                 <Button x:Name="btnDodajUKorpu" Text="Dodaj u korpu" Grid.Row="3" Grid.Column="1" Clicked="btnDodajUKorpu_Clicked"></Button>
 
