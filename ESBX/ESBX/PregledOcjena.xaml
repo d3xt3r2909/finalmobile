@@ -3,31 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESBX.PregledOcjena">
     <ContentPage.Content>
-        <StackLayout Margin="10" Spacing="0" >
+        <StackLayout>
             <!--<ToolbarItem Text="Komentari"></ToolbarItem>-->
-            <ListView x:Name="listKomentari" >
+            <ListView x:Name="listKomentari">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
                         <ViewCell>
-                            
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"></RowDefinition>
+                                    <!--Email i vrijeme-->
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <!--Ocjena-->
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <!--Komentar labela-->
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <!--Komentar-->
+                                    <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label x:Name="Vrijeme" HorizontalOptions="End" Text="{Binding Vrijeme}"  Grid.Column="1"></Label>
 
-                                <StackLayout Padding="10">
-                                    <Label x:Name="KorisnikEmail" Text="{Binding EmailKorisnika}"></Label>
-                                    <Label x:Name="Ocjena" Text="{Binding Ocjena, StringFormat='Ocjena: {0}'}" ></Label>
-                                    <Label x:Name="KomentarKorisnika" Text="Komentar:" ></Label>
-                                    <Label x:Name="Komentar" Text="{Binding Komentar}" ></Label>
-                                </StackLayout>
-                               
+                                <Label x:Name="Vrijeme" HorizontalOptions="End" Text="{Binding Vrijeme}" Grid.Row="0" Grid.Column="1"></Label>
+                                <Label x:Name="KorisnikEmail" Text="{Binding EmailKorisnika}" Grid.Row="0" Grid.Column="0"></Label>
+                                <Label x:Name="Ocjena" Text="{Binding Ocjena, StringFormat='Ocjena: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"></Label>
+                                <Label x:Name="KomentarKorisnika" Text="Komentar:"  Grid.Row="2" Grid.ColumnSpan="2"></Label>
+                                <Label x:Name="Komentar" Text="{Binding Komentar}" Grid.Row="3" Grid.ColumnSpan="2"></Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

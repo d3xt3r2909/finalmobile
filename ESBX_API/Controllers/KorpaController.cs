@@ -33,6 +33,39 @@ namespace ESBX_API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, korpaModel);
         }
 
+        [System.Web.Http.Route(WebApiRoutes.GET_AKTIVNA_KORPA + "{KorisnikId}")]
+        public IHttpActionResult GetAktivnaKorpa(int KorisnikId) {
+
+            Korpa aktivnaKorpa = KorpaHelper.GetAktivnaByKorisnikId(KorisnikId);
+
+            if (aktivnaKorpa == null)
+                return NotFound();
+
+            List<KorpaForDgRow> listNarudzbe = KorpaHelper.GetNaruzbe(aktivnaKorpa.Id, aktivne: true);
+
+            if (listNarudzbe.Count == 0)
+                return NotFound();
+
+            #region
+            // Ako napravimo da vraca posebno za klijenta a posebno za inace
+            List<KorpaMobileVm> response = new List<KorpaMobileVm>();
+            foreach (KorpaForDgRow item in listNarudzbe)
+            {
+                KorpaMobileVm tmp = new KorpaMobileVm(); 
+                tmp.Sastojci = item.GlavniSastojak + ", " + item.SporedniSastojak + ", " + item.DresingSastojak;
+                tmp.KorpaId = item.Id;
+                tmp.Kolicina = item.Kolicina;
+                tmp.Cijena = item.CijenaSalate;
+
+                response.Add(tmp);
+            }
+
+            if (response.Count <= 0)
+                return NotFound();
+
+            #endregion
+            return Ok(response);
+        }
         [System.Web.Http.HttpPut]
         [System.Web.Http.Route(WebApiRoutes.PUT_OSOBLJE_KORPA_STATUS + "{id}/{aktivne?}")]
         public HttpResponseMessage PutNarudzbeStatus(int id, bool status = true)

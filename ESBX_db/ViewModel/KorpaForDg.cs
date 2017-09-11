@@ -25,6 +25,8 @@ namespace ESBX_db.ViewModel
 
         // Pohranjuje se samo naziv dresing sastojka
         public DateTime VrijemeDolaska { get; set; }
+        public int Kolicina { get; set; }
+        public float CijenaSalate { get; set; }
     }
 
     public class KorpaForDg

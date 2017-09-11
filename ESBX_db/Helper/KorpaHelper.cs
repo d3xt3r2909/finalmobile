@@ -129,6 +129,13 @@ namespace ESBX_db.Helper
             return korpaModel;
         }
 
+        public static Korpa GetAktivnaByKorisnikId(int KorisnikId)
+        {
+            MContext ctx = new MContext();
+
+            return ctx.Korpa.FirstOrDefault(korpa => korpa.KorisnikId == KorisnikId && korpa.Aktivna == true && korpa.Zavrsena == false);
+        }
+
         public static List<KorpaForDgRow> GetNaruzbe(int? id, bool aktivne = true)
         {
             MContext ctx = new MContext();
@@ -146,6 +153,7 @@ namespace ESBX_db.Helper
                 .Select(x => new KorpaForDgRow
                 {
                    Id = x.KorpaId,
+                   Kolicina = x.Kolicina,
                    VrijemeDolaska = x.Korpa.VrijemeDolaska,
                    Korisnik = x.Korpa.Korisnik.Ime + " " + x.Korpa.Korisnik.Prezime + "; " + x.Korpa.Korisnik.Email + "; " + x.Korpa.Korisnik.BrojTelefona,
                    GlavniSastojak = ctx.SalataStavke.Where(
@@ -155,7 +163,12 @@ namespace ESBX_db.Helper
                    DresingSastojak = ctx.SalataStavke.Where(
                        y =>
                            y.SalataId == x.SalataId &&
-                           y.Sastojak.VrstaSastojka.Naziv == Constants.SastojakDresing).Select(sastojak => sastojak.Sastojak.Naziv).FirstOrDefault()
+                           y.Sastojak.VrstaSastojka.Naziv == Constants.SastojakDresing).Select(sastojak => sastojak.Sastojak.Naziv).FirstOrDefault(),
+                   CijenaSalate = ctx.SalataStavke.Where(y => y.SalataId == x.SalataId)
+                            .Select(y => y.Sastojak.Cijena)
+                            .ToList()
+                            .Sum(),
+
                 }).ToList();
 
             foreach (KorpaForDgRow item in narudzbe.ListSalate)
@@ -163,11 +176,14 @@ namespace ESBX_db.Helper
                 List<string> listaSporednih = ctx.SalataStavke.Where(
                         y =>
                             y.SalataId == item.Id &&
-                            y.Sastojak.VrstaSastojka.Naziv == Constants.SastojakSporedni)
+                            y.Sastojak.VrstaSastojka.Naziv.Equals(Constants.SastojakSporedni))
                     .Select(sastojak => sastojak.Sastojak.Naziv).ToList();
 
+                if (listaSporednih.Count == 0)
+                    listaSporednih.Add("nihad");
+
                 foreach (string naziv in listaSporednih)
-                    item.SporedniSastojak += naziv;
+                    item.SporedniSastojak += naziv + ", ";
             }
 
             return narudzbe.ListSalate;

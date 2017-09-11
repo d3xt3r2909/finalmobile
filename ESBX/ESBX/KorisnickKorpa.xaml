@@ -2,19 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESBX.KorisnickKorpa">
-    <ContentPage.Content>
-        <StackLayout Margin="18">
-            <Label Text="Welcome to Xamarin Forms!" />
-            <ListView x:Name="korisnickaKorpa">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
 
-        </StackLayout>
+    <ListView x:Name="korpaList">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <!--Cijena-->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!--Kolicina-->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <!--Sastojci-->
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                    </Grid>
 
-    </ContentPage.Content>
+                    <Label Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
+                    <Label Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
+
+                    <Label Text="Kolicina" Grid.Column="0" Grid.Row="1"></Label>
+                    <Label Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
+
+                    <Label Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
+                    <Label Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
+
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

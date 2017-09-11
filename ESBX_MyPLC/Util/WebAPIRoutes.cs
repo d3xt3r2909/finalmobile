@@ -25,5 +25,7 @@ namespace ESBX_MyPLC.Util
         public const string POST_ZAVRSI_NARUDZBU = "api/narudzbe/zavrsi/";
         public const string POST_DOWNLOAD_RACUN = "api/korpa/downloadracun/";
         public const string GET_GRADOVI = "api/gradovi";
+        public const string GET_AKTIVNA_KORPA = "api/korpa/narudzbe/aktivna";
+
     }
 }
