@@ -218,5 +218,17 @@ namespace ESBX_db.Helper
 
             return condition;
         }
+
+        /**
+         * Uzimanje ID trenutno logiranog korisnika 
+         **/
+        public static int GetUserId(string email)
+        {
+            MContext ctx = new MContext();
+
+            var firstOrDefault = ctx.Korisnici.FirstOrDefault(u => u.Email == email);
+
+            return firstOrDefault?.Id ?? 0;
+        }
     }
 }

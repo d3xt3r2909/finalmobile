@@ -43,6 +43,7 @@
     <Compile Include="Util\WebAPIRoutes.cs" />
     <Compile Include="ViewModel\AccountRegistrationVm.cs" />
     <Compile Include="ViewModel\GetGradoviVm.cs" />
+    <Compile Include="ViewModel\KreiranaSalataVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

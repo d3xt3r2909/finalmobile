@@ -10,6 +10,9 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -19,11 +22,16 @@
                 <Label Text="Glavni sastojak:" FontSize="16" ></Label>
                 <Label Text="Sporedni sastojci:" FontSize="16" Grid.Row="1"></Label>
                 <Label Text="Dresing:" FontSize="16" Grid.Row="2"></Label>
+                <Label Text="Količina:" FontSize="16" Grid.Row="3"></Label>
+                <Label Text="Napomena:" FontSize="16" Grid.Row="4"></Label>
 
                 <Picker x:Name="GlavniPicker" Title="Odaberite sastojak" Grid.Column="1"  Grid.ColumnSpan="1"></Picker>
                 <Button x:Name="btnSporedni" Text="Odaberite sastojke" Grid.Column="1" Grid.Row="1" Clicked="btnSporedni_Clicked"></Button>
                 <Picker x:Name="DresingPicker" Title="Odaberite dresing" Grid.Row="2" Grid.Column="1"></Picker>
-                <Button x:Name="btnDodajUKorpu" Text="Dodaj u korpu" Grid.Row="3" Grid.Column="1" Clicked="btnDodajUKorpu_Clicked"></Button>
+                <Entry x:Name="Kolicina" Grid.Row="3" Grid.Column="1"></Entry>
+                <Entry x:Name="Napomena" Grid.Row="4" Grid.Column="1"></Entry>
+                <Label Text="" FontSize="16" Grid.Row="5"></Label>
+                <Button x:Name="btnDodajUKorpu" Text="Dodaj u korpu" Grid.Row="6" Grid.Column="1" Clicked="btnDodajUKorpu_Clicked"></Button>
 
             </Grid>
         </StackLayout>

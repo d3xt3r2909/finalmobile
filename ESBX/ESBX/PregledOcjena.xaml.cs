@@ -21,6 +21,12 @@ namespace ESBX
         {
             InitializeComponent();
 
+        }
+
+
+        protected override void OnAppearing()
+        {
+
 
             HttpResponseMessage response = komentariService.GetResponse();
             if (response.IsSuccessStatusCode)
@@ -29,11 +35,6 @@ namespace ESBX
                 List<OcjeneKomentari> komentari = JsonConvert.DeserializeObject<List<OcjeneKomentari>>(jsonResponse.Result);
                 listKomentari.ItemsSource = komentari;
             }
-        }
-
-
-        protected override void OnAppearing()
-        {
 
             base.OnAppearing();
         }
