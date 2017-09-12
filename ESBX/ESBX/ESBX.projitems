@@ -15,7 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HistorijaNarucenih.xaml.cs">
       <DependentUpon>HistorijaNarucenih.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)KorisnickKorpa.xaml.cs">
       <DependentUpon>KorisnickKorpa.xaml</DependentUpon>
@@ -32,6 +31,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PodesavanjeLozinke.xaml.cs">
+      <DependentUpon>PodesavanjeLozinke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)PodesavanjeProfila.xaml.cs">
+      <DependentUpon>PodesavanjeProfila.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)PregledOcjena.xaml.cs">
       <DependentUpon>PregledOcjena.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -46,7 +51,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)TrenutnoNarucene.xaml.cs">
       <DependentUpon>TrenutnoNarucene.xaml</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -102,15 +106,23 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TrenutnoNarucene.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PodesavanjeLozinke.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)PodesavanjeProfila.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)HistorijaNarucenih.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)TrenutnoNarucene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

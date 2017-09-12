@@ -43,11 +43,11 @@ namespace ESBX
         private void SacuvajPass_Clicked()
         {
 
-            if (k.LozinkaHash == h.GenerateHash(trenutniPass.Text, k.LozinkaSalt))
+            if (k.LozinkaHash == HelperPassword.GenerateHash(trenutniPass.Text, k.LozinkaSalt))
             {
                 if(noviPass.Text!=null && noviPass.Text == noviPassTwo.Text)
                 {
-                    k.LozinkaHash = h.GenerateHash(noviPass.Text, k.LozinkaSalt);
+                    k.LozinkaHash = HelperPassword.GenerateHash(noviPass.Text, k.LozinkaSalt);
 
                     HttpResponseMessage responseMessage = profilService.PutResponse(k.Id, k);
                     if (responseMessage.IsSuccessStatusCode)

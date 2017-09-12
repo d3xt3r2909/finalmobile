@@ -17,7 +17,6 @@ namespace ESBX
 	public partial class HistorijaNarucenih : ContentPage
 	{
         private WebAPIHelper salateService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Narudzba");
-        private WebAPIHelper dodajService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/AddSaladMobile");
 
         public HistorijaNarucenih ()
 		{
@@ -44,7 +43,9 @@ namespace ESBX
         {
             var item = (Xamarin.Forms.Button)sender;
             int SalataId = Convert.ToInt32(item.CommandParameter);
-            HttpResponseMessage responseMessage = dodajService.PostResponse(SalataId);
+            NarudzbeVM nar = new NarudzbeVM();
+            nar.SalataId = SalataId;
+            HttpResponseMessage responseMessage = salateService.PostResponse(nar);
             if (responseMessage.IsSuccessStatusCode)
             {
                 DisplayAlert("Uspjesh", "Uspješno ste dodali salatu u korpu", "OK");
