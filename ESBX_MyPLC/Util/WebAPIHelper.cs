@@ -74,7 +74,14 @@ namespace ESBX_MyPLC.Util
             return Client.PostAsync(Route, jsonObject).Result;
         }
 
-     
+        public HttpResponseMessage PostActionResponse(string action,object account)
+        {
+            var jsonObject = new StringContent(JsonConvert.SerializeObject(account), Encoding.UTF8, "application/json");
+            return Client.PostAsync(Route+"/"+action, jsonObject).Result;
+        }
+
+
+
 
         public HttpResponseMessage PostCustomRouteResponse(string route, object mObject)
         {
