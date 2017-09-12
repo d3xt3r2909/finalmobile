@@ -82,9 +82,12 @@ namespace ESBX_MyPLC.Util
             return Client.PostAsync(route, jsonObject).Result;
         }
 
-        //public HttpResponseMessage PutResponse(int id, object existingObject)
-        //{
-        //    return Client.PutAsJsonAsync(Route + "/" + id, existingObject).Result;
-        //}
+        public HttpResponseMessage PutResponse(int id, object existingObject)
+        {
+            var jsonObject = new StringContent(JsonConvert.SerializeObject(existingObject), Encoding.UTF8, "application/json");
+            return Client.PutAsync(Route + "/" + id, jsonObject).Result;
+            
+            
+        }
     }
 }

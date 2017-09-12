@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ESBX.PodesavanjeLozinke">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
+            <Label x:Name="tr" Text="Trenutna lozinka:" FontSize="Medium"></Label>
+            <Entry x:Name="trenutniPass" IsPassword="True"></Entry>
+            <Label x:Name="nova" Text="Nova lozinka:" FontSize="Medium"></Label>
+            <Entry x:Name="noviPass" IsPassword="True"></Entry>
+            <Label x:Name="novaTwo" Text="Ponovite novu lozinku:" FontSize="Medium"></Label>
+            <Entry x:Name="noviPassTwo" IsPassword="True"></Entry>
+            <Button x:Name="SacuvajPass" Text="SAČUVAJ" Clicked="SacuvajPass_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

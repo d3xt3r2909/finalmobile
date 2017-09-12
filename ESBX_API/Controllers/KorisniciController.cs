@@ -75,7 +75,7 @@ namespace ESBX_API.Controllers
 
         }
 
-
+        [HttpPut]
         public IHttpActionResult PutKorisnik(int id, Korisnici k)
         {
             if (!ModelState.IsValid)

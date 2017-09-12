@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ESBX.PodesavanjeProfila"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             >
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" Margin="18">
+            <!--<ToolbarItem Text="Podešavanje profila"></ToolbarItem>-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--IME-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--PREZIME-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--Telefon-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--EMAIL-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--Adresa stanovanja-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--Datum rodjenja-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--Grad-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--BUTTON SNIMI-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+                    <!--LOZINKA-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="ime" Text="Ime:"></Label>
+                <Entry x:Name="imeInput" Grid.Column="1" ></Entry>
+
+                <Label x:Name="prezime" Text="Prezime:" Grid.Row="1"></Label>
+                <Entry x:Name="prezimeInput"  Grid.Row="1" Grid.Column="1"></Entry>
+
+                <Label x:Name="Telefon" Text="Telefon:" Grid.Row="2"></Label>
+                <Entry x:Name="telefonInput"  Grid.Row="2" Grid.Column="1"></Entry>
+
+                <Label x:Name="email" Text="Email:" Grid.Row="3"></Label>
+                <Entry x:Name="emailInput"  Grid.Row="3" Grid.Column="1"></Entry>
+
+                <Label x:Name="adresa" Text="Adresa:" Grid.Row="4"></Label>
+                <Entry x:Name="adresaInput"  Grid.Row="4" Grid.Column="1"></Entry>
+
+                <Label x:Name="datum" Text="Datum rođenja:" Grid.Row="5"></Label>
+                <DatePicker x:Name="datumRodjenjaInput" Grid.Row="5" MaximumDate="{x:Static sys:DateTime.Now}"  Format="dd-MM-yyyy"  Grid.Column="1"></DatePicker>
+
+                <Label x:Name="grad" Text="Grad:" Grid.Row="6"></Label>
+                <Picker x:Name="gradInput"  Grid.Row="6"  Grid.Column="1"></Picker>
+
+                <Button Text="SAČUVAJ" Grid.Row="9" Grid.ColumnSpan="2" x:Name="sacuvajAcc" Clicked="sacuvajAcc_Clicked"></Button>
+
+                <Button Text="PROMIJENI LOZINKU" Grid.Row="8" Grid.Column="1" x:Name="lozinkaButton" Clicked="lozinkaButton_Clicked"></Button>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
