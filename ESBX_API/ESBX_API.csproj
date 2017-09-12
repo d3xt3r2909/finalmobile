@@ -145,6 +145,7 @@
     <Compile Include="Controllers\KreiranjeSalateController.cs" />
     <Compile Include="Controllers\NagradnaIgraController.cs" />
     <Compile Include="Controllers\NarudbaReportController.cs" />
+    <Compile Include="Controllers\NarudzbaController.cs" />
     <Compile Include="Controllers\OsobljeController.cs" />
     <Compile Include="Controllers\pomazeMi_NeDiraj.cs" />
     <Compile Include="Controllers\PromjenaPovjerljivostiController.cs" />
