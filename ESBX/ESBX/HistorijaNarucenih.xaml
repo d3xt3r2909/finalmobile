@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESBX.TrenutnoNarucene"
-             Title="Naručene salate"
+             x:Class="ESBX.HistorijaNarucenih"
+             Title="Historija naručenih salata"
              >
     <ContentPage.Content>
-        <StackLayout Margin="10">
-            <ListView x:Name="listTrenutne" HasUnevenRows="True">
+        <StackLayout Margin="10" >
+            <ListView x:Name="listHistorija" HasUnevenRows="True">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate >
                         <ViewCell>
-                            <Grid>
+                            <Grid Padding="10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="Auto" ></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
@@ -22,20 +21,19 @@
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
+                                <Label x:Name="Sas" Text="Sastojci:"   Grid.Row="0"></Label>
                                 <Label x:Name="Cij" Text="Cijena:"  Grid.Row="1"></Label>
-                                <Label x:Name="Kol" Text="Količina:"  Grid.Row="2"></Label>
-                                <Label x:Name="Sas" Text="Sastojci:"   Grid.Row="3"></Label>
 
 
+                                <Label x:Name="Sastojci" Text="{Binding Sastojci}" Grid.Row="0" Grid.Column="1"></Label>
                                 <Label x:Name="Cijena" Text="{Binding Cijena,StringFormat='{0} KM'}}"  Grid.Row="1"  Grid.Column="1"></Label>
-                                <Label x:Name="Kolicina" Text="{Binding Kolicina}" Grid.Row="2" Grid.Column="1"></Label>
-                                <Label x:Name="Sastojci" Text="{Binding Sastojci}" Grid.Row="3" Grid.Column="1"></Label>
+
+                                <Button x:Name="DodajSalatu" Text="DODAJ" CommandParameter="{Binding SalataId}" Clicked="DodajSalatu_Clicked" Grid.Row="2"  Grid.Column="1" BackgroundColor="Orange" HorizontalOptions="End"></Button>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label x:Name="UkupnaCijena" Text="UKUPNO" FontAttributes="Bold"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
