@@ -1,17 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESBX.KorisnickKorpa">
+             x:Class="ESBX.KorisnickKorpa"
+             Title="Korisnicka korpa">
 
-    <ListView x:Name="korpaList">
+    <ListView x:Name="korpaList" HasUnevenRows="True">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <!--Cijena-->
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -19,17 +16,26 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <!--Sastojci-->
                             <RowDefinition Height="Auto"></RowDefinition>
+                            <!--Button-->
+                            <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="lblCijena" Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
+                        <Label x:Name="inputCijena" Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
+
+                        <Label x:Name="lblKolicina" Text="Kolicina" Grid.Column="0" Grid.Row="1"></Label>
+                        <Label x:Name="inputKolicina" Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
+
+                        <Label x:Name="lblSastojci" Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
+                        <Label x:Name="inputSastojci" Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
+
+                        <Button Text="Delete" CommandParameter="{Binding KorpaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3"></Button>
                     </Grid>
-
-                    <Label Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
-                    <Label Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
-
-                    <Label Text="Kolicina" Grid.Column="0" Grid.Row="1"></Label>
-                    <Label Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
-
-                    <Label Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
-                    <Label Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
 
                 </ViewCell>
             </DataTemplate>

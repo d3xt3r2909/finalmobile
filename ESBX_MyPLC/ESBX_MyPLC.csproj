@@ -44,6 +44,7 @@
     <Compile Include="Util\WebAPIRoutes.cs" />
     <Compile Include="ViewModel\AccountRegistrationVm.cs" />
     <Compile Include="ViewModel\GetGradoviVm.cs" />
+    <Compile Include="ViewModel\KorpaMobileVm.cs" />
     <Compile Include="ViewModel\KreiranaSalataVM.cs" />
   </ItemGroup>
   <ItemGroup>

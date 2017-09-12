@@ -28,7 +28,7 @@ namespace ESBX_API.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
             if (korpaModel.Count == 0)
-                return Request.CreateResponse(HttpStatusCode.NoContent); 
+                return Request.CreateResponse(HttpStatusCode.NoContent);
 
             return Request.CreateResponse(HttpStatusCode.OK, korpaModel);
         }
@@ -51,11 +51,12 @@ namespace ESBX_API.Controllers
             List<KorpaMobileVm> response = new List<KorpaMobileVm>();
             foreach (KorpaForDgRow item in listNarudzbe)
             {
-                KorpaMobileVm tmp = new KorpaMobileVm(); 
+                KorpaMobileVm tmp = new KorpaMobileVm();
                 tmp.Sastojci = item.GlavniSastojak + ", " + item.SporedniSastojak + ", " + item.DresingSastojak;
+                tmp.StavkaId = item.SalataId;
                 tmp.KorpaId = item.Id;
-                tmp.Kolicina = item.Kolicina;
-                tmp.Cijena = item.CijenaSalate;
+                tmp.Kolicina = item.Kolicina.ToString();
+                tmp.Cijena = item.CijenaSalate.ToString();
 
                 response.Add(tmp);
             }
@@ -66,11 +67,12 @@ namespace ESBX_API.Controllers
             #endregion
             return Ok(response);
         }
+
         [System.Web.Http.HttpPut]
         [System.Web.Http.Route(WebApiRoutes.PUT_OSOBLJE_KORPA_STATUS + "{id}/{aktivne?}")]
         public HttpResponseMessage PutNarudzbeStatus(int id, bool status = true)
         {
-             HttpStatusCode response = KorpaHelper.ChangeStatus(id, status);
+            HttpStatusCode response = KorpaHelper.ChangeStatus(id, status);
 
             if (response == HttpStatusCode.NotFound)
                 return Request.CreateResponse(HttpStatusCode.NotFound);
@@ -102,9 +104,9 @@ namespace ESBX_API.Controllers
         {
             HttpStatusCode response = KorpaHelper.IzdajRacun(post.KorpaId, post.KuponKod);
 
-            if(response == HttpStatusCode.Gone)
+            if (response == HttpStatusCode.Gone)
                 return Request.CreateResponse(HttpStatusCode.Gone, "Nagradni kod je istekao!");
-            if(response == HttpStatusCode.Conflict)
+            if (response == HttpStatusCode.Conflict)
                 return Request.CreateResponse(HttpStatusCode.Conflict, "Ne postoji nagradni kod ili je iskoristen!");
             if (response == HttpStatusCode.NotFound)
                 return Request.CreateResponse(HttpStatusCode.NotFound, "Narudzba nije pronadjena");
@@ -112,6 +114,17 @@ namespace ESBX_API.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [HttpDelete]
+        [Route(WebApiRoutes.DELETE_ITEM_KORPA + "{KorpaId}/stavke/{SalataId}")]
+        public HttpResponseMessage DeleteNarudzbaItem(int KorpaId, int SalataId)
+        {
+            HttpStatusCode response = KorpaHelper.DeleteKorpaItem(KorpaId, SalataId); 
+
+            if(response == HttpStatusCode.NoContent)
+                return Request.CreateResponse(HttpStatusCode.NoContent, "Trazena salata unutar korpe nije pronadjena");
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route(WebApiRoutes.POST_DOWNLOAD_RACUN + "{id}")]

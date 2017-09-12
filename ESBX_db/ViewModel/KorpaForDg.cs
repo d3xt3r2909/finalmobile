@@ -11,6 +11,7 @@ namespace ESBX_db.ViewModel
     {
         public int Id { get; set; }
 
+        public int SalataId { get; set; }
         // Pohranjuje se ime + prezime i broj telefona
         public string Korisnik { get; set; }
 

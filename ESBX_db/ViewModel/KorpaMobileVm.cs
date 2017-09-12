@@ -9,8 +9,9 @@ namespace ESBX_db.ViewModel
     public class KorpaMobileVm
     {
         public int KorpaId { get; set; }
-        public float Cijena { get; set; }
-        public int Kolicina { get; set; }
+        public int StavkaId { get; set; }
+        public string Cijena { get; set; }
+        public string Kolicina { get; set; }
         public string Sastojci { get; set; }
     }
     

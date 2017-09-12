@@ -129,6 +129,36 @@ namespace ESBX_db.Helper
             return korpaModel;
         }
 
+        public static HttpStatusCode DeleteKorpaItem(int korpaId, int salataId)
+        {
+            MContext ctx = new MContext();
+
+            KorpaStavke ks = ctx.KorpaStavke.FirstOrDefault(x => x.SalataId == salataId && x.KorpaId == korpaId);
+            if (ks != null) ctx.KorpaStavke.Remove(ks);
+            else return HttpStatusCode.NoContent;
+            ctx.SaveChanges();
+
+            //// Brisanje stavki salate
+            //List<SalataStavke> lss = ctx.SalataStavke.Where(x => x.SalataId == salataId).ToList();
+            //if (lss.Count == 0)
+            //    return HttpStatusCode.NoContent;
+            //ctx.SalataStavke.RemoveRange(lss);
+            //ctx.SaveChanges();
+
+            //// Brisanje ocjena i komentara
+            //OcjeneKomentari ok = ctx.OcjeneKomentari.FirstOrDefault(x => x.SalataId == salataId);
+            //if (ok != null) ctx.OcjeneKomentari.Remove(ok);
+            //ctx.SaveChanges();
+
+            //// Brisanje salate
+            //Salate s = ctx.Salate.FirstOrDefault(x => x.Id == salataId);
+            //if (s != null) ctx.Salate.Remove(s);
+            //else return HttpStatusCode.NoContent;
+            //ctx.SaveChanges();
+
+            return HttpStatusCode.OK; 
+        }
+
         public static Korpa GetAktivnaByKorisnikId(int KorisnikId)
         {
             MContext ctx = new MContext();
@@ -153,6 +183,7 @@ namespace ESBX_db.Helper
                 .Select(x => new KorpaForDgRow
                 {
                    Id = x.KorpaId,
+                   SalataId = x.SalataId,
                    Kolicina = x.Kolicina,
                    VrijemeDolaska = x.Korpa.VrijemeDolaska,
                    Korisnik = x.Korpa.Korisnik.Ime + " " + x.Korpa.Korisnik.Prezime + "; " + x.Korpa.Korisnik.Email + "; " + x.Korpa.Korisnik.BrojTelefona,
@@ -179,11 +210,11 @@ namespace ESBX_db.Helper
                             y.Sastojak.VrstaSastojka.Naziv.Equals(Constants.SastojakSporedni))
                     .Select(sastojak => sastojak.Sastojak.Naziv).ToList();
 
-                if (listaSporednih.Count == 0)
-                    listaSporednih.Add("nihad");
-
                 foreach (string naziv in listaSporednih)
                     item.SporedniSastojak += naziv + ", ";
+
+                if(item.SporedniSastojak != null || item.SporedniSastojak != "" || item.SporedniSastojak.Length != 0)
+                     item.SporedniSastojak = item.SporedniSastojak.Remove(item.SporedniSastojak.Length - 2, 2);
             }
 
             return narudzbe.ListSalate;

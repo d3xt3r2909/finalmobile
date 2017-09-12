@@ -7,7 +7,7 @@ namespace ESBX_API.Helper
 {
     public static class WebApiRoutes
     {
-        public const string URL_ROUTE = "http://localhost:58050/";
+        public const string URL_ROUTE = "http://localhost:63541/";
         public const string LOGIN_ROUTE = "api/account/login";
         public const string POST_REGISTER = "api/account/Registration";
         public const string GET_ULOGA_BY_KORISNIK = "api/account/uloge/";
@@ -22,6 +22,7 @@ namespace ESBX_API.Helper
         public const string PUT_KORISNICI_POVJERLJIVOST = "api/promjenapovjerljivosti/status/";
         public const string GET_REPORT_PREGLED_DANA = "api/narudzbe/GetPregledDana/";
         public const string POST_ZAVRSI_NARUDZBU = "api/narudzbe/zavrsi/";
+        public const string DELETE_ITEM_KORPA = "api/korpa/";
         public const string POST_DOWNLOAD_RACUN = "api/korpa/downloadracun/";
         public const string GET_GRADOVI = "api/gradovi";
         public const string GET_AKTIVNA_KORPA = "api/korpa/GetAktivnaKorpa/";
