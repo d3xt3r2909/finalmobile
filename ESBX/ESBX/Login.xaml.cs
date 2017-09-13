@@ -38,7 +38,7 @@ namespace ESBX
                 var jsonResult = response.Content.ReadAsStringAsync();
                 Global.logedUser = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);
 
-                this.Navigation.PushAsync(new KreiranjeSalate());
+                this.Navigation.PushAsync(new PodesavanjeProfila());
             }
             else
                 DisplayAlert("Uspjeh", "Unjeli ste pogresan ime ili lozinku", "OK");

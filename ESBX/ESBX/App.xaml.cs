@@ -8,7 +8,7 @@ namespace ESBX
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new ESBX.PodesavanjeLozinke());
+			MainPage = new NavigationPage(new ESBX.Login());
 		}
 
 		protected override void OnStart ()

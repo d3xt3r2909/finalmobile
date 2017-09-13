@@ -33,7 +33,7 @@ namespace ESBX
 
             if (k.LozinkaHash == HelperPassword.GenerateHash(trenutniPass.Text, k.LozinkaSalt))
             {
-                if(noviPass.Text!=null && noviPass.Text.Equals("") && noviPass.Text == noviPassTwo.Text)
+                if(noviPass.Text!=null && noviPass.Text!="" && noviPass.Text == noviPassTwo.Text)
                 {
                     k.LozinkaHash = HelperPassword.GenerateHash(noviPass.Text, k.LozinkaSalt);
 
