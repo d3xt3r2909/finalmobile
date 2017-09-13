@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,6 +48,28 @@ namespace ESBX
 
         private void sacuvajAcc_Clicked()
         {
+            if(imeInput.Text=="" || prezimeInput.Text=="" || telefonInput.Text=="" || emailInput.Text=="" || adresaInput.Text==""
+                || gradInput.SelectedIndex == -1)
+            {
+                DisplayAlert("Upozorenje", "Sva polja su obavezna!", "OK");
+                return;
+            }
+            int broj;
+            if(Int32.TryParse(telefonInput.Text,out broj) == false || telefonInput.Text.Count()<9)
+            {
+                DisplayAlert("Upozorenje", "Polje telefon nije validno!", "OK");
+                return;
+            }
+            try
+            {
+                MailAddress mail = new MailAddress(emailInput.Text);
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Upozorenje", "Polje email nije validno!", "OK");
+                return;
+            }
+            
             k.Ime = imeInput.Text;
             k.Prezime = prezimeInput.Text;
             k.BrojTelefona = telefonInput.Text;

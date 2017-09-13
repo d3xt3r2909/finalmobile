@@ -46,6 +46,7 @@
     <Compile Include="ViewModel\GetGradoviVm.cs" />
     <Compile Include="ViewModel\KorpaMobileVm.cs" />
     <Compile Include="ViewModel\KreiranaSalataVM.cs" />
+    <Compile Include="ViewModel\NagradnaVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

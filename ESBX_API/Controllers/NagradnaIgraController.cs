@@ -71,5 +71,37 @@ namespace ESBX_API.Controllers
             model.Telefon = korisnik.BrojTelefona;
             return model;
         }
+
+       
+        [Route("api/NagradnaIgra/GetKupon/{KorisnikId}")]
+        public IHttpActionResult GetKupon(string KorisnikId)
+        {
+            int korisnikId = Convert.ToInt32(KorisnikId);
+            NagradnaVM n = new NagradnaVM();
+            NagradnaIgra i = new NagradnaIgra();
+
+            i = ctx.NagradnaIgra.Where(x => x.KorisniciId == korisnikId && x.Iskoristen == false
+                  && x.VaziDo > DateTime.Now).FirstOrDefault();
+
+            if(i==null)
+            {
+                n.imaPopust = "ne";
+            }
+
+            else
+            {
+                n.KorisnikId = i.KorisniciId;
+                n.Popust = i.Popust.ToString() + " %";
+                n.Sifra = i.KuponKod;
+                n.VrijediDo = i.VaziDo.ToString("dd-MM-yyyy");
+                n.imaPopust = "da";
+            }
+             
+
+           
+            return Ok(n);
+        }
     }
+
+    
 }

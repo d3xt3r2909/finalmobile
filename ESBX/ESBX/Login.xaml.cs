@@ -19,6 +19,8 @@ namespace ESBX
     public partial class Login : ContentPage
     {
         WebAPIHelper loginService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.LOGIN_ROUTE);
+        WebAPIHelper igraService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/NagradnaIgra");
+
         public Login()
         {
             InitializeComponent();
@@ -37,7 +39,15 @@ namespace ESBX
             {
                 var jsonResult = response.Content.ReadAsStringAsync();
                 Global.logedUser = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);
-
+                //NAGRADNA IGRA
+                HttpResponseMessage responseIgra = igraService.GetActionResponse("GetKupon",Global.logedUser.Id.ToString());
+                var jsonResponse = responseIgra.Content.ReadAsStringAsync();
+                NagradnaVM Popust = JsonConvert.DeserializeObject<NagradnaVM>(jsonResponse.Result);
+                if (Popust.imaPopust == "da")
+                {
+                    DisplayAlert("Čestitamo", "Proglašeni ste kupcem mjeseca i osvojili ste " + Popust.Popust 
+                        + " popusta prilikom naredne kupovine. Vaš popust vrijedi do: " + Popust.VrijediDo + " , a šifra je: " + Popust.Sifra + " . \n  \n Vaš Exspress Salad Bar.", "OK");
+                }
                 this.Navigation.PushAsync(new PodesavanjeProfila());
             }
             else

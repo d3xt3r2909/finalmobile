@@ -93,6 +93,7 @@
     <Compile Include="ViewModel\KorpaVm.cs" />
     <Compile Include="ViewModel\KreiranaSalataVM.cs" />
     <Compile Include="ViewModel\NagradnaIgraVM.cs" />
+    <Compile Include="ViewModel\NagradnaVM.cs" />
     <Compile Include="ViewModel\Narudzba_ReportResult.cs" />
     <Compile Include="ViewModel\NarudzbeVM.cs" />
     <Compile Include="ViewModel\PregledDanaRepVm.cs" />

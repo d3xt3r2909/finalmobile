@@ -20,8 +20,9 @@ namespace ESBX
 	{
         Sastojci glavni;
         Sastojci dresing;
-        int Kol = 1;
-        string Nap = "";
+        int Kol=1;
+        string Nap ;
+        int broj;
         SelectMultipleBasePage<Sastojci>  multiPage=null;
         private WebAPIHelper kreiranjeService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/KreiranjeSalate");
 		public KreiranjeSalate ()
@@ -33,7 +34,19 @@ namespace ESBX
         {
             if (multiPage != null)
             {
+                
+                if(GlavniPicker.SelectedIndex == -1 || DresingPicker.SelectedIndex == -1 
+                    || Kolicina.Text=="" || Int32.TryParse(Kolicina.Text,out broj) == false)
+                {
+                    DisplayAlert("Upozorenje", "Podaci nisu validni", "OK");
+                    return;
+                }
                 List<Sastojci> izabrani = multiPage.GetSelection();
+                if (izabrani.Count() == 0)
+                {
+                    DisplayAlert("Upozorenje", "Podaci nisu validni", "OK");
+                    return;
+                }
                 glavni= (Sastojci)GlavniPicker.SelectedItem;
                 dresing= (Sastojci)DresingPicker.SelectedItem;
                 izabrani.Add(glavni);
@@ -43,6 +56,7 @@ namespace ESBX
                 {
                     SastojciIds.Add(i.Id);
                 }
+               
                 if (SastojciIds != null)
                 {
                     KreiranaSalataVM k = new KreiranaSalataVM
@@ -73,8 +87,13 @@ namespace ESBX
                     }
                 }
             }
-           
-            
+            else
+            {
+                DisplayAlert("Upozorenje", "Podaci nisu validni", "OK");
+                return;
+            }
+
+
         }
         protected override void OnAppearing()
         {
@@ -114,7 +133,7 @@ namespace ESBX
             {
                 Kolicina.Text="1";
             }
-            if (Nap != null)
+            if (Nap != "")
             {
                 Nap = Napomena.Text;
             }
@@ -127,6 +146,16 @@ namespace ESBX
         {
             glavni = (Sastojci)GlavniPicker.SelectedItem;
             dresing = (Sastojci)DresingPicker.SelectedItem;
+            if( Int32.TryParse(Kolicina.Text,out broj) == true)
+            {
+                Kol = Convert.ToInt32(Kolicina.Text);
+            }
+            else
+            {
+                Kol = 1;
+            }
+            
+            Nap=Napomena.Text;
         }
 
             private void btnSporedni_Clicked()
