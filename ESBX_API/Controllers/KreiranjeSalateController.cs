@@ -42,7 +42,6 @@ namespace ESBX_API.Controllers
                 Salate s = new Salate
                 {
                     DatumKreiranja = DateTime.Now,
-                    //SREDI
                     Napomena = Salata.Napomena
                 };
                 ctx.Salate.Add(s);
@@ -68,7 +67,7 @@ namespace ESBX_API.Controllers
                 #region DodavanjeSalateUKorpu
 
                 // Pretraga za korpom, da li korpa korisnika vec postoji i da li je ona aktivna 
-                var k = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.Korisnik.Email == System.Web.HttpContext.Current.User.Identity.Name);
+                var k = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.Korisnik.Id== Salata.KorisnikId);
 
                 // Ukoliko korisnik nema korpu, potrebno je kreirati novu i aktivirati je
                 if (k == null)
@@ -76,9 +75,7 @@ namespace ESBX_API.Controllers
                     // Inicijalizacija nove korpe
                     k = new Korpa
                     {
-                        KorisnikId = 10,
-                        //VRATI
-                        //AccountHelper.GetUserId(System.Web.HttpContext.Current.User.Identity.Name),
+                        KorisnikId = Salata.KorisnikId,
                         Zavrsena = false,
                         Aktivna = true,
                         VrijemeDolaska = DateTime.Now,

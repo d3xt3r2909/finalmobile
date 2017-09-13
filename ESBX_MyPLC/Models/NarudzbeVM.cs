@@ -8,6 +8,7 @@ namespace ESBX_MyPLC.Models
 {
     public class NarudzbeVM
     {
+        public int KorisnikId { get; set; }
         public int SalataId { get; set; }
 
         public string Cijena { get; set; }

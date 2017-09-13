@@ -25,9 +25,8 @@ namespace ESBX
 
         protected override void OnAppearing()
         {
-
-            //KORISNIK ID PROMJENI
-            HttpResponseMessage responseMessage = salateService.GetActionResponse("GetHistorijaNarudzbe", "10");
+            string KorisnikId = Global.logedUser.Id.ToString();
+            HttpResponseMessage responseMessage = salateService.GetActionResponse("GetHistorijaNarudzbe", KorisnikId);
             if (responseMessage.IsSuccessStatusCode)
             {
 
@@ -45,6 +44,7 @@ namespace ESBX
             int SalataId = Convert.ToInt32(item.CommandParameter);
             NarudzbeVM nar = new NarudzbeVM();
             nar.SalataId = SalataId;
+            nar.KorisnikId = Global.logedUser.Id;
             HttpResponseMessage responseMessage = salateService.PostResponse(nar);
             if (responseMessage.IsSuccessStatusCode)
             {

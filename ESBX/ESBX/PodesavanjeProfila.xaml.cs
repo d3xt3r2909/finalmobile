@@ -19,9 +19,8 @@ namespace ESBX
     {
         private WebAPIHelper profilService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Korisnici");
         private WebAPIHelper service = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Gradovi");
-        //@TODO vrati na Global.logedUser
-        Korisnici k;
-        //Korisnici k = Global.logedUser;
+       
+        Korisnici k = Global.logedUser;
         public PodesavanjeProfila()
         {
             InitializeComponent();
@@ -75,17 +74,6 @@ namespace ESBX
 
         private void FillForm()
         {
-            //IZBRISI
-            HttpResponseMessage responseTemp = profilService.GetResponse(10);
-            if (responseTemp.IsSuccessStatusCode)
-            {
-
-                var jsonObject = responseTemp.Content.ReadAsStringAsync();
-                k = JsonConvert.DeserializeObject<Korisnici>(jsonObject.Result);
-
-            }
-
-
             imeInput.Text = k.Ime;
             prezimeInput.Text = k.Prezime;
             telefonInput.Text = k.BrojTelefona;

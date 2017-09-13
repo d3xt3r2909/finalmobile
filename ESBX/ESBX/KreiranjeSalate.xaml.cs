@@ -47,6 +47,7 @@ namespace ESBX
                 {
                     KreiranaSalataVM k = new KreiranaSalataVM
                     {
+                        KorisnikId=Global.logedUser.Id,
                         listaIzabranih=SastojciIds,
                         Kolicina = Convert.ToInt32(Kolicina.Text),
                         Napomena = Napomena.Text

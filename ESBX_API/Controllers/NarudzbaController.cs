@@ -21,8 +21,8 @@ namespace ESBX_API.Controllers
         {
             int korId = Convert.ToInt32(KorisnikId);
             List<NarudzbeVM> listSalata = new List<NarudzbeVM>();
-            //DODAJ ONE AKTIVNA, ZAVRSENA ATRIBUTE
-            int KorpaId = ctx.Korpa.Where(x => x.KorisnikId == korId).Select(x=>x.Id).FirstOrDefault();
+            
+            int KorpaId = ctx.Korpa.Where(x => x.KorisnikId == korId && x.Aktivna==false && x.Zavrsena==false && x.Finilizirana==false).Select(x=>x.Id).FirstOrDefault();
             UkupnaCijenaVM model = new UkupnaCijenaVM();
             model.listaSalataId = ctx.KorpaStavke.Where(y => y.KorpaId == KorpaId).Select(p => new ListaVrijednostiVM
             {
@@ -63,8 +63,8 @@ namespace ESBX_API.Controllers
         {
             int korId = Convert.ToInt32(KorisnikId);
             List<NarudzbeVM> listSalata = new List<NarudzbeVM>();
-            //DODAJ ONE AKTIVNA, ZAVRSENA ATRIBUTE
-            List<int> korpaIds = ctx.Korpa.Where(x => x.KorisnikId == korId).Select(x => x.Id).ToList();
+            
+            List<int> korpaIds = ctx.Korpa.Where(x => x.KorisnikId == korId && x.Aktivna == false && x.Zavrsena == true && x.Finilizirana == true).Select(x => x.Id).ToList();
             
             foreach(var korpaId in korpaIds)
             {
@@ -104,7 +104,7 @@ namespace ESBX_API.Controllers
                 #region DodavanjeSalateUKorpu
                 
                 // Pretraga za korpom, da li korpa korisnika vec postoji i da li je ona aktivna 
-                Korpa k = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.Korisnik.Email == System.Web.HttpContext.Current.User.Identity.Name);
+                Korpa k = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.Korisnik.Id == Salata.KorisnikId);
 
                 // Ukoliko korisnik nema korpu, potrebno je kreirati novu i aktivirati je
                 if (k == null)
@@ -112,9 +112,7 @@ namespace ESBX_API.Controllers
                     // Inicijalizacija nove korpe
                     k = new Korpa
                     {
-                        KorisnikId = 10,
-                        //VRATI
-                        //AccountHelper.GetUserId(System.Web.HttpContext.Current.User.Identity.Name),
+                        KorisnikId = Salata.KorisnikId,
                         Zavrsena = false,
                         Aktivna = true,
                         VrijemeDolaska = DateTime.Now,

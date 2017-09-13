@@ -78,8 +78,8 @@ namespace ESBX_API.Controllers
         [HttpPut]
         public IHttpActionResult PutKorisnik(int id, Korisnici k)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            //if (!ModelState.IsValid)
+            //    return BadRequest(ModelState);
 
             if (id != k.Id)
                 return BadRequest();

@@ -19,33 +19,21 @@ namespace ESBX
         private WebAPIHelper profilService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Korisnici");
         private HelperPassword h = new HelperPassword();
 
-        Korisnici k;
+        Korisnici k=Global.logedUser;
 
 		public PodesavanjeLozinke ()
 		{
 			InitializeComponent ();
 		}
 
-        protected override void OnAppearing()
-        {
-            //IZBRISI
-            HttpResponseMessage responseTemp = profilService.GetResponse(10);
-            if (responseTemp.IsSuccessStatusCode)
-            {
-
-                var jsonObject = responseTemp.Content.ReadAsStringAsync();
-                k = JsonConvert.DeserializeObject<Korisnici>(jsonObject.Result);
-
-            }
-            base.OnAppearing();
-        }
+        
 
         private void SacuvajPass_Clicked()
         {
 
             if (k.LozinkaHash == HelperPassword.GenerateHash(trenutniPass.Text, k.LozinkaSalt))
             {
-                if(noviPass.Text!=null && noviPass.Text == noviPassTwo.Text)
+                if(noviPass.Text!=null && noviPass.Text.Equals("") && noviPass.Text == noviPassTwo.Text)
                 {
                     k.LozinkaHash = HelperPassword.GenerateHash(noviPass.Text, k.LozinkaSalt);
 

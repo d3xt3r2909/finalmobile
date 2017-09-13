@@ -8,6 +8,7 @@ namespace ESBX_MyPLC.ViewModel
 {
     public class KreiranaSalataVM
     {
+        public int KorisnikId { get; set; }
         public List<int> listaIzabranih { get; set; }
 
         public int Kolicina { get; set; }
