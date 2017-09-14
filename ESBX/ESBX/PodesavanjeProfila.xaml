@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESBX.PodesavanjeProfila"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             Title="Podešavanje profila"
              >
     <ContentPage.Content>
         <StackLayout HorizontalOptions="CenterAndExpand" Margin="18">
-            <!--<ToolbarItem Text="Podešavanje profila"></ToolbarItem>-->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
