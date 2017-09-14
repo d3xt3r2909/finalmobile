@@ -27,6 +27,7 @@ namespace ESBX_MyPLC.Util
         public const string DELETE_ITEM_KORPA = "api/korpa/";
         public const string GET_GRADOVI = "api/gradovi";
         public const string GET_AKTIVNA_KORPA = "api/korpa/GetAktivnaKorpa/";
+        public const string POST_NARUCI_KORPU = "api/korpa/naruci/";
 
     }
 }

@@ -31,6 +31,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)NaruciKorpaDialog.xaml.cs">
+      <DependentUpon>NaruciKorpaDialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)PodesavanjeLozinke.xaml.cs">
       <DependentUpon>PodesavanjeLozinke.xaml</DependentUpon>
     </Compile>
@@ -123,6 +127,12 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)TrenutnoNarucene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)NaruciKorpaDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -47,6 +47,7 @@
     <Compile Include="ViewModel\KorpaMobileVm.cs" />
     <Compile Include="ViewModel\KreiranaSalataVM.cs" />
     <Compile Include="ViewModel\NagradnaVM.cs" />
+    <Compile Include="ViewModel\NaruciVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

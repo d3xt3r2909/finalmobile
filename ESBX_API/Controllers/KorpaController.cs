@@ -14,6 +14,8 @@ using iTextSharp.text.pdf;
 using ESBX_db.ViewModel;
 using ESBX_db.Helper;
 using ESBX_db.Models;
+using ESBX_db.DAL;
+
 namespace ESBX_API.Controllers
 {
     public class KorpaController : ApiController
@@ -233,133 +235,74 @@ namespace ESBX_API.Controllers
             }
         }
 
-        ///**
-        //* Metoda ima zadatak da provjeri odredjene stvari, te ukoliko je sve ispravno
-        //* tada ce se generisati sifra narudžbe, te ista poslati na korisnikov email,
-        //* takodjer ce se zabiljeziti vrijeme zakazivanja narudzbe, kao i to da trenutno aktivna korpa prestaje biti aktivna 
-        //* 
-        //* Provjere: validno zakazano vrijeme, povjerljivost korisnika, postojanje korpe, stavki korpe
-        //* Generisanje sifra
-        //* Vremena dolaska
-        //* Trenutni status trenutne korpe je potrebno promijeniti u false 
-        //**/
-        //[System.Web.Http.HttpPost]
+        /**
+        * Metoda ima zadatak da provjeri odredjene stvari, te ukoliko je sve ispravno
+        * tada ce se generisati sifra narudžbe, te ista poslati na korisnikov email,
+        * takodjer ce se zabiljeziti vrijeme zakazivanja narudzbe, kao i to da trenutno aktivna korpa prestaje biti aktivna 
+        * 
+        * Provjere: validno zakazano vrijeme, povjerljivost korisnika, postojanje korpe, stavki korpe
+        * Generisanje sifra
+        * Vremena dolaska
+        * Trenutni status trenutne korpe je potrebno promijeniti u false 
+        **/
+        [System.Web.Http.HttpPost]
+        [Route(WebApiRoutes.POST_NARUCI_KORPU)]
 
-        //public IHttpActionResult Naruci(NaruciVm naruci)
-        //{
+        public HttpResponseMessage Naruci(NaruciVm naruci)
+        {
+            Korisnici isUserExists = AccountHelper.GetKorisnikById(naruci.KorisnikId);
 
-        //    Korisnici isUserExists = AccountHelper.GetKorisnikById(naruci.KorisnikId);
+            if (isUserExists == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound, "Korisnik nije pronadjen");
 
-        //    if (isUserExists == null)
-        //        return NotFound();
+            // Provjera korisnika da li je on povjerljiv, ukoliko nije ispisati odgovarajucu poruku o nepovjerljivosti
+            if (!isUserExists.Povjerljiv)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, "Nepovjerljiv korisnik");
 
-        //    // Provjera korisnika da li je on povjerljiv, ukoliko nije ispisati odgovarajucu poruku o nepovjerljivosti
-        //    if (!AccountHelper.GetCurrentKorisnikInfo().Povjerljiv)
-        //    {
-        //        ModelState.AddModelError("korpaError", Constants.ErrorUserTrust);
-        //        return View("Index", KorpaHelper.GetUserCart(new KorpaCondition
-        //        {
-        //            KorpaId = 0,
-        //            Aktivna = false,
-        //            Zavrsena = false,
-        //            Finalizirana = false
-        //        }));
-        //    }
+            }
 
-        //    // Provjeriti da li je zakazano vrijeme odgovarajuce 
-        //    double checkTime = date.Subtract(DateTime.Now).TotalMinutes;
+            // Provjeriti da li je zakazano vrijeme odgovarajuce 
+            double checkTime = naruci.DatumDolaska.Subtract(DateTime.Now).TotalMinutes;
 
-        //    // POtrebno je da vrijeme dolaska bude minimalno 60 minuta udaljeno od narucivanja
-        //    if (checkTime < 59)
-        //    {
-        //        ModelState.AddModelError("korpaError", Constants.ErrorOrderTimeWrong);
-        //        return View("Index", KorpaHelper.GetUserCart(new KorpaCondition
-        //        {
-        //            KorpaId = 0,
-        //            Aktivna = false,
-        //            Zavrsena = false,
-        //            Finalizirana = false
-        //        }));
-        //    }
+            // POtrebno je da vrijeme dolaska bude minimalno 60 minuta udaljeno od narucivanja
+            if (checkTime < 59)
+            {
+                return Request.CreateResponse(HttpStatusCode.Forbidden, "Potrebno je rezervisati barem 60 minuta prije");
+            }
 
-        //    // Provjera da li je korisnicka korpa prazna - radi sigurnosti na server strani
-        //    if (KorpaHelper.GetUserCart(new KorpaCondition
-        //    {
-        //        KorpaId = 0,
-        //        Aktivna = false,
-        //        Zavrsena = false,
-        //        Finalizirana = false
-        //    }).EmptyBasket)
-        //    {
-        //        ModelState.AddModelError("korpaError", Constants.ErrorEmptyBasket);
-        //        return View("Index", KorpaHelper.GetUserCart(new KorpaCondition
-        //        {
-        //            KorpaId = 0,
-        //            Aktivna = false,
-        //            Zavrsena = false,
-        //            Finalizirana = false
-        //        }));
-        //    }
+            MContext ctx = new MContext();
 
-        //    // Ukoliko su provjere zadovoljene potrebno je naruciti salatu 
+            List<KorpaStavke> conditionKs = ctx.KorpaStavke.Where(ks => ks.Korpa.Aktivna == true && ks.Korpa.KorisnikId == naruci.KorisnikId).ToList();
+            // Provjera da li je korisnicka korpa prazna - radi sigurnosti na server strani
+            if (conditionKs.Count <= 0)
+                return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "Korisnicka korpa je prazna!");
 
-        //    // Dobavljanje trenutnog ID korisnika
-        //    int korisnikId = AccountHelper.GetUserId(System.Web.HttpContext.Current.User.Identity.Name);
+            // Dobavljanje aktivne korpe korisnika 
+            Korpa korisnikKorpa = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.KorisnikId == naruci.KorisnikId);
 
-        //    // Dobavljanje aktivne korpe korisnika 
-        //    Korpa korisnikKorpa = _ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.KorisnikId == korisnikId);
+            // TODO: razmisliti o ovome hocemo sada ili onda kad je nela napisala Generisanje sifre korpe 
+            // korisnikKorpa.Sifra = KorpaHelper.GetSifra();
 
-        //    // Jos jedna provjera korpe radi sigurnosti 
-        //    if (korisnikKorpa == null)
-        //    {
-        //        ModelState.AddModelError("korpaError", "Nije pronađena Vaša korpa. Ovo se vrlo rijetko događa pa Vas molimo da se obratite Administratoru");
-        //        return View("Index", KorpaHelper.GetUserCart(new KorpaCondition
-        //        {
-        //            KorpaId = 0,
-        //            Aktivna = false,
-        //            Zavrsena = false,
-        //            Finalizirana = false
-        //        }));
-        //    }
+            // Preuzimanje zakazanog vremena dolaska  
+            korisnikKorpa.VrijemeDolaska = naruci.DatumDolaska;
 
-        //    // Generisanje sifre korpe 
-        //    korisnikKorpa.Sifra = KorpaHelper.GetSifra();
+            // Promijeniti status korpe u false
+            korisnikKorpa.Aktivna = false;
 
-        //    // Preuzimanje zakazanog vremena dolaska  
-        //    korisnikKorpa.VrijemeDolaska = date;
+            // Snimiti promjene
+            ctx.SaveChanges();
 
-        //    // Promijeniti status korpe u false
-        //    korisnikKorpa.Aktivna = false;
+            /* Ukoliko je sve proslo uredu, potrebno je korisniku poslati email sa sifrom narudzbe */
 
-        //    // Snimiti promjene
-        //    _ctx.SaveChanges();
+            EmailVm mailVm = new EmailVm();
+            mailVm.Body = "Postovani, </br>Uspjesno ste narucali isto. Vasa sifra narudzbe je: " + korisnikKorpa.Sifra;
+            mailVm.Subject = "Express Salad Bar";
+            mailVm.To = isUserExists.Email; 
+            // Slanje emaila sa sfirom narudjbe i odredjenim detaljima narudzbe
+            AccountHelper.Sendemail(mailVm);
 
-        //    // Proslijediti odredjene parametre za view
-        //    ViewBag.ValidNaruceno = true;
-        //    ViewBag.SuccessBodyDate = date.ToString(CultureInfo.InvariantCulture);
-
-        //    /* Ukoliko je sve proslo uredu, potrebno je korisniku poslati email sa sifrom narudzbe */
-
-        //    // Dohvacanje trenutnog korisnika 
-        //    var korisnik = _ctx.Korisnici.FirstOrDefault(x => x.Id == korisnikId);
-
-        //    // Slanje emaila sa sfirom narudjbe i odredjenim detaljima narudzbe
-        //    AccountHelper.Sendemail(
-        //        korisnik,
-        //        Constants.GuidForSaladEmailSubject,
-        //        Constants.GetGuidSaladBarBody(korisnik,
-        //            korisnikKorpa.Sifra,
-        //            korisnikKorpa.VrijemeDolaska.ToString(CultureInfo.InvariantCulture))
-        //    );
-
-        //    // Prosljedjivanje na view od korpe
-        //    return View("Index", KorpaHelper.GetUserCart(new KorpaCondition
-        //    {
-        //        KorpaId = 0,
-        //        Aktivna = false,
-        //        Zavrsena = false,
-        //        Finalizirana = false
-        //    }));
-        //}
+            return Request.CreateErrorResponse(HttpStatusCode.OK, "Narudzba je uspjesno realizovana, provjerite Vas email");
+        }
     }
 }

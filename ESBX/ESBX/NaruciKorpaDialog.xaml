@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="ESBX.NaruciKorpaDialog"
+                 BackgroundColor="LightGray">
+
+    <!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!-- Content -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            
+            <!--Labela datum-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--Picker datum-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--Labela vrijeme-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--Picker sati-->
+            <RowDefinition Height="auto"></RowDefinition>
+            <!--Button naruci-->
+            <RowDefinition Height="auto"></RowDefinition>
+            
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Text="Unesite datum Vaseg dolaska: " Grid.Row="1"></Label>
+        <DatePicker x:Name="datumDolaska" Grid.Row="2" MinimumDate="{x:Static sys:DateTime.Now}" Date="{x:Static sys:DateTime.Now}" Format="dd-MM-yyyy"></DatePicker>
+        <Label Text="Unesite datum/vrijeme Vaseg dolaska: " Grid.Row="3"></Label>
+        <TimePicker x:Name="vrijemeDolaska" Grid.Row="4"></TimePicker>
+        <Button HorizontalOptions="CenterAndExpand" x:Name="btnNaruciKorpu" Text="NARUCI" Grid.Row="5" TextColor="White" Clicked="btnNaruciKorpu_clicked"></Button>
+    </Grid>
+
+</pages:PopupPage>
+    
+    

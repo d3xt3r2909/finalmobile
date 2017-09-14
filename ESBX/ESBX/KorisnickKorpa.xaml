@@ -4,41 +4,56 @@
              x:Class="ESBX.KorisnickKorpa"
              Title="Korisnicka korpa">
 
-    <ListView x:Name="korpaList" HasUnevenRows="True">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <!--Cijena-->
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <!--Kolicina-->
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <!--Sastojci-->
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <!--Button-->
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
+        <ListView x:Name="korpaList" HasUnevenRows="True" Grid.Row="0" Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <!--Cijena-->
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <!--Kolicina-->
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <!--Sastojci-->
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <!--Button-->
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
 
-                        <Label x:Name="lblCijena" Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
-                        <Label x:Name="inputCijena" Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                        <Label x:Name="lblKolicina" Text="Kolicina" Grid.Column="0" Grid.Row="1"></Label>
-                        <Label x:Name="inputKolicina" Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
+                            <Label x:Name="lblCijena" Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
+                            <Label x:Name="inputCijena" Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
 
-                        <Label x:Name="lblSastojci" Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
-                        <Label x:Name="inputSastojci" Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
+                            <Label x:Name="lblKolicina" Text="Kolicina" Grid.Column="0" Grid.Row="1"></Label>
+                            <Label x:Name="inputKolicina" Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
 
-                        <Button Text="Delete" CommandParameter="{Binding KorpaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3"></Button>
-                    </Grid>
+                            <Label x:Name="lblSastojci" Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
+                            <Label x:Name="inputSastojci" Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
+
+                            <Button Text="Delete" CommandParameter="{Binding KorpaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3"></Button>
+                        </Grid>
 
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+
+        <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " Grid.Column="0" Grid.Row="1"></Label>
+        <Button x:Name="btnNaruci" Text="Naruci" Grid.Column="1" Grid.Row="1" Clicked="NaruciClicked"></Button>
+
+    </Grid>
 </ContentPage>

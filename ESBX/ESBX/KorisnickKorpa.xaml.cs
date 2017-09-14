@@ -11,6 +11,9 @@ using ESBX_MyPLC.ViewModel;
 
 using System.Net.Http;
 using Newtonsoft.Json;
+using System.Globalization;
+using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Services;
 
 namespace ESBX
 {
@@ -45,11 +48,12 @@ namespace ESBX
 
             if (firstSource != null)
             {
+                lblUkupno.Text =  "Ukupna cijena: " + getSumZarada(firstSource).ToString() + " KM";
                 source = new KorpaMobileVmList(firstSource);
                 korpaList.ItemsSource = source.Items;
             }
 
-
+           
             base.OnAppearing();
         }
 
@@ -63,6 +67,24 @@ namespace ESBX
 
             if (!response.IsSuccessStatusCode)
                 DisplayAlert("Upozorenje!", "Nije moguce obrisati stavku", "OK");
+        }
+
+        public async void NaruciClicked(object sender, EventArgs e)
+        {
+
+            var page = new NaruciKorpaDialog();
+
+            // await Navigation.PushPopupAsync(page);
+            //// or
+            await PopupNavigation.PushAsync(page);
+        }
+        private float getSumZarada(List<KorpaMobileVm> param)
+        {
+            float sum = 0;
+            foreach (KorpaMobileVm item in param)
+                sum += float.Parse(item.Cijena, CultureInfo.InvariantCulture.NumberFormat);
+
+            return sum;
         }
     }
 }
