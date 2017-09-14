@@ -9,6 +9,8 @@ using ESBX_db.DAL;
 using ESBX_db.Models;
 using ESBX_db.Helper;
 using ESBX_db.ViewModel;
+using System.Data.Entity.Infrastructure;
+using ExpressSaladBarDesktop_API.Util;
 
 namespace ESBX_API.Controllers
 {
@@ -80,10 +82,10 @@ namespace ESBX_API.Controllers
         {
             //if (!ModelState.IsValid)
             //    return BadRequest(ModelState);
-
             if (id != k.Id)
                 return BadRequest();
-
+          try { 
+        
             Korisnici kor = ctx.Korisnici.Where(x => x.Id == k.Id).FirstOrDefault();
             kor.Ime = k.Ime;
             kor.Prezime = k.Prezime;
@@ -98,6 +100,15 @@ namespace ESBX_API.Controllers
             }
 
             ctx.SaveChanges();
+            }
+         catch (DbUpdateException e)
+          {
+                SqlException ex = e.InnerException.InnerException as SqlException;
+                
+                    HttpResponseMessage error = ExceptionHandler.CreatedHttpResponseException(ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
+                    throw new HttpResponseException(error);
+                
+          }
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -131,16 +142,13 @@ namespace ESBX_API.Controllers
                 "<br/>Vaš Express Salad Bar.";
                 AccountHelper.Sendemail(email);
             }
-            catch (Exception e)
+            catch (DbUpdateException e)
             {
                 SqlException ex = e.InnerException.InnerException as SqlException;
-
-                //HttpResponseMessage error =
-                //    ExceptionHandler.CreatedHttpResponseException(ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
-
-                // throw new HttpResponseException(error);
-
-                throw e;
+                
+                    HttpResponseMessage error = ExceptionHandler.CreatedHttpResponseException(ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
+                    throw new HttpResponseException(error);
+                
             }
            
 

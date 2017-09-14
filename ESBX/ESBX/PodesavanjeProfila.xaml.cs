@@ -80,13 +80,18 @@ namespace ESBX
             HttpResponseMessage response = profilService.PutResponse(k.Id,k);
             if (response.IsSuccessStatusCode)
             {
-                DisplayAlert( "Uspjeh", "Uspješno ste izmjenili podatke!","OK");
+                DisplayAlert("Uspjeh", "Uspješno ste izmjenili podatke!", "OK");
                 FillForm();
             }
             else
             {
-                DisplayAlert("Error Code" ,
-                response.StatusCode + " : Message - " + response.ReasonPhrase,"OK");
+                string poruka = response.ReasonPhrase;
+                if (response.ReasonPhrase == "email_unique")
+                {
+                    poruka = "Korisnik sa unesenim emailom vec postoji.";
+                }
+                DisplayAlert("Upozorenje" ,
+                response.StatusCode + " : " + poruka,"OK");
             }
         }
 

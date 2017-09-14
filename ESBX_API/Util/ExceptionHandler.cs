@@ -19,8 +19,7 @@ namespace ExpressSaladBarDesktop_API.Util
 
         public static string HandleException(SqlException error)
         {
-            //SqlException error = ex.InnerException as SqlException ;
-
+            
             switch(error.Number)
             {
                 case 2601: 
