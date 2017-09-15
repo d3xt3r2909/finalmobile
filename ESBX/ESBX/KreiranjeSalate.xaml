@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ESBX.KreiranjeSalate"
              Title="Kreiranje salate"
+             
              >
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
