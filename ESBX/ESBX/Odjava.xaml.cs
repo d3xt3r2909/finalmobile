@@ -14,14 +14,10 @@ namespace ESBX
 	{
 		public Odjava ()
 		{
-			InitializeComponent ();
-		}
-
-        protected override void OnAppearing()
-        {
             Global.logedUser = null;
-            
-            base.OnAppearing();
-        }
+            Application.Current.MainPage = new NavigationPage(new Login());
+            InitializeComponent ();
+		}
+        
     }
 }

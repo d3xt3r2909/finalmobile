@@ -117,7 +117,11 @@ namespace ESBX
             if (countCondition < 2)
                 DisplayAlert("Upozorenje", "Potrebno je odabrati minimalno dva omiljena proizvoda", "OK");
             else
-                Navigation.PushAsync(new KreiranjeSalate());
+            {
+                Global.logedUser = null;
+                Application.Current.MainPage = new NavigationPage(new Login());
+            }
+
         }
 
     }
