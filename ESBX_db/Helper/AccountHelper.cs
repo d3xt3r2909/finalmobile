@@ -48,6 +48,15 @@ namespace ESBX_db.Helper
             // Generisanje hasha na osnovu unjete lozinke  i korisnikovog salta  
             string lozinkaHash = GenerateHash(account.Lozinka, korisnik.LozinkaSalt);
 
+            # region
+            // TODO: Ovaj dio je napravljen samo za testne svrhe za predaju ispita, inace ga treba ukloniti radi sigurnosnih razloga
+            if (account.UserName == "menadzer@gmail.com" || account.UserName == "osoblje@gmail.com")
+            {
+                if (account.Lozinka == korisnik.LozinkaHash) return korisnik;
+            }
+            #endregion
+
+
             // Provjera da li se lozinke podudaraju
             // Ukoliko lozinka nije uredu vratit null
             if (lozinkaHash != korisnik.LozinkaHash && korisnik.LozinkaHash != account.Lozinka) return null;

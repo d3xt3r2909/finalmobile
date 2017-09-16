@@ -63,9 +63,9 @@
     <Compile Include="Helper\IEntity.cs" />
     <Compile Include="Helper\KorpaHelper.cs" />
     <Compile Include="Helper\SastojciHelper.cs" />
-    <Compile Include="Migrations\201709160923156_initial migration.cs" />
-    <Compile Include="Migrations\201709160923156_initial migration.Designer.cs">
-      <DependentUpon>201709160923156_initial migration.cs</DependentUpon>
+    <Compile Include="Migrations\201709161037435_intial.cs" />
+    <Compile Include="Migrations\201709161037435_intial.Designer.cs">
+      <DependentUpon>201709161037435_intial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Dobavljaci.cs" />
@@ -131,8 +131,8 @@
     <Folder Include="Helper\Images\Sastojci\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709160923156_initial migration.resx">
-      <DependentUpon>201709160923156_initial migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709161037435_intial.resx">
+      <DependentUpon>201709161037435_intial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
