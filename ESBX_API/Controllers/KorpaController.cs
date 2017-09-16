@@ -282,6 +282,21 @@ namespace ESBX_API.Controllers
             // Promijeniti status korpe u false
             korisnikKorpa.Aktivna = false;
 
+            // oduzmi sastojcima na stanju
+            List<int> SalataIds = ctx.KorpaStavke.Where(x => x.KorpaId == korisnikKorpa.Id).Select(y => y.SalataId).ToList();
+            foreach(var i in SalataIds)
+            {
+                List<int> sastojciIds = ctx.SalataStavke.Where(x => x.SalataId == i).Select(y => y.SastojakId).ToList();
+                foreach (var n in sastojciIds)
+                {
+                    Sastojci s = ctx.Sastojci.Where(x => x.Id == n).FirstOrDefault();
+                    float g = s.Gramaza;
+                    s.Stanje = s.Stanje - g;
+                    ctx.SaveChanges();
+                }
+            }
+            
+
             // Snimiti promjene
             ctx.SaveChanges();
 

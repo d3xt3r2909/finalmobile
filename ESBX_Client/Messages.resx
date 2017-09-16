@@ -141,8 +141,14 @@
   <data name="grad_req" xml:space="preserve">
     <value>Grad je obavezan.</value>
   </data>
+  <data name="gramaza_req" xml:space="preserve">
+    <value>Unos gramaze je obavezan.</value>
+  </data>
   <data name="ime_req" xml:space="preserve">
     <value>Ime je obavezno.</value>
+  </data>
+  <data name="kalorije_req" xml:space="preserve">
+    <value>Unos kalorija je obavezan.</value>
   </data>
   <data name="kolicina_req" xml:space="preserve">
     <value>Unos količine je obavezan.</value>

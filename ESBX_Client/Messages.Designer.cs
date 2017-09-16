@@ -133,11 +133,29 @@ namespace ESBX_Client {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unos gramaze je obavezan..
+        /// </summary>
+        internal static string gramaza_req {
+            get {
+                return ResourceManager.GetString("gramaza_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ime je obavezno..
         /// </summary>
         internal static string ime_req {
             get {
                 return ResourceManager.GetString("ime_req", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unos kalorija je obavezan..
+        /// </summary>
+        internal static string kalorije_req {
+            get {
+                return ResourceManager.GetString("kalorije_req", resourceCulture);
             }
         }
         

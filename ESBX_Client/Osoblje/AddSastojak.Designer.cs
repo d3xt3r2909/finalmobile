@@ -95,6 +95,7 @@
             this.txtAddSasCijena.Name = "txtAddSasCijena";
             this.txtAddSasCijena.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasCijena.TabIndex = 4;
+            this.txtAddSasCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtCijenaSastojak_Validate);
             // 
             // lblCijena
             // 
@@ -111,6 +112,7 @@
             this.txtAddSasKalorije.Name = "txtAddSasKalorije";
             this.txtAddSasKalorije.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasKalorije.TabIndex = 6;
+            this.txtAddSasKalorije.Validating += new System.ComponentModel.CancelEventHandler(this.txtKalorije_Validate);
             // 
             // label2
             // 
@@ -127,6 +129,7 @@
             this.txtAddSasGramaza.Name = "txtAddSasGramaza";
             this.txtAddSasGramaza.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasGramaza.TabIndex = 8;
+            this.txtAddSasGramaza.Validating += new System.ComponentModel.CancelEventHandler(this.txtGramaza_Validate);
             // 
             // label3
             // 

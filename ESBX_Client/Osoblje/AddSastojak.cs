@@ -130,5 +130,32 @@ namespace ESBX_Client.Osoblje
 
             }
         }
+
+        private void txtCijenaSastojak_Validate(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtAddSasCijena.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasCijena, Messages.cijena_req);
+            }
+        }
+
+        private void txtKalorije_Validate(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtAddSasKalorije.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasKalorije, Messages.kalorije_req);
+            }
+        }
+
+        private void txtGramaza_Validate(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtAddSasGramaza.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasGramaza, Messages.gramaza_req);
+            }
+        }
     }
 }

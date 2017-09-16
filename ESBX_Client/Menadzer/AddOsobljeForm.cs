@@ -63,6 +63,8 @@ namespace ESBX_Client.Menadzer
                 k.GradId = Convert.ToInt32(GradCmb.SelectedValue);
                 k.LozinkaSalt = Util.HelperPassword.GenerateSalt();
                 k.LozinkaHash = LozinkaTxt.Text;
+                k.Aktivan = true;
+                k.Povjerljiv = true;
                 HttpResponseMessage responseKorisnik = OsobljeService.PostResponse(k);
 
                 string uspjesno = null;
