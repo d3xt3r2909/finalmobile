@@ -23,8 +23,8 @@ namespace ESBX
         int Kol=1;
         string Nap ;
         int broj;
-        SelectMultipleBasePage<Sastojci>  multiPage=null;
-        private WebAPIHelper kreiranjeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/KreiranjeSalate");
+        SelectMultipleBasePage<Sastojci>  multiPage=null;                                 
+        private WebAPIHelper kreiranjeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/KreiranjeSalate/getsastojci/");
         private WebAPIHelper preporukaService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/SistemPreporuke");
         public KreiranjeSalate ()
 		{
@@ -87,7 +87,7 @@ namespace ESBX
                     }
 
                     //Na kraju 
-                    HttpResponseMessage repsoneDodaj= kreiranjeService.PostResponse(k);
+                    HttpResponseMessage repsoneDodaj = kreiranjeService.PostCustomRouteResponse("api/KreiranjeSalate", k);
                     if (repsoneDodaj.IsSuccessStatusCode)
                     {
                         
@@ -133,7 +133,7 @@ namespace ESBX
                 GlavniPicker.ItemDisplayBinding = new Binding("Naziv");
             }
 
-            HttpResponseMessage repsoneDresing = kreiranjeService.GetResponse(Constants.SastojakSporedni);
+            HttpResponseMessage repsoneDresing = kreiranjeService.GetResponse(Constants.SastojakDresing);
             if (repsoneDresing.IsSuccessStatusCode)
             {
                 var jsonResult = repsoneDresing.Content.ReadAsStringAsync();

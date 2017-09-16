@@ -32,6 +32,7 @@ namespace ESBX_API.Controllers
 
 
         [HttpPost]
+        [Route("api/KreiranjeSalate")]
         public IHttpActionResult PostSnimi(KreiranaSalataVM Salata)
         {
             

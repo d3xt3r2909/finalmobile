@@ -1,6 +1,7 @@
 ﻿using ESBX_MyPLC.Util;
 using ESBX_MyPLC.ViewModel;
 using Newtonsoft.Json;
+using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,7 @@ namespace ESBX
             if (response.IsSuccessStatusCode)
             {
                 DisplayAlert("Uspjesno", "Uspjesno ste narucili salatu, provjerite email koji smo Vam proslijedili.", "OK");
-                this.Navigation.PopAsync();
+                Navigation.PopPopupAsync(true);
             }
             else
             {
