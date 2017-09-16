@@ -148,7 +148,6 @@
     <Compile Include="Controllers\NarudbaReportController.cs" />
     <Compile Include="Controllers\NarudzbaController.cs" />
     <Compile Include="Controllers\OsobljeController.cs" />
-    <Compile Include="Controllers\pomazeMi_NeDiraj.cs" />
     <Compile Include="Controllers\PromjenaPovjerljivostiController.cs" />
     <Compile Include="Controllers\SastojciController.cs" />
     <Compile Include="Controllers\SistemPreporukeController.cs" />

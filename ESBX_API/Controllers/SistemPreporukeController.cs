@@ -56,9 +56,23 @@ namespace ESBX_API.Controllers
 
             }
 
-            //rjesavanje cold starta
-            //dodaj poslije da u sastojke koje predlazemo dodamo one iz liste omiljenih kojih nema u trenutoj salati
+            //rjesavanje cold starta, tj ako nemamo nista nakono provjere da predlozimo, trazimo korisnikove omiljene sastojke
+            //ideja da u sastojke koje predlazemo dodamo one iz liste omiljenih kojih nema u trenutoj salati
+            if (sastojciKojePredlazemo.Count() == 0)
+            {
+                List<int> omiljeni = ctx.KorisnikSastojci.Where(x => x.KorisnikId == KorisnikTrenutni).Select(y => y.SastojakId).ToList();
 
+                foreach (var n in omiljeni.Except(SalataTrenutnog.listaIzabranih))
+                {
+
+                    if (!sastojciKojeNemaTrenutni.Contains(n))
+                    {
+                        if (ctx.Sastojci.Where(x => x.Id == n).Select(y => y.VrstaSastojkaId).FirstOrDefault() != 1)
+                            sastojciKojeNemaTrenutni.Add(n);
+                    }
+
+                }
+            }
 
 
 

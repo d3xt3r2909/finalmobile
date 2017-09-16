@@ -40,7 +40,7 @@ namespace ESBX.Navigation
                     new MyPageMenuItem { Title = "Historija narudžbi" ,TargetType=typeof(HistorijaNarucenih) },
                    
                     new MyPageMenuItem { Title = "Podešavanje profila" ,TargetType=typeof(PodesavanjeProfila) },
-                   //  new MyPageMenuItem { Title = "odjavi se" ,TargetType=typeof(Odjava) },
+                    new MyPageMenuItem { Title = "Odjavi se" ,TargetType=typeof(Odjava) },
                 });
             }
             

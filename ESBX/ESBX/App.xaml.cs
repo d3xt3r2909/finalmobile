@@ -9,7 +9,7 @@ namespace ESBX
 			InitializeComponent();
 
             MainPage = new NavigationPage(new ESBX.Login()); //new Navigation.MyPage();
-
+            
         }
 
 		protected override void OnStart ()

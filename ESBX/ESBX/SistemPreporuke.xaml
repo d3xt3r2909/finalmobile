@@ -8,6 +8,7 @@
         <StackLayout Margin="10" Padding="10">
             <Label x:Name="poruka" Text="Hvala Vam za još jednu jedinstvenu salatu!"></Label>
             <Label x:Name="porukaTwo" Text="Drugi kupci vam preporučuju da dodate svojoj salati dole navedene sastojke i napravite nevjerovatan miks!"></Label>
+            <Label x:Name="prostor" Text="  "></Label>
             <ListView x:Name="listSastojci" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
