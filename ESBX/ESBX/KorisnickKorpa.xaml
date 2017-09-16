@@ -4,7 +4,7 @@
              x:Class="ESBX.KorisnickKorpa"
              Title="Korisnicka korpa">
 
-    <Grid>
+    <Grid Margin="10" Padding="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
@@ -38,13 +38,13 @@
                             <Label x:Name="lblCijena" Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
                             <Label x:Name="inputCijena" Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
 
-                            <Label x:Name="lblKolicina" Text="Kolicina" Grid.Column="0" Grid.Row="1"></Label>
+                            <Label x:Name="lblKolicina" Text="Količina" Grid.Column="0" Grid.Row="1"></Label>
                             <Label x:Name="inputKolicina" Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
 
                             <Label x:Name="lblSastojci" Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
                             <Label x:Name="inputSastojci" Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
 
-                            <Button Text="Delete" CommandParameter="{Binding KorpaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3"></Button>
+                            <Button Text="OBRIŠI" CommandParameter="{Binding KorpaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"></Button>
                         </Grid>
 
                 </ViewCell>
@@ -52,8 +52,8 @@
         </ListView.ItemTemplate>
     </ListView>
 
-        <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " Grid.Column="0" Grid.Row="1"></Label>
-        <Button x:Name="btnNaruci" Text="Naruci" Grid.Column="1" Grid.Row="1" Clicked="NaruciClicked"></Button>
+        <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " Grid.Column="0" Grid.Row="1" FontAttributes="Bold"></Label>
+        <Button x:Name="btnNaruci" Text="Naruči" Grid.Column="1" Grid.Row="1" Clicked="NaruciClicked" BackgroundColor="Orange"></Button>
 
     </Grid>
 </ContentPage>

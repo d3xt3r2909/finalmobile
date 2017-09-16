@@ -34,7 +34,7 @@
                 <Entry x:Name="Kolicina" Grid.Row="3" Grid.Column="1"></Entry>
                 <Entry x:Name="Napomena" Grid.Row="4" Grid.Column="1"></Entry>
                 <Label Text="" FontSize="16" Grid.Row="5"></Label>
-                <Button x:Name="btnDodajUKorpu" Text="Dodaj u korpu" Grid.Row="6" Grid.Column="1" Clicked="btnDodajUKorpu_Clicked"></Button>
+                <Button x:Name="btnKreirajSalatu" Text="KREIRAJ SALATU" Grid.Row="6" Grid.Column="1" Clicked="btnKreirajSalatu_Clicked"></Button>
 
             </Grid>
         </StackLayout>

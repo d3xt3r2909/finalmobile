@@ -35,7 +35,6 @@ namespace ESBX.Navigation
                 {
                     new MyPageMenuItem { Title = "Kreiraj salatu",TargetType=typeof(KreiranjeSalate) },
                     new MyPageMenuItem {  Title = "Korpa",TargetType=typeof(KorisnickKorpa)  },
-                  //  new MyPageMenuItem { Title = "Ocjeni salatu" ,TargetType=typeof() },
                     new MyPageMenuItem {Title = "Pregled ocjena" ,TargetType=typeof(PregledOcjena) },
                     new MyPageMenuItem {  Title = "Trenutna narudžba",TargetType=typeof(TrenutnoNarucene)  },
                     new MyPageMenuItem { Title = "Historija narudžbi" ,TargetType=typeof(HistorijaNarucenih) },

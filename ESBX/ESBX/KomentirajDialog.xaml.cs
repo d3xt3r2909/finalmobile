@@ -97,6 +97,7 @@ namespace ESBX
                 if (result.IsSuccessStatusCode)
                 {
                     DisplayAlert("Obavijest", "Poruka je uspjesno aplicirana", "OK");
+                   
                 }
                 else
                 {

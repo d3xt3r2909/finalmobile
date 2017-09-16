@@ -65,7 +65,7 @@ namespace ESBX
         public void btnNaruciKorpu_clicked(object sender, EventArgs arg)
         {
             NaruciVm naruciObjekt = new NaruciVm();
-            naruciObjekt.KorisnikId = 7;
+            naruciObjekt.KorisnikId = Global.logedUser.Id;
             naruciObjekt.DatumDolaska = datumDolaska.Date + vrijemeDolaska.Time;
 
             HttpResponseMessage response =  service.PostResponse(naruciObjekt);
@@ -73,6 +73,7 @@ namespace ESBX
             if (response.IsSuccessStatusCode)
             {
                 DisplayAlert("Uspjesno", "Uspjesno ste narucili salatu, provjerite email koji smo Vam proslijedili.", "OK");
+                this.Navigation.PopAsync();
             }
             else
             {

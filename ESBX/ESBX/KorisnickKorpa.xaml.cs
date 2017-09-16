@@ -81,7 +81,7 @@ namespace ESBX
         {
             float sum = 0;
             foreach (KorpaMobileVm item in param)
-                sum += float.Parse(item.Cijena, CultureInfo.InvariantCulture.NumberFormat);
+                sum += (float.Parse(item.Cijena, CultureInfo.InvariantCulture.NumberFormat)*Convert.ToInt32(item.Kolicina));
 
             return sum;
         }

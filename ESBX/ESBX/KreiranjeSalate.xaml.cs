@@ -31,7 +31,7 @@ namespace ESBX
 			InitializeComponent ();
 		}
         
-        private void btnDodajUKorpu_Clicked(object sender, EventArgs e)
+        private void btnKreirajSalatu_Clicked(object sender, EventArgs e)
         {
             if (multiPage != null)
             {
@@ -72,14 +72,18 @@ namespace ESBX
                     HttpResponseMessage repsonePreporuka = preporukaService.PostResponse(k);
                     if (repsonePreporuka.IsSuccessStatusCode)
                     {
+
                         var jsonResult = repsonePreporuka.Content.ReadAsStringAsync();
                         List<Sastojci>sastojciPreporuka = JsonConvert.DeserializeObject<List<Sastojci>>(jsonResult.Result);
-                        //Dialog sa ponudenim sastojcima, ako klikne na button, dodaj u izabrane
-                        Navigation.PushAsync(new ESBX.SistemPreporuke(sastojciPreporuka));
 
-                        //odletilo na uspjeh sinoc ISPRAVI
-                        return;
-                        //ideja da dodam tamo dugme za zavrsi i da se vise korisnik ne vraca na kreiranje salate prije nego ej sve gotovo
+                        if (sastojciPreporuka.Count() != 0)
+                        {
+                            //Dialog sa ponudenim sastojcima, ako klikne na button, dodaj u izabrane
+                            Navigation.PushAsync(new ESBX.SistemPreporuke(k,sastojciPreporuka));
+                            OcistiFormu();
+                            return;
+                        }
+
                     }
 
                     //Na kraju 
@@ -88,14 +92,7 @@ namespace ESBX
                     {
                         
                         DisplayAlert("Uspjeh", "Uspješno ste kreirali salatu.", "OK");
-                        GlavniPicker.SelectedIndex = -1;
-                        glavni = null;
-                        DresingPicker.SelectedIndex = -1;
-                        dresing = null;
-                        Kol = 1;
-                        Kolicina.Text = "1";
-                        Nap = "";
-                        Napomena.Text = "";
+                        OcistiFormu();
 
                     }
                     else
@@ -111,6 +108,18 @@ namespace ESBX
             }
 
 
+        }
+
+        private void OcistiFormu()
+        {
+            GlavniPicker.SelectedIndex = -1;
+            glavni = null;
+            DresingPicker.SelectedIndex = -1;
+            dresing = null;
+            Kol = 1;
+            Kolicina.Text = "1";
+            Nap = "";
+            Napomena.Text = "";
         }
         protected override void OnAppearing()
         {
