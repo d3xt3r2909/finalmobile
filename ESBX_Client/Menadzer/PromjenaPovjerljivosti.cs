@@ -10,9 +10,9 @@ namespace ESBX_Client.Menadzer
 {
     public partial class PromjenaPovjerljivosti : Form
     {
-        private WebAPIHelper KorisniciService = new WebAPIHelper("http://localhost:58050/", "api/Korisnici");
+        private WebAPIHelper KorisniciService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
 
-        private WebAPIHelper PromjenaService = new WebAPIHelper("http://localhost:58050/", "api/PromjenaPovjerljivosti");
+        private WebAPIHelper PromjenaService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/PromjenaPovjerljivosti");
 
         public PromjenaPovjerljivosti()
         {

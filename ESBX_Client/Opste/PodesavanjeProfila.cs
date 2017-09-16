@@ -1,4 +1,5 @@
-﻿using ESBX_Client;
+﻿using ESBX_API.Helper;
+using ESBX_Client;
 using ESBX_Client.Util;
 using ESBX_db.Models;
 using ExpressSaladBarDesktop_Client;
@@ -18,8 +19,8 @@ namespace ESBX_Client.Opste
 {
     public partial class PodesavanjeProfila : Form
     {
-        private WebAPIHelper KorisnikService = new WebAPIHelper("http://localhost:58050/", "api/Korisnici");
-        private WebAPIHelper GradoviService = new WebAPIHelper("http://localhost:58050/", "api/Gradovi");
+        private WebAPIHelper KorisnikService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
+        private WebAPIHelper GradoviService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Gradovi");
         Korisnici k = Global.prijavljeniKorisnik;
         public PodesavanjeProfila()
         {

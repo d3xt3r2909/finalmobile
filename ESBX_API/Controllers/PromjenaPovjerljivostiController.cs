@@ -111,6 +111,8 @@ namespace ESBX_API.Controllers
             float UkupnaCijena = 0;
             float cijenaSalate = 0;
             Korpa korpa = ctx.Korpa.Where(x => x.KorisnikId == KorisnikId && x.Racun == null).FirstOrDefault();
+
+            if (korpa == null) return 0;
             UkupnaCijenaVM model = new UkupnaCijenaVM();
             model.listaSalataId = ctx.KorpaStavke.Where(y => y.KorpaId == korpa.Id).Select(p => new ListaVrijednostiVM
             {

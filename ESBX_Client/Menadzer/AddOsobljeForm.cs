@@ -12,14 +12,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExpressSaladBarDesktop_Client;
+using ESBX_API.Helper;
 
 namespace ESBX_Client.Menadzer
 {
     public partial class AddOsobljeForm : Form
     {
-        private WebAPIHelper OsobljeService = new WebAPIHelper("http://localhost:58050/", "api/Korisnici");
-        private WebAPIHelper UlogaService = new WebAPIHelper("http://localhost:58050/", "api/Uloge");
-        private WebAPIHelper GradoviService = new WebAPIHelper("http://localhost:58050/", "api/Gradovi");
+        private WebAPIHelper OsobljeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
+        private WebAPIHelper UlogaService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Uloge");
+        private WebAPIHelper GradoviService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Gradovi");
 
         public AddOsobljeForm()
         {

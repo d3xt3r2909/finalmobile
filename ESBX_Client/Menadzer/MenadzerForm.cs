@@ -40,8 +40,8 @@ namespace ESBX_Client.Menadzer
         }
         private void btnStatistika_Click(object sender, EventArgs e)
         {
-            // PregledStatistike f =new PregledStatistike();
-           //  PrikaziFormu(f);
+            PregledStatistike f = new PregledStatistike();
+            PrikaziFormu(f);
         }
 
         private void btnOsoblje_Click(object sender, EventArgs e)
@@ -97,15 +97,15 @@ namespace ESBX_Client.Menadzer
                 ntfIconIstek.ShowBalloonTip(10000, "Istek zaliha", tmpNazivi, ToolTipIcon.Error);
             }
 
-            // PregledStatistike f = new PregledStatistike();
-           // PrikaziFormu(f);
+            PregledStatistike f = new PregledStatistike();
+            PrikaziFormu(f);
             DobrodosliLbl.Text = "Dobrodošli, " + Global.prijavljeniKorisnik.Prezime + " " + Global.prijavljeniKorisnik.Ime;
         }
 
         private void IzvjestajBtn_Click(object sender, EventArgs e)
         {
-            // ReportZarada f = new ReportZarada();
-            // PrikaziFormu(f);
+            ReportZarada f = new ReportZarada();
+            PrikaziFormu(f);
         }
 
         private void ntfIconIstek_BalloonTipClicked(object sender, EventArgs e)
@@ -115,6 +115,16 @@ namespace ESBX_Client.Menadzer
                 IstekZaliha frm = new IstekZaliha(alarmForThisItems);
                 frm.ShowDialog();
             }
+        }
+
+        private void panelPrikaz_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace ExpressSaladBarDesktop_Client.Reports
+﻿namespace ESBX_Client.Reports
 {
     partial class ReportZarada
     {
@@ -38,7 +38,7 @@
             // 
             // reportViewer1
             // 
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ExpressSaladBarDesktop_Client.Reports.Report2.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "ESBX_Client.Reports.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(96, 82);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
@@ -100,6 +100,7 @@
             this.Controls.Add(this.reportViewer1);
             this.Name = "ReportZarada";
             this.Text = "ReportZarada";
+            this.Load += new System.EventHandler(this.ReportZarada_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

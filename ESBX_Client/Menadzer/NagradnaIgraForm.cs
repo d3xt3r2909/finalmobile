@@ -13,12 +13,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExpressSaladBarDesktop_Client;
+using ESBX_API.Helper;
 
 namespace ESBX_Client.Menadzer
 {
     public partial class NagradnaIgraForm : Form
     {
-        private WebAPIHelper IgraService = new WebAPIHelper("http://localhost:58050/", "api/NagradnaIgra");
+        private WebAPIHelper IgraService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/NagradnaIgra");
 
         NagradnaIgra ng = new NagradnaIgra();
        

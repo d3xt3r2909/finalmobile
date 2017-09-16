@@ -1,4 +1,5 @@
-﻿using ESBX_Client.Util;
+﻿using ESBX_API.Helper;
+using ESBX_Client.Util;
 using ESBX_db.Models;
 using ExpressSaladBarDesktop_Client;
 using System;
@@ -11,7 +12,7 @@ namespace ESBX_Client.Opste
     //Sredi poruke
     public partial class PodesavanjeLozinke : Form
     {
-        private WebAPIHelper KorisnikService = new WebAPIHelper("http://localhost:58050/", "api/Korisnici");
+        private WebAPIHelper KorisnikService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
 
 
         public PodesavanjeLozinke()

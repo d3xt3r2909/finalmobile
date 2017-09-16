@@ -257,6 +257,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1184, 85);
             this.panel4.TabIndex = 2;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // DobrodosliLbl
             // 
@@ -273,6 +274,7 @@
             this.panelPrikaz.Name = "panelPrikaz";
             this.panelPrikaz.Size = new System.Drawing.Size(1184, 421);
             this.panelPrikaz.TabIndex = 3;
+            this.panelPrikaz.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrikaz_Paint);
             // 
             // ntfIconIstek
             // 

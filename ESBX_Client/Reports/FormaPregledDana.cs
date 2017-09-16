@@ -8,11 +8,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Reporting.WinForms;
-using ESBX_Client.Util;
+using ESBX_db.Models;
 using ESBX_db.ViewModel;
 using ESBX_API.Helper;
-using ESBX_db.Models;
+using ESBX_Client.Util;
+using Microsoft.Reporting.WinForms;
 
 namespace ESBX_Client.Reports
 {
@@ -35,10 +35,6 @@ namespace ESBX_Client.Reports
             ReportDataSource rds = new ReportDataSource("DSPregledDana", tmpSource);
             this.rptPregledDana.LocalReport.DataSources.Clear();
             this.rptPregledDana.LocalReport.DataSources.Add(rds);
-            if (Global.prijavljeniKorisnik == null)
-            {
-                Global.prijavljeniKorisnik = new Korisnici { Ime = "nihad", Prezime = "test" };
-            }
             this.rptPregledDana.LocalReport.SetParameters(new ReportParameter("korisnik", Global.prijavljeniKorisnik.Ime + " " + Global.prijavljeniKorisnik.Prezime));
             this.rptPregledDana.LocalReport.SetParameters(new ReportParameter("datum", DateTime.Now.ToString("dd-MM-yyyy")));
             this.rptPregledDana.LocalReport.SetParameters(new ReportParameter("totalNarudzbi", tmpSource.Count.ToString()));

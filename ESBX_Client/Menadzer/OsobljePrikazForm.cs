@@ -1,4 +1,5 @@
-﻿using ESBX_Client.Util;
+﻿using ESBX_API.Helper;
+using ESBX_Client.Util;
 using ESBX_db.Models;
 using ESBX_db.ViewModel;
 using System;
@@ -16,8 +17,8 @@ namespace ESBX_Client.Menadzer
 {
     public partial class OsobljePrikazForm : Form
     {
-        private WebAPIHelper KorisniciService = new WebAPIHelper("http://localhost:58050/", "api/Korisnici");
-        private WebAPIHelper OsobljeService = new WebAPIHelper("http://localhost:58050/", "api/Osoblje");
+        private WebAPIHelper KorisniciService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
+        private WebAPIHelper OsobljeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Osoblje");
 
         public OsobljePrikazForm()
         {

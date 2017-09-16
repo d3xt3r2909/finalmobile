@@ -35,7 +35,7 @@
             // 
             // rptPregledDana
             // 
-            this.rptPregledDana.LocalReport.ReportEmbeddedResource = "ExpressSaladBarDesktop_Client.Reports.Report1.rdlc";
+            this.rptPregledDana.LocalReport.ReportEmbeddedResource = "ESBX_Client.Reports.Report1.rdlc";
             this.rptPregledDana.Location = new System.Drawing.Point(166, 100);
             this.rptPregledDana.Name = "rptPregledDana";
             this.rptPregledDana.ServerReport.BearerToken = null;
