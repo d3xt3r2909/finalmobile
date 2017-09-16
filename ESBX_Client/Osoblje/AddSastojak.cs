@@ -1,26 +1,33 @@
 ﻿using ESBX_API.Helper;
 using ESBX_Client.Util;
 using ESBX_db.Models;
+using ESBX_db.ViewModel;
 using ExpressSaladBarDesktop_Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System;
 
 namespace ESBX_Client.Osoblje
 {
     public partial class frmUnosSastojka : Form
     {
         WebAPIHelper _sastojci = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.POST_SASTOJCI);
+        private SastojciPostWithImage noviSastojak;
 
         public frmUnosSastojka()
         {
+            noviSastojak = new SastojciPostWithImage();
             InitializeComponent();
             this.AutoValidate = AutoValidate.Disable;
         }
@@ -47,7 +54,6 @@ namespace ESBX_Client.Osoblje
             if (this.ValidateChildren())
             {
 
-                Sastojci noviSastojak = new Sastojci();
                 noviSastojak.Naziv = txtAddSasNaziv.Text;
                 noviSastojak.Cijena = (float) Convert.ToDecimal(txtAddSasCijena.Text);
                 noviSastojak.Gramaza = (float) Convert.ToDecimal(txtAddSasGramaza.Text);
@@ -80,6 +86,48 @@ namespace ESBX_Client.Osoblje
             else
             {
                 errorProvider.SetError(txtAddSasNaziv, null);
+            }
+        }
+
+        private void btnName_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                txtInputImage.Text = openFileDialog.FileName;
+
+                Image orginalImage = Image.FromFile(openFileDialog.FileName);
+                MemoryStream ms = new MemoryStream();
+
+                orginalImage.Save(ms, ImageFormat.Jpeg);
+
+                // ovo je u bytovima  
+                noviSastojak.Slika = ms.ToArray();
+
+                int resizedImageWidth = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImageWidth"]);
+                int resizedImageHeight = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImageHeight"]);
+                int cropedImageWidth = Convert.ToInt32(ConfigurationManager.AppSettings["cropedImageWidth"]);
+                int cropedImageHeight = Convert.ToInt32(ConfigurationManager.AppSettings["cropedImageHeight"]);
+
+                if (orginalImage.Width > resizedImageWidth)
+                {
+                    Image resizedImage = Util.UIHelper.ResizeImage(orginalImage, new Size(resizedImageHeight, resizedImageHeight));
+                    Image croppedImage = resizedImage;
+
+                    if (resizedImage.Width >= cropedImageWidth && resizedImage.Height >= cropedImageHeight)
+                    {
+                        int croppedXPosition = (resizedImageWidth - cropedImageWidth) / 2;
+                        int croppedYPosition = (resizedImageHeight - cropedImageHeight) / 2;
+
+                        croppedImage = Util.UIHelper.CropImage(resizedImage, new Rectangle(croppedXPosition, croppedYPosition, cropedImageWidth, cropedImageHeight));
+
+                        ms = new MemoryStream();
+                        croppedImage.Save(ms, ImageFormat.Jpeg);
+                        noviSastojak.Slika = ms.ToArray();
+
+                        imgBox.Image = croppedImage;
+                    }
+                }
+
             }
         }
     }

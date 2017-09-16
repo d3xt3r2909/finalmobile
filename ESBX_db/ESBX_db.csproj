@@ -96,6 +96,7 @@
     <Compile Include="ViewModel\KomentarVm.cs" />
     <Compile Include="ViewModel\Korisnici_NepovjerljiviResult.cs" />
     <Compile Include="ViewModel\Korisnici_OsobljeResult.cs" />
+    <Compile Include="ViewModel\KorisnikSastojciVm.cs" />
     <Compile Include="ViewModel\KorpaForDg.cs" />
     <Compile Include="ViewModel\KorpaMobileVm.cs" />
     <Compile Include="ViewModel\KorpaVm.cs" />
@@ -104,10 +105,12 @@
     <Compile Include="ViewModel\NagradnaVM.cs" />
     <Compile Include="ViewModel\Narudzba_ReportResult.cs" />
     <Compile Include="ViewModel\NarudzbeVM.cs" />
+    <Compile Include="ViewModel\OmiljeniSastojci.cs" />
     <Compile Include="ViewModel\PregledDanaRepVm.cs" />
     <Compile Include="ViewModel\PregledStatistikeVM.cs" />
     <Compile Include="ViewModel\SastojciForGridVM.cs" />
     <Compile Include="ViewModel\SastojciMobileVM.cs" />
+    <Compile Include="ViewModel\SastojciPostWithImage.cs" />
     <Compile Include="ViewModel\SastojciPregledVm.cs" />
     <Compile Include="ViewModel\UkupnaCijenaVM.cs" />
   </ItemGroup>

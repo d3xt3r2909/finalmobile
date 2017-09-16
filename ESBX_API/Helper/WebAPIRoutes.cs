@@ -7,7 +7,9 @@ namespace ESBX_API.Helper
 {
     public static class WebApiRoutes
     {
+        // public const string URL_ROUTE = "http://hci148.app.fit.ba/";
         public const string URL_ROUTE = "http://localhost:63541/";
+
         public const string LOGIN_ROUTE = "api/account/login";
         public const string POST_REGISTER = "api/account/Registration";
         public const string GET_ULOGA_BY_KORISNIK = "api/account/uloge/";
@@ -15,6 +17,8 @@ namespace ESBX_API.Helper
         public const string DELETE_VRSTE_SASTOJAKA = "api/sastojci/deletebyid/";
         public const string GET_STANJE_SASTOJAKA = "api/sastojci/stanje/";
         public const string GET_SASTOJCI = "api/sastojci/";
+        public const string GET_SASTOJCI_LIST_OMILJENI = "api/sastojci/omiljeni/";
+        public const string POST_DODAJ_OMILJENE = "api/sastojci/omiljeni/";
         public const string POST_SASTOJCI = "api/sastojci/addSastojak";
         public const string GET_OSOBLJE_KORPA = "api/korpa/narudzbe/";
         public const string PUT_OSOBLJE_KORPA_STATUS = "api/korpa/status/";

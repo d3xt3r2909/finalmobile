@@ -17,6 +17,7 @@ namespace ESBX_db.Models
         public string Naziv { get; set; }
 
         public int SastojakId { get; set; }
+
         public virtual Sastojci Sastojak { get; set; }
     }
 }

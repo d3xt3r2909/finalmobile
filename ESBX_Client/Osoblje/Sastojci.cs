@@ -17,7 +17,7 @@ namespace ESBX_Client.Osoblje
 {
     public partial class frmSastojci : Form
     {
-        private readonly WebAPIHelper _sastojci = new WebAPIHelper("http://localhost:58050", "/api/sastojci");
+        private readonly WebAPIHelper _sastojci = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "/api/sastojci");
 
         public frmSastojci()
         {

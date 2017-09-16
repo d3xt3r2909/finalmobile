@@ -90,7 +90,7 @@ namespace ESBX
                 komentar.KorisnikId = KorisnikId;
 
                 komentar.Komentar = inputKomentar.Text;
-                komentar.Ocjena = Convert.ToInt32(inputOcjena.Text);
+                komentar.Ocjena =Convert.ToInt32(inputOcjena.Text);
 
                 HttpResponseMessage result = service.PostCustomRouteResponse(WebApiRoutes.POST_KOMENTAR_SALATA, komentar);
 

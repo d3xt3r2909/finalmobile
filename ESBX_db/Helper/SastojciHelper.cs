@@ -20,7 +20,14 @@ namespace ESBX_db.Helper
             return naziv == "" ? ctx.Sastojci.Where(x => x.IsDeleted == false).ToList() : ctx.Sastojci.Where(x => x.IsDeleted == false && x.Naziv.StartsWith(naziv)).ToList();
         }
 
-        public static HttpStatusCode AddSastojci(Sastojci ns)
+        public static List<Sastojci> GetOmiljeni(string vrstaSastojka = "")
+        {
+            MContext ctx = new MContext();
+
+            return vrstaSastojka == "" ? ctx.Sastojci.Where(x => x.IsDeleted == false).ToList() : ctx.Sastojci.Where(x => x.IsDeleted == false && x.VrstaSastojka.Naziv.ToLower() == vrstaSastojka.ToLower()).ToList();
+        }
+
+        public static HttpStatusCode AddSastojci(SastojciPostWithImage ns)
         {
             MContext ctx = new MContext();
 
@@ -29,9 +36,28 @@ namespace ESBX_db.Helper
             if (isExists != null)
                 return HttpStatusCode.Conflict;
 
-            ctx.Sastojci.Add(ns);
+            Sastojci noviSastojak = new Sastojci();
+            noviSastojak.BrojKalorija = ns.BrojKalorija;
+            noviSastojak.Cijena = ns.Cijena;
+            noviSastojak.Gramaza = ns.Gramaza;
+            noviSastojak.IsDeleted = false;
+            noviSastojak.Napomena = ns.Napomena;
+            noviSastojak.Naziv = ns.Naziv;
+            noviSastojak.VrstaSastojkaId = ns.VrstaSastojkaId;
 
-            ctx.SaveChanges(); 
+            ctx.Sastojci.Add(noviSastojak);
+
+            ctx.SaveChanges();
+
+            if (ns.Slika != null)
+            {
+                Slike novaSlika = new Slike();
+                novaSlika.UrlSlike = "/";
+                novaSlika.Slika = ns.Slika;
+                novaSlika.SastojakId = noviSastojak.Id;
+                ctx.Slike.Add(novaSlika);
+                ctx.SaveChanges();
+            }
 
             return HttpStatusCode.OK;
         }

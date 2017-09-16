@@ -58,7 +58,7 @@ namespace ESBX
                             
                         Global.logedUser = JsonConvert.DeserializeObject<Korisnici>(jsonObject);
 
-                        Navigation.PushAsync(new KreiranjeSalate());
+                        Navigation.PushAsync(new OdabirOmiljenih());
                     }
                     else
                     {

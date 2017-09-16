@@ -9,6 +9,7 @@ using ESBX_db.DAL;
 using ESBX_db.Models;
 using ESBX_db.Helper;
 using ESBX_API.Helper;
+using ESBX_db.ViewModel;
 
 namespace ESBX_API.Controllers
 {
@@ -24,7 +25,7 @@ namespace ESBX_API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route(WebApiRoutes.POST_SASTOJCI)]
-        public HttpResponseMessage Sastojci(Sastojci ns)
+        public HttpResponseMessage Sastojci(SastojciPostWithImage ns)
         {
             if (!ModelState.IsValid)
             {
@@ -50,6 +51,30 @@ namespace ESBX_API.Controllers
         public List<Sastojci> GetSastojci(string naziv = "")
         {
             return SastojciHelper.GetSastojci(naziv);
+        }
+
+        [HttpGet]
+        [Route(WebApiRoutes.GET_SASTOJCI_LIST_OMILJENI + "{vrstasastojka?}")]
+        public HttpResponseMessage GetListOmiljeni(string vrstasastojka = "")
+        {
+            List<Sastojci> listSastojci = SastojciHelper.GetOmiljeni(vrstasastojka);
+            List<OmiljeniSastojci> sastojci = new List<OmiljeniSastojci>();
+            foreach (Sastojci item in listSastojci) {
+
+                OmiljeniSastojci tmp = new OmiljeniSastojci();
+                tmp.SastojakId = item.Id;
+                tmp.Naziv = item.Naziv;
+                byte[] slikaSastojka = _ctx.Slike.Where(slika => slika.SastojakId == item.Id).Select(x => x.Slika).FirstOrDefault();
+
+                if (slikaSastojka != null)
+                {
+                    tmp.SlikaThumb = slikaSastojka;
+                }
+
+                sastojci.Add(tmp);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, sastojci);
         }
 
         [HttpGet]
@@ -88,5 +113,20 @@ namespace ESBX_API.Controllers
 
             return Ok();
         }
+
+        [HttpPost]
+        [Route(WebApiRoutes.POST_DODAJ_OMILJENE)]
+        public IHttpActionResult PostOmiljeni(KorisnikSastojciVm ks)
+        {
+
+            KorisnikSastojci korSas = new KorisnikSastojci();
+            korSas.KorisnikId = ks.KorisnikId;
+            korSas.SastojakId = ks.SastojakId;
+            _ctx.KorisnikSastojci.Add(korSas);
+            _ctx.SaveChanges();
+
+            return Ok();
+        }
+
     }
 }

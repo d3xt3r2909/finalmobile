@@ -48,10 +48,13 @@
     <Compile Include="ViewModel\GetGradoviVm.cs" />
     <Compile Include="ViewModel\KomentarResponseVm.cs" />
     <Compile Include="ViewModel\KomentarVm.cs" />
+    <Compile Include="ViewModel\KorisnikSastojciVm.cs" />
     <Compile Include="ViewModel\KorpaMobileVm.cs" />
     <Compile Include="ViewModel\KreiranaSalataVM.cs" />
     <Compile Include="ViewModel\NagradnaVM.cs" />
     <Compile Include="ViewModel\NaruciVm.cs" />
+    <Compile Include="ViewModel\OmiljeniSastojci.cs" />
+    <Compile Include="ViewModel\VrstaSastojaka.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

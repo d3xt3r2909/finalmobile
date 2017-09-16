@@ -16,7 +16,9 @@ namespace ESBX_MyPLC.Util
         public const string DELETE_VRSTE_SASTOJAKA = "api/sastojci/deletebyid/";
         public const string GET_STANJE_SASTOJAKA = "api/sastojci/stanje/";
         public const string GET_SASTOJCI = "api/sastojci/";
+        public const string POST_DODAJ_OMILJENE = "api/sastojci/omiljeni/";
         public const string POST_SASTOJCI = "api/sastojci/addSastojak";
+        public const string GET_SASTOJCI_LIST_OMILJENI = "api/sastojci/omiljeni/";
         public const string GET_OSOBLJE_KORPA = "api/korpa/narudzbe/";
         public const string PUT_OSOBLJE_KORPA_STATUS = "api/korpa/status/";
         public const string GET_KORISNICI_KORPA = "api/korpa/getKorpaById/";
@@ -30,5 +32,6 @@ namespace ESBX_MyPLC.Util
         public const string POST_NARUCI_KORPU = "api/korpa/naruci/";
         public const string POST_KOMENTAR_SALATA = "api/narudzbe/komentar";
         public const string GET_KOMENTAR = "api/narudzbe/komentar/";
+
     }
 }

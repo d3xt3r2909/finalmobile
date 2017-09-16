@@ -44,7 +44,13 @@
             this.txtAddSasNapomena = new System.Windows.Forms.TextBox();
             this.btnAddSasSacuvaj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnName = new System.Windows.Forms.Button();
+            this.txtInputImage = new System.Windows.Forms.TextBox();
+            this.imgBox = new System.Windows.Forms.PictureBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,7 +156,7 @@
             // 
             // btnAddSasSacuvaj
             // 
-            this.btnAddSasSacuvaj.Location = new System.Drawing.Point(447, 431);
+            this.btnAddSasSacuvaj.Location = new System.Drawing.Point(686, 376);
             this.btnAddSasSacuvaj.Name = "btnAddSasSacuvaj";
             this.btnAddSasSacuvaj.Size = new System.Drawing.Size(75, 23);
             this.btnAddSasSacuvaj.TabIndex = 12;
@@ -160,24 +166,57 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnName);
+            this.groupBox1.Controls.Add(this.txtInputImage);
+            this.groupBox1.Controls.Add(this.imgBox);
+            this.groupBox1.Controls.Add(this.btnAddSasSacuvaj);
             this.groupBox1.Location = new System.Drawing.Point(62, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(561, 418);
+            this.groupBox1.Size = new System.Drawing.Size(791, 418);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unos novog sastojka";
+            // 
+            // btnName
+            // 
+            this.btnName.Location = new System.Drawing.Point(606, 237);
+            this.btnName.Name = "btnName";
+            this.btnName.Size = new System.Drawing.Size(155, 23);
+            this.btnName.TabIndex = 15;
+            this.btnName.Text = "Dodaj sliku";
+            this.btnName.UseVisualStyleBackColor = true;
+            this.btnName.Click += new System.EventHandler(this.btnName_Click);
+            // 
+            // txtInputImage
+            // 
+            this.txtInputImage.Location = new System.Drawing.Point(606, 211);
+            this.txtInputImage.Name = "txtInputImage";
+            this.txtInputImage.ReadOnly = true;
+            this.txtInputImage.Size = new System.Drawing.Size(155, 20);
+            this.txtInputImage.TabIndex = 14;
+            // 
+            // imgBox
+            // 
+            this.imgBox.Location = new System.Drawing.Point(606, 57);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(155, 132);
+            this.imgBox.TabIndex = 13;
+            this.imgBox.TabStop = false;
             // 
             // errorProvider
             // 
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // frmUnosSastojka
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 500);
-            this.Controls.Add(this.btnAddSasSacuvaj);
+            this.ClientSize = new System.Drawing.Size(893, 495);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAddSasNapomena);
             this.Controls.Add(this.label3);
@@ -199,6 +238,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Unos novog sastojka";
             this.Load += new System.EventHandler(this.AddSastojak_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,5 +264,9 @@
         private System.Windows.Forms.Button btnAddSasSacuvaj;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button btnName;
+        private System.Windows.Forms.TextBox txtInputImage;
+        private System.Windows.Forms.PictureBox imgBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
