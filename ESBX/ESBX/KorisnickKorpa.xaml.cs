@@ -30,8 +30,7 @@ namespace ESBX
 
         private List<KorpaMobileVm> getSourceForList()
         {
-            // TODO: PROMIJENITI KADA BUDEMO U PRODUKCIJU STAVLJALI DA SE VUCE OD TRENUTNOG KORISNIKA ID
-            HttpResponseMessage response = service.GetResponse(7);
+            HttpResponseMessage response = service.GetResponse(Global.logedUser.Id);
 
             if (response.IsSuccessStatusCode)
             {

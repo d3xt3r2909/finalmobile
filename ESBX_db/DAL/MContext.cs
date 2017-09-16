@@ -29,8 +29,6 @@ namespace ESBX_db.DAL
 
         public DbSet<OcjeneKomentari> OcjeneKomentari { get; set; }
 
-     
-
         public DbSet<Racun> Racun { get; set; }
 
         public DbSet<SalataStavke> SalataStavke { get; set; }
@@ -48,6 +46,9 @@ namespace ESBX_db.DAL
         public DbSet<Uloge> Uloge { get; set; }
 
         public DbSet<VrstaSastojka> VrstaSastojka { get; set; }
+
+        public DbSet<KorisnikSastojci> KorisnikSastojci { get; set; }
+
 
         //Remove cascade
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

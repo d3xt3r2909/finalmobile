@@ -281,7 +281,6 @@ namespace ESBX_API.Controllers
             // Dobavljanje aktivne korpe korisnika 
             Korpa korisnikKorpa = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.KorisnikId == naruci.KorisnikId);
 
-            // TODO: razmisliti o ovome hocemo sada ili onda kad je nela napisala Generisanje sifre korpe 
             // korisnikKorpa.Sifra = KorpaHelper.GetSifra();
 
             // Preuzimanje zakazanog vremena dolaska  

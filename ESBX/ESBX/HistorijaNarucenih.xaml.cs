@@ -26,7 +26,7 @@ namespace ESBX
 
         protected override void OnAppearing()
         {
-            string KorisnikId = "7";
+            string KorisnikId = Global.logedUser.Id.ToString();
             HttpResponseMessage responseMessage = salateService.GetActionResponse("GetHistorijaNarudzbe", KorisnikId);
             if (responseMessage.IsSuccessStatusCode)
             {

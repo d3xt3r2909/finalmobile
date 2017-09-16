@@ -206,14 +206,14 @@ namespace ESBX_db.Helper
             {
                 List<string> listaSporednih = ctx.SalataStavke.Where(
                         y =>
-                            y.SalataId == item.Id &&
+                            y.SalataId == item.SalataId &&
                             y.Sastojak.VrstaSastojka.Naziv.Equals(Constants.SastojakSporedni))
                     .Select(sastojak => sastojak.Sastojak.Naziv).ToList();
 
                 foreach (string naziv in listaSporednih)
                     item.SporedniSastojak += naziv + ", ";
 
-                if(item.SporedniSastojak != null || item.SporedniSastojak != "" || item.SporedniSastojak.Length != 0)
+                if(item.SporedniSastojak != null && item.SporedniSastojak != "" && item.SporedniSastojak.Length != 0)
                      item.SporedniSastojak = item.SporedniSastojak.Remove(item.SporedniSastojak.Length - 2, 2);
             }
 
