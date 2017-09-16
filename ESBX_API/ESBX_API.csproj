@@ -151,6 +151,7 @@
     <Compile Include="Controllers\pomazeMi_NeDiraj.cs" />
     <Compile Include="Controllers\PromjenaPovjerljivostiController.cs" />
     <Compile Include="Controllers\SastojciController.cs" />
+    <Compile Include="Controllers\SistemPreporukeController.cs" />
     <Compile Include="Controllers\StatistikaZaradeController.cs" />
     <Compile Include="Controllers\UlazZalihaController.cs" />
     <Compile Include="Controllers\UlogeController.cs" />

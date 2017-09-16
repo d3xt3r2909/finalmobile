@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ESBX.SistemPreporuke">
+    <ContentPage.Content>
+        <StackLayout Margin="10" Padding="10">
+            <Label x:Name="poruka" Text="Hvala Vam za još jednu jedinstvenu salatu! \n Drugi kupci vam preporučuju da dodate svojoj salati dole navedene sastojke i napravite nevjerovatan miks!"></Label>
+            <ListView x:Name="listSastojci" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Label x:Name="Sastojak" HorizontalOptions="StartAndExpand" Text="{Binding Naziv}" Grid.Row="0" Grid.Column="0"></Label>
+                                <Button x:Name="DodajPreporuceni" CommandParameter="{Binding Id}" HorizontalOptions="End" Text="DODAJ" Grid.Row="0" Grid.Column="1" Clicked="DodajPreporuceni_Clicked"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

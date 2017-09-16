@@ -25,7 +25,8 @@ namespace ESBX
         int broj;
         SelectMultipleBasePage<Sastojci>  multiPage=null;
         private WebAPIHelper kreiranjeService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/KreiranjeSalate");
-		public KreiranjeSalate ()
+        private WebAPIHelper preporukaService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/SistemPreporuke");
+        public KreiranjeSalate ()
 		{
 			InitializeComponent ();
 		}
@@ -66,6 +67,22 @@ namespace ESBX
                         Kolicina = Convert.ToInt32(Kolicina.Text),
                         Napomena = Napomena.Text
                 };
+
+                    //SISTEM PREPORUKE
+                    HttpResponseMessage repsonePreporuka = preporukaService.PostResponse(k);
+                    if (repsonePreporuka.IsSuccessStatusCode)
+                    {
+                        var jsonResult = repsonePreporuka.Content.ReadAsStringAsync();
+                        List<Sastojci>sastojciPreporuka = JsonConvert.DeserializeObject<List<Sastojci>>(jsonResult.Result);
+                        //Dialog sa ponudenim sastojcima, ako klikne na button, dodaj u izabrane
+                        Navigation.PushAsync(new ESBX.SistemPreporuke(sastojciPreporuka));
+
+                        //odletilo na uspjeh sinoc ISPRAVI
+                        return;
+                        //ideja da dodam tamo dugme za zavrsi i da se vise korisnik ne vraca na kreiranje salate prije nego ej sve gotovo
+                    }
+
+                    //Na kraju 
                     HttpResponseMessage repsoneDodaj= kreiranjeService.PostResponse(k);
                     if (repsoneDodaj.IsSuccessStatusCode)
                     {
