@@ -54,7 +54,7 @@ namespace ESBX
                     if (responseLogin.IsSuccessStatusCode)
                     {
 
-                        var jsonObject = response.Content.ReadAsStringAsync().Result;
+                        var jsonObject = responseLogin.Content.ReadAsStringAsync().Result;
                             
                         Global.logedUser = JsonConvert.DeserializeObject<Korisnici>(jsonObject);
 
