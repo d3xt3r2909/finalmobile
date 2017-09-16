@@ -11,6 +11,7 @@ using ESBX_MyPLC.ViewModel;
 using Newtonsoft.Json;
 using ESBX_MyPLC.Util;
 using ESBX_MyPLC.Models;
+using System.Net.Mail;
 
 namespace ESBX
 {
@@ -26,6 +27,35 @@ namespace ESBX
 
         private void registracijaButton_Clicked(object sender, EventArgs e)
         {
+
+            if (imeInput.Text == "" || prezimeInput.Text == "" || telefonInput.Text == "" || emailInput.Text == "" || adresaInput.Text == ""
+               || gradInput.SelectedIndex == -1 || lozinkaInput.Text=="")
+            {
+                DisplayAlert("Upozorenje", "Sva polja su obavezna!", "OK");
+                return;
+            }
+            int broj;
+            if (Int32.TryParse(telefonInput.Text, out broj) == false || telefonInput.Text.Count() < 9)
+            {
+                DisplayAlert("Upozorenje", "Polje telefon nije validno!", "OK");
+                return;
+            }
+            try
+            {
+                MailAddress mail = new MailAddress(emailInput.Text);
+            }
+            catch (Exception)
+            {
+                DisplayAlert("Upozorenje", "Polje email nije validno!", "OK");
+                return;
+            }
+            if (lozinkaInput.Text.Length < 6)
+            {
+                DisplayAlert("Upozorenje", "Lozinka mora sadržavati najmanje 6 karaktera!", "OK");
+                return;
+            }
+
+
             AccountRegistrationVm acc = new AccountRegistrationVm();
 
             acc.Ime = imeInput.Text;

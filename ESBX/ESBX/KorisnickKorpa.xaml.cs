@@ -70,7 +70,11 @@ namespace ESBX
 
         public async void NaruciClicked(object sender, EventArgs e)
         {
-
+            if (source == null)
+            {
+                await DisplayAlert("Upozorenje", "Potrebno je kreirati salatu da biste izvršili narudžbu.", "OK");
+                return;
+            }
             var page = new NaruciKorpaDialog();
 
             // await Navigation.PushPopupAsync(page);

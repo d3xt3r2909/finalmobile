@@ -68,6 +68,15 @@ namespace ESBX
             naruciObjekt.KorisnikId = Global.logedUser.Id;
             naruciObjekt.DatumDolaska = datumDolaska.Date + vrijemeDolaska.Time;
 
+            //vrijeme dolaska manje od sat
+            TimeSpan diff = naruciObjekt.DatumDolaska - DateTime.Now;
+            double hours = diff.TotalHours;
+            if (hours<1)
+            {
+                DisplayAlert("Upozorenje", "Vaša narudžba se mora obaviti minimalno sat vremena prije vašeg dolaska.", "OK");
+                return;
+            }
+            
             HttpResponseMessage response =  service.PostResponse(naruciObjekt);
 
             if (response.IsSuccessStatusCode)
@@ -77,6 +86,11 @@ namespace ESBX
             }
             else
             {
+                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    DisplayAlert("Upozorenje!", "Označeni ste kao nepovjerljiv gost, te narudžba nije moguća. Molimo Vas da provjerite svoj mail za detaljnije informacije.", "OK");
+                    return;
+                }
                 DisplayAlert("Upozorenje!", response.ReasonPhrase, "OK");
 
             }

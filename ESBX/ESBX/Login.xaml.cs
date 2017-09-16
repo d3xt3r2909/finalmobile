@@ -30,6 +30,11 @@ namespace ESBX
         {
             AccountLoginVm login = new AccountLoginVm();
 
+            if (emailInput.Text == "" || lozinkaInput.Text == "")
+            {
+                DisplayAlert("Upozorenje", "Podaci nisu validni", "OK");
+                return;
+            }
             login.UserName = emailInput.Text;
             login.Lozinka = lozinkaInput.Text;
 

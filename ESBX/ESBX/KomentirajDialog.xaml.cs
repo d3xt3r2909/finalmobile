@@ -84,14 +84,26 @@ namespace ESBX
         {
             if (KorisnikId != 0 && KorpaId != 0 && SalataId != 0)
             {
+                
+                int broj;
+                if(inputKomentar.Text=="" || inputOcjena.Text == "" || Int32.TryParse(inputOcjena.Text, out broj) == false)
+                {
+                    DisplayAlert("Upozorenje", "Podaci nisu validni", "OK");
+                    return;
+                }
+                if(Convert.ToInt32(inputOcjena.Text)<1 || Convert.ToInt32(inputOcjena.Text) > 5)
+                {
+                    DisplayAlert("Upozorenje", "Ocjena može biti od 1 do 5.", "OK");
+                    return;
+                }
+
                 KomentarVm komentar = new KomentarVm();
                 komentar.SalataId = SalataId;
                 komentar.KorpaId = KorpaId;
                 komentar.KorisnikId = KorisnikId;
 
                 komentar.Komentar = inputKomentar.Text;
-                komentar.Ocjena =Convert.ToInt32(inputOcjena.Text);
-
+                komentar.Ocjena = Convert.ToInt32(inputOcjena.Text);
                 HttpResponseMessage result = service.PostCustomRouteResponse(WebApiRoutes.POST_KOMENTAR_SALATA, komentar);
 
                 if (result.IsSuccessStatusCode)

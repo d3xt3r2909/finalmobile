@@ -262,14 +262,7 @@ namespace ESBX_API.Controllers
 
             }
 
-            // Provjeriti da li je zakazano vrijeme odgovarajuce 
-            double checkTime = naruci.DatumDolaska.Subtract(DateTime.Now).TotalMinutes;
-
-            // POtrebno je da vrijeme dolaska bude minimalno 60 minuta udaljeno od narucivanja
-            if (checkTime < 59)
-            {
-                return Request.CreateResponse(HttpStatusCode.Forbidden, "Potrebno je rezervisati barem 60 minuta prije");
-            }
+            
 
             MContext ctx = new MContext();
 

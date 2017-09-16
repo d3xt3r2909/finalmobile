@@ -31,7 +31,7 @@
                 <Picker x:Name="GlavniPicker" Title="Odaberite sastojak" Grid.Column="1"  Grid.ColumnSpan="1"></Picker>
                 <Button x:Name="btnSporedni" Text="Odaberite sastojke" Grid.Column="1" Grid.Row="1" Clicked="btnSporedni_Clicked"></Button>
                 <Picker x:Name="DresingPicker" Title="Odaberite dresing" Grid.Row="2" Grid.Column="1"></Picker>
-                <Entry x:Name="Kolicina" Grid.Row="3" Grid.Column="1"></Entry>
+                <Entry x:Name="Kolicina" Grid.Row="3" Grid.Column="1" Keyboard="Numeric"></Entry>
                 <Entry x:Name="Napomena" Grid.Row="4" Grid.Column="1"></Entry>
                 <Label Text="" FontSize="16" Grid.Row="5"></Label>
                 <Button x:Name="btnKreirajSalatu" Text="KREIRAJ SALATU" Grid.Row="6" Grid.Column="1" Clicked="btnKreirajSalatu_Clicked"></Button>

@@ -42,7 +42,7 @@
         <Label x:Name="lblKomentar" VerticalOptions="Center" Text="Komentar" Grid.Column="0" Grid.Row="1"></Label>
         <Entry x:Name="inputKomentar" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"></Entry>
 
-        <Label x:Name="lblOcjena" VerticalOptions="Center" Text="Ocjena" Grid.Column="0" Grid.Row="2"></Label>
+        <Label x:Name="lblOcjena" VerticalOptions="Center" Text="Ocjena (1-5)" Grid.Column="0" Grid.Row="2"></Label>
         <Entry x:Name="inputOcjena" VerticalOptions="Center" Keyboard="Numeric" Grid.Column="1" Grid.Row="2"></Entry>
 
         <Button x:Name="btnKomentiraj" Text="KOMENTAR" Grid.Column="1" Grid.Row="3" Clicked="btnKomentiraj_Clicked"></Button>
