@@ -118,8 +118,10 @@ namespace ESBX
                 DisplayAlert("Upozorenje", "Potrebno je odabrati minimalno dva omiljena proizvoda", "OK");
             else
             {
+                //this.Navigation.PushAsync(new Navigation.MyPage());
+
                 Global.logedUser = null;
-                Application.Current.MainPage = new NavigationPage(new Login());
+                Application.Current.MainPage = new Navigation.MyPage();
             }
 
         }

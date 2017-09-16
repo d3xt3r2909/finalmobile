@@ -16,7 +16,7 @@ namespace ESBX
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TrenutnoNarucene : ContentPage
 	{
-        private WebAPIHelper salateService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Narudzba");
+        private WebAPIHelper salateService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Narudzba");
         public TrenutnoNarucene ()
 		{
 			InitializeComponent ();

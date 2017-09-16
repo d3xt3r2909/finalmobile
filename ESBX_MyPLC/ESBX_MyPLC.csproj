@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Models\NarudzbeVM.cs" />
+    <Compile Include="Util\Constants.cs" />
     <Compile Include="ViewModel\AccountLoginVm.cs" />
     <Compile Include="Models\Korisnici.cs" />
     <Compile Include="Models\OcjeneKomentari.cs" />

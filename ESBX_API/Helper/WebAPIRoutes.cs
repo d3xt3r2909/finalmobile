@@ -12,6 +12,7 @@ namespace ESBX_API.Helper
 
         public const string LOGIN_ROUTE = "api/account/login";
         public const string POST_REGISTER = "api/account/Registration";
+        public const string GET_VRSTE_ULOGA = "api/uloge/getvrsteuloga/";
         public const string GET_ULOGA_BY_KORISNIK = "api/account/uloge/";
         public const string GET_VRSTE_SASTOJAKA = "api/sastojci/vrstesastojaka/";
         public const string DELETE_VRSTE_SASTOJAKA = "api/sastojci/deletebyid/";

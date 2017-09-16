@@ -16,7 +16,7 @@ namespace ESBX
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PodesavanjeLozinke : ContentPage
 	{
-        private WebAPIHelper profilService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Korisnici");
+        private WebAPIHelper profilService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
         private HelperPassword h = new HelperPassword();
 
         Korisnici k=Global.logedUser;

@@ -18,10 +18,10 @@ namespace ESBX_API.Controllers
         MContext ctx = new MContext();
 
         [HttpGet]
-        [Route("api/KreiranjeSalate/{vrstaId}")]
-        public IHttpActionResult GetSastojci(int vrstaId)
+        [Route("api/KreiranjeSalate/getsastojci/{vrstanaziv}")]
+        public IHttpActionResult GetSastojci(string vrstanaziv)
         {
-            List<SastojciMobileVM> list = ctx.Sastojci.Where(x => x.VrstaSastojkaId == vrstaId && x.IsDeleted == false).Select(y => new SastojciMobileVM
+            List<SastojciMobileVM> list = ctx.Sastojci.Where(x => x.VrstaSastojka.Naziv == vrstanaziv && x.IsDeleted == false).Select(y => new SastojciMobileVM
             {
                 Id = y.Id,
                 Naziv = y.Naziv

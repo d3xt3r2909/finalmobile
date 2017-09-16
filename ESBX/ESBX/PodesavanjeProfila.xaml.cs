@@ -18,8 +18,8 @@ namespace ESBX
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PodesavanjeProfila : ContentPage
     {
-        private WebAPIHelper profilService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Korisnici");
-        private WebAPIHelper service = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Gradovi");
+        private WebAPIHelper profilService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Korisnici");
+        private WebAPIHelper service = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Gradovi");
        
         Korisnici k = Global.logedUser;
         public PodesavanjeProfila()

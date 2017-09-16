@@ -24,8 +24,8 @@ namespace ESBX
         string Nap ;
         int broj;
         SelectMultipleBasePage<Sastojci>  multiPage=null;
-        private WebAPIHelper kreiranjeService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/KreiranjeSalate");
-        private WebAPIHelper preporukaService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/SistemPreporuke");
+        private WebAPIHelper kreiranjeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/KreiranjeSalate");
+        private WebAPIHelper preporukaService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/SistemPreporuke");
         public KreiranjeSalate ()
 		{
 			InitializeComponent ();
@@ -121,9 +121,10 @@ namespace ESBX
             Nap = "";
             Napomena.Text = "";
         }
+
         protected override void OnAppearing()
         {
-            HttpResponseMessage repsoneGlavni = kreiranjeService.GetResponse(1);
+            HttpResponseMessage repsoneGlavni = kreiranjeService.GetResponse(Constants.SastojakGlavni);
             if (repsoneGlavni.IsSuccessStatusCode)
             {
                 var jsonResult = repsoneGlavni.Content.ReadAsStringAsync();
@@ -132,9 +133,7 @@ namespace ESBX
                 GlavniPicker.ItemDisplayBinding = new Binding("Naziv");
             }
 
-
-
-            HttpResponseMessage repsoneDresing = kreiranjeService.GetResponse(3);
+            HttpResponseMessage repsoneDresing = kreiranjeService.GetResponse(Constants.SastojakSporedni);
             if (repsoneDresing.IsSuccessStatusCode)
             {
                 var jsonResult = repsoneDresing.Content.ReadAsStringAsync();
@@ -187,7 +186,7 @@ namespace ESBX
             private void btnSporedni_Clicked()
         {
             List<Sastojci> sporedni = new List<Sastojci>();
-             HttpResponseMessage repsone = kreiranjeService.GetResponse(2);
+             HttpResponseMessage repsone = kreiranjeService.GetResponse(Constants.SastojakSporedni);
             if (repsone.IsSuccessStatusCode)
             {
                 var jsonResult = repsone.Content.ReadAsStringAsync();

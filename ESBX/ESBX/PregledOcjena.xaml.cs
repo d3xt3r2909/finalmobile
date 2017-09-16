@@ -16,7 +16,7 @@ namespace ESBX
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PregledOcjena : ContentPage
     {
-        private WebAPIHelper komentariService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Komentari");
+        private WebAPIHelper komentariService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Komentari");
         public PregledOcjena()
         {
             InitializeComponent();

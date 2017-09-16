@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ExpressSaladBarDesktop_API.Util;
+using ESBX_API.Helper;
 
 namespace ESBX_API.Controllers
 {
@@ -38,6 +39,13 @@ namespace ESBX_API.Controllers
             }
 
             return Ok(k);
+        }
+
+        [HttpGet]
+        [Route(WebApiRoutes.GET_VRSTE_ULOGA)]
+        public HttpResponseMessage GetVrsteUloga()
+        {
+            return Request.CreateResponse(HttpStatusCode.OK, ctx.Uloge.ToList());
         }
     }
 }

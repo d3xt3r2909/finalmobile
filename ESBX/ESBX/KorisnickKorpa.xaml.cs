@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using System.Globalization;
 using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Services;
+using System.Collections.ObjectModel;
 
 namespace ESBX
 {
@@ -47,12 +48,13 @@ namespace ESBX
 
             if (firstSource != null)
             {
-                lblUkupno.Text =  "Ukupna cijena: " + getSumZarada(firstSource).ToString() + " KM";
                 source = new KorpaMobileVmList(firstSource);
                 korpaList.ItemsSource = source.Items;
+                lblUkupno.Text = "Ukupna cijena: " + getSumZarada(source.Items).ToString() + " KM";
+
             }
 
-           
+
             base.OnAppearing();
         }
 
@@ -66,6 +68,13 @@ namespace ESBX
 
             if (!response.IsSuccessStatusCode)
                 DisplayAlert("Upozorenje!", "Nije moguce obrisati stavku", "OK");
+            else
+            {
+                if (source.Items != null)
+                {
+                    lblUkupno.Text = "Ukupna cijena: " + getSumZarada(source.Items).ToString() + " KM";
+                }
+            }
         }
 
         public async void NaruciClicked(object sender, EventArgs e)
@@ -81,11 +90,12 @@ namespace ESBX
             //// or
             await PopupNavigation.PushAsync(page);
         }
-        private float getSumZarada(List<KorpaMobileVm> param)
+
+        private float getSumZarada(ObservableCollection<KorpaMobileVm> param)
         {
             float sum = 0;
-            foreach (KorpaMobileVm item in param)
-                sum += (float.Parse(item.Cijena, CultureInfo.InvariantCulture.NumberFormat)*Convert.ToInt32(item.Kolicina));
+            foreach (var i in param)
+                sum += (float.Parse(i.Cijena, CultureInfo.InvariantCulture.NumberFormat)*Convert.ToInt32(i.Kolicina));
 
             return sum;
         }

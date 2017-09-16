@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExpressSaladBarDesktop_Client;
 using ESBX_API.Helper;
+using ESBX_db.Helper;
 
 namespace ESBX_Client.Menadzer
 {
@@ -71,8 +72,14 @@ namespace ESBX_Client.Menadzer
                     KorisniciUloge ku = new KorisniciUloge();
                     ku.DatumDodjele = DateTime.Now;
                     Korisnici temp = responseKorisnik.Content.ReadAsAsync<Korisnici>().Result;
+
+                    HttpResponseMessage vrste = OsobljeService.GetCustomRouteResponse(WebApiRoutes.GET_VRSTE_ULOGA);
+
+                    List<Uloge> tmpUloge = vrste.Content.ReadAsAsync<List<Uloge>>().Result;
+                    Uloge uloga = tmpUloge.FirstOrDefault(x => x.Naziv == Constants.ULOGA_OSOBLJE);
+
                     ku.KorisnikId = temp.Id;
-                    ku.UlogaId = 3;
+                    ku.UlogaId = uloga.Id;
 
                     HttpResponseMessage responseUloge = UlogaService.PostResponse(ku);
 

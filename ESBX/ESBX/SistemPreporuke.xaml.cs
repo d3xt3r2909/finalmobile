@@ -18,7 +18,7 @@ namespace ESBX
     {
         List<Sastojci> preporuka = new List<Sastojci>();
         KreiranaSalataVM k = new KreiranaSalataVM();
-        private WebAPIHelper kreiranjeService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/KreiranjeSalate");
+        private WebAPIHelper kreiranjeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/KreiranjeSalate");
 
         public SistemPreporuke()
         {
