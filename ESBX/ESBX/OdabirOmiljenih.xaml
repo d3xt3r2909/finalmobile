@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ESBX.Converters"
+             x:Class="ESBX.OdabirOmiljenih">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="16">
+            <Picker x:Name="vrsteSastojaka" Title="Vrste sastojaka" SelectedIndexChanged="vrsteSastojaka_SelectedIndexChanged"></Picker>
+
+            <ListView x:Name="listSastojaka" RowHeight="75">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <!--Slika-->
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <!--Naziv-->
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <!--Button-->
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image x:Name="slikaSastojka" Grid.Column="0" Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}}" Margin="10"></Image>
+                                <Label Text="{Binding Naziv}" VerticalOptions="Center"  Grid.Column="1"></Label>
+                                <Button Text="+" x:Name="btnDodajOmiljene" CommandParameter="{Binding SastojakId}"  Clicked="btnDodajOmiljene_Clicked" Grid.Column="2"></Button>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="btnNastavi" Text="NASTAVI" Clicked="btnNastavi_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
