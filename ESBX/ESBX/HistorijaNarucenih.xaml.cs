@@ -1,6 +1,7 @@
 ﻿using ESBX_MyPLC.Models;
 using ESBX_MyPLC.Util;
 using Newtonsoft.Json;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace ESBX
 	public partial class HistorijaNarucenih : ContentPage
 	{
         private WebAPIHelper salateService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/Narudzba");
-
+        private List<NarudzbeVM> salate = null;
         public HistorijaNarucenih ()
 		{
 			InitializeComponent ();
@@ -25,19 +26,31 @@ namespace ESBX
 
         protected override void OnAppearing()
         {
-            string KorisnikId = Global.logedUser.Id.ToString();
+            string KorisnikId = "7";
             HttpResponseMessage responseMessage = salateService.GetActionResponse("GetHistorijaNarudzbe", KorisnikId);
             if (responseMessage.IsSuccessStatusCode)
             {
 
                 var jsonResponse = responseMessage.Content.ReadAsStringAsync();
-                List<NarudzbeVM> salate = JsonConvert.DeserializeObject<List<NarudzbeVM>>(jsonResponse.Result);
+                salate = JsonConvert.DeserializeObject<List<NarudzbeVM>>(jsonResponse.Result);
                 listHistorija.ItemsSource = salate;
             }
 
             base.OnAppearing();
         }
+        private async void KomentarSalate_Clicked(object sender, EventArgs e)
+        {
+            var item = (Xamarin.Forms.Button)sender;
+            int salataId = Convert.ToInt32(item.CommandParameter);
 
+            if (salataId != 0)
+            {
+                NarudzbeVM narudzba = salate.FirstOrDefault(salata => salata.SalataId == salataId);
+
+                KomentirajDialog komentirajDialog = new KomentirajDialog(narudzba.SalataId, narudzba.KorpaId ,narudzba.KorisnikId);
+                await PopupNavigation.PushAsync(komentirajDialog);
+            }
+        }
         private void DodajSalatu_Clicked(object sender,EventArgs e)
         {
             var item = (Xamarin.Forms.Button)sender;

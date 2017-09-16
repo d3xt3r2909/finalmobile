@@ -28,6 +28,7 @@
                                 <Label x:Name="Sastojci" Text="{Binding Sastojci}" Grid.Row="0" Grid.Column="1"></Label>
                                 <Label x:Name="Cijena" Text="{Binding Cijena,StringFormat='{0} KM'}}"  Grid.Row="1"  Grid.Column="1"></Label>
 
+                                <Button x:Name="KomentarSalate" Text="KOMENTIRAJ" CommandParameter="{Binding SalataId}" Clicked="KomentarSalate_Clicked" Grid.Row="2"  Grid.Column="0" BackgroundColor="Orange" HorizontalOptions="End"></Button>
                                 <Button x:Name="DodajSalatu" Text="DODAJ" CommandParameter="{Binding SalataId}" Clicked="DodajSalatu_Clicked" Grid.Row="2"  Grid.Column="1" BackgroundColor="Orange" HorizontalOptions="End"></Button>
                             </Grid>
                         </ViewCell>

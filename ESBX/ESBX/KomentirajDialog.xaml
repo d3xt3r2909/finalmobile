@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="ESBX.KomentirajDialog"
+                 BackgroundColor="LightGray">
+
+    <!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <!-- Content -->
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <!--Komentar-->
+            <RowDefinition Height="Auto"></RowDefinition>
+            <!--Ocjena-->
+            <RowDefinition Height="Auto"></RowDefinition>
+            <!--Button-->
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+       
+        <Label x:Name="lblKomentar" VerticalOptions="Center" Text="Komentar" Grid.Column="0" Grid.Row="1"></Label>
+        <Entry x:Name="inputKomentar" VerticalOptions="Center" Grid.Column="1" Grid.Row="1"></Entry>
+
+        <Label x:Name="lblOcjena" VerticalOptions="Center" Text="Ocjena" Grid.Column="0" Grid.Row="2"></Label>
+        <Entry x:Name="inputOcjena" VerticalOptions="Center" Keyboard="Numeric" Grid.Column="1" Grid.Row="2"></Entry>
+
+        <Button x:Name="btnKomentiraj" Text="KOMENTAR" Grid.Column="1" Grid.Row="3" Clicked="btnKomentiraj_Clicked"></Button>
+
+    </Grid>
+</pages:PopupPage>

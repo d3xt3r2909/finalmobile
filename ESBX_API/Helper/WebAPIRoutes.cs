@@ -27,5 +27,7 @@ namespace ESBX_API.Helper
         public const string GET_GRADOVI = "api/gradovi";
         public const string GET_AKTIVNA_KORPA = "api/korpa/GetAktivnaKorpa/";
         public const string POST_NARUCI_KORPU = "api/korpa/naruci/";
+        public const string POST_KOMENTAR_SALATA = "api/narudzbe/komentar/";
+        public const string GET_KOMENTAR = "api/narudzbe/komentar/";
     }
 }

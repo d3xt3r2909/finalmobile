@@ -16,6 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)HistorijaNarucenih.xaml.cs">
       <DependentUpon>HistorijaNarucenih.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)KomentirajDialog.xaml.cs">
+      <DependentUpon>KomentirajDialog.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)KorisnickKorpa.xaml.cs">
       <DependentUpon>KorisnickKorpa.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -164,6 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SistemPreporuke.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)KomentirajDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
