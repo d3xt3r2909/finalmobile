@@ -40,6 +40,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelDobrodosli = new System.Windows.Forms.Label();
             this.panelPrikaz = new System.Windows.Forms.Panel();
+            this.btnOdjava = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel2.Controls.Add(this.btnOdjava);
             this.panel2.Controls.Add(this.BtnPodesavanjeProfila);
             this.panel2.Controls.Add(this.BtnIzvjestaj);
             this.panel2.Controls.Add(this.label3);
@@ -182,7 +184,7 @@
             this.labelDobrodosli.AutoSize = true;
             this.labelDobrodosli.Location = new System.Drawing.Point(1069, 56);
             this.labelDobrodosli.Name = "labelDobrodosli";
-            this.labelDobrodosli.Size = new System.Drawing.Size(19, 13);
+            this.labelDobrodosli.Size = new System.Drawing.Size(0, 13);
             this.labelDobrodosli.TabIndex = 0;
             // 
             // panelPrikaz
@@ -192,6 +194,24 @@
             this.panelPrikaz.Name = "panelPrikaz";
             this.panelPrikaz.Size = new System.Drawing.Size(1155, 421);
             this.panelPrikaz.TabIndex = 3;
+            // 
+            // btnOdjava
+            // 
+            this.btnOdjava.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnOdjava.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnOdjava.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnOdjava.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnOdjava.FlatAppearance.BorderSize = 0;
+            this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOdjava.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOdjava.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnOdjava.Location = new System.Drawing.Point(3, 260);
+            this.btnOdjava.Name = "btnOdjava";
+            this.btnOdjava.Size = new System.Drawing.Size(256, 33);
+            this.btnOdjava.TabIndex = 8;
+            this.btnOdjava.Text = "Odjavi se";
+            this.btnOdjava.UseVisualStyleBackColor = false;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 
             // OsobljeForm
             // 
@@ -226,5 +246,6 @@
         private System.Windows.Forms.Button BtnPodesavanjeProfila;
         private System.Windows.Forms.Button BtnIzvjestaj;
         private System.Windows.Forms.Panel panelPrikaz;
+        private System.Windows.Forms.Button btnOdjava;
     }
 }

@@ -106,6 +106,7 @@
             this.btnOdjava.TabIndex = 7;
             this.btnOdjava.Text = "Odjavi se";
             this.btnOdjava.UseVisualStyleBackColor = false;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 
             // btnPodesavanjeProfila
             // 

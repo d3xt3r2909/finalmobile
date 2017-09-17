@@ -34,7 +34,8 @@ namespace ESBX_API.Controllers
 
                 n.RedniBroj = brojac;
                 brojac++;
-                n.CijenaNarudzbe = i.Racun.CijenaSaPopustom;
+                if(i.Racun != null)
+                     n.CijenaNarudzbe = i.Racun.CijenaSaPopustom;
                 n.DatumNarudzbe = i.VrijemeNarucivanja;
                 narudzbeList.Add(n);
             }

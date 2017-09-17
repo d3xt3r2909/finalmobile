@@ -57,5 +57,12 @@ namespace ESBX_Client.Osoblje
             labelDobrodosli.Text = "Dobrodošli, " + Global.prijavljeniKorisnik.Prezime + " " + Global.prijavljeniKorisnik.Ime;
 
         }
+
+        private void btnOdjava_Click(object sender, EventArgs e)
+        {
+            Global.prijavljeniKorisnik = null;
+            System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+            this.Close(); //to turn off current app
+        }
     }
 }

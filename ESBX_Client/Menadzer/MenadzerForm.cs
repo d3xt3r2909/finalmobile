@@ -117,5 +117,12 @@ namespace ESBX_Client.Menadzer
                 frm.ShowDialog();
             }
         }
+
+        private void btnOdjava_Click(object sender, EventArgs e)
+        {
+            Global.prijavljeniKorisnik = null;
+            System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
+            this.Close(); //to turn off current app
+        }
     }
 }
