@@ -306,13 +306,13 @@ namespace ESBX_API.Controllers
             /* Ukoliko je sve proslo uredu, potrebno je korisniku poslati email sa sifrom narudzbe */
 
             EmailVm mailVm = new EmailVm();
-            mailVm.Body = "Postovani, </br>Uspjesno ste narucali isto. Vasa sifra narudzbe je: " + korisnikKorpa.Sifra;
+            mailVm.Body = "Poštovani, </br>Uspješno ste izvršili narudžbu. Vaša šifra narudžbe je: " + korisnikKorpa.Sifra;
             mailVm.Subject = "Express Salad Bar";
             mailVm.To = isUserExists.Email; 
             // Slanje emaila sa sfirom narudjbe i odredjenim detaljima narudzbe
             AccountHelper.Sendemail(mailVm);
 
-            return Request.CreateErrorResponse(HttpStatusCode.OK, "Narudzba je uspjesno realizovana, provjerite Vas email");
+            return Request.CreateErrorResponse(HttpStatusCode.OK, "Narudžba je uspješno realizovana, provjerite Vaš email");
         }
     }
 }
