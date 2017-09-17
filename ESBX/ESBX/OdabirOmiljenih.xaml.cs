@@ -119,8 +119,7 @@ namespace ESBX
             else
             {
                 //this.Navigation.PushAsync(new Navigation.MyPage());
-
-                Global.logedUser = null;
+                
                 Application.Current.MainPage = new Navigation.MyPage();
             }
 

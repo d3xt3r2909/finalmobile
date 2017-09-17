@@ -11,8 +11,8 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Padding="16">
+            <Label Text="Kako bi vam mogli na sto bolji nacin pomoci da napraviti nevjerovatne ukuse salata, potrebno je da odaberete barem dva omiljena sastojka."></Label>
             <Picker x:Name="vrsteSastojaka" Title="Vrste sastojaka" SelectedIndexChanged="vrsteSastojaka_SelectedIndexChanged"></Picker>
-
             <ListView x:Name="listSastojaka" RowHeight="75">
                 <ListView.ItemTemplate>
                     <DataTemplate>
