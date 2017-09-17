@@ -44,7 +44,7 @@
                             <Label x:Name="lblSastojci" Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
                             <Label x:Name="inputSastojci" Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
 
-                            <Button Text="OBRIŠI" CommandParameter="{Binding KorpaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"></Button>
+                            <Button Text="OBRIŠI" CommandParameter="{Binding StavkaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"></Button>
                         </Grid>
 
                 </ViewCell>

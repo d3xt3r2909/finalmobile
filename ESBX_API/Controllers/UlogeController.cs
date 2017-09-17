@@ -26,7 +26,9 @@ namespace ESBX_API.Controllers
 
             try
             {
-                k.UlogaId = ctx.Uloge.Where(x => x.Naziv == k.Uloga.Naziv).Select(y => y.Id).FirstOrDefault();
+                if (k.UlogaId == 0 || k.Uloga != null)
+                    k.UlogaId = ctx.Uloge.Where(x => x.Naziv == k.Uloga.Naziv).Select(y => y.Id).FirstOrDefault();
+
                 ctx.KorisniciUloge.Add(k);
                 ctx.SaveChanges();
             }

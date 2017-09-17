@@ -61,7 +61,9 @@ namespace ESBX
         public void DeleteClicked(object sender, EventArgs e)
         {
             var item = (Xamarin.Forms.Button)sender;
-            KorpaMobileVm listitem = (from itm in source.Items where itm.KorpaId == Convert.ToInt64(item.CommandParameter.ToString()) select itm).FirstOrDefault<KorpaMobileVm>();
+            // KorpaMobileVm listitem = (from itm in source.Items where itm.KorpaId == Convert.ToInt64(item.CommandParameter.ToString()) select itm).FirstOrDefault<KorpaMobileVm>();
+            int korpaFrom = Convert.ToInt32(item.CommandParameter.ToString());
+            KorpaMobileVm listitem = source.Items.FirstOrDefault(x => x.StavkaId == korpaFrom);
             source.Items.Remove(listitem);
 
             var response = service.DeleteCustomRouteResponse(WebApiRoutes.DELETE_ITEM_KORPA, parameters: "/" + listitem.KorpaId + "/stavke/" + listitem.StavkaId);

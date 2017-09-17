@@ -2,6 +2,7 @@
 using ESBX_db.Helper;
 using ESBX_db.Models;
 using ESBX_db.ViewModel;
+using Newtonsoft.Json; 
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,9 +56,10 @@ namespace ESBX_API.Controllers
         [Route(WebApiRoutes.POST_REGISTER)]
         public HttpResponseMessage Registration(AccountRegistrationVm account)
         {
+            List<string> errors = new List<string>();
             if (!ModelState.IsValid)
             {
-                List<string> errors = new List<string>();
+                
                 foreach (var pair in ModelState)
                     if (pair.Value.Errors.Count > 0)
                         errors.Add(pair.Value.Errors.Select(error => error.ErrorMessage).FirstOrDefault().ToString());
@@ -69,7 +71,8 @@ namespace ESBX_API.Controllers
 
             if (HttpStatusCode.Conflict == response)
             {
-                return Request.CreateResponse(HttpStatusCode.Conflict, "Korisnicki nalog vec postoji");
+                errors.Add("Korisnicki nalog vec postoji");
+                return Request.CreateResponse(HttpStatusCode.Conflict, errors);
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, response);
