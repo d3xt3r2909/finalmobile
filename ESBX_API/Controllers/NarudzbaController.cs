@@ -23,13 +23,21 @@ namespace ESBX_API.Controllers
             int korId = Convert.ToInt32(KorisnikId);
             List<NarudzbeVM> listSalata = new List<NarudzbeVM>();
 
-            int KorpaId = ctx.Korpa.Where(x => x.KorisnikId == korId && x.Aktivna == false && x.Zavrsena == false && x.Finilizirana == false).Select(x => x.Id).FirstOrDefault();
+            List<int> KorpaIds = ctx.Korpa.Where(x => x.KorisnikId == korId && x.Aktivna == false && x.Zavrsena == false && x.Finilizirana == false).Select(x => x.Id).ToList();
             UkupnaCijenaVM model = new UkupnaCijenaVM();
-            model.listaSalataId = ctx.KorpaStavke.Where(y => y.KorpaId == KorpaId).Select(p => new ListaVrijednostiVM
+            model.listaSalataId = new List<ListaVrijednostiVM>();
+            foreach (var x in KorpaIds)
             {
-                SalataId = p.SalataId,
-                Kolicina = p.Kolicina
-            }).ToList();
+                ListaVrijednostiVM m = new ListaVrijednostiVM();
+                List<KorpaStavke> korpastavke = ctx.KorpaStavke.Where(y => y.KorpaId == x).ToList();
+                foreach(var n in korpastavke)
+                {
+                    m.SalataId = n.SalataId;
+                    m.Kolicina = n.Kolicina;
+                    model.listaSalataId.Add(m);
+                }
+            }
+            
 
             foreach (var i in model.listaSalataId)
             {

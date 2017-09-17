@@ -144,6 +144,7 @@
             // 
             // GradCmb
             // 
+            this.GradCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GradCmb.FormattingEnabled = true;
             this.GradCmb.Location = new System.Drawing.Point(495, 312);
             this.GradCmb.Name = "GradCmb";

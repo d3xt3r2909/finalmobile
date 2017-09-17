@@ -125,6 +125,7 @@
             // 
             // DobavljacCmb
             // 
+            this.DobavljacCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DobavljacCmb.FormattingEnabled = true;
             this.DobavljacCmb.Location = new System.Drawing.Point(111, 36);
             this.DobavljacCmb.Name = "DobavljacCmb";
@@ -169,7 +170,7 @@
             // CijenaTxt
             // 
             this.CijenaTxt.Location = new System.Drawing.Point(330, 76);
-            this.CijenaTxt.Mask = "0000000000000";
+            this.CijenaTxt.Mask = "000000000000000000";
             this.CijenaTxt.Name = "CijenaTxt";
             this.CijenaTxt.Size = new System.Drawing.Size(133, 20);
             this.CijenaTxt.TabIndex = 56;
@@ -178,7 +179,7 @@
             // KolicinaTxt
             // 
             this.KolicinaTxt.Location = new System.Drawing.Point(131, 76);
-            this.KolicinaTxt.Mask = "0000000000000";
+            this.KolicinaTxt.Mask = "000000000000000000";
             this.KolicinaTxt.Name = "KolicinaTxt";
             this.KolicinaTxt.Size = new System.Drawing.Size(133, 20);
             this.KolicinaTxt.TabIndex = 55;
@@ -261,6 +262,7 @@
             // 
             // SastojakCmb
             // 
+            this.SastojakCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SastojakCmb.FormattingEnabled = true;
             this.SastojakCmb.Location = new System.Drawing.Point(131, 34);
             this.SastojakCmb.Name = "SastojakCmb";

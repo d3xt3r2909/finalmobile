@@ -33,7 +33,7 @@
                 </Label>
                 <Entry 
                 x:Name="emailInput" 
-                Text="nihad.delic91@gmail.com">
+                Text="">
                 </Entry>
                 <Label 
                 Text="Lozinka: " 
@@ -42,8 +42,10 @@
                 </Label>
                 <Entry 
                 x:Name="lozinkaInput" 
-                Text="nihadnela" 
-                FontSize="18"   >
+                Text="" 
+                FontSize="18"  
+                    IsPassword="True"
+                    >
                 </Entry>
             </StackLayout>
             <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Margin="18">
