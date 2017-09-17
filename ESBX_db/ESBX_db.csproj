@@ -99,6 +99,7 @@
     <Compile Include="ViewModel\KorisnikSastojciVm.cs" />
     <Compile Include="ViewModel\KorpaForDg.cs" />
     <Compile Include="ViewModel\KorpaMobileVm.cs" />
+    <Compile Include="ViewModel\KorpaModel.cs" />
     <Compile Include="ViewModel\KorpaVm.cs" />
     <Compile Include="ViewModel\KreiranaSalataVM.cs" />
     <Compile Include="ViewModel\NagradnaIgraVM.cs" />

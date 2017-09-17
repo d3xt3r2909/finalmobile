@@ -86,7 +86,7 @@ namespace ESBX_API.Controllers
         [System.Web.Http.Route(WebApiRoutes.GET_KORISNICI_KORPA + "{id}")]
         public HttpResponseMessage GetKorpaById(int id)
         {
-            Korpa response = KorpaHelper.GetKorpaById(id);
+            KorpaModel response = KorpaHelper.GetKorpaById(id);
 
             if (response == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);

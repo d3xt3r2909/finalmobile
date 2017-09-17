@@ -90,10 +90,14 @@ namespace ESBX_Client.Osoblje
                     HttpResponseMessage korpaResponse =
                         _service.GetCustomRouteResponse(WebApiRoutes.GET_KORISNICI_KORPA, narudzbaId);
 
-                    Korpa korpa = korpaResponse.Content.ReadAsAsync<Korpa>().Result;
+                    KorpaModel korpa = korpaResponse.Content.ReadAsAsync<KorpaModel>().Result;
 
                     HttpResponseMessage response =
-                        _service.PutCustomRouteResponse(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST, new { }, korpa.Korisnik.Id + "/false");
+                        _service.PutCustomRouteResponse(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST, new PromjenaPovjerljivostiVm {
+                            KorisnikId = korpa.KorisnikId,
+                            KorpaId = korpa.Id,
+                            Status = false
+                        });
 
                     if (response.IsSuccessStatusCode)
                         RefreshState();

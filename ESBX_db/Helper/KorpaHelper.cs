@@ -220,10 +220,21 @@ namespace ESBX_db.Helper
             return narudzbe.ListSalate;
         }
 
-        public static Korpa GetKorpaById(int id)
+        public static KorpaModel GetKorpaById(int id)
         {
             MContext ctx = new MContext();
-            return ctx.Korpa.FirstOrDefault(x => x.Id == id);
+            return ctx.Korpa.Select(korpa => new KorpaModel {
+                Aktivna = korpa.Aktivna,
+                Finilizirana = korpa.Finilizirana,
+                Id = korpa.Id,
+                KorisnikId = korpa.KorisnikId,
+                Napomena = korpa.Napomena,
+                RacunId = korpa.RacunId,
+                Sifra = korpa.Sifra,
+                VrijemeDolaska = korpa.VrijemeDolaska,
+                VrijemeNarucivanja = korpa.VrijemeNarucivanja, 
+                Zavrsena = korpa.Zavrsena
+            }).FirstOrDefault(x => x.Id == id);
         }
 
         public static HttpStatusCode ChangeStatus(int id, bool status)

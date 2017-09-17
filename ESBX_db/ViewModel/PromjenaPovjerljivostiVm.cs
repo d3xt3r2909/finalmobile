@@ -10,6 +10,6 @@ namespace ESBX_db.ViewModel
     {
         public bool Status { get; set; }
         public int KorisnikId { get; set; }
-
+        public int KorpaId { get; set; }
     }
 }

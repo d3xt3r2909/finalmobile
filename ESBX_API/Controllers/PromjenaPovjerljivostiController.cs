@@ -48,6 +48,16 @@ namespace ESBX_API.Controllers
 
                 ctx.SaveChanges();
             }
+            else
+            {
+                Korpa korpa = ctx.Korpa.FirstOrDefault(x => x.Id == povjerljivost.KorpaId);
+
+                korpa.Zavrsena = true;
+                korpa.Finilizirana = true;
+                korpa.Aktivna = false;
+
+                ctx.SaveChanges(); 
+            }
 
             return StatusCode(HttpStatusCode.OK);
         }
