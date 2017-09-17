@@ -91,9 +91,6 @@ namespace ESBX_Client.Menadzer
             }
         }
 
-        private void NagradnaIgraForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

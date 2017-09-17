@@ -182,5 +182,15 @@ namespace ESBX_Client.Osoblje
                 errorProvider.SetError(txtAddSasGramaza, Messages.gramaza_req);
             }
         }
+
+        private void cmbAddSasVrsta_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbAddSasVrsta.SelectedIndex == 0)
+            {
+
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasGramaza, Messages.gramaza_req);
+            }
+        }
     }
 }

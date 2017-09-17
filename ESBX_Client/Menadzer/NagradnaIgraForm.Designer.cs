@@ -119,6 +119,7 @@
             this.PopustTxt.Size = new System.Drawing.Size(23, 20);
             this.PopustTxt.TabIndex = 55;
             this.PopustTxt.ValidatingType = typeof(int);
+            this.PopustTxt.Validating += new System.ComponentModel.CancelEventHandler(this.PopustTxt_Validating);
             // 
             // DatumPicker
             // 
@@ -126,6 +127,7 @@
             this.DatumPicker.Name = "DatumPicker";
             this.DatumPicker.Size = new System.Drawing.Size(200, 20);
             this.DatumPicker.TabIndex = 54;
+            this.DatumPicker.Validating += new System.ComponentModel.CancelEventHandler(this.DatumPicker_Validating);
             // 
             // napomenaTxt
             // 
@@ -243,7 +245,6 @@
             this.Name = "NagradnaIgraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NagradnaIgra";
-            this.Load += new System.EventHandler(this.NagradnaIgraForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

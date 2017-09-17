@@ -55,7 +55,7 @@
             // 
             // GenerisiReportBtn
             // 
-            this.GenerisiReportBtn.Location = new System.Drawing.Point(1008, 57);
+            this.GenerisiReportBtn.Location = new System.Drawing.Point(1008, 69);
             this.GenerisiReportBtn.Name = "GenerisiReportBtn";
             this.GenerisiReportBtn.Size = new System.Drawing.Size(132, 20);
             this.GenerisiReportBtn.TabIndex = 11;

@@ -122,7 +122,6 @@
             this.Name = "PodesavanjeLozinke";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Podesavanje lozinke";
-            this.Load += new System.EventHandler(this.PodesavanjeLozinke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

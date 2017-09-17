@@ -71,9 +71,6 @@ namespace ESBX_Client.Opste
             }
         }
 
-        private void PodesavanjeLozinke_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -62,6 +62,7 @@
             this.cmbAddSasVrsta.Name = "cmbAddSasVrsta";
             this.cmbAddSasVrsta.Size = new System.Drawing.Size(376, 21);
             this.cmbAddSasVrsta.TabIndex = 0;
+            this.cmbAddSasVrsta.Validating += new System.ComponentModel.CancelEventHandler(this.cmbAddSasVrsta_Validating);
             // 
             // label1
             // 

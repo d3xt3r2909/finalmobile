@@ -66,7 +66,7 @@
                 <Label x:Name="grad" Text="Grad:" Grid.Row="6"></Label>
                 <Picker x:Name="gradInput"  Grid.Row="6"  Grid.Column="1"></Picker>
 
-                <Button Text="SAČUVAJ" Grid.Row="9" Grid.ColumnSpan="2" x:Name="sacuvajAcc" Clicked="sacuvajAcc_Clicked"></Button>
+                <Button Text="SAČUVAJ" BackgroundColor="Orange" Grid.Row="9" Grid.ColumnSpan="2" x:Name="sacuvajAcc" Clicked="sacuvajAcc_Clicked"></Button>
 
                 <Button Text="PROMIJENI LOZINKU" Grid.Row="8" Grid.Column="1" x:Name="lozinkaButton" Clicked="lozinkaButton_Clicked"></Button>
 

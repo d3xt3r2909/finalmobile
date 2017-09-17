@@ -27,7 +27,7 @@ namespace ESBX_API.Controllers
             int brojac = 1;
             List<Narudzba_ReportResult> narudzbeList = new List<Narudzba_ReportResult>();
 
-            List<Korpa> korpe = ctx.Korpa.Where(x => x.VrijemeNarucivanja >= datumOd && x.VrijemeNarucivanja <= datumDo).ToList();
+            List<Korpa> korpe = ctx.Korpa.Where(x => x.VrijemeNarucivanja >= datumOd && x.VrijemeNarucivanja <= datumDo && x.Aktivna==false && x.Zavrsena==true && x.Finilizirana==true).ToList();
             foreach (var i in korpe)
             {
                 Narudzba_ReportResult n = new Narudzba_ReportResult();
