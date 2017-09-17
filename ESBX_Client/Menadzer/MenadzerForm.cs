@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ESBX_db.Models;
+using ESBX_db.ViewModel;
 
 namespace ESBX_Client.Menadzer
 {
@@ -76,7 +77,7 @@ namespace ESBX_Client.Menadzer
 
         private void MenadzerForm_Load(object sender, EventArgs e)
         {
-            List<Sastojci> response = service.GetResponse().Content.ReadAsAsync<List<Sastojci>>().Result;
+            List<SastojciPregledVm> response = service.GetResponse().Content.ReadAsAsync<List<SastojciPregledVm>>().Result;
 
             alarmForThisItems = response.Where(sastojak => sastojak.Stanje < 2000)
                 .Select(x => new IstekZalihaVm
@@ -84,7 +85,7 @@ namespace ESBX_Client.Menadzer
                     Naziv = x.Naziv,
                     Stanje = x.Stanje,
                     SastojakId = x.Id,
-                    VrstaSastojka = x.VrstaSastojka.Naziv
+                    VrstaSastojka = x.VrstaSastojka
                 }).ToList();
 
             if (alarmForThisItems.Count > 0)
@@ -115,16 +116,6 @@ namespace ESBX_Client.Menadzer
                 IstekZaliha frm = new IstekZaliha(alarmForThisItems);
                 frm.ShowDialog();
             }
-        }
-
-        private void panelPrikaz_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

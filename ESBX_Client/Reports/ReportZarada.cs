@@ -25,10 +25,7 @@ namespace ESBX_Client.Reports
         }
 
         private void RefreshReport(DateTime DatumOd, DateTime DatumDo)
-
         {
-
-
             HttpResponseMessage response = NarudzbaService.GetActionResponse("GetNarudzbe", DatumOd.ToString("MM-dd-yyyy"), DatumDo.ToString("MM-dd-yyyy"));
 
             List<Narudzba_ReportResult> sourceList = response.Content.ReadAsAsync<List<Narudzba_ReportResult>>().Result;
@@ -44,15 +41,9 @@ namespace ESBX_Client.Reports
             this.reportViewer1.RefreshReport();
         }
 
-
         private void GenerisiReportBtn_Click(object sender, EventArgs e)
         {
             RefreshReport(DatumOdPicker.Value, DatumDoPicker.Value);
-        }
-
-        private void ReportZarada_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

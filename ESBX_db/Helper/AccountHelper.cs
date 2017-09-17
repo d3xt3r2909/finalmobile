@@ -239,5 +239,16 @@ namespace ESBX_db.Helper
 
             return firstOrDefault?.Id ?? 0;
         }
+
+        public static bool DigitsOnly(string s)
+        {
+            foreach (char c in s)
+            {
+                if (c == '.') continue;
+                if (c < '0' || c > '9')
+                    return false;
+            }
+            return true;
+        }
     }
 }

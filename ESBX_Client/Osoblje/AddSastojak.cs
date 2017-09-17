@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System;
+using ESBX_db.Helper;
 
 namespace ESBX_Client.Osoblje
 {
@@ -54,27 +55,41 @@ namespace ESBX_Client.Osoblje
             if (this.ValidateChildren())
             {
 
-                noviSastojak.Naziv = txtAddSasNaziv.Text;
-                noviSastojak.Cijena = (float) Convert.ToDecimal(txtAddSasCijena.Text);
-                noviSastojak.Gramaza = (float) Convert.ToDecimal(txtAddSasGramaza.Text);
-                noviSastojak.BrojKalorija = (float) Convert.ToDecimal(txtAddSasKalorije.Text);
-                noviSastojak.IsDeleted = false;
-                noviSastojak.Napomena = txtAddSasNapomena.Text;
-                noviSastojak.VrstaSastojkaId = Convert.ToInt32(cmbAddSasVrsta.SelectedValue);
-
-                HttpResponseMessage response = _sastojci.PostResponse(noviSastojak);
-
-                if (response.IsSuccessStatusCode)
+                if (!txtAddSasKalorije.Text.All(char.IsDigit) &&
+                !txtAddSasKalorije.Text.All(char.IsDigit) &&
+                !txtAddSasKalorije.Text.All(char.IsDigit))
                 {
-                    DialogResult = DialogResult.OK;
-                    Close();
+                    MessageBox.Show("Polja kao sto su cijena, gramaza i kalorije, moraju biti brojevi samo!", "Upozorenje!");
                 }
                 else
                 {
-                    MessageBox.Show("Error: " + response.StatusCode);
+                    noviSastojak.Naziv = txtAddSasNaziv.Text;
+                    noviSastojak.Cijena = (float)Convert.ToDecimal(txtAddSasCijena.Text);
+                    noviSastojak.Gramaza = (float)Convert.ToDecimal(txtAddSasGramaza.Text);
+                    noviSastojak.BrojKalorija = (float)Convert.ToDecimal(txtAddSasKalorije.Text);
+                    noviSastojak.IsDeleted = false;
+                    noviSastojak.Napomena = txtAddSasNapomena.Text;
+                    noviSastojak.VrstaSastojkaId = Convert.ToInt32(cmbAddSasVrsta.SelectedValue);
+
+
+
+
+                    HttpResponseMessage response = _sastojci.PostResponse(noviSastojak);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        DialogResult = DialogResult.OK;
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: " + response.StatusCode);
+                    }
                 }
             }
         }
+
+        
 
         private void txtAddSasNaziv_Validating(object sender, CancelEventArgs e)
         {
@@ -102,7 +117,6 @@ namespace ESBX_Client.Osoblje
 
                 // ovo je u bytovima  
                 noviSastojak.Slika = ms.ToArray();
-
                 int resizedImageWidth = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImageWidth"]);
                 int resizedImageHeight = Convert.ToInt32(ConfigurationManager.AppSettings["resizedImageHeight"]);
                 int cropedImageWidth = Convert.ToInt32(ConfigurationManager.AppSettings["cropedImageWidth"]);
@@ -120,12 +134,23 @@ namespace ESBX_Client.Osoblje
 
                         croppedImage = Util.UIHelper.CropImage(resizedImage, new Rectangle(croppedXPosition, croppedYPosition, cropedImageWidth, cropedImageHeight));
 
-                        ms = new MemoryStream();
-                        croppedImage.Save(ms, ImageFormat.Jpeg);
-                        noviSastojak.Slika = ms.ToArray();
+                        if (croppedImage != null)
+                        {
+                            ms = new MemoryStream();
+                            croppedImage.Save(ms, ImageFormat.Jpeg);
+                            noviSastojak.Slika = ms.ToArray();
 
-                        imgBox.Image = croppedImage;
+                            imgBox.Image = croppedImage;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Slika nije validnog formata, podrzani format je .jpg!", "Upozorenje!");
+                        }
                     }
+                }
+                else
+                {
+                    imgBox.Image = orginalImage;
                 }
 
             }

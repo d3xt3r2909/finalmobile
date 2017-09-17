@@ -108,6 +108,7 @@
     <Compile Include="ViewModel\OmiljeniSastojci.cs" />
     <Compile Include="ViewModel\PregledDanaRepVm.cs" />
     <Compile Include="ViewModel\PregledStatistikeVM.cs" />
+    <Compile Include="ViewModel\PromjenaPovjerljivostiVm.cs" />
     <Compile Include="ViewModel\SastojciForGridVM.cs" />
     <Compile Include="ViewModel\SastojciMobileVM.cs" />
     <Compile Include="ViewModel\SastojciPostWithImage.cs" />

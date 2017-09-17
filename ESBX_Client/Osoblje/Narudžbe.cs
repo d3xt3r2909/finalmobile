@@ -60,6 +60,17 @@ namespace ESBX_Client.Osoblje
         {
             CmbKorpaVm item = (CmbKorpaVm)cmbNarudzbeStatus.SelectedItem;
 
+            if (item.Value)
+            {
+                dgNarudzbe.Columns["Zavrsena"].Visible = true;
+                dgNarudzbe.Columns["Nedolazak"].Visible = true;
+            }
+            else
+            {
+                dgNarudzbe.Columns["Zavrsena"].Visible = false;
+                dgNarudzbe.Columns["Nedolazak"].Visible = false;
+            }
+
             RefreshState(item.Value);
         }
 

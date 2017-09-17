@@ -18,23 +18,23 @@ namespace ESBX_API.Controllers
         MContext ctx = new MContext();
 
         [HttpPut]
-        [Route(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST + "{id}/{status}")]
-        public IHttpActionResult PutPromjenaPovjerljivosti(int id, bool status)
+        [Route(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST)]
+        public IHttpActionResult PutPromjenaPovjerljivosti(PromjenaPovjerljivostiVm povjerljivost)
         {
-            Korisnici k = ctx.Korisnici.FirstOrDefault(x => x.Id == id);
+            Korisnici k = ctx.Korisnici.FirstOrDefault(x => x.Id == povjerljivost.KorisnikId);
 
             if (k == null)
                 return StatusCode(HttpStatusCode.NotFound); 
 
             // Promijena povjerljivosti korisnika
-            k.Povjerljiv = status;
+            k.Povjerljiv = povjerljivost.Status;
             ctx.SaveChanges();
 
             // Pronalazak korpe korisnika kako bi se azurirao racun
             // Samo u slucaju da se povjerljivost mijenja iz FALSE u TRUE
-            if (status)
+            if (povjerljivost.Status)
             {
-                Korpa korpa = ctx.Korpa.FirstOrDefault(x => x.KorisnikId == id && x.Racun == null);
+                Korpa korpa = ctx.Korpa.FirstOrDefault(x => x.KorisnikId == povjerljivost.KorisnikId && x.Racun == null);
 
                 if (korpa == null)
                     return StatusCode(HttpStatusCode.NotFound);
@@ -43,7 +43,7 @@ namespace ESBX_API.Controllers
                 ctx.Racun.Add(racun);
                 racun.Datum = DateTime.Now;
                 racun.KorpaId = korpa.Id;
-                racun.UkupnaCijena = UkupanDug(id);
+                racun.UkupnaCijena = UkupanDug(povjerljivost.KorisnikId);
                 korpa.Racun = racun;
 
                 ctx.SaveChanges();
@@ -51,7 +51,6 @@ namespace ESBX_API.Controllers
 
             return StatusCode(HttpStatusCode.OK);
         }
-
 
         [HttpGet]
         [Route("api/PromjenaPovjerljivosti/SearchNepovjerljivi/{parametar?}")]
@@ -102,9 +101,8 @@ namespace ESBX_API.Controllers
             return nepovjerljivi;
 
         }
+
         //PROMJENI POVJERLJIVOST ODREDENOG KORISNIKA
-
-
         public float UkupanDug(int KorisnikId)
         {
             //ukupno za racun
@@ -129,8 +127,5 @@ namespace ESBX_API.Controllers
 
             return UkupnaCijena;
         }
-
-       
-       
     }
 }

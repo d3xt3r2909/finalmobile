@@ -43,23 +43,17 @@ namespace ESBX_Client.Menadzer
             {
                 List<Korisnici_OsobljeResult> korisnici = response.Content.ReadAsAsync<List<Korisnici_OsobljeResult>>().Result;
                 KorisniciGrid.DataSource = korisnici;
-             
-
-
             }
             else
             {
                 MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase);
-
             }
          
         }
 
         private void KorisniciGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-                
-                    int id = Convert.ToInt32(KorisniciGrid.Rows[e.RowIndex].Cells[0].Value);
+                int id = Convert.ToInt32(KorisniciGrid.Rows[e.RowIndex].Cells[0].Value);
                 HttpResponseMessage response = KorisniciService.GetResponse(id);
                 Korisnici k = response.Content.ReadAsAsync<Korisnici>().Result;
 
@@ -68,20 +62,16 @@ namespace ESBX_Client.Menadzer
                 if (responseTwo.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Uspješno ste izmjenili aktivnost korisnika.");
-
                 }
                 else
                 {
                     MessageBox.Show("Promjena aktivnosti korisnika nije uspjela.");
                 }
-
-              
-
         }
 
         private void OsobljePrikazForm_Load(object sender, EventArgs e)
         {
-
+            BindGrid();
         }
     }
 }

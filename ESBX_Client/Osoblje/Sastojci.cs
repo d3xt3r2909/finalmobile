@@ -28,18 +28,8 @@ namespace ESBX_Client.Osoblje
         public void RefreshState(string pretraga = "")
         {
             HttpResponseMessage response = _sastojci.GetCustomRouteResponse(WebApiRoutes.GET_SASTOJCI, pretraga);
-            List<Sastojci> tmpList = response.Content.ReadAsAsync<List<Sastojci>>().Result;
-            List<SastojciPregledVm> sourceList = tmpList.Select(item => new SastojciPregledVm
-            {
-                Id = item.Id,
-                Naziv = item.Naziv,
-                Cijena = item.Cijena,
-                BrojKalorija = item.BrojKalorija,
-                Gramaza = item.Gramaza,
-                VrstaSastojka = item.VrstaSastojka.Naziv
-            }).ToList();
+            List<SastojciPregledVm> sourceList = response.Content.ReadAsAsync<List<SastojciPregledVm>>().Result;
             dgSastojci.DataSource = sourceList;
-
         }
 
         private void Sastojci_Load(object sender, EventArgs e)

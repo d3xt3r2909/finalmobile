@@ -62,16 +62,11 @@ namespace ESBX_Client.Menadzer
             {
                 MessageBox.Show("Nije moguće izvršiti evidenciju nabavke jer niste evidentirali nabavljene sastojke.");
             }
-              
-           
-
-
         }
 
         private void EvidencijaNabavke_Load(object sender, EventArgs e)
         {
-           
-           DatumTxt.Text=DateTime.Now.ToString();
+            DatumTxt.Text=DateTime.Now.ToString();
             BindSastojci();
             BindDobavljaci();
         }
@@ -97,9 +92,9 @@ namespace ESBX_Client.Menadzer
 
             if (response.IsSuccessStatusCode)
             {
-                List<Sastojci> lst  = response.Content.ReadAsAsync<List<Sastojci>>().Result;
+                List<SastojciPregledVm> lst  = response.Content.ReadAsAsync<List<SastojciPregledVm>>().Result;
                 //Insert jer add dodaje na kraj
-                lst.Insert(0, new Sastojci() { Naziv="Odaberite sastojak"});
+                lst.Insert(0, new SastojciPregledVm() { Naziv="Odaberite sastojak"});
                 SastojakCmb.DataSource = lst;
                 SastojakCmb.DisplayMember = "Naziv";
                 SastojakCmb.ValueMember = "Id";
@@ -148,8 +143,12 @@ namespace ESBX_Client.Menadzer
                 {
 
                     StavkaUlaza s = new StavkaUlaza();
-                    s.Sastojak = responses.Content.ReadAsAsync<Sastojci>().Result;
-                    s.SastojakId = Convert.ToInt32(SastojakCmb.SelectedValue);
+                    SastojciPregledVm sastojak = responses.Content.ReadAsAsync<SastojciPregledVm>().Result;
+                    s.SastojakId = sastojak.Id;
+                    s.Sastojak = new Sastojci
+                    {
+                        Naziv = sastojak.Naziv
+                    };
                     s.Kolicina = Convert.ToInt32(KolicinaTxt.Text);
                     s.Cijena = (float)Convert.ToDouble(CijenaTxt.Text);
                     stavkeUlaza.Add(s);

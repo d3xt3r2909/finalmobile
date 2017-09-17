@@ -43,8 +43,7 @@ namespace ESBX_Client.Menadzer
 
             HttpResponseMessage response =
                 KorisniciService.PutCustomRouteResponse(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST,
-                                                        new { }, 
-                                                        KorisniciGrid.Rows[e.RowIndex].Cells[0].Value + "/true");
+                                            new PromjenaPovjerljivostiVm { KorisnikId = Convert.ToInt32(KorisniciGrid.Rows[e.RowIndex].Cells[0].Value.ToString()), Status = true });
 
             if (response.IsSuccessStatusCode)
                 BindGrid();
@@ -55,7 +54,7 @@ namespace ESBX_Client.Menadzer
 
         private void PromjenaPovjerljivosti_Load(object sender, EventArgs e)
         {
-
+            BindGrid();
         }
     }
 }

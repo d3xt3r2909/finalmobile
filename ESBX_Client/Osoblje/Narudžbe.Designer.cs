@@ -41,7 +41,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnNarudzbePregled = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgNarudzbe)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgNarudzbe
@@ -57,9 +59,9 @@
             this.VrijemeDolaska,
             this.Zavrsena,
             this.Nedolazak});
-            this.dgNarudzbe.Location = new System.Drawing.Point(126, 107);
+            this.dgNarudzbe.Location = new System.Drawing.Point(40, 140);
             this.dgNarudzbe.Name = "dgNarudzbe";
-            this.dgNarudzbe.Size = new System.Drawing.Size(927, 496);
+            this.dgNarudzbe.Size = new System.Drawing.Size(1113, 330);
             this.dgNarudzbe.TabIndex = 0;
             this.dgNarudzbe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgNarudzbe_CellContentClick);
             // 
@@ -120,7 +122,7 @@
             // 
             this.cmbNarudzbeStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNarudzbeStatus.FormattingEnabled = true;
-            this.cmbNarudzbeStatus.Location = new System.Drawing.Point(230, 69);
+            this.cmbNarudzbeStatus.Location = new System.Drawing.Point(40, 85);
             this.cmbNarudzbeStatus.Name = "cmbNarudzbeStatus";
             this.cmbNarudzbeStatus.Size = new System.Drawing.Size(273, 21);
             this.cmbNarudzbeStatus.TabIndex = 1;
@@ -128,15 +130,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(136, 72);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(37, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Status narudžbe";
             // 
             // btnNarudzbePregled
             // 
-            this.btnNarudzbePregled.Location = new System.Drawing.Point(523, 67);
+            this.btnNarudzbePregled.Location = new System.Drawing.Point(341, 83);
             this.btnNarudzbePregled.Name = "btnNarudzbePregled";
             this.btnNarudzbePregled.Size = new System.Drawing.Size(75, 23);
             this.btnNarudzbePregled.TabIndex = 3;
@@ -144,21 +147,32 @@
             this.btnNarudzbePregled.UseVisualStyleBackColor = true;
             this.btnNarudzbePregled.Click += new System.EventHandler(this.Filtriraj);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnNarudzbePregled);
+            this.groupBox1.Controls.Add(this.dgNarudzbe);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cmbNarudzbeStatus);
+            this.groupBox1.Location = new System.Drawing.Point(38, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1191, 500);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Prikaz narudžbi";
+            // 
             // frmNarudzbe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 599);
-            this.Controls.Add(this.btnNarudzbePregled);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbNarudzbeStatus);
-            this.Controls.Add(this.dgNarudzbe);
+            this.ClientSize = new System.Drawing.Size(1291, 665);
+            this.Controls.Add(this.groupBox1);
             this.Name = "frmNarudzbe";
             this.Text = "Pregled narudžbi";
             this.Load += new System.EventHandler(this.frmNarudzbe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgNarudzbe)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -177,5 +191,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Nedolazak;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnNarudzbePregled;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -13,11 +13,36 @@ namespace ESBX_db.Helper
 {
     public class SastojciHelper
     {
-        public static List<Sastojci> GetSastojci(string naziv = "")
+        public static List<SastojciPregledVm> GetSastojci(string naziv = "")
         {
             MContext ctx = new MContext();
 
-            return naziv == "" ? ctx.Sastojci.Where(x => x.IsDeleted == false).ToList() : ctx.Sastojci.Where(x => x.IsDeleted == false && x.Naziv.StartsWith(naziv)).ToList();
+            List<SastojciPregledVm> sastojci = new List<SastojciPregledVm>();
+
+            if (naziv == "")
+                sastojci = ctx.Sastojci.Where(x => x.IsDeleted == false).Select(y => new SastojciPregledVm
+                {
+                    BrojKalorija = y.BrojKalorija,
+                    Cijena = y.Cijena,
+                    Gramaza = y.Gramaza,
+                    Id = y.Id,
+                    Naziv = y.Naziv,
+                    VrstaSastojka = y.VrstaSastojka.Naziv,
+                    Stanje = y.Stanje
+                }).ToList(); 
+            else
+                sastojci = ctx.Sastojci.Where(x => x.IsDeleted == false && x.Naziv.StartsWith(naziv)).Select(y => new SastojciPregledVm
+                {
+                    BrojKalorija = y.BrojKalorija,
+                    Cijena = y.Cijena,
+                    Gramaza = y.Gramaza,
+                    Id = y.Id,
+                    Naziv = y.Naziv,
+                    VrstaSastojka = y.VrstaSastojka.Naziv,
+                    Stanje = y.Stanje
+                }).ToList();
+
+            return sastojci;
         }
 
         public static List<Sastojci> GetOmiljeni(string vrstaSastojka = "")

@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.PretragaImePtxt = new System.Windows.Forms.TextBox();
-            this.TraziBtn = new System.Windows.Forms.Button();
             this.DodajUposlenikBtn = new System.Windows.Forms.Button();
             this.KorisniciGrid = new System.Windows.Forms.DataGridView();
             this.UposlenikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,14 +39,17 @@
             this.Telefon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumZaposlenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aktivan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TraziBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.KorisniciGrid)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(83, 92);
+            this.label1.Location = new System.Drawing.Point(37, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 1;
@@ -55,24 +57,14 @@
             // 
             // PretragaImePtxt
             // 
-            this.PretragaImePtxt.Location = new System.Drawing.Point(170, 87);
+            this.PretragaImePtxt.Location = new System.Drawing.Point(40, 80);
             this.PretragaImePtxt.Name = "PretragaImePtxt";
-            this.PretragaImePtxt.Size = new System.Drawing.Size(141, 20);
+            this.PretragaImePtxt.Size = new System.Drawing.Size(213, 20);
             this.PretragaImePtxt.TabIndex = 2;
-            // 
-            // TraziBtn
-            // 
-            this.TraziBtn.Location = new System.Drawing.Point(318, 87);
-            this.TraziBtn.Name = "TraziBtn";
-            this.TraziBtn.Size = new System.Drawing.Size(75, 23);
-            this.TraziBtn.TabIndex = 3;
-            this.TraziBtn.Text = "Traži";
-            this.TraziBtn.UseVisualStyleBackColor = true;
-            this.TraziBtn.Click += new System.EventHandler(this.TraziBtn_Click);
             // 
             // DodajUposlenikBtn
             // 
-            this.DodajUposlenikBtn.Location = new System.Drawing.Point(772, 87);
+            this.DodajUposlenikBtn.Location = new System.Drawing.Point(1053, 80);
             this.DodajUposlenikBtn.Name = "DodajUposlenikBtn";
             this.DodajUposlenikBtn.Size = new System.Drawing.Size(100, 23);
             this.DodajUposlenikBtn.TabIndex = 4;
@@ -101,11 +93,11 @@
             this.Telefon,
             this.DatumZaposlenja,
             this.Aktivan});
-            this.KorisniciGrid.Location = new System.Drawing.Point(83, 135);
+            this.KorisniciGrid.Location = new System.Drawing.Point(40, 140);
             this.KorisniciGrid.MultiSelect = false;
             this.KorisniciGrid.Name = "KorisniciGrid";
             this.KorisniciGrid.RowHeadersWidth = 51;
-            this.KorisniciGrid.Size = new System.Drawing.Size(789, 330);
+            this.KorisniciGrid.Size = new System.Drawing.Size(1113, 330);
             this.KorisniciGrid.TabIndex = 5;
             this.KorisniciGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KorisniciGrid_CellContentClick);
             // 
@@ -148,30 +140,50 @@
             this.Aktivan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Aktivan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.TraziBtn);
+            this.groupBox1.Controls.Add(this.DodajUposlenikBtn);
+            this.groupBox1.Controls.Add(this.KorisniciGrid);
+            this.groupBox1.Controls.Add(this.PretragaImePtxt);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(38, 54);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1191, 500);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Pregled zaposlenika";
+            // 
+            // TraziBtn
+            // 
+            this.TraziBtn.Location = new System.Drawing.Point(284, 77);
+            this.TraziBtn.Name = "TraziBtn";
+            this.TraziBtn.Size = new System.Drawing.Size(75, 23);
+            this.TraziBtn.TabIndex = 6;
+            this.TraziBtn.Text = "Traži";
+            this.TraziBtn.UseVisualStyleBackColor = true;
+            this.TraziBtn.Click += new System.EventHandler(this.TraziBtn_Click);
+            // 
             // OsobljePrikazForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(921, 524);
-            this.Controls.Add(this.KorisniciGrid);
-            this.Controls.Add(this.DodajUposlenikBtn);
-            this.Controls.Add(this.TraziBtn);
-            this.Controls.Add(this.PretragaImePtxt);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1291, 665);
+            this.Controls.Add(this.groupBox1);
             this.Name = "OsobljePrikazForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pregled osoblja";
             this.Load += new System.EventHandler(this.OsobljePrikazForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.KorisniciGrid)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox PretragaImePtxt;
-        private System.Windows.Forms.Button TraziBtn;
         private System.Windows.Forms.Button DodajUposlenikBtn;
         private System.Windows.Forms.DataGridView KorisniciGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn UposlenikId;
@@ -180,6 +192,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefon;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumZaposlenja;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Aktivan;
-
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button TraziBtn;
     }
 }

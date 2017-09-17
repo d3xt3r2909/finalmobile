@@ -113,7 +113,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(556, 159);
+            this.label3.Location = new System.Drawing.Point(556, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(225, 16);
             this.label3.TabIndex = 44;
@@ -128,7 +128,7 @@
             this.ZaradaChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.ZaradaChart.Legends.Add(legend1);
-            this.ZaradaChart.Location = new System.Drawing.Point(559, 198);
+            this.ZaradaChart.Location = new System.Drawing.Point(559, 150);
             this.ZaradaChart.Name = "ZaradaChart";
             this.ZaradaChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
@@ -137,14 +137,14 @@
             series1.XValueMember = "RedniBroj";
             series1.YValueMembers = "Zarada";
             this.ZaradaChart.Series.Add(series1);
-            this.ZaradaChart.Size = new System.Drawing.Size(684, 295);
+            this.ZaradaChart.Size = new System.Drawing.Size(684, 343);
             this.ZaradaChart.TabIndex = 45;
             // 
             // PregledStatistike
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 550);
+            this.ClientSize = new System.Drawing.Size(1291, 550);
             this.Controls.Add(this.ZaradaChart);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ZaradaGrid);
@@ -153,7 +153,7 @@
             this.Controls.Add(this.label1);
             this.Name = "PregledStatistike";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
-            this.Text = "Pregled statistike";
+            this.Text = "r";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PregledStatistike_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ZaradaGrid)).EndInit();

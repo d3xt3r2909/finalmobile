@@ -11,9 +11,17 @@ namespace ESBX_Client.Util
     {
         public static Image CropImage(Image img, Rectangle cropArea)
         {
-            Bitmap bmpImage = new Bitmap(img);
-            Bitmap bmpCrop = bmpImage.Clone(cropArea, bmpImage.PixelFormat);
-            return (Image)bmpCrop;
+            try
+            {
+                Bitmap bmpImage = new Bitmap(img);
+                Bitmap bmpCrop = bmpImage.Clone(cropArea, bmpImage.PixelFormat);
+                return (Image)bmpCrop;
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public static Image ResizeImage(Image imgToResize, Size size)

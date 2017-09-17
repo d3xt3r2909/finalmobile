@@ -48,9 +48,10 @@ namespace ESBX_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route(WebApiRoutes.GET_SASTOJCI + "{naziv?}")]
-        public List<Sastojci> GetSastojci(string naziv = "")
+        public HttpResponseMessage GetSastojci(string naziv = "")
         {
-            return SastojciHelper.GetSastojci(naziv);
+            List<SastojciPregledVm> response = SastojciHelper.GetSastojci(naziv);
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
         [HttpGet]
@@ -82,7 +83,15 @@ namespace ESBX_API.Controllers
         public IHttpActionResult GetSastojak(string id)
         {
             int ID = Convert.ToInt32(id);
-            Sastojci s = _ctx.Sastojci.FirstOrDefault(x => x.Id==ID);
+            SastojciPregledVm s = _ctx.Sastojci.Select(item => new SastojciPregledVm {
+                BrojKalorija = item.BrojKalorija,
+                Cijena = item.Cijena,
+                Gramaza = item.Gramaza,
+                Id = item.Id,
+                Naziv = item.Naziv,
+                Stanje = item.Stanje,
+                VrstaSastojka = item.VrstaSastojka.Naziv
+            }).FirstOrDefault(x => x.Id==ID);
 
             if (s == null)
                 return NotFound();

@@ -29,23 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IstekZaliha));
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgIstekZaliha = new System.Windows.Forms.DataGridView();
             this.SastojakId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stanje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VrstaSastojka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgIstekZaliha)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // groupBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Prikazani sastojci imaju stanje manje od 1000: ";
+            this.groupBox1.Controls.Add(this.dgIstekZaliha);
+            this.groupBox1.Location = new System.Drawing.Point(23, 67);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(717, 438);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Prikazani sastojci imaju stanje manje od 1000";
             // 
             // dgIstekZaliha
             // 
@@ -56,11 +58,10 @@
             this.Naziv,
             this.Stanje,
             this.VrstaSastojka});
-            this.dgIstekZaliha.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgIstekZaliha.Location = new System.Drawing.Point(0, 78);
+            this.dgIstekZaliha.Location = new System.Drawing.Point(9, 47);
             this.dgIstekZaliha.Name = "dgIstekZaliha";
-            this.dgIstekZaliha.Size = new System.Drawing.Size(807, 345);
-            this.dgIstekZaliha.TabIndex = 1;
+            this.dgIstekZaliha.Size = new System.Drawing.Size(702, 345);
+            this.dgIstekZaliha.TabIndex = 2;
             // 
             // SastojakId
             // 
@@ -92,9 +93,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(807, 423);
-            this.Controls.Add(this.dgIstekZaliha);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(771, 550);
+            this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -104,15 +104,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Istek zaliha";
             this.Load += new System.EventHandler(this.IstekZaliha_Load);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgIstekZaliha)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgIstekZaliha;
         private System.Windows.Forms.DataGridViewTextBoxColumn SastojakId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;

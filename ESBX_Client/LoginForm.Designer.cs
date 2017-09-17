@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.imgLoginLogo = new System.Windows.Forms.PictureBox();
             this.lblLoginEmail = new System.Windows.Forms.Label();
@@ -71,6 +72,7 @@
             // imgLoginLogo
             // 
             this.imgLoginLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.imgLoginLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLoginLogo.Image")));
             this.imgLoginLogo.Location = new System.Drawing.Point(252, 25);
             this.imgLoginLogo.Name = "imgLoginLogo";
             this.imgLoginLogo.Size = new System.Drawing.Size(238, 182);

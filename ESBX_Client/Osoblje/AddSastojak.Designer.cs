@@ -58,7 +58,7 @@
             // 
             this.cmbAddSasVrsta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAddSasVrsta.FormattingEnabled = true;
-            this.cmbAddSasVrsta.Location = new System.Drawing.Point(146, 111);
+            this.cmbAddSasVrsta.Location = new System.Drawing.Point(43, 75);
             this.cmbAddSasVrsta.Name = "cmbAddSasVrsta";
             this.cmbAddSasVrsta.Size = new System.Drawing.Size(376, 21);
             this.cmbAddSasVrsta.TabIndex = 0;
@@ -66,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 85);
+            this.label1.Location = new System.Drawing.Point(40, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 1;
@@ -74,7 +74,7 @@
             // 
             // txtAddSasNaziv
             // 
-            this.txtAddSasNaziv.Location = new System.Drawing.Point(311, 147);
+            this.txtAddSasNaziv.Location = new System.Drawing.Point(208, 111);
             this.txtAddSasNaziv.Name = "txtAddSasNaziv";
             this.txtAddSasNaziv.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasNaziv.TabIndex = 2;
@@ -83,7 +83,7 @@
             // lblNaziv
             // 
             this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(143, 150);
+            this.lblNaziv.Location = new System.Drawing.Point(40, 114);
             this.lblNaziv.Name = "lblNaziv";
             this.lblNaziv.Size = new System.Drawing.Size(76, 13);
             this.lblNaziv.TabIndex = 3;
@@ -91,7 +91,7 @@
             // 
             // txtAddSasCijena
             // 
-            this.txtAddSasCijena.Location = new System.Drawing.Point(311, 185);
+            this.txtAddSasCijena.Location = new System.Drawing.Point(208, 149);
             this.txtAddSasCijena.Name = "txtAddSasCijena";
             this.txtAddSasCijena.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasCijena.TabIndex = 4;
@@ -100,7 +100,7 @@
             // lblCijena
             // 
             this.lblCijena.AutoSize = true;
-            this.lblCijena.Location = new System.Drawing.Point(143, 188);
+            this.lblCijena.Location = new System.Drawing.Point(40, 152);
             this.lblCijena.Name = "lblCijena";
             this.lblCijena.Size = new System.Drawing.Size(78, 13);
             this.lblCijena.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             // txtAddSasKalorije
             // 
-            this.txtAddSasKalorije.Location = new System.Drawing.Point(311, 227);
+            this.txtAddSasKalorije.Location = new System.Drawing.Point(208, 191);
             this.txtAddSasKalorije.Name = "txtAddSasKalorije";
             this.txtAddSasKalorije.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasKalorije.TabIndex = 6;
@@ -117,7 +117,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(143, 230);
+            this.label2.Location = new System.Drawing.Point(40, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 7;
@@ -125,7 +125,7 @@
             // 
             // txtAddSasGramaza
             // 
-            this.txtAddSasGramaza.Location = new System.Drawing.Point(311, 270);
+            this.txtAddSasGramaza.Location = new System.Drawing.Point(208, 234);
             this.txtAddSasGramaza.Name = "txtAddSasGramaza";
             this.txtAddSasGramaza.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasGramaza.TabIndex = 8;
@@ -134,7 +134,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(143, 273);
+            this.label3.Location = new System.Drawing.Point(40, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 9;
@@ -143,7 +143,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(143, 319);
+            this.label4.Location = new System.Drawing.Point(40, 283);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 11;
@@ -151,7 +151,7 @@
             // 
             // txtAddSasNapomena
             // 
-            this.txtAddSasNapomena.Location = new System.Drawing.Point(311, 316);
+            this.txtAddSasNapomena.Location = new System.Drawing.Point(208, 280);
             this.txtAddSasNapomena.Multiline = true;
             this.txtAddSasNapomena.Name = "txtAddSasNapomena";
             this.txtAddSasNapomena.Size = new System.Drawing.Size(211, 95);
@@ -159,9 +159,9 @@
             // 
             // btnAddSasSacuvaj
             // 
-            this.btnAddSasSacuvaj.Location = new System.Drawing.Point(686, 376);
+            this.btnAddSasSacuvaj.Location = new System.Drawing.Point(521, 394);
             this.btnAddSasSacuvaj.Name = "btnAddSasSacuvaj";
-            this.btnAddSasSacuvaj.Size = new System.Drawing.Size(75, 23);
+            this.btnAddSasSacuvaj.Size = new System.Drawing.Size(155, 23);
             this.btnAddSasSacuvaj.TabIndex = 12;
             this.btnAddSasSacuvaj.Text = "Sačuvaj";
             this.btnAddSasSacuvaj.UseVisualStyleBackColor = true;
@@ -169,20 +169,32 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnName);
+            this.groupBox1.Controls.Add(this.txtAddSasNapomena);
             this.groupBox1.Controls.Add(this.txtInputImage);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.imgBox);
+            this.groupBox1.Controls.Add(this.txtAddSasGramaza);
             this.groupBox1.Controls.Add(this.btnAddSasSacuvaj);
-            this.groupBox1.Location = new System.Drawing.Point(62, 54);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cmbAddSasVrsta);
+            this.groupBox1.Controls.Add(this.txtAddSasKalorije);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblCijena);
+            this.groupBox1.Controls.Add(this.txtAddSasNaziv);
+            this.groupBox1.Controls.Add(this.txtAddSasCijena);
+            this.groupBox1.Controls.Add(this.lblNaziv);
+            this.groupBox1.Location = new System.Drawing.Point(23, 56);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(791, 418);
+            this.groupBox1.Size = new System.Drawing.Size(717, 438);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unos novog sastojka";
             // 
             // btnName
             // 
-            this.btnName.Location = new System.Drawing.Point(606, 237);
+            this.btnName.Location = new System.Drawing.Point(521, 255);
             this.btnName.Name = "btnName";
             this.btnName.Size = new System.Drawing.Size(155, 23);
             this.btnName.TabIndex = 15;
@@ -192,7 +204,7 @@
             // 
             // txtInputImage
             // 
-            this.txtInputImage.Location = new System.Drawing.Point(606, 211);
+            this.txtInputImage.Location = new System.Drawing.Point(521, 229);
             this.txtInputImage.Name = "txtInputImage";
             this.txtInputImage.ReadOnly = true;
             this.txtInputImage.Size = new System.Drawing.Size(155, 20);
@@ -200,9 +212,11 @@
             // 
             // imgBox
             // 
-            this.imgBox.Location = new System.Drawing.Point(606, 57);
+            this.imgBox.BackColor = System.Drawing.SystemColors.Info;
+            this.imgBox.Location = new System.Drawing.Point(521, 75);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(155, 132);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.imgBox.TabIndex = 13;
             this.imgBox.TabStop = false;
             // 
@@ -219,19 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 495);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtAddSasNapomena);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtAddSasGramaza);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtAddSasKalorije);
-            this.Controls.Add(this.lblCijena);
-            this.Controls.Add(this.txtAddSasCijena);
-            this.Controls.Add(this.lblNaziv);
-            this.Controls.Add(this.txtAddSasNaziv);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbAddSasVrsta);
+            this.ClientSize = new System.Drawing.Size(771, 550);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -246,7 +248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

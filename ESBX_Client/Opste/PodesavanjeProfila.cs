@@ -66,8 +66,6 @@ namespace ESBX_Client.Opste
         {
             BindGradovi();
             FillForm();
-          
-
         }
 
         private void BindGradovi()

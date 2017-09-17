@@ -14,5 +14,6 @@ namespace ESBX_db.ViewModel
         public float Cijena { get; set; }
         public float BrojKalorija { get; set; }
         public string VrstaSastojka { get; set; }
+        public float Stanje { get; set; }
     }
 }
