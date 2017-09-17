@@ -45,17 +45,19 @@ namespace ESBX
                 Switch mainSwitch = new Switch();
                 mainSwitch.SetBinding(Switch.IsToggledProperty, new Binding("IsSelected"));
                 RelativeLayout layout = new RelativeLayout();
+
+                layout.HeightRequest = 100;
                 layout.Children.Add(name,
                     Constraint.Constant(5),
                     Constraint.Constant(5),
                     Constraint.RelativeToParent(p => p.Width - 60),
-                    Constraint.RelativeToParent(p => p.Height - 10)
+                    Constraint.RelativeToParent(p => p.Height)
                 );
                 layout.Children.Add(mainSwitch,
                     Constraint.RelativeToParent(p => p.Width - 55),
                     Constraint.Constant(5),
                     Constraint.Constant(50),
-                    Constraint.RelativeToParent(p => p.Height - 10)
+                    Constraint.RelativeToParent(p => p.Height - 1)
                 );
                 View = layout;
             }

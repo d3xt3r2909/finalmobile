@@ -183,7 +183,7 @@ namespace ESBX
             Nap=Napomena.Text;
         }
 
-            private void btnSporedni_Clicked()
+        private void btnSporedni_Clicked(object sender, EventArgs e)
         {
             List<Sastojci> sporedni = new List<Sastojci>();
              HttpResponseMessage repsone = kreiranjeService.GetResponse(Constants.SastojakSporedni);

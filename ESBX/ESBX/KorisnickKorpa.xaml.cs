@@ -15,6 +15,7 @@ using System.Globalization;
 using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Services;
 using System.Collections.ObjectModel;
+using ESBX.Navigation;
 
 namespace ESBX
 {
@@ -88,8 +89,6 @@ namespace ESBX
             }
             var page = new NaruciKorpaDialog();
 
-            // await Navigation.PushPopupAsync(page);
-            //// or
             await PopupNavigation.PushAsync(page);
         }
 
