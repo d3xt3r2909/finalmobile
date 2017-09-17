@@ -105,14 +105,17 @@ namespace ESBX_API.Controllers
         public HttpResponseMessage ZavrsiNarudzbu(IzdajRacunVm post)
         {
             HttpStatusCode response = KorpaHelper.IzdajRacun(post.KorpaId, post.KuponKod);
-
+            List<string> errors = new List<string>();
             if (response == HttpStatusCode.Gone)
-                return Request.CreateResponse(HttpStatusCode.Gone, "Nagradni kod je istekao!");
+                errors.Add("Nagradni kod je istekao!");
             if (response == HttpStatusCode.Conflict)
-                return Request.CreateResponse(HttpStatusCode.Conflict, "Ne postoji nagradni kod ili je iskoristen!");
+                errors.Add("Ne postoji nagradni kod ili je iskoristen!");
             if (response == HttpStatusCode.NotFound)
-                return Request.CreateResponse(HttpStatusCode.NotFound, "Narudzba nije pronadjena");
-
+                errors.Add("Narudzba nije pronadjena");
+            if (errors.Count > 0)
+            {
+               return Request.CreateResponse(HttpStatusCode.NotFound, "Narudzba nije pronadjena");
+            }
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 

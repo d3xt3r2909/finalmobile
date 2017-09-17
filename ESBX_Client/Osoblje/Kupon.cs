@@ -28,6 +28,8 @@ namespace ESBX_Client.Osoblje
             narudzbe = response.Content.ReadAsAsync<List<KorpaForDgRow>>().Result;
 
             InitializeComponent();
+            
+            dgIzdajRacun.AutoGenerateColumns = false;
         }
 
         private void Kupon_Load(object sender, EventArgs e)
