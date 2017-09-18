@@ -30,7 +30,7 @@ namespace ESBX_Client.Osoblje
         {
             noviSastojak = new SastojciPostWithImage();
             InitializeComponent();
-            this.AutoValidate = AutoValidate.Disable;
+            // this.AutoValidate = AutoValidate.Disable;
         }
 
         private void AddSastojak_Load(object sender, EventArgs e)
@@ -52,8 +52,6 @@ namespace ESBX_Client.Osoblje
 
         private void btnAddSasSacuvaj_Click(object sender, EventArgs e)
         {
-            if (this.ValidateChildren())
-            {
 
                 if (!txtAddSasKalorije.Text.All(char.IsDigit) &&
                 !txtAddSasKalorije.Text.All(char.IsDigit) &&
@@ -71,9 +69,6 @@ namespace ESBX_Client.Osoblje
                     noviSastojak.Napomena = txtAddSasNapomena.Text;
                     noviSastojak.VrstaSastojkaId = Convert.ToInt32(cmbAddSasVrsta.SelectedValue);
 
-
-
-
                     HttpResponseMessage response = _sastojci.PostResponse(noviSastojak);
 
                     if (response.IsSuccessStatusCode)
@@ -85,7 +80,6 @@ namespace ESBX_Client.Osoblje
                     {
                         MessageBox.Show("Error: " + response.StatusCode);
                     }
-                }
             }
         }
 
@@ -156,41 +150,6 @@ namespace ESBX_Client.Osoblje
             }
         }
 
-        private void txtCijenaSastojak_Validate(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtAddSasCijena.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtAddSasCijena, Messages.cijena_req);
-            }
-        }
-
-        private void txtKalorije_Validate(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtAddSasKalorije.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtAddSasKalorije, Messages.kalorije_req);
-            }
-        }
-
-        private void txtGramaza_Validate(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtAddSasGramaza.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtAddSasGramaza, Messages.gramaza_req);
-            }
-        }
-
-        private void cmbAddSasVrsta_Validating(object sender, CancelEventArgs e)
-        {
-            if (cmbAddSasVrsta.SelectedIndex == 0)
-            {
-
-                e.Cancel = true;
-                errorProvider.SetError(txtAddSasGramaza, Messages.gramaza_req);
-            }
-        }
+      
     }
 }

@@ -51,15 +51,15 @@ namespace ESBX_db.Migrations
                 new Models.Uloge { Id = 3, Naziv = "Korisnik", Opis = "Opis uloge" }
                 );
 
-            context.Korisnici.AddOrUpdate(
-                new Models.Korisnici { Id = 1, Ime="John", Prezime = "Doe", Adresa = "Nepoznata", Aktivan = true, BrojTelefona="666-666", DatumRodjenja=DateTime.Now, DatumKreiranja = DateTime.Now, Email="menadzer@gmail.com", GradId = 1, Povjerljiv=true, LozinkaHash="testtest", LozinkaSalt="testtest"},
-                new Models.Korisnici { Id = 2, Ime = "Bread", Prezime = "Doe", Adresa = "Nepoznata", Aktivan = true, BrojTelefona = "666-666", DatumRodjenja = DateTime.Now, DatumKreiranja = DateTime.Now, Email = "osoblje@gmail.com", GradId = 2, Povjerljiv = true, LozinkaHash = "testtest", LozinkaSalt = "testtest" }
-                );
+            //context.Korisnici.AddOrUpdate(
+            //    new Models.Korisnici { Id = 1, Ime = "John", Prezime = "Doe", Adresa = "Nepoznata", Aktivan = true, BrojTelefona = "666-666", DatumRodjenja = DateTime.Now, DatumKreiranja = DateTime.Now, Email = "menadzer@gmail.com", GradId = 1, Povjerljiv = true, LozinkaHash = "testtest", LozinkaSalt = "testtest" },
+            //    new Models.Korisnici { Id = 2, Ime = "Bread", Prezime = "Doe", Adresa = "Nepoznata", Aktivan = true, BrojTelefona = "666-666", DatumRodjenja = DateTime.Now, DatumKreiranja = DateTime.Now, Email = "osoblje@gmail.com", GradId = 2, Povjerljiv = true, LozinkaHash = "testtest", LozinkaSalt = "testtest" }
+            //    );
 
-            context.KorisniciUloge.AddOrUpdate(
-                new Models.KorisniciUloge { DatumDodjele = DateTime.Now, KorisnikId = 1, UlogaId = 2},
-                new Models.KorisniciUloge { DatumDodjele = DateTime.Now, KorisnikId = 2, UlogaId = 1 }
-            );
+            //context.KorisniciUloge.AddOrUpdate(
+            //    new Models.KorisniciUloge { DatumDodjele = DateTime.Now, KorisnikId = 1, UlogaId = 2 },
+            //    new Models.KorisniciUloge { DatumDodjele = DateTime.Now, KorisnikId = 2, UlogaId = 1 }
+            //);
         }
     }
 }

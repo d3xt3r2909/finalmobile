@@ -19,7 +19,7 @@ namespace ESBX
     public partial class Login : ContentPage
     {
         WebAPIHelper loginService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.LOGIN_ROUTE);
-        WebAPIHelper igraService = new WebAPIHelper("http://hci148.app.fit.ba/", "api/NagradnaIgra");
+        WebAPIHelper igraService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/NagradnaIgra");
 
         public Login()
         {
