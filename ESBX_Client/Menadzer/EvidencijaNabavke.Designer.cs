@@ -29,15 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EvidencijaNabavke));
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpPregledIsteka = new System.Windows.Forms.GroupBox();
+            this.btnPomocIzvjestaj = new System.Windows.Forms.Button();
+            this.txtPomocInfo = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pickerDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.NapomenaTxt = new System.Windows.Forms.RichTextBox();
             this.DobavljacCmb = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.DatumTxt = new System.Windows.Forms.TextBox();
             this.AdresaTxt = new System.Windows.Forms.Label();
             this.CijenaTxt = new System.Windows.Forms.MaskedTextBox();
             this.KolicinaTxt = new System.Windows.Forms.MaskedTextBox();
@@ -54,6 +60,8 @@
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.grpPregledIsteka.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -68,6 +76,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.grpPregledIsteka);
             this.groupBox1.Controls.Add(this.splitContainer1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(67, 49);
@@ -77,6 +86,62 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Evidentiranje nove nabavke";
             // 
+            // grpPregledIsteka
+            // 
+            this.grpPregledIsteka.Controls.Add(this.btnPomocIzvjestaj);
+            this.grpPregledIsteka.Controls.Add(this.txtPomocInfo);
+            this.grpPregledIsteka.Controls.Add(this.label6);
+            this.grpPregledIsteka.Controls.Add(this.pictureBox1);
+            this.grpPregledIsteka.Cursor = System.Windows.Forms.Cursors.Help;
+            this.grpPregledIsteka.Location = new System.Drawing.Point(1026, 52);
+            this.grpPregledIsteka.Name = "grpPregledIsteka";
+            this.grpPregledIsteka.Size = new System.Drawing.Size(146, 218);
+            this.grpPregledIsteka.TabIndex = 59;
+            this.grpPregledIsteka.TabStop = false;
+            // 
+            // btnPomocIzvjestaj
+            // 
+            this.btnPomocIzvjestaj.Location = new System.Drawing.Point(6, 170);
+            this.btnPomocIzvjestaj.Name = "btnPomocIzvjestaj";
+            this.btnPomocIzvjestaj.Size = new System.Drawing.Size(134, 23);
+            this.btnPomocIzvjestaj.TabIndex = 8;
+            this.btnPomocIzvjestaj.Text = "Izvjestaj";
+            this.btnPomocIzvjestaj.UseVisualStyleBackColor = true;
+            this.btnPomocIzvjestaj.Click += new System.EventHandler(this.btnPomocIzvjestaj_Click);
+            // 
+            // txtPomocInfo
+            // 
+            this.txtPomocInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPomocInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPomocInfo.Enabled = false;
+            this.txtPomocInfo.Location = new System.Drawing.Point(6, 72);
+            this.txtPomocInfo.Multiline = true;
+            this.txtPomocInfo.Name = "txtPomocInfo";
+            this.txtPomocInfo.Size = new System.Drawing.Size(134, 92);
+            this.txtPomocInfo.TabIndex = 7;
+            this.txtPomocInfo.Text = "Određeni sastojci imaju stanje manje od 1000, sto znaci da ce uskoro nestati isti" +
+    "h. Kako bi saznali koji su to, molimo Vas da pritisnete dugme ispod.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(69, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Pomoć!";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(42, 39);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Location = new System.Drawing.Point(179, 52);
@@ -84,12 +149,12 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pickerDate);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.NapomenaTxt);
             this.splitContainer1.Panel1.Controls.Add(this.DobavljacCmb);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label4);
-            this.splitContainer1.Panel1.Controls.Add(this.DatumTxt);
             this.splitContainer1.Panel1.Controls.Add(this.AdresaTxt);
             // 
             // splitContainer1.Panel2
@@ -106,14 +171,23 @@
             this.splitContainer1.SplitterDistance = 330;
             this.splitContainer1.TabIndex = 58;
             // 
+            // pickerDate
+            // 
+            this.pickerDate.Location = new System.Drawing.Point(111, 87);
+            this.pickerDate.MaxDate = new System.DateTime(2017, 9, 24, 10, 54, 48, 0);
+            this.pickerDate.Name = "pickerDate";
+            this.pickerDate.Size = new System.Drawing.Size(200, 20);
+            this.pickerDate.TabIndex = 57;
+            this.pickerDate.Value = new System.DateTime(2017, 9, 24, 0, 0, 0, 0);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 87);
+            this.label5.Location = new System.Drawing.Point(18, 87);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 56;
-            this.label5.Text = "Datum";
+            this.label5.Text = "Datum nabavke";
             // 
             // NapomenaTxt
             // 
@@ -150,14 +224,6 @@
             this.label4.TabIndex = 54;
             this.label4.Text = "Dobavljač";
             // 
-            // DatumTxt
-            // 
-            this.DatumTxt.Location = new System.Drawing.Point(111, 80);
-            this.DatumTxt.Name = "DatumTxt";
-            this.DatumTxt.ReadOnly = true;
-            this.DatumTxt.Size = new System.Drawing.Size(200, 20);
-            this.DatumTxt.TabIndex = 46;
-            // 
             // AdresaTxt
             // 
             this.AdresaTxt.AutoSize = true;
@@ -170,7 +236,7 @@
             // CijenaTxt
             // 
             this.CijenaTxt.Location = new System.Drawing.Point(330, 76);
-            this.CijenaTxt.Mask = "000000000000000000";
+            this.CijenaTxt.Mask = "000000";
             this.CijenaTxt.Name = "CijenaTxt";
             this.CijenaTxt.Size = new System.Drawing.Size(133, 20);
             this.CijenaTxt.TabIndex = 56;
@@ -179,7 +245,7 @@
             // KolicinaTxt
             // 
             this.KolicinaTxt.Location = new System.Drawing.Point(131, 76);
-            this.KolicinaTxt.Mask = "000000000000000000";
+            this.KolicinaTxt.Mask = "000000";
             this.KolicinaTxt.Name = "KolicinaTxt";
             this.KolicinaTxt.Size = new System.Drawing.Size(133, 20);
             this.KolicinaTxt.TabIndex = 55;
@@ -197,6 +263,7 @@
             // 
             // SastojciGrid
             // 
+            this.SastojciGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SastojciGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SastojciGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SastojakId,
@@ -291,6 +358,9 @@
             this.Load += new System.EventHandler(this.EvidencijaNabavke_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.grpPregledIsteka.ResumeLayout(false);
+            this.grpPregledIsteka.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -311,7 +381,6 @@
         private System.Windows.Forms.ComboBox DobavljacCmb;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox DatumTxt;
         private System.Windows.Forms.Label AdresaTxt;
         private System.Windows.Forms.MaskedTextBox CijenaTxt;
         private System.Windows.Forms.MaskedTextBox KolicinaTxt;
@@ -326,5 +395,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox SastojakCmb;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox grpPregledIsteka;
+        private System.Windows.Forms.TextBox txtPomocInfo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPomocIzvjestaj;
+        private System.Windows.Forms.DateTimePicker pickerDate;
     }
 }

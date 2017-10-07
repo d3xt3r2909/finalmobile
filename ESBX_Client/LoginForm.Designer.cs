@@ -98,6 +98,7 @@
             this.txtLoginUsername.Name = "txtLoginUsername";
             this.txtLoginUsername.Size = new System.Drawing.Size(389, 20);
             this.txtLoginUsername.TabIndex = 14;
+            this.txtLoginUsername.Text = "osoblje@gmail.com";
             this.txtLoginUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginUsername_Validating);
             // 
             // lblLoginLozinka
@@ -120,6 +121,7 @@
             this.txtLoginPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtLoginPassword.Size = new System.Drawing.Size(389, 20);
             this.txtLoginPassword.TabIndex = 15;
+            this.txtLoginPassword.Text = "testtest";
             this.txtLoginPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginPassword_Validating);
             // 
             // btnLoginPrijava

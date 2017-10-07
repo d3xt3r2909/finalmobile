@@ -36,7 +36,7 @@ namespace ESBX_API.Controllers
                 brojac++;
                 if(i.Racun != null)
                      n.CijenaNarudzbe = i.Racun.CijenaSaPopustom;
-                n.DatumNarudzbe = i.VrijemeNarucivanja;
+                n.DatumNarudzbe = i.VrijemeNarucivanja.ToString("MM/dd/yyyy");
                 narudzbeList.Add(n);
             }
             return narudzbeList;

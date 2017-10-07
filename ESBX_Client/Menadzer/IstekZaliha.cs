@@ -12,6 +12,7 @@ using ESBX_db.Models;
 using ESBX_Client.Util.ViewModel;
 using ESBX_Client.Util;
 using ESBX_API.Helper;
+using ESBX_Client.Reports;
 
 namespace ESBX_Client.Menadzer
 {
@@ -43,6 +44,21 @@ namespace ESBX_Client.Menadzer
         private void IstekZaliha_Load(object sender, EventArgs e)
         {
             dgIstekZaliha.DataSource = _istek; 
+        }
+
+        private void btnGenerisiIzvjestaj_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            FormaIstekZaliha frm = new FormaIstekZaliha(_istek);
+            frm.ShowDialog();
+        }
+
+        private void btnNabavkaProizvoda_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            EvidencijaNabavke frm = new EvidencijaNabavke(_istek);
+            frm.ShowDialog();
+            this.DialogResult = DialogResult.Cancel; 
         }
     }
 }

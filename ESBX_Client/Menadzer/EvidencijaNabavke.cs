@@ -13,6 +13,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExpressSaladBarDesktop_Client;
 using ESBX_API.Helper;
+using ESBX_Client.Util.ViewModel;
+using ESBX_Client.Reports;
 
 namespace ESBX_Client.Menadzer
 {
@@ -21,22 +23,48 @@ namespace ESBX_Client.Menadzer
         private WebAPIHelper DobavljaciService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Dobavljaci");
         private WebAPIHelper SastojciService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Sastojci");
         private WebAPIHelper UlazZalihaService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/UlazZaliha");
+        private WebAPIHelper _service = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.GET_SASTOJCI);
+
+        private readonly List<IstekZalihaVm> _istek = null;
 
         List<StavkaUlaza> stavkeUlaza = new List<StavkaUlaza>();
         private UlazZaliha ulazZaliha = new UlazZaliha();
 
-        public EvidencijaNabavke()
+        public EvidencijaNabavke(List<IstekZalihaVm> istekZaliha = null)
         {
          
             InitializeComponent();
-           SastojciGrid.AutoGenerateColumns = false;
-            this.AutoValidate = AutoValidate.Disable;
+            if (istekZaliha == null)
+            {
+                List<SastojciPregledVm> listSastojaka = _service.GetResponse().Content.ReadAsAsync<List<SastojciPregledVm>>().Result;
 
+                _istek = listSastojaka.Where(sastojak => sastojak.Stanje < 1000)
+                    .Select(x => new IstekZalihaVm
+                    {
+                        Naziv = x.Naziv,
+                        Stanje = x.Stanje,
+                        SastojakId = x.Id,
+                        VrstaSastojka = x.VrstaSastojka
+                    }).ToList();
+            }
+            else
+            {
+                _istek = istekZaliha;
+            }
+
+            if (_istek == null)
+                grpPregledIsteka.Visible = false;
+            else
+                grpPregledIsteka.Visible = true; 
+
+            SastojciGrid.AutoGenerateColumns = false;
+            this.AutoValidate = AutoValidate.Disable;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             errorProvider.Clear();
+            Cursor.Current = Cursors.WaitCursor;
             if (stavkeUlaza.Count() != 0)
             {
                 if (Convert.ToInt32(DobavljacCmb.SelectedValue) != 0)
@@ -66,7 +94,8 @@ namespace ESBX_Client.Menadzer
 
         private void EvidencijaNabavke_Load(object sender, EventArgs e)
         {
-            DatumTxt.Text=DateTime.Now.ToString();
+            pickerDate.MaxDate = DateTime.Now;
+            pickerDate.Text = DateTime.Now.ToString();
             BindSastojci();
             BindDobavljaci();
         }
@@ -187,6 +216,13 @@ namespace ESBX_Client.Menadzer
                 e.Cancel = true;
                 errorProvider.SetError(CijenaTxt, Messages.cijena_req);
             }
+        }
+
+        private void btnPomocIzvjestaj_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            FormaIstekZaliha frm = new FormaIstekZaliha(_istek);
+            frm.ShowDialog();
         }
     }
 }

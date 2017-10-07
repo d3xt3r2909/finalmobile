@@ -41,36 +41,42 @@ namespace ESBX_Client.Menadzer
         }
         private void btnStatistika_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             PregledStatistike f = new PregledStatistike();
             PrikaziFormu(f);
         }
 
         private void btnOsoblje_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             OsobljePrikazForm f = new OsobljePrikazForm();
             PrikaziFormu(f);
         }
 
         private void btnNabavka_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             EvidencijaNabavke f = new EvidencijaNabavke();
             PrikaziFormu(f);
         }
 
         private void btnNepovjerljivi_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             PromjenaPovjerljivosti f = new PromjenaPovjerljivosti();
             PrikaziFormu(f);
         }
 
         private void btnIgra_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             NagradnaIgraForm f = new NagradnaIgraForm();
             PrikaziFormu(f);
         }
 
         private void btnPodesavanjeProfila_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Opste.PodesavanjeProfila f = new Opste.PodesavanjeProfila();
             PrikaziFormu(f);
         }
@@ -105,6 +111,7 @@ namespace ESBX_Client.Menadzer
 
         private void IzvjestajBtn_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             ReportZarada f = new ReportZarada();
             PrikaziFormu(f);
         }
@@ -117,12 +124,21 @@ namespace ESBX_Client.Menadzer
                 frm.ShowDialog();
             }
         }
+        private void btnNagradjeni_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            ListaNagradjenih f = new ListaNagradjenih();
+            PrikaziFormu(f);
+        }
 
         private void btnOdjava_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             Global.prijavljeniKorisnik = null;
             System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
             this.Close(); //to turn off current app
         }
+
+        
     }
 }

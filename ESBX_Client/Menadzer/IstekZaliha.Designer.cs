@@ -35,6 +35,8 @@
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stanje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VrstaSastojka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGenerisiIzvjestaj = new System.Windows.Forms.Button();
+            this.btnNabavkaProizvoda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgIstekZaliha)).BeginInit();
             this.SuspendLayout();
@@ -88,12 +90,34 @@
             this.VrstaSastojka.HeaderText = "Vrsta sastojka";
             this.VrstaSastojka.Name = "VrstaSastojka";
             // 
+            // btnGenerisiIzvjestaj
+            // 
+            this.btnGenerisiIzvjestaj.Location = new System.Drawing.Point(427, 512);
+            this.btnGenerisiIzvjestaj.Name = "btnGenerisiIzvjestaj";
+            this.btnGenerisiIzvjestaj.Size = new System.Drawing.Size(153, 23);
+            this.btnGenerisiIzvjestaj.TabIndex = 26;
+            this.btnGenerisiIzvjestaj.Text = "Generisi izvjestaj";
+            this.btnGenerisiIzvjestaj.UseVisualStyleBackColor = true;
+            this.btnGenerisiIzvjestaj.Click += new System.EventHandler(this.btnGenerisiIzvjestaj_Click);
+            // 
+            // btnNabavkaProizvoda
+            // 
+            this.btnNabavkaProizvoda.Location = new System.Drawing.Point(586, 512);
+            this.btnNabavkaProizvoda.Name = "btnNabavkaProizvoda";
+            this.btnNabavkaProizvoda.Size = new System.Drawing.Size(154, 23);
+            this.btnNabavkaProizvoda.TabIndex = 27;
+            this.btnNabavkaProizvoda.Text = "Nabavka proizvoda";
+            this.btnNabavkaProizvoda.UseVisualStyleBackColor = true;
+            this.btnNabavkaProizvoda.Click += new System.EventHandler(this.btnNabavkaProizvoda_Click);
+            // 
             // IstekZaliha
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(771, 550);
+            this.Controls.Add(this.btnNabavkaProizvoda);
+            this.Controls.Add(this.btnGenerisiIzvjestaj);
             this.Controls.Add(this.groupBox1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -117,5 +141,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Stanje;
         private System.Windows.Forms.DataGridViewTextBoxColumn VrstaSastojka;
+        private System.Windows.Forms.Button btnGenerisiIzvjestaj;
+        private System.Windows.Forms.Button btnNabavkaProizvoda;
     }
 }

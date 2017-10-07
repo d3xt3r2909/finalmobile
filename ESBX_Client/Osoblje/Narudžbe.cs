@@ -19,10 +19,13 @@ namespace ESBX_Client.Osoblje
     public partial class frmNarudzbe : Form
     {
         WebAPIHelper _service = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.GET_OSOBLJE_KORPA);
+        List<PregledNarudzbiGridVm> listNarudzbeSource = null; 
+
         public frmNarudzbe()
         {
             InitializeComponent();
             dgNarudzbe.AutoGenerateColumns = false;
+            dgPrikazSalata.AutoGenerateColumns = false;
 
             List<CmbKorpaVm> sourceCombo = new List<CmbKorpaVm>
             {
@@ -47,7 +50,31 @@ namespace ESBX_Client.Osoblje
         {
             HttpResponseMessage response = _service.GetCustomRouteResponse(WebApiRoutes.GET_OSOBLJE_KORPA, "0/" + aktivne);
             List<KorpaForDgRow> narudzbe = response.Content.ReadAsAsync<List<KorpaForDgRow>>().Result;
-            dgNarudzbe.DataSource = narudzbe;
+
+            if (narudzbe != null)
+            {
+                listNarudzbeSource = narudzbe.GroupBy(item => item.Id)
+                    .Select(narudzba => new PregledNarudzbiGridVm
+                    {
+                        NarudzbaId = narudzba.Key,
+                        VrijemeDolaska = narudzba.Select(x => x.VrijemeDolaska).FirstOrDefault(),
+                        Korisnik = narudzba.Select(x => x.Korisnik).FirstOrDefault(),
+                        Salate = narudzba.Select(x => new SalataItem
+                        {
+                            CijenaSalate = x.CijenaSalate,
+                            DresingSastojak = x.DresingSastojak,
+                            GlavniSastojak = x.GlavniSastojak,
+                            Kolicina = x.Kolicina,
+                            SalataId = x.SalataId,
+                            SporedniSastojak = x.SporedniSastojak
+                        }).ToList()
+                    }).ToList();
+
+                dgNarudzbe.DataSource = listNarudzbeSource;
+            }
+
+            // dgNarudzbe.DataSource = narudzbe;
+
         }
 
         private void frmNarudzbe_Load(object sender, EventArgs e)
@@ -76,33 +103,71 @@ namespace ESBX_Client.Osoblje
 
         private void dgNarudzbe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string narudzbaId = dgNarudzbe.Rows[e.RowIndex].Cells[0].Value + ""; 
+            string narudzbaId = dgNarudzbe.Rows[e.RowIndex].Cells[0].Value + "";
 
-            if (e.ColumnIndex == 6)
+            switch (e.ColumnIndex)
             {
-                Kupon frm = new Kupon(Convert.ToInt32(narudzbaId));
-                frm.ShowDialog();
-            }
-            else
-            {
-                if (e.ColumnIndex == 7)
-                {
-                    HttpResponseMessage korpaResponse =
+                case 3:
+
+                    List<SalataItem> salate =
+                        listNarudzbeSource.Where(item => item.NarudzbaId.ToString() == narudzbaId)
+                                          .Select(x => x.Salate).FirstOrDefault();
+
+                    dgPrikazSalata.DataSource = salate;
+
+                    break;
+                case 4:
+                    Kupon frm = new Kupon(Convert.ToInt32(narudzbaId));
+                    frm.ShowDialog();
+                    break;
+                case 5:
+
+                    DialogResult result = MessageBox.Show("Da li ste sigurni da zelite oznaciti korisnika nepovjerljivim? Ukoliko je korisnik oznacen kao nepovjerljiv, taj korisnik vise nece moci da narucuje preko korisnickog naloga, sve dok menadzer restorana ne promijeni njegovu povjerljivost! ", "Upozorenje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        HttpResponseMessage korpaResponse =
                         _service.GetCustomRouteResponse(WebApiRoutes.GET_KORISNICI_KORPA, narudzbaId);
 
-                    KorpaModel korpa = korpaResponse.Content.ReadAsAsync<KorpaModel>().Result;
+                        KorpaModel korpa = korpaResponse.Content.ReadAsAsync<KorpaModel>().Result;
 
-                    HttpResponseMessage response =
-                        _service.PutCustomRouteResponse(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST, new PromjenaPovjerljivostiVm {
-                            KorisnikId = korpa.KorisnikId,
-                            KorpaId = korpa.Id,
-                            Status = false
-                        });
+                        HttpResponseMessage response =
+                            _service.PutCustomRouteResponse(WebApiRoutes.PUT_KORISNICI_POVJERLJIVOST, new PromjenaPovjerljivostiVm
+                            {
+                                KorisnikId = korpa.KorisnikId,
+                                KorpaId = korpa.Id,
+                                Status = false
+                            });
 
-                    if (response.IsSuccessStatusCode)
-                        RefreshState();
-                }
+                        if (response.IsSuccessStatusCode)
+                            RefreshState();
+                    }
+
+                    break;
+
+                default:
+                    break;
             }
+
+        }
+
+        private void grpPregledIsteka_Enter(object sender, EventArgs e)
+        {
+            frmHelpDialog frm = new frmHelpDialog();
+            frm.ShowDialog(); 
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            frmHelpDialog frm = new frmHelpDialog();
+            frm.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            frmHelpDialog frm = new frmHelpDialog();
+            frm.ShowDialog();
         }
     }
 }

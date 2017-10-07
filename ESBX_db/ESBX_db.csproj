@@ -63,9 +63,9 @@
     <Compile Include="Helper\IEntity.cs" />
     <Compile Include="Helper\KorpaHelper.cs" />
     <Compile Include="Helper\SastojciHelper.cs" />
-    <Compile Include="Migrations\201709161037435_intial.cs" />
-    <Compile Include="Migrations\201709161037435_intial.Designer.cs">
-      <DependentUpon>201709161037435_intial.cs</DependentUpon>
+    <Compile Include="Migrations\201709180906461_initial.cs" />
+    <Compile Include="Migrations\201709180906461_initial.Designer.cs">
+      <DependentUpon>201709180906461_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Dobavljaci.cs" />
@@ -91,6 +91,8 @@
     <Compile Include="ViewModel\AccountLoginVM.cs" />
     <Compile Include="ViewModel\AccountRegistrationVM.cs" />
     <Compile Include="ViewModel\EmailVm.cs" />
+    <Compile Include="ViewModel\GetNagradnaIgraRequest.cs" />
+    <Compile Include="ViewModel\GetNagradnaIgraResponse.cs" />
     <Compile Include="ViewModel\KomentariMobileVM.cs" />
     <Compile Include="ViewModel\KomentarResponseVm.cs" />
     <Compile Include="ViewModel\KomentarVm.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="ViewModel\NarudzbeVM.cs" />
     <Compile Include="ViewModel\OmiljeniSastojci.cs" />
     <Compile Include="ViewModel\PregledDanaRepVm.cs" />
+    <Compile Include="ViewModel\PregledNarudzbiGridVm.cs" />
     <Compile Include="ViewModel\PregledStatistikeVM.cs" />
     <Compile Include="ViewModel\PromjenaPovjerljivostiVm.cs" />
     <Compile Include="ViewModel\SastojciForGridVM.cs" />
@@ -136,8 +139,8 @@
     <Folder Include="Helper\Images\Sastojci\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709161037435_intial.resx">
-      <DependentUpon>201709161037435_intial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709180906461_initial.resx">
+      <DependentUpon>201709180906461_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

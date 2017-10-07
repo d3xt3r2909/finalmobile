@@ -45,13 +45,13 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.39931in</Width>
+                  <Width>2.26737in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.85764in</Width>
+                  <Width>3.7257in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.21181in</Width>
+                  <Width>3.07987in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -135,7 +135,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cijena narudžbe (KM)</Value>
+                                  <Value>Cijena narudžbe</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -239,7 +239,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!CijenaNarudzbe.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>0.00 'BAM';(0.00 'BAM')</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -315,6 +317,7 @@
                                   <Value>=Sum(Fields!CijenaNarudzbe.Value, "NarudzbaReport")</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
+                                    <Format>0.00 'BAM';(0.00 'BAM')</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -368,7 +371,7 @@
             <Top>0.28in</Top>
             <Left>0.6793in</Left>
             <Height>0.86458in</Height>
-            <Width>6.46875in</Width>
+            <Width>9.07293in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -379,7 +382,7 @@
         <Height>1.36458in</Height>
         <Style />
       </Body>
-      <Width>8.55209in</Width>
+      <Width>10.17709in</Width>
       <Page>
         <PageHeader>
           <Height>1.32292in</Height>
@@ -402,7 +405,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.60292in</Top>
-              <Left>5.25222in</Left>
+              <Left>7.8564in</Left>
               <Height>0.25in</Height>
               <Width>1.89583in</Width>
               <Style>
@@ -428,12 +431,14 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox23</rd:DefaultName>
               <Top>0.22792in</Top>
-              <Left>1.78347in</Left>
+              <Left>2.27305in</Left>
               <Height>0.25in</Height>
               <Width>5.36458in</Width>
               <ZIndex>1</ZIndex>
@@ -478,7 +483,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>0.92236in</Top>
-              <Left>5.25222in</Left>
+              <Left>7.8564in</Left>
               <Height>0.25in</Height>
               <Width>1.89583in</Width>
               <ZIndex>3</ZIndex>
@@ -520,7 +525,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
               <Top>0.58209in</Top>
-              <Left>4.83555in</Left>
+              <Left>7.43973in</Left>
               <Height>0.25in</Height>
               <Width>2.3125in</Width>
               <Style>
@@ -549,7 +554,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
               <Top>0.20709in</Top>
-              <Left>4.83555in</Left>
+              <Left>7.43973in</Left>
               <Height>0.25in</Height>
               <Width>2.3125in</Width>
               <ZIndex>1</ZIndex>

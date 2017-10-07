@@ -8,9 +8,9 @@ namespace ESBX_API.Helper
     public static class WebApiRoutes
     {
         // public const string URL_ROUTE = "http://hci148.app.fit.ba/";
-        // public const string URL_ROUTE = "http://localhost:63541/";
+        public const string URL_ROUTE = "http://localhost:63541/";
 
-        public const string URL_ROUTE = "http://192.168.100.100/";
+        // public const string URL_ROUTE = "http://192.168.100.100/";
 
         public const string LOGIN_ROUTE = "api/account/login";
         public const string POST_REGISTER = "api/account/Registration";
@@ -36,5 +36,7 @@ namespace ESBX_API.Helper
         public const string POST_NARUCI_KORPU = "api/korpa/naruci/";
         public const string POST_KOMENTAR_SALATA = "api/narudzbe/komentar/";
         public const string GET_KOMENTAR = "api/narudzbe/komentar/";
+        public const string GET_NAGRADNE_IGRE = "api/nagradnaigra/GetNagradnaIgra/";
+
     }
 }

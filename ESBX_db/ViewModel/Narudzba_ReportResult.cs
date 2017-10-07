@@ -10,7 +10,7 @@ namespace ESBX_db.ViewModel
     {
         public int RedniBroj { get; set; }
 
-        public DateTime DatumNarudzbe { get; set; }
+        public string DatumNarudzbe { get; set; }
 
         public float CijenaNarudzbe { get; set; }
     }
