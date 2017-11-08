@@ -19,15 +19,17 @@ namespace ESBX
         private WebAPIHelper komentariService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Komentari");
         public PregledOcjena()
         {
+            if (Global.logedUser == null)
+            {
+                Application.Current.MainPage = new ESBX.Login();
+                return;
+            }
+
             InitializeComponent();
-
         }
-
 
         protected override void OnAppearing()
         {
-
-
             HttpResponseMessage response = komentariService.GetResponse();
             if (response.IsSuccessStatusCode)
             {

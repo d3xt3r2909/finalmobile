@@ -59,10 +59,8 @@ namespace ESBX
             {
                 DisplayAlert("Oprez", "Salata nije kreirana.", "OK");
             }
-            
+
             this.Navigation.PopAsync();
         }
-                  
-
     }
 }

@@ -6,37 +6,59 @@
              
              >
     <ContentPage.Content>
-        <StackLayout VerticalOptions="CenterAndExpand" Margin="10">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <!--Odabir glavnog sastojka-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <!--Odabir sporednog sastojka-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <!--Odabir dresing sastojka-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <!--Odabir kolicine-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <!--Odabir napomena-->
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <!--Dugmad-->
+                <RowDefinition Height="*"></RowDefinition>
 
-                <Label Text="Glavni sastojak:" FontSize="16" ></Label>
-                <Label Text="Sporedni sastojci:" FontSize="16" Grid.Row="1"></Label>
-                <Label Text="Dresing:" FontSize="16" Grid.Row="2"></Label>
-                <Label Text="Količina:" FontSize="16" Grid.Row="3"></Label>
-                <Label Text="Napomena:" FontSize="16" Grid.Row="4"></Label>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-                <Picker x:Name="GlavniPicker" Title="Odaberite sastojak" Grid.Column="1"  Grid.ColumnSpan="1"></Picker>
-                <Button x:Name="btnSporedni" Text="Odaberite sastojke" Grid.Column="1" Grid.Row="1" Clicked="btnSporedni_Clicked"></Button>
-                <Picker x:Name="DresingPicker" Title="Odaberite dresing" Grid.Row="2" Grid.Column="1"></Picker>
-                <Entry x:Name="Kolicina" Grid.Row="3" Grid.Column="1" Keyboard="Numeric"></Entry>
-                <Entry x:Name="Napomena" Grid.Row="4" Grid.Column="1"></Entry>
-                <Label Text="" FontSize="16" Grid.Row="5"></Label>
-                <Button x:Name="btnKreirajSalatu"  BackgroundColor="Orange" Text="KREIRAJ SALATU" Grid.Row="6" Grid.Column="1" Clicked="btnKreirajSalatu_Clicked"></Button>
+            <BoxView Color="#303030" Grid.Row="0" Grid.ColumnSpan="2"/>
 
-            </Grid>
-        </StackLayout>
+            <StackLayout Orientation="Vertical" Grid.ColumnSpan="2" Grid.Row="0">
+                <Image Source="esslogo.png" HeightRequest="50" HorizontalOptions="CenterAndExpand"></Image>
+                <Label XAlign="Center" Text="Kako biste kreirali salatu potrebno je odabrati njene sastojke. Svaka salata se sastoji od tri vrste sastojaka te za svaku vrstu treba odabrati minimalno jedan sastojak iz ponude. Radujemo se Vasem odabiru." TextColor="Orange" FontSize="Micro"></Label>
+            </StackLayout>
+
+            <!--Odabir glavnog sastojka-->
+            <Label Text="Glavni sastojak" FontSize="16" Grid.ColumnSpan="2" Grid.Row="1" Margin="10,0,10,0"></Label>
+            <Picker x:Name="GlavniPicker" Grid.ColumnSpan="2" Grid.Row="2" Margin="10,0,10,0"></Picker>
+            <!--Odabir sporednog sastojka-->
+            <Label Text="Sporedni sastojak" FontSize="16" Grid.ColumnSpan="2" Grid.Row="3" Margin="10,0,10,0"></Label>
+            <Button x:Name="btnSporedni" Text="Odaberite sporedne sastojaka" Grid.ColumnSpan="2" Grid.Row="4" Clicked="btnSporedni_Clicked" Margin="10,0,10,0"></Button>
+            <!--Odabir dresing sastojka-->
+            <Label Text="Dresing" FontSize="16" Grid.ColumnSpan="2" Grid.Row="5" Margin="10,0,10,0"></Label>
+            <Picker x:Name="DresingPicker" Grid.ColumnSpan="2" Grid.Row="6" Margin="10,0,10,0"></Picker>
+            <!--Odabir kolicine salata-->
+            <Label Text="Kolicina" FontSize="16" Grid.ColumnSpan="2" Grid.Row="7" Margin="10,0,10,0"></Label>
+            <Entry x:Name="Kolicina" Grid.ColumnSpan="2"  Grid.Row="8" Keyboard="Numeric" Margin="10,0,10,0"></Entry>
+            <!--Napomena za salatu-->
+            <Label Text="Napomena" FontSize="16" Grid.ColumnSpan="2" Grid.Row="9" Margin="10,0,10,0"></Label>
+            <Entry x:Name="Napomena" Grid.ColumnSpan="2"  Grid.Row="10" Margin="10,0,10,0"></Entry>
+
+            <!--Dugmad-->
+            <Button x:Name="btnKreirajSalatu"  BackgroundColor="Orange" Text="KREIRAJ SALATU" Grid.Row="11" Grid.Column="1" VerticalOptions="EndAndExpand" Clicked="btnKreirajSalatu_Clicked" Margin="10"></Button>
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -20,9 +20,14 @@ namespace ESBX
     {
         WebAPIHelper loginService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.LOGIN_ROUTE);
         WebAPIHelper igraService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/NagradnaIgra");
+        WebAPIHelper kreiranjeService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/KreiranjeSalate/getsastojci/");
 
-        public Login()
+        KreiranaSalataVM kreiranjeSalate = null; 
+
+        public Login(KreiranaSalataVM IntialKreiranaSalata = null)
         {
+            kreiranjeSalate = IntialKreiranaSalata; 
+
             InitializeComponent();
         }
 
@@ -43,7 +48,22 @@ namespace ESBX
             if (response.IsSuccessStatusCode)
             {
                 var jsonResult = response.Content.ReadAsStringAsync();
+
+                // Dodjeli kreiranog korisnika
                 Global.logedUser = JsonConvert.DeserializeObject<Korisnici>(jsonResult.Result);
+
+                // Ukoliko je kreirana salata kada nismo logirani, tu salatu je potrebno dodati u korpu
+                if (kreiranjeSalate != null) {
+
+                    kreiranjeSalate.KorisnikId = Global.logedUser.Id;
+
+                    HttpResponseMessage repsoneDodaj = kreiranjeService.PostCustomRouteResponse("api/KreiranjeSalate", kreiranjeSalate);
+                    if (repsoneDodaj.IsSuccessStatusCode)
+                    {
+                        DisplayAlert("Uspjeh", "Vasa salata je dodata u korpu", "UREDU");
+                    }
+                }
+
                 //NAGRADNA IGRA
                 HttpResponseMessage responseIgra = igraService.GetActionResponse("GetKupon",Global.logedUser.Id.ToString());
                 var jsonResponse = responseIgra.Content.ReadAsStringAsync();
@@ -65,7 +85,9 @@ namespace ESBX
 
         private void registracijaButton_Clicked(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new Registracija());
+            Application.Current.MainPage = new Registracija();
+
+            // this.Navigation.PushAsync(new Registracija());
         }
     }
 }

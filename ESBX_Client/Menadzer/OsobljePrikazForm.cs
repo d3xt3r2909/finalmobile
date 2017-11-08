@@ -65,8 +65,8 @@ namespace ESBX_Client.Menadzer
                 if (!responseTwo.IsSuccessStatusCode)
                     MessageBox.Show("Promjena aktivnosti korisnika nije uspjela.");
             }
-            else
-                BindGrid();
+
+            BindGrid();
 
         }
 

@@ -263,6 +263,8 @@
             // 
             // SastojciGrid
             // 
+            this.SastojciGrid.AllowUserToAddRows = false;
+            this.SastojciGrid.AllowUserToDeleteRows = false;
             this.SastojciGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SastojciGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SastojciGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -272,6 +274,7 @@
             this.Cijena});
             this.SastojciGrid.Location = new System.Drawing.Point(53, 166);
             this.SastojciGrid.Name = "SastojciGrid";
+            this.SastojciGrid.ReadOnly = true;
             this.SastojciGrid.Size = new System.Drawing.Size(410, 190);
             this.SastojciGrid.TabIndex = 53;
             // 
@@ -280,6 +283,7 @@
             this.SastojakId.DataPropertyName = "SastojakId";
             this.SastojakId.HeaderText = "Sastojakid";
             this.SastojakId.Name = "SastojakId";
+            this.SastojakId.ReadOnly = true;
             this.SastojakId.Visible = false;
             // 
             // Sastojak
@@ -287,18 +291,21 @@
             this.Sastojak.DataPropertyName = "Naziv";
             this.Sastojak.HeaderText = "Sastojak";
             this.Sastojak.Name = "Sastojak";
+            this.Sastojak.ReadOnly = true;
             // 
             // Kolicina
             // 
             this.Kolicina.DataPropertyName = "Kolicina";
             this.Kolicina.HeaderText = "Količina";
             this.Kolicina.Name = "Kolicina";
+            this.Kolicina.ReadOnly = true;
             // 
             // Cijena
             // 
             this.Cijena.DataPropertyName = "Cijena";
             this.Cijena.HeaderText = "Cijena";
             this.Cijena.Name = "Cijena";
+            this.Cijena.ReadOnly = true;
             // 
             // label1
             // 

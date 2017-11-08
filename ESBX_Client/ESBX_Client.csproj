@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -119,6 +122,12 @@
     <Compile Include="Menadzer\AddOsobljeForm.Designer.cs">
       <DependentUpon>AddOsobljeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menadzer\DobavljaciInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menadzer\DobavljaciInfo.Designer.cs">
+      <DependentUpon>DobavljaciInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Menadzer\EvidencijaNabavke.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +163,12 @@
     </Compile>
     <Compile Include="Menadzer\OsobljePrikazForm.Designer.cs">
       <DependentUpon>OsobljePrikazForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menadzer\PregledNabavkiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menadzer\PregledNabavkiForm.Designer.cs">
+      <DependentUpon>PregledNabavkiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Menadzer\PregledStatistike.cs">
       <SubType>Form</SubType>
@@ -228,6 +243,12 @@
     <Compile Include="Reports\FormaIstekZaliha.Designer.cs">
       <DependentUpon>FormaIstekZaliha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\FormaIzdavanjeRacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\FormaIzdavanjeRacuna.Designer.cs">
+      <DependentUpon>FormaIzdavanjeRacuna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\FormaPregledDana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +277,9 @@
     <EmbeddedResource Include="Menadzer\AddOsobljeForm.resx">
       <DependentUpon>AddOsobljeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menadzer\DobavljaciInfo.resx">
+      <DependentUpon>DobavljaciInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menadzer\EvidencijaNabavke.resx">
       <DependentUpon>EvidencijaNabavke.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menadzer\OsobljePrikazForm.resx">
       <DependentUpon>OsobljePrikazForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menadzer\PregledNabavkiForm.resx">
+      <DependentUpon>PregledNabavkiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menadzer\PregledStatistike.resx">
       <DependentUpon>PregledStatistike.cs</DependentUpon>
@@ -320,9 +347,13 @@
     <EmbeddedResource Include="Reports\FormaIstekZaliha.resx">
       <DependentUpon>FormaIstekZaliha.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\FormaIzdavanjeRacuna.resx">
+      <DependentUpon>FormaIzdavanjeRacuna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\FormaPregledDana.resx">
       <DependentUpon>FormaPregledDana.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IzdavanjeRacunaRdlc.rdlc" />
     <EmbeddedResource Include="Reports\ReportZarada.resx">
       <DependentUpon>ReportZarada.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +362,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ESBX_Client.Util.ViewModel.IstekZalihaVm.datasource" />
     <None Include="Properties\DataSources\ESBX_db.Models.Sastojci.datasource" />
+    <None Include="Properties\DataSources\ESBX_db.ViewModel.KorpaForDgRow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -362,6 +394,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="logo.ico" />
     <Content Include="Resources\Information-icon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -21,7 +21,13 @@ namespace ESBX
         private List<NarudzbeVM> salate = null;
         public HistorijaNarucenih ()
 		{
-			InitializeComponent ();
+            if (Global.logedUser == null)
+            {
+                Application.Current.MainPage = new ESBX.Login();
+                return;
+            }
+
+            InitializeComponent ();
 		}
 
         protected override void OnAppearing()

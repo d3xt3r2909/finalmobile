@@ -1,5 +1,7 @@
-﻿using ESBX_db.DAL;
+﻿using ESBX_API.Helper;
+using ESBX_db.DAL;
 using ESBX_db.Models;
+using ESBX_db.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,5 +49,31 @@ namespace ESBX_API.Controllers
             return Ok(ulazZaliha);
         }
 
+        [HttpGet]
+        [Route(WebApiRoutes.GET_NABAVKE)]
+        public HttpResponseMessage GetNabavke()
+        {
+            // &&  stavka.UlazZaliha.Dobavljaci.Status == false
+            List<PregledDobavljaciForDg> listResponse =
+                ctx.StavkaUlaza.Where(stavka => stavka.Sastojak.IsDeleted == false)
+                               .Select(stavkaUlaza => new PregledDobavljaciForDg {
+
+                                   SastojakId = stavkaUlaza.SastojakId,
+                                   SastojakNaziv = stavkaUlaza.Sastojak.Naziv,
+                                   NabavkaKolicina = stavkaUlaza.Kolicina,
+                                   NabavkaCijena = stavkaUlaza.Cijena,
+                                   NabavkaDate = stavkaUlaza.UlazZaliha.Datum,
+                                   DobavljacId = stavkaUlaza.UlazZaliha.DobavljaciId,
+                                   DobavljacNaziv = stavkaUlaza.UlazZaliha.Dobavljaci.Naziv,
+                                   DobavljacTelefon = stavkaUlaza.UlazZaliha.Dobavljaci.BrojTelefona,
+                                   DobavljacAdresa = stavkaUlaza.UlazZaliha.Dobavljaci.Adresa,
+                                   DobavljacEmail = stavkaUlaza.UlazZaliha.Dobavljaci.Email,
+                                   DobavljacRacun = stavkaUlaza.UlazZaliha.Dobavljaci.Ziroracun
+
+                               }).ToList(); 
+                                                    
+
+            return Request.CreateResponse(HttpStatusCode.OK, listResponse);
+        }
     }
 }

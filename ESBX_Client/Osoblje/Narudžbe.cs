@@ -46,10 +46,11 @@ namespace ESBX_Client.Osoblje
             cmbNarudzbeStatus.DisplayMember = "DisplayVerb";
         }
 
-        private void RefreshState(bool? aktivne = true)
+        public void RefreshState(bool? aktivne = true)
         {
             HttpResponseMessage response = _service.GetCustomRouteResponse(WebApiRoutes.GET_OSOBLJE_KORPA, "0/" + aktivne);
             List<KorpaForDgRow> narudzbe = response.Content.ReadAsAsync<List<KorpaForDgRow>>().Result;
+            dgPrikazSalata.DataSource = new List<SalataItem>();
 
             if (narudzbe != null)
             {
@@ -118,7 +119,11 @@ namespace ESBX_Client.Osoblje
                     break;
                 case 4:
                     Kupon frm = new Kupon(Convert.ToInt32(narudzbaId));
-                    frm.ShowDialog();
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        RefreshState(); 
+                    }
+
                     break;
                 case 5:
 

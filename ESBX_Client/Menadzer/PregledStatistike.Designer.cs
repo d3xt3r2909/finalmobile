@@ -74,6 +74,8 @@
             // 
             // ZaradaGrid
             // 
+            this.ZaradaGrid.AllowUserToAddRows = false;
+            this.ZaradaGrid.AllowUserToDeleteRows = false;
             this.ZaradaGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ZaradaGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RedniBroj,
@@ -82,6 +84,7 @@
             this.UkupnaZarada});
             this.ZaradaGrid.Location = new System.Drawing.Point(69, 150);
             this.ZaradaGrid.Name = "ZaradaGrid";
+            this.ZaradaGrid.ReadOnly = true;
             this.ZaradaGrid.Size = new System.Drawing.Size(444, 343);
             this.ZaradaGrid.TabIndex = 43;
             // 
@@ -90,24 +93,28 @@
             this.RedniBroj.DataPropertyName = "RedniBroj";
             this.RedniBroj.HeaderText = "Rd.br.";
             this.RedniBroj.Name = "RedniBroj";
+            this.RedniBroj.ReadOnly = true;
             // 
             // Mjesec
             // 
             this.Mjesec.DataPropertyName = "Mjesec";
             this.Mjesec.HeaderText = "Mjesec";
             this.Mjesec.Name = "Mjesec";
+            this.Mjesec.ReadOnly = true;
             // 
             // BrojNarudzbi
             // 
             this.BrojNarudzbi.DataPropertyName = "BrojNarudzbi";
             this.BrojNarudzbi.HeaderText = "Broj narudžbi";
             this.BrojNarudzbi.Name = "BrojNarudzbi";
+            this.BrojNarudzbi.ReadOnly = true;
             // 
             // UkupnaZarada
             // 
             this.UkupnaZarada.DataPropertyName = "Zarada";
             this.UkupnaZarada.HeaderText = "Ukupna zarada (KM)";
             this.UkupnaZarada.Name = "UkupnaZarada";
+            this.UkupnaZarada.ReadOnly = true;
             // 
             // label3
             // 

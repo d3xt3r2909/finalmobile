@@ -98,7 +98,7 @@
             this.txtLoginUsername.Name = "txtLoginUsername";
             this.txtLoginUsername.Size = new System.Drawing.Size(389, 20);
             this.txtLoginUsername.TabIndex = 14;
-            this.txtLoginUsername.Text = "osoblje@gmail.com";
+            this.txtLoginUsername.Text = "menadzer@gmail.com";
             this.txtLoginUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginUsername_Validating);
             // 
             // lblLoginLozinka

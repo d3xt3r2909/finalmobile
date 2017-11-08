@@ -165,7 +165,7 @@
             // CijenaSalate
             // 
             this.CijenaSalate.DataPropertyName = "CijenaSalate";
-            this.CijenaSalate.HeaderText = "cijena salate";
+            this.CijenaSalate.HeaderText = "Cijena salate";
             this.CijenaSalate.Name = "CijenaSalate";
             // 
             // Kupon

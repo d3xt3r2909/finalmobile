@@ -27,6 +27,12 @@ namespace ESBX
 
         public KorisnickKorpa()
         {
+            if (Global.logedUser == null)
+            {
+                Application.Current.MainPage = new ESBX.Login();
+                return;
+            }
+
             InitializeComponent();
         }
 
@@ -54,7 +60,6 @@ namespace ESBX
                 lblUkupno.Text = "Ukupna cijena: " + getSumZarada(source.Items).ToString() + " KM";
 
             }
-
 
             base.OnAppearing();
         }

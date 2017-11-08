@@ -58,26 +58,6 @@ namespace ESBX_Client.Menadzer
             RefreshState();
         }
 
-        private void inputKorisnikId_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                request.GetAll = false;
-                request.KorisnikId = Convert.ToInt32(inputKorisnikId.Text);
-
-                if (inputKorisnikId.Text == "")
-                    request.KorisnikId = 0;
-
-            }
-            catch (Exception ex)
-            {
-                request.KorisnikId = 0;
-            }
-
-            RefreshState();
-
-        }
-
         private void inputImePrezime_TextChanged(object sender, EventArgs e)
         {
             request.GetAll = false;

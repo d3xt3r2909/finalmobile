@@ -110,6 +110,7 @@
     <Compile Include="ViewModel\NarudzbeVM.cs" />
     <Compile Include="ViewModel\OmiljeniSastojci.cs" />
     <Compile Include="ViewModel\PregledDanaRepVm.cs" />
+    <Compile Include="ViewModel\PregledDobavljaciForDg.cs" />
     <Compile Include="ViewModel\PregledNarudzbiGridVm.cs" />
     <Compile Include="ViewModel\PregledStatistikeVM.cs" />
     <Compile Include="ViewModel\PromjenaPovjerljivostiVm.cs" />

@@ -23,6 +23,12 @@ namespace ESBX
         Korisnici k = Global.logedUser;
         public PodesavanjeProfila()
         {
+            if (Global.logedUser == null)
+            {
+                Application.Current.MainPage = new ESBX.Login();
+                return;
+            }
+
             InitializeComponent();
         }
 

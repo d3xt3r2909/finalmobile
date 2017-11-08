@@ -8,11 +8,11 @@ namespace ESBX
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new ESBX.Login()); //new Navigation.MyPage();
-            
+            // MainPage = new NavigationPage(new ESBX.KreiranjeSalate()); //new Navigation.MyPage();
+            Application.Current.MainPage = new Navigation.MyPage();
         }
 
-		protected override void OnStart ()
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}

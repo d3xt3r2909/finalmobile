@@ -84,6 +84,8 @@ namespace ESBX
             {
                 DisplayAlert("Uspjesno", "Uspjesno ste narucili salatu, provjerite email koji smo Vam proslijedili.", "OK");
                 Navigation.PopPopupAsync(true);
+                Application.Current.MainPage = new Navigation.MyPage();
+                return;
             }
             else
             {

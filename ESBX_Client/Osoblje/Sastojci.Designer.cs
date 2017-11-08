@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgSastojci = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +48,8 @@
             // 
             // dgSastojci
             // 
+            this.dgSastojci.AllowUserToAddRows = false;
+            this.dgSastojci.AllowUserToDeleteRows = false;
             this.dgSastojci.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgSastojci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSastojci.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -60,6 +62,7 @@
             this.Kontrole});
             this.dgSastojci.Location = new System.Drawing.Point(40, 140);
             this.dgSastojci.Name = "dgSastojci";
+            this.dgSastojci.ReadOnly = true;
             this.dgSastojci.Size = new System.Drawing.Size(1113, 330);
             this.dgSastojci.TabIndex = 3;
             this.dgSastojci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSastojci_CellClick);
@@ -69,6 +72,7 @@
             this.Id.DataPropertyName = "Id";
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
             // Naziv
@@ -76,38 +80,44 @@
             this.Naziv.DataPropertyName = "Naziv";
             this.Naziv.HeaderText = "Naziv";
             this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
             // 
             // Gramaza
             // 
             this.Gramaza.DataPropertyName = "Gramaza";
             this.Gramaza.HeaderText = "Gramaza";
             this.Gramaza.Name = "Gramaza";
+            this.Gramaza.ReadOnly = true;
             // 
             // Cijena
             // 
             this.Cijena.DataPropertyName = "Cijena";
             this.Cijena.HeaderText = "Cijena";
             this.Cijena.Name = "Cijena";
+            this.Cijena.ReadOnly = true;
             // 
             // BrojKalorija
             // 
             this.BrojKalorija.DataPropertyName = "BrojKalorija";
             this.BrojKalorija.HeaderText = "Broj kalorija";
             this.BrojKalorija.Name = "BrojKalorija";
+            this.BrojKalorija.ReadOnly = true;
             // 
             // VrstaSastojka
             // 
             this.VrstaSastojka.DataPropertyName = "VrstaSastojka";
             this.VrstaSastojka.HeaderText = "Vrsta sastojka";
             this.VrstaSastojka.Name = "VrstaSastojka";
+            this.VrstaSastojka.ReadOnly = true;
             // 
             // Kontrole
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            this.Kontrole.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.Kontrole.DefaultCellStyle = dataGridViewCellStyle5;
             this.Kontrole.HeaderText = "Kontrole";
             this.Kontrole.Name = "Kontrole";
+            this.Kontrole.ReadOnly = true;
             this.Kontrole.Text = "Izbrisi";
             this.Kontrole.UseColumnTextForButtonValue = true;
             // 
@@ -168,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1291, 665);
+            this.ClientSize = new System.Drawing.Size(1287, 661);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -13,6 +13,7 @@ using ESBX_Client.Util;
 using ESBX_API.Helper;
 using ESBX_db.ViewModel;
 using ESBX_API.ViewModels;
+using ESBX_Client.Reports;
 
 namespace ESBX_Client.Osoblje
 {
@@ -41,15 +42,23 @@ namespace ESBX_Client.Osoblje
         private void btnIzdaj_Click(object sender, EventArgs e)
         {
             HttpResponseMessage response = _service.PostCustomRouteResponse(WebApiRoutes.POST_ZAVRSI_NARUDZBU,
-                new IzdajRacunVm {KorpaId = KorpaId, KuponKod = txtPoklonBon.Text});
-            
+                new IzdajRacunVm { KorpaId = KorpaId, KuponKod = txtPoklonBon.Text });
+
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Poslat email");
+                // MessageBox.Show("Poslat email");
                 btnDownload.Enabled = true;
-;           }
+
+                DialogResult = DialogResult.OK; 
+
+                frmIzdavanjeRacuna frm = new frmIzdavanjeRacuna(narudzbe);
+                
+                frm.ShowDialog();
+            }
             else
             {
+                DialogResult = DialogResult.Cancel;
+
                 string poruka = response.Content.ReadAsAsync<string>().Result; 
 
                 MessageBox.Show("Greska: " + poruka);

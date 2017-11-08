@@ -96,6 +96,7 @@
             this.KorisniciGrid.Location = new System.Drawing.Point(40, 140);
             this.KorisniciGrid.MultiSelect = false;
             this.KorisniciGrid.Name = "KorisniciGrid";
+            this.KorisniciGrid.ReadOnly = true;
             this.KorisniciGrid.RowHeadersWidth = 51;
             this.KorisniciGrid.Size = new System.Drawing.Size(1113, 330);
             this.KorisniciGrid.TabIndex = 5;
@@ -106,6 +107,7 @@
             this.UposlenikId.DataPropertyName = "UposlenikId";
             this.UposlenikId.HeaderText = "UposlenikId";
             this.UposlenikId.Name = "UposlenikId";
+            this.UposlenikId.ReadOnly = true;
             this.UposlenikId.Visible = false;
             // 
             // Uposlenik
@@ -113,30 +115,35 @@
             this.Uposlenik.DataPropertyName = "Uposlenik";
             this.Uposlenik.HeaderText = "Uposlenik";
             this.Uposlenik.Name = "Uposlenik";
+            this.Uposlenik.ReadOnly = true;
             // 
             // Email
             // 
             this.Email.DataPropertyName = "Email";
             this.Email.HeaderText = "Email";
             this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
             // 
             // Telefon
             // 
             this.Telefon.DataPropertyName = "Telefon";
             this.Telefon.HeaderText = "Telefon";
             this.Telefon.Name = "Telefon";
+            this.Telefon.ReadOnly = true;
             // 
             // DatumZaposlenja
             // 
             this.DatumZaposlenja.DataPropertyName = "DatumZaposlenja";
             this.DatumZaposlenja.HeaderText = "Datum zaposlenja";
             this.DatumZaposlenja.Name = "DatumZaposlenja";
+            this.DatumZaposlenja.ReadOnly = true;
             // 
             // Aktivan
             // 
             this.Aktivan.DataPropertyName = "Aktivan";
             this.Aktivan.HeaderText = "Aktivan";
             this.Aktivan.Name = "Aktivan";
+            this.Aktivan.ReadOnly = true;
             this.Aktivan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Aktivan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 

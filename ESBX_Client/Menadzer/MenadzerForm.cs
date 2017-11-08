@@ -116,6 +116,13 @@ namespace ESBX_Client.Menadzer
             PrikaziFormu(f);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            PregledNabavkiForm f = new PregledNabavkiForm();
+            PrikaziFormu(f);
+        }
+
         private void ntfIconIstek_BalloonTipClicked(object sender, EventArgs e)
         {
             if (alarmForThisItems != null)
@@ -139,6 +146,6 @@ namespace ESBX_Client.Menadzer
             this.Close(); //to turn off current app
         }
 
-        
+       
     }
 }

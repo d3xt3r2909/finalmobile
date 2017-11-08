@@ -19,7 +19,13 @@ namespace ESBX
         private WebAPIHelper salateService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Narudzba");
         public TrenutnoNarucene ()
 		{
-			InitializeComponent ();
+            if (Global.logedUser == null)
+            {
+                Application.Current.MainPage = new ESBX.Login();
+                return;
+            }
+
+            InitializeComponent ();
 		}
 
         protected override void OnAppearing()
