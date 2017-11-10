@@ -11,5 +11,6 @@ namespace ESBX_db.ViewModel
         public DateTime DatumFilter { get; set; }
 
         public int DobavljacIdFilter { get; set; }
+        
     }
 }

@@ -39,7 +39,7 @@ namespace ESBX_Client.Opste
 
                         if (!response.IsSuccessStatusCode)
                         {
-                            MessageBox.Show("nije post uspio");
+                            MessageBox.Show("Dogodila se greska.");
                         }
                     }
                     else

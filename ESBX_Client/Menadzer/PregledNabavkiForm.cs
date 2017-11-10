@@ -20,6 +20,7 @@ namespace ESBX_Client.Menadzer
         private WebAPIHelper DobavljaciService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Dobavljaci");
         WebAPIHelper service = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.GET_NABAVKE);
         List<PregledDobavljaciForDg> sourceList = null;
+        bool promjenaDatuma = false;
         public PregledNabavkiForm()
         {
             InitializeComponent();
@@ -73,6 +74,7 @@ namespace ESBX_Client.Menadzer
         private void btnOcistiFilter_Click(object sender, EventArgs e)
         {
             BindGrid();
+            promjenaDatuma = false;
         }
 
         private void btnPrimjeniFilter_Click(object sender, EventArgs e)
@@ -81,7 +83,15 @@ namespace ESBX_Client.Menadzer
             DateTime datum = FilterNabavkaDatum.Value;
             //pozovi funkciju
             UlazZalihaRequestVM request = new UlazZalihaRequestVM();
-            request.DatumFilter = datum;
+            if (promjenaDatuma)
+            {
+                request.DatumFilter = datum;
+            }
+            else
+            {
+                DateTime temp = new DateTime(1, 1, 1);
+                request.DatumFilter = temp;
+            }
             request.DobavljacIdFilter = dobavljacId;
             HttpResponseMessage response = service.PostResponse(request);
             sourceList = response.Content.ReadAsAsync<List<PregledDobavljaciForDg>>().Result;
@@ -98,6 +108,10 @@ namespace ESBX_Client.Menadzer
             FilterNabavkaDatum.Value = DateTime.Now;
         }
 
-
+        
+        private void FilterNabavkaDatum_Enter(object sender, EventArgs e)
+        {
+            promjenaDatuma = true;
+        }
     }
 }

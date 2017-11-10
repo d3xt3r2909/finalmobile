@@ -10,7 +10,7 @@ namespace ESBX_db.ViewModel
     {
         public int UlazZalihaId { get; set; }
         public string Napomena { get; set; }
-        public DateTime NabavkaDate { get; set; }
+        public string NabavkaDate { get; set; }
         public int DobavljacId { get; set; }
         public string DobavljacNaziv { get; set; }
         public string DobavljacTelefon { get; set; }

@@ -63,7 +63,7 @@ namespace ESBX_API.Controllers
 
                                   UlazZalihaId = x.Id,
                                   Napomena = x.Napomena,
-                                  NabavkaDate = x.Datum,
+                                  NabavkaDate = x.Datum.Day + "/" + x.Datum.Month + "/" + x.Datum.Year,
                                   DobavljacId = x.DobavljaciId,
                                   DobavljacNaziv = x.Dobavljaci.Naziv,
                                   DobavljacTelefon = x.Dobavljaci.BrojTelefona,
@@ -84,16 +84,15 @@ namespace ESBX_API.Controllers
             else
             {
                 listResponse = ctx.UlazZaliha.Where(l=>
-                     //  (l.Datum.Date == request.DatumFilter.Date || "varijabla_nisam_dirao_datum" == true)
-                       (EntityFunctions.TruncateTime(l.Datum)  == EntityFunctions.TruncateTime(request.DatumFilter))
-                            && (l.DobavljaciId == request.DobavljacIdFilter || request.DobavljacIdFilter == 0)
+                        (EntityFunctions.TruncateTime(l.Datum)  == EntityFunctions.TruncateTime(request.DatumFilter) 
+                         || EntityFunctions.TruncateTime(request.DatumFilter)==EntityFunctions.TruncateTime(new DateTime(1,1,1)))
+                       && (l.DobavljaciId == request.DobavljacIdFilter || request.DobavljacIdFilter == 0)
                     )
                               .Select(x => new PregledDobavljaciForDg
                               {
-
                                   UlazZalihaId = x.Id,
                                   Napomena = x.Napomena,
-                                  NabavkaDate = x.Datum,
+                                  NabavkaDate = x.Datum.Day+"/"+ x.Datum.Month + "/" + x.Datum.Year,
                                   DobavljacId = x.DobavljaciId,
                                   DobavljacNaziv = x.Dobavljaci.Naziv,
                                   DobavljacTelefon = x.Dobavljaci.BrojTelefona,
@@ -111,7 +110,6 @@ namespace ESBX_API.Controllers
 
                               }).OrderByDescending(y => y.NabavkaDate).ToList();
             }
-
 
             return Request.CreateResponse(HttpStatusCode.OK, listResponse);
         }
