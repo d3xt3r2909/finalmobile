@@ -49,29 +49,75 @@ namespace ESBX_API.Controllers
             return Ok(ulazZaliha);
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route(WebApiRoutes.GET_NABAVKE)]
-        public HttpResponseMessage GetNabavke()
+        public HttpResponseMessage GetNabavke(UlazZalihaRequestVM request)
         {
-            // &&  stavka.UlazZaliha.Dobavljaci.Status == false
-            List<PregledDobavljaciForDg> listResponse =
-                ctx.StavkaUlaza.Where(stavka => stavka.Sastojak.IsDeleted == false)
-                               .Select(stavkaUlaza => new PregledDobavljaciForDg {
+            //treba ljepse osmisliti
+            List<PregledDobavljaciForDg> listResponse = new List<PregledDobavljaciForDg>();
+            if (request == null)
+            {
+               listResponse = ctx.UlazZaliha
+                              .Select(x => new PregledDobavljaciForDg
+                              {
 
-                                   SastojakId = stavkaUlaza.SastojakId,
-                                   SastojakNaziv = stavkaUlaza.Sastojak.Naziv,
-                                   NabavkaKolicina = stavkaUlaza.Kolicina,
-                                   NabavkaCijena = stavkaUlaza.Cijena,
-                                   NabavkaDate = stavkaUlaza.UlazZaliha.Datum,
-                                   DobavljacId = stavkaUlaza.UlazZaliha.DobavljaciId,
-                                   DobavljacNaziv = stavkaUlaza.UlazZaliha.Dobavljaci.Naziv,
-                                   DobavljacTelefon = stavkaUlaza.UlazZaliha.Dobavljaci.BrojTelefona,
-                                   DobavljacAdresa = stavkaUlaza.UlazZaliha.Dobavljaci.Adresa,
-                                   DobavljacEmail = stavkaUlaza.UlazZaliha.Dobavljaci.Email,
-                                   DobavljacRacun = stavkaUlaza.UlazZaliha.Dobavljaci.Ziroracun
+                                  UlazZalihaId = x.Id,
+                                  Napomena = x.Napomena,
+                                  NabavkaDate = x.Datum,
+                                  DobavljacId = x.DobavljaciId,
+                                  DobavljacNaziv = x.Dobavljaci.Naziv,
+                                  DobavljacTelefon = x.Dobavljaci.BrojTelefona,
+                                  DobavljacAdresa = x.Dobavljaci.Adresa,
+                                  DobavljacEmail = x.Dobavljaci.Email,
+                                  DobavljacRacun = x.Dobavljaci.Ziroracun,
+                                  SastojciList = x.StavkaUlaza.Where(k => k.UlazZalihaId == x.Id).Select(z => new SastojciForGridVM
+                                  {
+                                      SastojakId = z.SastojakId,
+                                      Cijena = z.Cijena,
+                                      Naziv = z.Sastojak.Naziv,
+                                      Kolicina = z.Kolicina
+                                  })
+                                  .ToList()
 
-                               }).ToList(); 
-                                                    
+                              }).OrderByDescending(y => y.NabavkaDate).Take(10).ToList();
+            }
+            else
+            {
+                //POPRAVIS SVE OVO
+                int rG = request.DatumFilter.Year;
+                int rM= request.DatumFilter.Month;
+                int rD = request.DatumFilter.Day;
+                listResponse = ctx.UlazZaliha.Where(l=>
+                       (l.DobavljaciId==request.DobavljacIdFilter  || request.DobavljacIdFilter == 0)
+                    &&( (rG == DateTime.Now.Year && rM == DateTime.Now.Month && rD == DateTime.Now.Day) 
+                       || (rG == 1 && rM == 1 && rD == 1)
+                       || (l.Datum.Year == rG && l.Datum.Month == rM && l.Datum.Day == rD)
+                       )
+                    )
+                              .Select(x => new PregledDobavljaciForDg
+                              {
+
+                                  UlazZalihaId = x.Id,
+                                  Napomena = x.Napomena,
+                                  NabavkaDate = x.Datum,
+                                  DobavljacId = x.DobavljaciId,
+                                  DobavljacNaziv = x.Dobavljaci.Naziv,
+                                  DobavljacTelefon = x.Dobavljaci.BrojTelefona,
+                                  DobavljacAdresa = x.Dobavljaci.Adresa,
+                                  DobavljacEmail = x.Dobavljaci.Email,
+                                  DobavljacRacun = x.Dobavljaci.Ziroracun,
+                                  SastojciList = x.StavkaUlaza.Where(k => k.UlazZalihaId == x.Id).Select(z => new SastojciForGridVM
+                                  {
+                                      SastojakId = z.SastojakId,
+                                      Cijena = z.Cijena,
+                                      Naziv = z.Sastojak.Naziv,
+                                      Kolicina = z.Kolicina
+                                  })
+                                  .ToList()
+
+                              }).OrderByDescending(y => y.NabavkaDate).ToList();
+            }
+
 
             return Request.CreateResponse(HttpStatusCode.OK, listResponse);
         }

@@ -189,4 +189,7 @@
   <data name="telefon_req" xml:space="preserve">
     <value>Telefon je obavezan.</value>
   </data>
+  <data name="vrstaSastojka_req" xml:space="preserve">
+    <value>Vrsta sastojka je obavezno polje.</value>
+  </data>
 </root>

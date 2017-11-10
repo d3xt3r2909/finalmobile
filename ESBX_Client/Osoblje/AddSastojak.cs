@@ -30,7 +30,7 @@ namespace ESBX_Client.Osoblje
         {
             noviSastojak = new SastojciPostWithImage();
             InitializeComponent();
-            // this.AutoValidate = AutoValidate.Disable;
+            this.AutoValidate = AutoValidate.Disable;
         }
 
         private void AddSastojak_Load(object sender, EventArgs e)
@@ -52,7 +52,9 @@ namespace ESBX_Client.Osoblje
 
         private void btnAddSasSacuvaj_Click(object sender, EventArgs e)
         {
-
+            errorProvider.Clear();
+            if (this.ValidateChildren())
+            {
                 if (!txtAddSasKalorije.Text.All(char.IsDigit) &&
                 !txtAddSasKalorije.Text.All(char.IsDigit) &&
                 !txtAddSasKalorije.Text.All(char.IsDigit))
@@ -79,22 +81,9 @@ namespace ESBX_Client.Osoblje
                     else
                     {
                         MessageBox.Show("Error: " + response.StatusCode);
+
                     }
-            }
-        }
-
-        
-
-        private void txtAddSasNaziv_Validating(object sender, CancelEventArgs e)
-        {
-            if (String.IsNullOrEmpty(txtAddSasNaziv.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtAddSasNaziv, Messages.naziv_sastojak_req);
-            }
-            else
-            {
-                errorProvider.SetError(txtAddSasNaziv, null);
+                }
             }
         }
 
@@ -149,7 +138,49 @@ namespace ESBX_Client.Osoblje
 
             }
         }
+        private void txtAddSasNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtAddSasNaziv.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasNaziv, Messages.naziv_sastojak_req);
+            }
+        }
+        private void txtAddSasCijena_Validating(object sender, CancelEventArgs e)
+        {
 
-      
+            if (String.IsNullOrEmpty(txtAddSasCijena.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasCijena, Messages.cijena_req);
+            }
+        }
+
+        private void txtAddSasKalorije_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtAddSasKalorije.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasKalorije, Messages.kalorije_req);
+            }
+        }
+
+        private void txtAddSasGramaza_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtAddSasGramaza.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtAddSasGramaza, Messages.gramaza_req);
+            }
+        }
+
+        private void cmbAddSasVrsta_Validating(object sender, CancelEventArgs e)
+        {
+            if (Convert.ToInt32(cmbAddSasVrsta.SelectedValue) == 0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(cmbAddSasVrsta, Messages.vrstaSastojka_req);
+            }
+        }
     }
 }

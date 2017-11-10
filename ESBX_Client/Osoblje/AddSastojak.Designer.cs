@@ -43,12 +43,12 @@
             this.txtAddSasNapomena = new System.Windows.Forms.TextBox();
             this.btnAddSasSacuvaj = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtAddSasGramaza = new System.Windows.Forms.TextBox();
             this.btnName = new System.Windows.Forms.Button();
             this.txtInputImage = new System.Windows.Forms.TextBox();
             this.imgBox = new System.Windows.Forms.PictureBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.txtAddSasGramaza = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -62,7 +62,7 @@
             this.cmbAddSasVrsta.Name = "cmbAddSasVrsta";
             this.cmbAddSasVrsta.Size = new System.Drawing.Size(376, 21);
             this.cmbAddSasVrsta.TabIndex = 0;
-            // this.cmbAddSasVrsta.Validating += new System.ComponentModel.CancelEventHandler(this.cmbAddSasVrsta_Validating);
+            this.cmbAddSasVrsta.Validating += new System.ComponentModel.CancelEventHandler(this.cmbAddSasVrsta_Validating);
             // 
             // label1
             // 
@@ -96,7 +96,7 @@
             this.txtAddSasCijena.Name = "txtAddSasCijena";
             this.txtAddSasCijena.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasCijena.TabIndex = 4;
-            // this.txtAddSasCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtCijenaSastojak_Validate);
+            this.txtAddSasCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasCijena_Validating);
             // 
             // lblCijena
             // 
@@ -113,7 +113,7 @@
             this.txtAddSasKalorije.Name = "txtAddSasKalorije";
             this.txtAddSasKalorije.Size = new System.Drawing.Size(211, 20);
             this.txtAddSasKalorije.TabIndex = 6;
-            // this.txtAddSasKalorije.Validating += new System.ComponentModel.CancelEventHandler(this.txtKalorije_Validate);
+            this.txtAddSasKalorije.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasKalorije_Validating);
             // 
             // label2
             // 
@@ -185,6 +185,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unos novog sastojka";
             // 
+            // txtAddSasGramaza
+            // 
+            this.txtAddSasGramaza.Location = new System.Drawing.Point(208, 237);
+            this.txtAddSasGramaza.Name = "txtAddSasGramaza";
+            this.txtAddSasGramaza.Size = new System.Drawing.Size(211, 20);
+            this.txtAddSasGramaza.TabIndex = 16;
+            this.txtAddSasGramaza.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasGramaza_Validating);
+            // 
             // btnName
             // 
             this.btnName.Location = new System.Drawing.Point(521, 255);
@@ -221,13 +229,6 @@
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog1";
-            // 
-            // txtAddSasGramaza
-            // 
-            this.txtAddSasGramaza.Location = new System.Drawing.Point(208, 237);
-            this.txtAddSasGramaza.Name = "txtAddSasGramaza";
-            this.txtAddSasGramaza.Size = new System.Drawing.Size(211, 20);
-            this.txtAddSasGramaza.TabIndex = 16;
             // 
             // frmUnosSastojka
             // 

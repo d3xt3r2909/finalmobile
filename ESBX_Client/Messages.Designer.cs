@@ -275,5 +275,14 @@ namespace ESBX_Client {
                 return ResourceManager.GetString("telefon_req", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vrsta sastojka je obavezno polje..
+        /// </summary>
+        internal static string vrstaSastojka_req {
+            get {
+                return ResourceManager.GetString("vrstaSastojka_req", resourceCulture);
+            }
+        }
     }
 }

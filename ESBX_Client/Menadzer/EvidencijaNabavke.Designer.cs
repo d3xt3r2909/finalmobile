@@ -241,6 +241,7 @@
             this.CijenaTxt.Size = new System.Drawing.Size(133, 20);
             this.CijenaTxt.TabIndex = 56;
             this.CijenaTxt.ValidatingType = typeof(int);
+            this.CijenaTxt.Validating += new System.ComponentModel.CancelEventHandler(this.CijenaTxt_Validating);
             // 
             // KolicinaTxt
             // 
@@ -250,6 +251,7 @@
             this.KolicinaTxt.Size = new System.Drawing.Size(133, 20);
             this.KolicinaTxt.TabIndex = 55;
             this.KolicinaTxt.ValidatingType = typeof(int);
+            this.KolicinaTxt.Validating += new System.ComponentModel.CancelEventHandler(this.KolicinaTxt_Validating);
             // 
             // DodajBtn
             // 
@@ -342,6 +344,7 @@
             this.SastojakCmb.Name = "SastojakCmb";
             this.SastojakCmb.Size = new System.Drawing.Size(332, 21);
             this.SastojakCmb.TabIndex = 47;
+            this.SastojakCmb.Validating += new System.ComponentModel.CancelEventHandler(this.SastojakCmb_Validating);
             // 
             // button1
             // 

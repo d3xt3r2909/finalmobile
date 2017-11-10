@@ -119,6 +119,7 @@
     <Compile Include="ViewModel\SastojciPostWithImage.cs" />
     <Compile Include="ViewModel\SastojciPregledVm.cs" />
     <Compile Include="ViewModel\UkupnaCijenaVM.cs" />
+    <Compile Include="ViewModel\UlazZalihaRequestVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

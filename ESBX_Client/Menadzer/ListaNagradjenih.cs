@@ -27,6 +27,7 @@ namespace ESBX_Client.Menadzer
             request.GetAll = true;
 
             InitializeComponent();
+            gridNagrade.AutoGenerateColumns = false;
         }
 
         private void ListaNagradjenih_Load(object sender, EventArgs e)

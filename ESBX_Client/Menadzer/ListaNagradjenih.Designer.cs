@@ -48,6 +48,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.KorisnikId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KorisnikImePrezime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KorisnikEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KuponKod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Popust = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VaziDo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Iskoristen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -201,6 +208,14 @@
             this.gridNagrade.AllowUserToDeleteRows = false;
             this.gridNagrade.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridNagrade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridNagrade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.KorisnikId,
+            this.KorisnikImePrezime,
+            this.KorisnikEmail,
+            this.KuponKod,
+            this.Popust,
+            this.VaziDo,
+            this.Iskoristen});
             this.gridNagrade.Location = new System.Drawing.Point(27, 244);
             this.gridNagrade.Name = "gridNagrade";
             this.gridNagrade.ReadOnly = true;
@@ -256,6 +271,56 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // KorisnikId
+            // 
+            this.KorisnikId.DataPropertyName = "KorisnikId";
+            this.KorisnikId.HeaderText = "KorisnikId";
+            this.KorisnikId.Name = "KorisnikId";
+            this.KorisnikId.ReadOnly = true;
+            this.KorisnikId.Visible = false;
+            // 
+            // KorisnikImePrezime
+            // 
+            this.KorisnikImePrezime.DataPropertyName = "KorisnikImePrezime";
+            this.KorisnikImePrezime.HeaderText = "Korisnik";
+            this.KorisnikImePrezime.Name = "KorisnikImePrezime";
+            this.KorisnikImePrezime.ReadOnly = true;
+            // 
+            // KorisnikEmail
+            // 
+            this.KorisnikEmail.DataPropertyName = "KorisnikEmail";
+            this.KorisnikEmail.HeaderText = "Email";
+            this.KorisnikEmail.Name = "KorisnikEmail";
+            this.KorisnikEmail.ReadOnly = true;
+            // 
+            // KuponKod
+            // 
+            this.KuponKod.DataPropertyName = "KuponKod";
+            this.KuponKod.HeaderText = "Kupon kod";
+            this.KuponKod.Name = "KuponKod";
+            this.KuponKod.ReadOnly = true;
+            // 
+            // Popust
+            // 
+            this.Popust.DataPropertyName = "Popust";
+            this.Popust.HeaderText = "Popust";
+            this.Popust.Name = "Popust";
+            this.Popust.ReadOnly = true;
+            // 
+            // VaziDo
+            // 
+            this.VaziDo.DataPropertyName = "VaziDo";
+            this.VaziDo.HeaderText = "Vazi do";
+            this.VaziDo.Name = "VaziDo";
+            this.VaziDo.ReadOnly = true;
+            // 
+            // Iskoristen
+            // 
+            this.Iskoristen.DataPropertyName = "IskoristenOpis";
+            this.Iskoristen.HeaderText = "Iskoristen";
+            this.Iskoristen.Name = "Iskoristen";
+            this.Iskoristen.ReadOnly = true;
+            // 
             // ListaNagradjenih
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,5 +364,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikImePrezime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KorisnikEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KuponKod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Popust;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VaziDo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Iskoristen;
     }
 }
