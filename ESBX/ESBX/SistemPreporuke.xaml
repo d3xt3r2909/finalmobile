@@ -29,8 +29,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button x:Name="btnDodajuKorpu" BackgroundColor="Orange" Text="DODAJ U KORPU" HorizontalOptions="End" Clicked="btnDodajuKorpu_Clicked"></Button>
 
+            <Button x:Name="btnDodaj" Text="U KORPU" Clicked="btnDodaj_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

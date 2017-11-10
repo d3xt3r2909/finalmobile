@@ -46,14 +46,14 @@ namespace ESBX
             item.IsVisible = false;
         }
 
-        private void btnDodajuKorpu_Clicked()
+        private void btnDodaj_Clicked()
         {
             HttpResponseMessage repsoneDodaj = kreiranjeService.PostResponse(k);
             if (repsoneDodaj.IsSuccessStatusCode)
             {
 
                 DisplayAlert("Uspjeh", "Uspješno ste kreirali salatu.", "OK");
-             
+
             }
             else
             {
