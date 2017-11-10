@@ -37,6 +37,6 @@ namespace ESBX_API.Helper
         public const string POST_KOMENTAR_SALATA = "api/narudzbe/komentar/";
         public const string GET_KOMENTAR = "api/narudzbe/komentar/";
         public const string GET_NAGRADNE_IGRE = "api/nagradnaigra/GetNagradnaIgra/";
-        public const string GET_NABAVKE = "api/ulazzaliha/GetNabavke/";
+        public const string GET_NABAVKE = "api/ulazzaliha/UzmiNabavke/";
     }
 }

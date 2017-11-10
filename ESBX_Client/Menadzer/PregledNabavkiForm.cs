@@ -19,7 +19,6 @@ namespace ESBX_Client.Menadzer
     {
         private WebAPIHelper DobavljaciService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Dobavljaci");
         WebAPIHelper service = new WebAPIHelper(WebApiRoutes.URL_ROUTE, WebApiRoutes.GET_NABAVKE);
-        private GetNagradnaIgraRequest request;
         List<PregledDobavljaciForDg> sourceList = null;
         public PregledNabavkiForm()
         {

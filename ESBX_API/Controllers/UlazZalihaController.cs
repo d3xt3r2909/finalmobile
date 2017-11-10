@@ -4,6 +4,7 @@ using ESBX_db.Models;
 using ESBX_db.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -51,9 +52,8 @@ namespace ESBX_API.Controllers
 
         [HttpPost]
         [Route(WebApiRoutes.GET_NABAVKE)]
-        public HttpResponseMessage GetNabavke(UlazZalihaRequestVM request)
+        public HttpResponseMessage UzmiNabavke(UlazZalihaRequestVM request)
         {
-            //treba ljepse osmisliti
             List<PregledDobavljaciForDg> listResponse = new List<PregledDobavljaciForDg>();
             if (request == null)
             {
@@ -83,16 +83,10 @@ namespace ESBX_API.Controllers
             }
             else
             {
-                //POPRAVIS SVE OVO
-                int rG = request.DatumFilter.Year;
-                int rM= request.DatumFilter.Month;
-                int rD = request.DatumFilter.Day;
                 listResponse = ctx.UlazZaliha.Where(l=>
-                       (l.DobavljaciId==request.DobavljacIdFilter  || request.DobavljacIdFilter == 0)
-                    &&( (rG == DateTime.Now.Year && rM == DateTime.Now.Month && rD == DateTime.Now.Day) 
-                       || (rG == 1 && rM == 1 && rD == 1)
-                       || (l.Datum.Year == rG && l.Datum.Month == rM && l.Datum.Day == rD)
-                       )
+                     //  (l.Datum.Date == request.DatumFilter.Date || "varijabla_nisam_dirao_datum" == true)
+                       (EntityFunctions.TruncateTime(l.Datum)  == EntityFunctions.TruncateTime(request.DatumFilter))
+                            && (l.DobavljaciId == request.DobavljacIdFilter || request.DobavljacIdFilter == 0)
                     )
                               .Select(x => new PregledDobavljaciForDg
                               {
