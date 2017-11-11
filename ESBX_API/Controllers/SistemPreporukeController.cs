@@ -1,4 +1,5 @@
 ﻿using ESBX_db.DAL;
+using ESBX_db.Helper;
 using ESBX_db.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,7 @@ namespace ESBX_API.Controllers
 
             //da li korisnik ima kreiranih salata koje sadrze neke od izdvojenih sastojaka a da je tu salatu ocjenio s >3
             List<int> SalataIds = ctx.OcjeneKomentari.Where(x => x.KorisnikId == KorisnikTrenutni && x.Ocjena > 3).Select(y => y.SalataId).ToList();
-            if (SalataIds != null)
+            if (SalataIds.Count()== 0 )
             {
                 foreach (var i in SalataIds)
                 {
@@ -67,8 +68,8 @@ namespace ESBX_API.Controllers
 
                     if (!sastojciKojeNemaTrenutni.Contains(n))
                     {
-                        if (ctx.Sastojci.Where(x => x.Id == n).Select(y => y.VrstaSastojkaId).FirstOrDefault() != 1)
-                            sastojciKojeNemaTrenutni.Add(n);
+                        if (ctx.Sastojci.Where(x => x.Id == n).Select(y => y.VrstaSastojka.Naziv).FirstOrDefault() != Constants.SastojakGlavni)
+                            sastojciKojePredlazemo.Add(n);
                     }
 
                 }
