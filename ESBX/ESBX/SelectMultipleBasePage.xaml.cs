@@ -99,6 +99,5 @@ namespace ESBX
         {
             return WrappedItems.Where(item => item.IsSelected).Select(wrappedItem => wrappedItem.Item).ToList();
         }
-        
     }
 }

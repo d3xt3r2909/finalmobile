@@ -46,7 +46,7 @@ namespace ESBX
             item.IsVisible = false;
         }
 
-        private void btnDodaj_Clicked()
+        private void btnDodaj_Clicked(object sender, EventArgs e)
         {
             HttpResponseMessage repsoneDodaj = kreiranjeService.PostResponse(k);
             if (repsoneDodaj.IsSuccessStatusCode)

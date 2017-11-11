@@ -130,6 +130,17 @@ namespace ESBX
 
         protected override void OnAppearing()
         {
+            if (multiPage != null)
+            {
+                List<Sastojci> izabraniSporedni = multiPage.GetSelection();
+
+                if (izabraniSporedni != null)
+                {
+
+                    this.updateLabelSporedni(izabraniSporedni);
+                }
+            }
+
             HttpResponseMessage repsoneGlavni = kreiranjeService.GetResponse(Constants.SastojakGlavni);
             if (repsoneGlavni.IsSuccessStatusCode)
             {
@@ -173,6 +184,23 @@ namespace ESBX
                 Kol = 1;
 
             Nap = Napomena.Text;
+        }
+
+        public void updateLabelSporedni(List<Sastojci> sporedniSastojci) {
+
+            if (sporedniSastojci.Count() == 0)
+            {
+                odabraniSporedni.IsVisible = false;
+                odabraniSporedni.Text = "";
+            }
+            else
+            {
+                odabraniSporedni.IsVisible = true;
+                odabraniSporedni.Text = "Odabrani sporedni su: ";
+
+                foreach (Sastojci item in sporedniSastojci)
+                    odabraniSporedni.Text += item.Naziv + "; ";
+            }
         }
 
         private void btnSporedni_Clicked(object sender, EventArgs e)
