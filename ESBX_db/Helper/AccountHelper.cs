@@ -50,10 +50,10 @@ namespace ESBX_db.Helper
 
             # region
             // TODO: Ovaj dio je napravljen samo za testne svrhe za predaju ispita, inace ga treba ukloniti radi sigurnosnih razloga
-            if (account.UserName == "menadzer@gmail.com" || account.UserName == "osoblje@gmail.com")
-            {
-                if (account.Lozinka == korisnik.LozinkaHash) return korisnik;
-            }
+            //if (account.UserName == "menadzer@gmail.com" || account.UserName == "osoblje@gmail.com")
+            //{
+            //    if (account.Lozinka == korisnik.LozinkaHash) return korisnik;
+            //}
             #endregion
 
 

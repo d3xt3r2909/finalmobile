@@ -14,6 +14,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Label Text="Vasa korpa je prazna, potrebno je da kreirate barem jednu salatu kako bi ste izvrsili narudzbu" x:Name="lblPraznaKorpa" IsVisible="False"></Label>
         <ListView x:Name="korpaList" HasUnevenRows="True" Grid.Row="0" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -47,13 +48,14 @@
                             <Button Text="OBRIŠI" CommandParameter="{Binding StavkaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"></Button>
                         </Grid>
 
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " Grid.Column="0" Grid.Row="1" FontAttributes="Bold"></Label>
-        <Button x:Name="btnNaruci" Text="Naruči" Grid.Column="1" Grid.Row="1" Clicked="NaruciClicked" BackgroundColor="Orange"></Button>
-
+        <StackLayout x:Name="bottomControl" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " FontAttributes="Bold"></Label>
+            <Button x:Name="btnNaruci" Text="Naruči" Clicked="NaruciClicked" HorizontalOptions="EndAndExpand" BackgroundColor="Orange"></Button>
+        </StackLayout>
     </Grid>
 </ContentPage>

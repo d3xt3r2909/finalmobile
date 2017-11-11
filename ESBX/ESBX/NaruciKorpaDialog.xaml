@@ -47,7 +47,7 @@
         <Label Text="Unesite datum Vaseg dolaska: " Grid.Row="1" Grid.ColumnSpan="2"></Label>
         <DatePicker x:Name="datumDolaska" Grid.Row="2" MinimumDate="{x:Static sys:DateTime.Now}" Date="{x:Static sys:DateTime.Now}" Format="dd-MM-yyyy" Grid.ColumnSpan="2"></DatePicker>
         <Label Text="Unesite datum/vrijeme Vaseg dolaska: " Grid.Row="3" Grid.ColumnSpan="2"></Label>
-        <TimePicker x:Name="vrijemeDolaska" Grid.Row="4" Grid.ColumnSpan="2"></TimePicker>
+        <TimePicker x:Name="vrijemeDolaska" Grid.Row="4" Grid.ColumnSpan="2" PropertyChanged="timePickerChange_changed"></TimePicker>
         <Button HorizontalOptions="CenterAndExpand" x:Name="btnNaruciKorpu" Text="NARUCI" Grid.Row="5" TextColor="White" Clicked="btnNaruciKorpu_clicked" Grid.ColumnSpan="2"></Button>
     </Grid>
 

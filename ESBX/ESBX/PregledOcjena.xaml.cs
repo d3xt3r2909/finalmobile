@@ -36,6 +36,11 @@ namespace ESBX
                 var jsonResponse = response.Content.ReadAsStringAsync();
                 List<OcjeneKomentari> komentari = JsonConvert.DeserializeObject<List<OcjeneKomentari>>(jsonResponse.Result);
                 listKomentari.ItemsSource = komentari;
+
+                if (komentari.Count() == 0)
+                    lblPregledOcjenaPrazno.IsVisible = true;
+                else
+                    lblPregledOcjenaPrazno.IsVisible = false;
             }
 
             base.OnAppearing();

@@ -53,12 +53,18 @@ namespace ESBX
         {
             List<KorpaMobileVm> firstSource = getSourceForList();
 
-            if (firstSource != null)
+            if (firstSource != null && firstSource.Count() != 0)
             {
                 source = new KorpaMobileVmList(firstSource);
                 korpaList.ItemsSource = source.Items;
                 lblUkupno.Text = "Ukupna cijena: " + getSumZarada(source.Items).ToString() + " KM";
-
+                lblPraznaKorpa.IsVisible = false;
+                bottomControl.IsVisible = true;
+            }
+            else
+            {
+                lblPraznaKorpa.IsVisible = true;
+                bottomControl.IsVisible = false;
             }
 
             base.OnAppearing();

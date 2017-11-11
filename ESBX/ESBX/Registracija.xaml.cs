@@ -82,8 +82,9 @@ namespace ESBX
                         var jsonObject = responseLogin.Content.ReadAsStringAsync().Result;
                             
                         Global.logedUser = JsonConvert.DeserializeObject<Korisnici>(jsonObject);
+                        Application.Current.MainPage = new OdabirOmiljenih();
 
-                        Navigation.PushAsync(new OdabirOmiljenih());
+                        // Navigation.PushAsync();
                     }
                     else
                     {

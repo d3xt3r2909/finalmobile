@@ -5,6 +5,7 @@ using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -61,6 +62,11 @@ namespace ESBX
         {
             // Return default value - CloseWhenBackgroundIsClicked
             return base.OnBackgroundClicked();
+        }
+
+        public void timePickerChange_changed(object sender, EventArgs arg)
+        {
+            return;
         }
 
         public void btnNaruciKorpu_clicked(object sender, EventArgs arg)

@@ -37,6 +37,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Label x:Name="lblPregledOcjenaPrazno" Text="Trenutno niste u mogucnosti komentarisati niti jednu salatu. Kako bi ste bili u mogucnosti, potrebno je da imate barem jednu placenu narudzbu u nasem restoranu." IsVisible="False"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

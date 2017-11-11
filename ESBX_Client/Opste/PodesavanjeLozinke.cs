@@ -27,9 +27,9 @@ namespace ESBX_Client.Opste
             if (this.ValidateChildren())
             {
                 Korisnici k = Global.prijavljeniKorisnik;
-            if (k.LozinkaHash == Util.HelperPassword.GenerateHash(TrenutnaTxt.Text, k.LozinkaSalt))
-            {
-                
+                if (k.LozinkaHash == Util.HelperPassword.GenerateHash(TrenutnaTxt.Text, k.LozinkaSalt))
+                {
+
                     if (NovaTxt.Text == PotvrdaTxt.Text)
                     {
                         k.LozinkaHash = Util.HelperPassword.GenerateHash(NovaTxt.Text, k.LozinkaSalt);
@@ -47,8 +47,9 @@ namespace ESBX_Client.Opste
                         MessageBox.Show("Molimo Vas da provjerite unos nove lozinke.");
                     }
                 }
-                
-            else{
+
+                else
+                {
                     MessageBox.Show("Molimo Vas da provjerite unos trenutne lozinke");
                 }
             }
@@ -71,6 +72,6 @@ namespace ESBX_Client.Opste
             }
         }
 
-        
+
     }
 }
