@@ -58,103 +58,115 @@
             // 
             this.cmbAddSasVrsta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAddSasVrsta.FormattingEnabled = true;
-            this.cmbAddSasVrsta.Location = new System.Drawing.Point(43, 75);
+            this.cmbAddSasVrsta.Location = new System.Drawing.Point(57, 92);
+            this.cmbAddSasVrsta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbAddSasVrsta.Name = "cmbAddSasVrsta";
-            this.cmbAddSasVrsta.Size = new System.Drawing.Size(376, 21);
+            this.cmbAddSasVrsta.Size = new System.Drawing.Size(500, 24);
             this.cmbAddSasVrsta.TabIndex = 0;
             this.cmbAddSasVrsta.Validating += new System.ComponentModel.CancelEventHandler(this.cmbAddSasVrsta_Validating);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 49);
+            this.label1.Location = new System.Drawing.Point(53, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(97, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Vrsta sastojka";
             // 
             // txtAddSasNaziv
             // 
-            this.txtAddSasNaziv.Location = new System.Drawing.Point(208, 111);
+            this.txtAddSasNaziv.Location = new System.Drawing.Point(277, 137);
+            this.txtAddSasNaziv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddSasNaziv.Name = "txtAddSasNaziv";
-            this.txtAddSasNaziv.Size = new System.Drawing.Size(211, 20);
+            this.txtAddSasNaziv.Size = new System.Drawing.Size(280, 22);
             this.txtAddSasNaziv.TabIndex = 2;
             this.txtAddSasNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasNaziv_Validating);
             // 
             // lblNaziv
             // 
             this.lblNaziv.AutoSize = true;
-            this.lblNaziv.Location = new System.Drawing.Point(40, 114);
+            this.lblNaziv.Location = new System.Drawing.Point(53, 140);
+            this.lblNaziv.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNaziv.Name = "lblNaziv";
-            this.lblNaziv.Size = new System.Drawing.Size(76, 13);
+            this.lblNaziv.Size = new System.Drawing.Size(99, 17);
             this.lblNaziv.TabIndex = 3;
             this.lblNaziv.Text = "Naziv sastojka";
             // 
             // txtAddSasCijena
             // 
-            this.txtAddSasCijena.Location = new System.Drawing.Point(208, 149);
+            this.txtAddSasCijena.Location = new System.Drawing.Point(277, 183);
+            this.txtAddSasCijena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddSasCijena.Name = "txtAddSasCijena";
-            this.txtAddSasCijena.Size = new System.Drawing.Size(211, 20);
+            this.txtAddSasCijena.Size = new System.Drawing.Size(280, 22);
             this.txtAddSasCijena.TabIndex = 4;
             this.txtAddSasCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasCijena_Validating);
             // 
             // lblCijena
             // 
             this.lblCijena.AutoSize = true;
-            this.lblCijena.Location = new System.Drawing.Point(40, 152);
+            this.lblCijena.Location = new System.Drawing.Point(53, 187);
+            this.lblCijena.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCijena.Name = "lblCijena";
-            this.lblCijena.Size = new System.Drawing.Size(78, 13);
+            this.lblCijena.Size = new System.Drawing.Size(103, 17);
             this.lblCijena.TabIndex = 5;
             this.lblCijena.Text = "Cijena sastojka";
             // 
             // txtAddSasKalorije
             // 
-            this.txtAddSasKalorije.Location = new System.Drawing.Point(208, 191);
+            this.txtAddSasKalorije.Location = new System.Drawing.Point(277, 235);
+            this.txtAddSasKalorije.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddSasKalorije.Name = "txtAddSasKalorije";
-            this.txtAddSasKalorije.Size = new System.Drawing.Size(211, 20);
+            this.txtAddSasKalorije.Size = new System.Drawing.Size(280, 22);
             this.txtAddSasKalorije.TabIndex = 6;
             this.txtAddSasKalorije.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasKalorije_Validating);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 194);
+            this.label2.Location = new System.Drawing.Point(53, 239);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 13);
+            this.label2.Size = new System.Drawing.Size(111, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Kalorije sastojka";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 237);
+            this.label3.Location = new System.Drawing.Point(53, 292);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(66, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Gramaza";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(40, 283);
+            this.label4.Location = new System.Drawing.Point(53, 348);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(77, 17);
             this.label4.TabIndex = 11;
             this.label4.Text = "Napomena";
             // 
             // txtAddSasNapomena
             // 
-            this.txtAddSasNapomena.Location = new System.Drawing.Point(208, 280);
+            this.txtAddSasNapomena.Location = new System.Drawing.Point(277, 345);
+            this.txtAddSasNapomena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddSasNapomena.Multiline = true;
             this.txtAddSasNapomena.Name = "txtAddSasNapomena";
-            this.txtAddSasNapomena.Size = new System.Drawing.Size(211, 95);
+            this.txtAddSasNapomena.Size = new System.Drawing.Size(280, 116);
             this.txtAddSasNapomena.TabIndex = 10;
             // 
             // btnAddSasSacuvaj
             // 
-            this.btnAddSasSacuvaj.Location = new System.Drawing.Point(521, 394);
+            this.btnAddSasSacuvaj.Location = new System.Drawing.Point(695, 485);
+            this.btnAddSasSacuvaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddSasSacuvaj.Name = "btnAddSasSacuvaj";
-            this.btnAddSasSacuvaj.Size = new System.Drawing.Size(155, 23);
+            this.btnAddSasSacuvaj.Size = new System.Drawing.Size(207, 28);
             this.btnAddSasSacuvaj.TabIndex = 12;
             this.btnAddSasSacuvaj.Text = "Sačuvaj";
             this.btnAddSasSacuvaj.UseVisualStyleBackColor = true;
@@ -178,26 +190,30 @@
             this.groupBox1.Controls.Add(this.txtAddSasNaziv);
             this.groupBox1.Controls.Add(this.txtAddSasCijena);
             this.groupBox1.Controls.Add(this.lblNaziv);
-            this.groupBox1.Location = new System.Drawing.Point(23, 56);
+            this.groupBox1.Location = new System.Drawing.Point(31, 69);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(717, 438);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(956, 539);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Unos novog sastojka";
             // 
             // txtAddSasGramaza
             // 
-            this.txtAddSasGramaza.Location = new System.Drawing.Point(208, 237);
+            this.txtAddSasGramaza.Location = new System.Drawing.Point(277, 292);
+            this.txtAddSasGramaza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddSasGramaza.Name = "txtAddSasGramaza";
-            this.txtAddSasGramaza.Size = new System.Drawing.Size(211, 20);
+            this.txtAddSasGramaza.Size = new System.Drawing.Size(280, 22);
             this.txtAddSasGramaza.TabIndex = 16;
             this.txtAddSasGramaza.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddSasGramaza_Validating);
             // 
             // btnName
             // 
-            this.btnName.Location = new System.Drawing.Point(521, 255);
+            this.btnName.Location = new System.Drawing.Point(695, 314);
+            this.btnName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnName.Name = "btnName";
-            this.btnName.Size = new System.Drawing.Size(155, 23);
+            this.btnName.Size = new System.Drawing.Size(207, 28);
             this.btnName.TabIndex = 15;
             this.btnName.Text = "Dodaj sliku";
             this.btnName.UseVisualStyleBackColor = true;
@@ -205,16 +221,18 @@
             // 
             // txtInputImage
             // 
-            this.txtInputImage.Location = new System.Drawing.Point(521, 229);
+            this.txtInputImage.Location = new System.Drawing.Point(695, 282);
+            this.txtInputImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtInputImage.Name = "txtInputImage";
             this.txtInputImage.ReadOnly = true;
-            this.txtInputImage.Size = new System.Drawing.Size(155, 20);
+            this.txtInputImage.Size = new System.Drawing.Size(205, 22);
             this.txtInputImage.TabIndex = 14;
             // 
             // imgBox
             // 
             this.imgBox.BackColor = System.Drawing.SystemColors.Info;
-            this.imgBox.Location = new System.Drawing.Point(521, 75);
+            this.imgBox.Location = new System.Drawing.Point(695, 92);
+            this.imgBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imgBox.Name = "imgBox";
             this.imgBox.Size = new System.Drawing.Size(155, 132);
             this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -232,11 +250,12 @@
             // 
             // frmUnosSastojka
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 550);
+            this.ClientSize = new System.Drawing.Size(1028, 677);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmUnosSastojka";

@@ -26,6 +26,7 @@ namespace ESBX_Client.Osoblje
             InitializeComponent();
             dgNarudzbe.AutoGenerateColumns = false;
             dgPrikazSalata.AutoGenerateColumns = false;
+            dgNarudzbe.Columns[2].DefaultCellStyle.Format = "MM/dd/yyyy HH:mm:ss";
 
             List<CmbKorpaVm> sourceCombo = new List<CmbKorpaVm>
             {

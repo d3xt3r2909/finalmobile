@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSastojci));
             this.dgSastojci = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,10 +61,11 @@
             this.BrojKalorija,
             this.VrstaSastojka,
             this.Kontrole});
-            this.dgSastojci.Location = new System.Drawing.Point(40, 140);
+            this.dgSastojci.Location = new System.Drawing.Point(53, 172);
+            this.dgSastojci.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgSastojci.Name = "dgSastojci";
             this.dgSastojci.ReadOnly = true;
-            this.dgSastojci.Size = new System.Drawing.Size(1113, 330);
+            this.dgSastojci.Size = new System.Drawing.Size(1484, 406);
             this.dgSastojci.TabIndex = 3;
             this.dgSastojci.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSastojci_CellClick);
             // 
@@ -112,9 +114,9 @@
             // 
             // Kontrole
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.Kontrole.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.Kontrole.DefaultCellStyle = dataGridViewCellStyle1;
             this.Kontrole.HeaderText = "Kontrole";
             this.Kontrole.Name = "Kontrole";
             this.Kontrole.ReadOnly = true;
@@ -123,9 +125,10 @@
             // 
             // txtSastojciPretragaNaziv
             // 
-            this.txtSastojciPretragaNaziv.Location = new System.Drawing.Point(40, 85);
+            this.txtSastojciPretragaNaziv.Location = new System.Drawing.Point(53, 105);
+            this.txtSastojciPretragaNaziv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSastojciPretragaNaziv.Name = "txtSastojciPretragaNaziv";
-            this.txtSastojciPretragaNaziv.Size = new System.Drawing.Size(273, 20);
+            this.txtSastojciPretragaNaziv.Size = new System.Drawing.Size(363, 22);
             this.txtSastojciPretragaNaziv.TabIndex = 4;
             this.txtSastojciPretragaNaziv.TextChanged += new System.EventHandler(this.txtSastojciPretragaNaziv_TextChanged);
             this.txtSastojciPretragaNaziv.Enter += new System.EventHandler(this.Sastojci_Load);
@@ -134,17 +137,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 59);
+            this.label2.Location = new System.Drawing.Point(49, 73);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 13);
+            this.label2.Size = new System.Drawing.Size(146, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Pretraga po nazivu";
             // 
             // btnSastojciPretraga
             // 
-            this.btnSastojciPretraga.Location = new System.Drawing.Point(351, 82);
+            this.btnSastojciPretraga.Location = new System.Drawing.Point(468, 101);
+            this.btnSastojciPretraga.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSastojciPretraga.Name = "btnSastojciPretraga";
-            this.btnSastojciPretraga.Size = new System.Drawing.Size(75, 23);
+            this.btnSastojciPretraga.Size = new System.Drawing.Size(100, 28);
             this.btnSastojciPretraga.TabIndex = 6;
             this.btnSastojciPretraga.Text = "Trazi";
             this.btnSastojciPretraga.UseVisualStyleBackColor = true;
@@ -152,9 +157,10 @@
             // 
             // btnSastojciNovi
             // 
-            this.btnSastojciNovi.Location = new System.Drawing.Point(996, 85);
+            this.btnSastojciNovi.Location = new System.Drawing.Point(1328, 105);
+            this.btnSastojciNovi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSastojciNovi.Name = "btnSastojciNovi";
-            this.btnSastojciNovi.Size = new System.Drawing.Size(157, 23);
+            this.btnSastojciNovi.Size = new System.Drawing.Size(209, 28);
             this.btnSastojciNovi.TabIndex = 7;
             this.btnSastojciNovi.Text = "Dodaj sastojak";
             this.btnSastojciNovi.UseVisualStyleBackColor = true;
@@ -167,21 +173,25 @@
             this.groupBox1.Controls.Add(this.btnSastojciPretraga);
             this.groupBox1.Controls.Add(this.txtSastojciPretragaNaziv);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(38, 54);
+            this.groupBox1.Location = new System.Drawing.Point(51, 66);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1191, 500);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1588, 615);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Prikaz sastojaka";
             // 
             // frmSastojci
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 661);
+            this.ClientSize = new System.Drawing.Size(1711, 809);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmSastojci";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

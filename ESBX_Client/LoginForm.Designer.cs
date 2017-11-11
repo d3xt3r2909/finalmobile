@@ -57,25 +57,27 @@
             this.tableLayoutPanel1.Controls.Add(this.btnLoginPrijava, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.192825F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.37556F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.57466F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(716, 446);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 121F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(955, 549);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
             // imgLoginLogo
             // 
             this.imgLoginLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imgLoginLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLoginLogo.Image")));
-            this.imgLoginLogo.Location = new System.Drawing.Point(252, 25);
+            this.imgLoginLogo.Location = new System.Drawing.Point(338, 31);
+            this.imgLoginLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imgLoginLogo.Name = "imgLoginLogo";
-            this.imgLoginLogo.Size = new System.Drawing.Size(238, 182);
+            this.imgLoginLogo.Size = new System.Drawing.Size(317, 223);
             this.imgLoginLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgLoginLogo.TabIndex = 19;
             this.imgLoginLogo.TabStop = false;
@@ -85,18 +87,20 @@
             this.lblLoginEmail.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblLoginEmail.AutoSize = true;
             this.lblLoginEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoginEmail.Location = new System.Drawing.Point(339, 210);
+            this.lblLoginEmail.Location = new System.Drawing.Point(456, 258);
+            this.lblLoginEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoginEmail.Name = "lblLoginEmail";
-            this.lblLoginEmail.Size = new System.Drawing.Size(65, 25);
+            this.lblLoginEmail.Size = new System.Drawing.Size(81, 31);
             this.lblLoginEmail.TabIndex = 20;
             this.lblLoginEmail.Text = "Email";
             // 
             // txtLoginUsername
             // 
             this.txtLoginUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtLoginUsername.Location = new System.Drawing.Point(177, 246);
+            this.txtLoginUsername.Location = new System.Drawing.Point(238, 302);
+            this.txtLoginUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLoginUsername.Name = "txtLoginUsername";
-            this.txtLoginUsername.Size = new System.Drawing.Size(389, 20);
+            this.txtLoginUsername.Size = new System.Drawing.Size(517, 22);
             this.txtLoginUsername.TabIndex = 14;
             this.txtLoginUsername.Text = "menadzer@gmail.com";
             this.txtLoginUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginUsername_Validating);
@@ -106,20 +110,22 @@
             this.lblLoginLozinka.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblLoginLozinka.AutoSize = true;
             this.lblLoginLozinka.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoginLozinka.Location = new System.Drawing.Point(328, 277);
+            this.lblLoginLozinka.Location = new System.Drawing.Point(442, 340);
+            this.lblLoginLozinka.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoginLozinka.Name = "lblLoginLozinka";
-            this.lblLoginLozinka.Size = new System.Drawing.Size(87, 25);
+            this.lblLoginLozinka.Size = new System.Drawing.Size(108, 31);
             this.lblLoginLozinka.TabIndex = 18;
             this.lblLoginLozinka.Text = "Lozinka";
             // 
             // txtLoginPassword
             // 
             this.txtLoginPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtLoginPassword.Location = new System.Drawing.Point(177, 307);
+            this.txtLoginPassword.Location = new System.Drawing.Point(238, 377);
+            this.txtLoginPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLoginPassword.Name = "txtLoginPassword";
             this.txtLoginPassword.PasswordChar = '*';
             this.txtLoginPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtLoginPassword.Size = new System.Drawing.Size(389, 20);
+            this.txtLoginPassword.Size = new System.Drawing.Size(517, 22);
             this.txtLoginPassword.TabIndex = 15;
             this.txtLoginPassword.Text = "testtest";
             this.txtLoginPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginPassword_Validating);
@@ -127,9 +133,10 @@
             // btnLoginPrijava
             // 
             this.btnLoginPrijava.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoginPrijava.Location = new System.Drawing.Point(449, 350);
+            this.btnLoginPrijava.Location = new System.Drawing.Point(600, 430);
+            this.btnLoginPrijava.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLoginPrijava.Name = "btnLoginPrijava";
-            this.btnLoginPrijava.Size = new System.Drawing.Size(117, 37);
+            this.btnLoginPrijava.Size = new System.Drawing.Size(156, 46);
             this.btnLoginPrijava.TabIndex = 16;
             this.btnLoginPrijava.Text = "Prijava";
             this.btnLoginPrijava.UseVisualStyleBackColor = true;
@@ -142,12 +149,14 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 446);
+            this.ClientSize = new System.Drawing.Size(955, 549);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenadzerForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPregledNabavki = new System.Windows.Forms.Button();
             this.btnNagradjeni = new System.Windows.Forms.Button();
             this.IzvjestajBtn = new System.Windows.Forms.Button();
             this.btnOdjava = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.DobrodosliLbl = new System.Windows.Forms.Label();
             this.panelPrikaz = new System.Windows.Forms.Panel();
             this.ntfIconIstek = new System.Windows.Forms.NotifyIcon(this.components);
-            this.btnPregledNabavki = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -72,9 +72,29 @@
             this.panel2.Controls.Add(this.btnStatistika);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(259, 506);
+            this.panel2.Size = new System.Drawing.Size(345, 623);
             this.panel2.TabIndex = 1;
+            // 
+            // btnPregledNabavki
+            // 
+            this.btnPregledNabavki.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnPregledNabavki.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnPregledNabavki.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnPregledNabavki.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnPregledNabavki.FlatAppearance.BorderSize = 0;
+            this.btnPregledNabavki.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPregledNabavki.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnPregledNabavki.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnPregledNabavki.Location = new System.Drawing.Point(4, 265);
+            this.btnPregledNabavki.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPregledNabavki.Name = "btnPregledNabavki";
+            this.btnPregledNabavki.Size = new System.Drawing.Size(341, 41);
+            this.btnPregledNabavki.TabIndex = 12;
+            this.btnPregledNabavki.Text = "Pregled nabavke";
+            this.btnPregledNabavki.UseVisualStyleBackColor = false;
+            this.btnPregledNabavki.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnNagradjeni
             // 
@@ -86,9 +106,10 @@
             this.btnNagradjeni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNagradjeni.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNagradjeni.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnNagradjeni.Location = new System.Drawing.Point(3, 408);
+            this.btnNagradjeni.Location = new System.Drawing.Point(4, 502);
+            this.btnNagradjeni.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNagradjeni.Name = "btnNagradjeni";
-            this.btnNagradjeni.Size = new System.Drawing.Size(256, 33);
+            this.btnNagradjeni.Size = new System.Drawing.Size(341, 41);
             this.btnNagradjeni.TabIndex = 11;
             this.btnNagradjeni.Text = "Lista nagradjenih";
             this.btnNagradjeni.UseVisualStyleBackColor = false;
@@ -104,9 +125,10 @@
             this.IzvjestajBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IzvjestajBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IzvjestajBtn.ForeColor = System.Drawing.Color.LimeGreen;
-            this.IzvjestajBtn.Location = new System.Drawing.Point(3, 291);
+            this.IzvjestajBtn.Location = new System.Drawing.Point(4, 358);
+            this.IzvjestajBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.IzvjestajBtn.Name = "IzvjestajBtn";
-            this.IzvjestajBtn.Size = new System.Drawing.Size(256, 33);
+            this.IzvjestajBtn.Size = new System.Drawing.Size(341, 41);
             this.IzvjestajBtn.TabIndex = 10;
             this.IzvjestajBtn.Text = "Izvještaj o profitu";
             this.IzvjestajBtn.UseVisualStyleBackColor = false;
@@ -122,9 +144,10 @@
             this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOdjava.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnOdjava.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnOdjava.Location = new System.Drawing.Point(3, 450);
+            this.btnOdjava.Location = new System.Drawing.Point(4, 554);
+            this.btnOdjava.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOdjava.Name = "btnOdjava";
-            this.btnOdjava.Size = new System.Drawing.Size(256, 33);
+            this.btnOdjava.Size = new System.Drawing.Size(341, 41);
             this.btnOdjava.TabIndex = 7;
             this.btnOdjava.Text = "Odjavi se";
             this.btnOdjava.UseVisualStyleBackColor = false;
@@ -140,9 +163,10 @@
             this.btnPodesavanjeProfila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPodesavanjeProfila.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnPodesavanjeProfila.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnPodesavanjeProfila.Location = new System.Drawing.Point(3, 369);
+            this.btnPodesavanjeProfila.Location = new System.Drawing.Point(4, 454);
+            this.btnPodesavanjeProfila.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPodesavanjeProfila.Name = "btnPodesavanjeProfila";
-            this.btnPodesavanjeProfila.Size = new System.Drawing.Size(256, 33);
+            this.btnPodesavanjeProfila.Size = new System.Drawing.Size(341, 41);
             this.btnPodesavanjeProfila.TabIndex = 6;
             this.btnPodesavanjeProfila.Text = "Podešavanje profila";
             this.btnPodesavanjeProfila.UseVisualStyleBackColor = false;
@@ -158,9 +182,10 @@
             this.btnIgra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIgra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnIgra.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnIgra.Location = new System.Drawing.Point(0, 330);
+            this.btnIgra.Location = new System.Drawing.Point(0, 406);
+            this.btnIgra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIgra.Name = "btnIgra";
-            this.btnIgra.Size = new System.Drawing.Size(256, 33);
+            this.btnIgra.Size = new System.Drawing.Size(341, 41);
             this.btnIgra.TabIndex = 5;
             this.btnIgra.Text = "Nagradna igra";
             this.btnIgra.UseVisualStyleBackColor = false;
@@ -176,9 +201,10 @@
             this.btnNepovjerljivi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNepovjerljivi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNepovjerljivi.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnNepovjerljivi.Location = new System.Drawing.Point(3, 254);
+            this.btnNepovjerljivi.Location = new System.Drawing.Point(4, 313);
+            this.btnNepovjerljivi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNepovjerljivi.Name = "btnNepovjerljivi";
-            this.btnNepovjerljivi.Size = new System.Drawing.Size(256, 33);
+            this.btnNepovjerljivi.Size = new System.Drawing.Size(341, 41);
             this.btnNepovjerljivi.TabIndex = 4;
             this.btnNepovjerljivi.Text = "Nepovjerljivi kupci";
             this.btnNepovjerljivi.UseVisualStyleBackColor = false;
@@ -194,9 +220,10 @@
             this.btnNabavka.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNabavka.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnNabavka.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnNabavka.Location = new System.Drawing.Point(0, 182);
+            this.btnNabavka.Location = new System.Drawing.Point(0, 224);
+            this.btnNabavka.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNabavka.Name = "btnNabavka";
-            this.btnNabavka.Size = new System.Drawing.Size(256, 33);
+            this.btnNabavka.Size = new System.Drawing.Size(341, 41);
             this.btnNabavka.TabIndex = 3;
             this.btnNabavka.Text = "Evidencija nabavke";
             this.btnNabavka.UseVisualStyleBackColor = false;
@@ -208,9 +235,10 @@
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(-3, 72);
+            this.label3.Location = new System.Drawing.Point(-4, 89);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(313, 13);
+            this.label3.Size = new System.Drawing.Size(416, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "___________________________________________________";
             // 
@@ -219,9 +247,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(79, 45);
+            this.label2.Location = new System.Drawing.Point(105, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 24);
+            this.label2.Size = new System.Drawing.Size(211, 29);
             this.label2.TabIndex = 8;
             this.label2.Text = "Express Salad Bar";
             // 
@@ -229,9 +258,10 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 31);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 44);
+            this.pictureBox1.Size = new System.Drawing.Size(81, 54);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
@@ -245,9 +275,10 @@
             this.btnOsoblje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOsoblje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnOsoblje.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnOsoblje.Location = new System.Drawing.Point(0, 143);
+            this.btnOsoblje.Location = new System.Drawing.Point(0, 176);
+            this.btnOsoblje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOsoblje.Name = "btnOsoblje";
-            this.btnOsoblje.Size = new System.Drawing.Size(256, 33);
+            this.btnOsoblje.Size = new System.Drawing.Size(341, 41);
             this.btnOsoblje.TabIndex = 2;
             this.btnOsoblje.Text = "Osoblje";
             this.btnOsoblje.UseVisualStyleBackColor = false;
@@ -263,9 +294,10 @@
             this.btnStatistika.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistika.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnStatistika.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnStatistika.Location = new System.Drawing.Point(0, 104);
+            this.btnStatistika.Location = new System.Drawing.Point(0, 128);
+            this.btnStatistika.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStatistika.Name = "btnStatistika";
-            this.btnStatistika.Size = new System.Drawing.Size(256, 33);
+            this.btnStatistika.Size = new System.Drawing.Size(341, 41);
             this.btnStatistika.TabIndex = 1;
             this.btnStatistika.Text = "Pregled statistike";
             this.btnStatistika.UseVisualStyleBackColor = false;
@@ -276,25 +308,28 @@
             this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel4.Controls.Add(this.DobrodosliLbl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(259, 0);
+            this.panel4.Location = new System.Drawing.Point(345, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1184, 85);
+            this.panel4.Size = new System.Drawing.Size(1561, 105);
             this.panel4.TabIndex = 2;
             // 
             // DobrodosliLbl
             // 
             this.DobrodosliLbl.AutoSize = true;
-            this.DobrodosliLbl.Location = new System.Drawing.Point(1025, 56);
+            this.DobrodosliLbl.Location = new System.Drawing.Point(1367, 69);
+            this.DobrodosliLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DobrodosliLbl.Name = "DobrodosliLbl";
-            this.DobrodosliLbl.Size = new System.Drawing.Size(0, 13);
+            this.DobrodosliLbl.Size = new System.Drawing.Size(0, 17);
             this.DobrodosliLbl.TabIndex = 0;
             // 
             // panelPrikaz
             // 
             this.panelPrikaz.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPrikaz.Location = new System.Drawing.Point(259, 85);
+            this.panelPrikaz.Location = new System.Drawing.Point(345, 105);
+            this.panelPrikaz.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelPrikaz.Name = "panelPrikaz";
-            this.panelPrikaz.Size = new System.Drawing.Size(1184, 421);
+            this.panelPrikaz.Size = new System.Drawing.Size(1561, 518);
             this.panelPrikaz.TabIndex = 3;
             // 
             // ntfIconIstek
@@ -305,34 +340,18 @@
             this.ntfIconIstek.Visible = true;
             this.ntfIconIstek.BalloonTipClicked += new System.EventHandler(this.ntfIconIstek_BalloonTipClicked);
             // 
-            // btnPregledNabavki
-            // 
-            this.btnPregledNabavki.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnPregledNabavki.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnPregledNabavki.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnPregledNabavki.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnPregledNabavki.FlatAppearance.BorderSize = 0;
-            this.btnPregledNabavki.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPregledNabavki.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnPregledNabavki.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnPregledNabavki.Location = new System.Drawing.Point(3, 215);
-            this.btnPregledNabavki.Name = "btnPregledNabavki";
-            this.btnPregledNabavki.Size = new System.Drawing.Size(256, 33);
-            this.btnPregledNabavki.TabIndex = 12;
-            this.btnPregledNabavki.Text = "Pregled nabavke";
-            this.btnPregledNabavki.UseVisualStyleBackColor = false;
-            this.btnPregledNabavki.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MenadzerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1443, 506);
+            this.ClientSize = new System.Drawing.Size(1906, 623);
             this.Controls.Add(this.panelPrikaz);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MenadzerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
