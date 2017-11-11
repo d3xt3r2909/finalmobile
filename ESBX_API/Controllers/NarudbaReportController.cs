@@ -8,6 +8,7 @@ using ESBX_API.Helper;
 using ESBX_db.DAL;
 using ESBX_db.ViewModel;
 using ESBX_db.Models;
+using System.Data.Entity.Core.Objects;
 
 namespace ESBX_API.Controllers
 {
@@ -27,7 +28,12 @@ namespace ESBX_API.Controllers
             int brojac = 1;
             List<Narudzba_ReportResult> narudzbeList = new List<Narudzba_ReportResult>();
 
-            List<Korpa> korpe = ctx.Korpa.Where(x => x.VrijemeNarucivanja >= datumOd && x.VrijemeNarucivanja <= datumDo && x.Aktivna==false && x.Zavrsena==true && x.Finilizirana==true).ToList();
+            List<Korpa> korpe = 
+                ctx.Korpa
+                .Where(x => EntityFunctions.TruncateTime(x.VrijemeNarucivanja) >= EntityFunctions.TruncateTime(datumOd)
+                        && EntityFunctions.TruncateTime(x.VrijemeNarucivanja) <= EntityFunctions.TruncateTime(datumDo)
+                        && x.Aktivna==false && x.Zavrsena==true && x.Finilizirana==true && x.Racun != null).ToList();
+
             foreach (var i in korpe)
             {
                 Narudzba_ReportResult n = new Narudzba_ReportResult();
@@ -35,7 +41,7 @@ namespace ESBX_API.Controllers
                 n.RedniBroj = brojac;
                 brojac++;
                 if(i.Racun != null)
-                     n.CijenaNarudzbe = i.Racun.CijenaSaPopustom;
+                    n.CijenaNarudzbe = i.Racun.CijenaSaPopustom;
                 n.DatumNarudzbe = i.VrijemeNarucivanja.ToString("MM/dd/yyyy");
                 narudzbeList.Add(n);
             }
