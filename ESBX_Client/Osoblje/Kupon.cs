@@ -59,9 +59,7 @@ namespace ESBX_Client.Osoblje
             {
                 DialogResult = DialogResult.Cancel;
 
-                string poruka = response.Content.ReadAsAsync<string>().Result; 
-
-                MessageBox.Show("Greska: " + poruka);
+                MessageBox.Show("Greska");
             }
         }
 

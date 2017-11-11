@@ -288,7 +288,7 @@ namespace ESBX_db.Helper
                     KorpaId = korpaVm.KorpaId,
                     Datum = DateTime.Now,
                     UkupnaCijena = (float)korpaVm.UkupnaCijena,
-
+                    
                 };
 
                 // Ukoliko korisnik ima kupon sa sifrom

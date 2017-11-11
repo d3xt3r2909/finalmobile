@@ -33,33 +33,39 @@ namespace ESBX
 
         private void SacuvajPass_Clicked(object sender, EventArgs e)
         {
-
-            if (k.LozinkaHash == HelperPassword.GenerateHash(trenutniPass.Text, k.LozinkaSalt))
+            if (trenutniPass.Text == null || trenutniPass.Text == "")
             {
-                if(noviPass.Text!=null && noviPass.Text!="" && noviPass.Text == noviPassTwo.Text)
-                {
-                    k.LozinkaHash = HelperPassword.GenerateHash(noviPass.Text, k.LozinkaSalt);
-
-                    HttpResponseMessage responseMessage = profilService.PutResponse(k.Id, k);
-                    if (responseMessage.IsSuccessStatusCode)
-                    {
-                        DisplayAlert("Uspjeh", "Uspješno ste promijenili lozinku!", "OK");
-                    }
-                    else
-                    {
-                        DisplayAlert("Upozorenje",responseMessage.ReasonPhrase, "OK");
-                    }
-
-                    
-                }
-                else
-                {
-                    DisplayAlert("Upozorenje", "Provjerite novu lozinku!", "OK");
-                }
+                DisplayAlert("Upozorenje", "Unesite trenutnu lozinku!", "OK");
             }
             else
             {
-                DisplayAlert("Upozorenje", "Provjerite trenutnu lozinku!", "OK");
+                if (k.LozinkaHash == HelperPassword.GenerateHash(trenutniPass.Text, k.LozinkaSalt))
+                {
+                    if (noviPass.Text != null && noviPass.Text != "" && noviPass.Text == noviPassTwo.Text)
+                    {
+                        k.LozinkaHash = HelperPassword.GenerateHash(noviPass.Text, k.LozinkaSalt);
+
+                        HttpResponseMessage responseMessage = profilService.PutResponse(k.Id, k);
+                        if (responseMessage.IsSuccessStatusCode)
+                        {
+                            DisplayAlert("Uspjeh", "Uspješno ste promijenili lozinku!", "OK");
+                        }
+                        else
+                        {
+                            DisplayAlert("Upozorenje", responseMessage.ReasonPhrase, "OK");
+                        }
+
+
+                    }
+                    else
+                    {
+                        DisplayAlert("Upozorenje", "Provjerite novu lozinku!", "OK");
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Upozorenje", "Provjerite trenutnu lozinku!", "OK");
+                }
             }
         }
     }
