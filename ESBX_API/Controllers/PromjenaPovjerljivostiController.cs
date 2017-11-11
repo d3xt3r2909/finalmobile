@@ -40,12 +40,14 @@ namespace ESBX_API.Controllers
                     return StatusCode(HttpStatusCode.NotFound);
 
                 Racun racun = new Racun();
-                ctx.Racun.Add(racun);
                 racun.Datum = DateTime.Now;
                 racun.KorpaId = korpa.Id;
                 racun.UkupnaCijena = UkupanDug(povjerljivost.KorisnikId);
-                korpa.Racun = racun;
+                racun.CijenaSaPopustom = racun.UkupnaCijena;
+                ctx.Racun.Add(racun);
 
+                korpa.Racun = racun;
+               
                 ctx.SaveChanges();
             }
             else

@@ -79,7 +79,7 @@ namespace ESBX_Client.Menadzer
 
         private void btnPrimjeniFilter_Click(object sender, EventArgs e)
         {
-            int dobavljacId = cmbFilterNabavkaDobavljac.SelectedIndex;
+            int dobavljacId = Convert.ToInt32(cmbFilterNabavkaDobavljac.SelectedValue);
             DateTime datum = FilterNabavkaDatum.Value;
             //pozovi funkciju
             UlazZalihaRequestVM request = new UlazZalihaRequestVM();

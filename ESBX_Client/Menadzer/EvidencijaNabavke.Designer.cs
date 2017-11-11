@@ -58,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SastojakCmb = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.grpPregledIsteka.SuspendLayout();
@@ -159,6 +160,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.CijenaTxt);
             this.splitContainer1.Panel2.Controls.Add(this.KolicinaTxt);
             this.splitContainer1.Panel2.Controls.Add(this.DodajBtn);
@@ -235,10 +237,10 @@
             // 
             // CijenaTxt
             // 
-            this.CijenaTxt.Location = new System.Drawing.Point(330, 76);
-            this.CijenaTxt.Mask = "000000";
+            this.CijenaTxt.Location = new System.Drawing.Point(346, 76);
+            this.CijenaTxt.Mask = "0000000000000";
             this.CijenaTxt.Name = "CijenaTxt";
-            this.CijenaTxt.Size = new System.Drawing.Size(133, 20);
+            this.CijenaTxt.Size = new System.Drawing.Size(117, 20);
             this.CijenaTxt.TabIndex = 56;
             this.CijenaTxt.ValidatingType = typeof(int);
             this.CijenaTxt.Validating += new System.ComponentModel.CancelEventHandler(this.CijenaTxt_Validating);
@@ -246,9 +248,9 @@
             // KolicinaTxt
             // 
             this.KolicinaTxt.Location = new System.Drawing.Point(131, 76);
-            this.KolicinaTxt.Mask = "000000";
+            this.KolicinaTxt.Mask = "0000000000000000";
             this.KolicinaTxt.Name = "KolicinaTxt";
-            this.KolicinaTxt.Size = new System.Drawing.Size(133, 20);
+            this.KolicinaTxt.Size = new System.Drawing.Size(120, 20);
             this.KolicinaTxt.TabIndex = 55;
             this.KolicinaTxt.ValidatingType = typeof(int);
             this.KolicinaTxt.Validating += new System.ComponentModel.CancelEventHandler(this.KolicinaTxt_Validating);
@@ -321,7 +323,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(280, 79);
+            this.label8.Location = new System.Drawing.Point(295, 79);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 51;
@@ -355,6 +357,15 @@
             this.button1.Text = "Sačuvaj";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(257, 79);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(16, 13);
+            this.label7.TabIndex = 57;
+            this.label7.Text = "gr";
             // 
             // EvidencijaNabavke
             // 
@@ -411,5 +422,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnPomocIzvjestaj;
         private System.Windows.Forms.DateTimePicker pickerDate;
+        private System.Windows.Forms.Label label7;
     }
 }

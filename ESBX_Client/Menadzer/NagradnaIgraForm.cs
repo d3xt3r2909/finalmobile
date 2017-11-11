@@ -19,7 +19,7 @@ namespace ESBX_Client.Menadzer
 {
     public partial class NagradnaIgraForm : Form
     {
-        private WebAPIHelper IgraService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/NagradnaIgra");
+        private WebAPIHelper IgraService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/NagradnaIgra/GetNagradna");
 
         NagradnaIgra ng = new NagradnaIgra();
        
@@ -33,11 +33,19 @@ namespace ESBX_Client.Menadzer
         {
             HttpResponseMessage response = IgraService.GetResponse();
             NagradnaIgraVM igra = response.Content.ReadAsAsync<NagradnaIgraVM>().Result;
-            KorisnikLbl.Text = igra.Korisnik;
-            TelefonLbl.Text = igra.Telefon;
-            UkupnoLbl.Text = igra.UkupnoPotroseno.ToString();
+            if (igra.KorisnikId == 0)
+            {
+                MessageBox.Show( "Trenuto ne postoji kupac mjeseca jer nije izdat nijedan racun", "Informacija", MessageBoxButtons.OK);
+            }
+            else
+            {
+                KorisnikLbl.Text = igra.Korisnik;
+                TelefonLbl.Text = igra.Telefon;
+                UkupnoLbl.Text = igra.UkupnoPotroseno.ToString();
 
-            ng.KorisniciId = igra.KorisnikId;
+                ng.KorisniciId = igra.KorisnikId;
+            }
+            
         }
 
         private void ObavijestiBtn_Click(object sender, EventArgs e)
@@ -45,6 +53,11 @@ namespace ESBX_Client.Menadzer
             errorProvider.Clear();
             if (this.ValidateChildren())
             {
+                if (ng.KorisniciId == 0)
+                {
+                    MessageBox.Show("Molimo Vas da odaberete korisnika.");
+                    return;
+                }
                 ng.Popust = (float)Convert.ToDouble(PopustTxt.Text);
                 ng.Napomena = napomenaTxt.Text;
                 ng.Iskoristen = false;

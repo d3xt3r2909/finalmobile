@@ -18,6 +18,7 @@ namespace ESBX_API.Controllers
 
         MContext ctx = new MContext();
 
+        [HttpPost]
         public IHttpActionResult PostNagradnaIgra(NagradnaIgra ng)
         {
             if (!ModelState.IsValid)
@@ -30,10 +31,11 @@ namespace ESBX_API.Controllers
             return Ok(ng);
         }
 
-        public NagradnaIgraVM GetNagradnaIgra()
+        [HttpGet]
+        public IHttpActionResult GetNagradna()
         {
             NagradnaIgraVM model = new NagradnaIgraVM();
-            List<Racun> racuni = ctx.Racun.Where(x => x.Datum.Month == DateTime.Now.Month).ToList();
+            List<Racun> racuni = ctx.Racun.Where(x => x.Datum.Year == DateTime.Now.Year && x.Datum.Month == DateTime.Now.Month).ToList();
             List<Korpa> korpe = new List<Korpa>();
             List<Korisnici> korisnici = new List<Korisnici>() ;
             Korisnici korisnik = new Korisnici();
@@ -65,7 +67,7 @@ namespace ESBX_API.Controllers
             model.UkupnoPotroseno = Ukupno;
             model.Telefon = korisnik.BrojTelefona;
 
-            return model;
+            return Ok(model);
         }
 
         [HttpPost]

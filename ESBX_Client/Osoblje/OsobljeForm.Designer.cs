@@ -59,9 +59,9 @@
             this.panel2.Controls.Add(this.BtnSastojci);
             this.panel2.Controls.Add(this.BtnNarudzbe);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 85);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(259, 421);
+            this.panel2.Size = new System.Drawing.Size(259, 506);
             this.panel2.TabIndex = 1;
             // 
             // btnOdjava
@@ -189,9 +189,9 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.SystemColors.HighlightText;
             this.panel4.Controls.Add(this.labelDobrodosli);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1414, 85);
@@ -207,7 +207,7 @@
             // 
             // panelPrikaz
             // 
-            this.panelPrikaz.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPrikaz.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrikaz.Location = new System.Drawing.Point(259, 85);
             this.panelPrikaz.Name = "panelPrikaz";
             this.panelPrikaz.Size = new System.Drawing.Size(1155, 421);
