@@ -57,7 +57,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btnLoginPrijava, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.192825F));
@@ -75,7 +75,7 @@
             this.imgLoginLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.imgLoginLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLoginLogo.Image")));
             this.imgLoginLogo.Location = new System.Drawing.Point(338, 31);
-            this.imgLoginLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.imgLoginLogo.Margin = new System.Windows.Forms.Padding(4);
             this.imgLoginLogo.Name = "imgLoginLogo";
             this.imgLoginLogo.Size = new System.Drawing.Size(317, 223);
             this.imgLoginLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,11 +98,10 @@
             // 
             this.txtLoginUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtLoginUsername.Location = new System.Drawing.Point(238, 302);
-            this.txtLoginUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLoginUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtLoginUsername.Name = "txtLoginUsername";
             this.txtLoginUsername.Size = new System.Drawing.Size(517, 22);
             this.txtLoginUsername.TabIndex = 14;
-            this.txtLoginUsername.Text = "menadzer@gmail.com";
             this.txtLoginUsername.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginUsername_Validating);
             // 
             // lblLoginLozinka
@@ -121,20 +120,19 @@
             // 
             this.txtLoginPassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtLoginPassword.Location = new System.Drawing.Point(238, 377);
-            this.txtLoginPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLoginPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtLoginPassword.Name = "txtLoginPassword";
             this.txtLoginPassword.PasswordChar = '*';
             this.txtLoginPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtLoginPassword.Size = new System.Drawing.Size(517, 22);
             this.txtLoginPassword.TabIndex = 15;
-            this.txtLoginPassword.Text = "testtest";
             this.txtLoginPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtLoginPassword_Validating);
             // 
             // btnLoginPrijava
             // 
             this.btnLoginPrijava.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoginPrijava.Location = new System.Drawing.Point(600, 430);
-            this.btnLoginPrijava.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoginPrijava.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoginPrijava.Name = "btnLoginPrijava";
             this.btnLoginPrijava.Size = new System.Drawing.Size(156, 46);
             this.btnLoginPrijava.TabIndex = 16;
@@ -156,7 +154,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";

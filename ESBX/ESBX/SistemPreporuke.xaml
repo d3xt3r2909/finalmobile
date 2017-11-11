@@ -27,7 +27,7 @@
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
-                </ListView.ItemTemplate>
+                </ListView.ItemTemplate>g
             </ListView>
 
             <Button x:Name="btnDodaj" Text="U KORPU" Clicked="btnDodaj_Clicked"></Button>
