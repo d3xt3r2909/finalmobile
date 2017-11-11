@@ -36,7 +36,7 @@ namespace ESBX_API.Controllers
 
             //da li korisnik ima kreiranih salata koje sadrze neke od izdvojenih sastojaka a da je tu salatu ocjenio s >3
             List<int> SalataIds = ctx.OcjeneKomentari.Where(x => x.KorisnikId == KorisnikTrenutni && x.Ocjena > 3).Select(y => y.SalataId).ToList();
-            if (SalataIds.Count()== 0 )
+            if (SalataIds.Count()!= 0 )
             {
                 foreach (var i in SalataIds)
                 {
