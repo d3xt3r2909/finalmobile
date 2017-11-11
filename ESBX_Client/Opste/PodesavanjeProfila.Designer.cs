@@ -157,6 +157,7 @@
             this.EmailTxt.Name = "EmailTxt";
             this.EmailTxt.Size = new System.Drawing.Size(200, 20);
             this.EmailTxt.TabIndex = 46;
+            this.EmailTxt.Validating += new System.ComponentModel.CancelEventHandler(this.EmailTxt_Validating_1);
             // 
             // PrezimeTxt
             // 

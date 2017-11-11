@@ -42,10 +42,19 @@ namespace ESBX_API.Controllers
             float Ukupno = 0;
 
             foreach (var bill in racuni)
-                korpe = ctx.Korpa.Where(x => x.Id == bill.KorpaId).ToList();
+                korpe.Add(ctx.Korpa.Where(x => x.Id == bill.KorpaId).FirstOrDefault());
 
             foreach (var k in korpe)
-               korisnici = ctx.Korisnici.Where(x => x.Id ==k.KorisnikId).ToList();
+            {
+                Korisnici kor = ctx.Korisnici.Where(x => x.Id == k.KorisnikId).FirstOrDefault();
+                if (korisnici.Where(l => l.Id == kor.Id).FirstOrDefault() == null)
+                {
+                    korisnici.Add(kor);
+                }
+                
+            }
+
+              
 
             foreach(var i in korisnici)
             {

@@ -160,5 +160,26 @@ namespace ESBX_Client.Opste
                 errorProvider.SetError(GradCmb, Messages.grad_req);
             }
         }
+
+        private void EmailTxt_Validating_1(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(EmailTxt.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(EmailTxt, Messages.email_req);
+            }
+            else
+            {
+                try
+                {
+                    MailAddress mail = new MailAddress(EmailTxt.Text);
+                }
+                catch (Exception)
+                {
+                    e.Cancel = true;
+                    errorProvider.SetError(EmailTxt, Messages.email_format);
+                }
+            }
+        }
     }
 }
