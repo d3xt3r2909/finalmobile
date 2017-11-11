@@ -34,8 +34,8 @@ namespace ESBX_Client.Menadzer
         {
             inputTimePickerStart.Value = DateTime.Now.AddYears(-1);
             inputTimePickerEnd.Value = DateTime.Now;
-
-            RefreshState();
+            request.GetAll = false;
+            request.Status = inputCheckBoxIskoristeni.Checked;
         }
 
         private void RefreshState() {
@@ -85,18 +85,6 @@ namespace ESBX_Client.Menadzer
         {
             request.GetAll = false;
             request.Status = inputCheckBoxIskoristeni.Checked;
-            RefreshState();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            request.DatumStart = DateTime.Now.AddYears(-1);
-            request.DatumEnd = DateTime.Now;
-            request.GetAll = true;
-            request.KorisnikId = null;
-            request.KorisnikImePrezime = null;
-            request.KuponKod = null;
-            request.Status = false;
             RefreshState();
         }
     }
