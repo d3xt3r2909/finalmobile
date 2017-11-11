@@ -66,7 +66,7 @@ namespace ESBX_API.Controllers
                 foreach (var n in omiljeni.Except(SalataTrenutnog.listaIzabranih))
                 {
 
-                    if (!sastojciKojeNemaTrenutni.Contains(n))
+                    if (!sastojciKojePredlazemo.Contains(n))
                     {
                         if (ctx.Sastojci.Where(x => x.Id == n).Select(y => y.VrstaSastojka.Naziv).FirstOrDefault() != Constants.SastojakGlavni)
                             sastojciKojePredlazemo.Add(n);
