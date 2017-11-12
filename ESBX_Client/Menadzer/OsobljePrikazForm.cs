@@ -53,20 +53,23 @@ namespace ESBX_Client.Menadzer
 
         private void KorisniciGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(KorisniciGrid.Rows[e.RowIndex].Cells[0].Value);
-            HttpResponseMessage response = KorisniciService.GetResponse(id);
-            Korisnici k = response.Content.ReadAsAsync<Korisnici>().Result;
-
-            DialogResult result = MessageBox.Show("Da li ste sigurni da zelite promijeniti stanje " + k.Ime + " " + k.Prezime + " korisnicki naloga?", "Upozorenje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
+            if (e.ColumnIndex == 5)
             {
-                HttpResponseMessage responseTwo = OsobljeService.PutResponse(k.Id, k);
-                if (!responseTwo.IsSuccessStatusCode)
-                    MessageBox.Show("Promjena aktivnosti korisnika nije uspjela.");
-            }
+                int id = Convert.ToInt32(KorisniciGrid.Rows[e.RowIndex].Cells[0].Value);
+                HttpResponseMessage response = KorisniciService.GetResponse(id);
+                Korisnici k = response.Content.ReadAsAsync<Korisnici>().Result;
 
-            BindGrid();
+                DialogResult result = MessageBox.Show("Da li ste sigurni da zelite promijeniti stanje " + k.Ime + " " + k.Prezime + " korisnicki naloga?", "Upozorenje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    HttpResponseMessage responseTwo = OsobljeService.PutResponse(k.Id, k);
+                    if (!responseTwo.IsSuccessStatusCode)
+                        MessageBox.Show("Promjena aktivnosti korisnika nije uspjela.");
+                }
+
+                BindGrid();
+            }
 
         }
 
