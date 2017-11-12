@@ -27,7 +27,14 @@ namespace ESBX.Navigation
             var page = (Page)Activator.CreateInstance(item.TargetType);
             page.Title = item.Title;
 
-            Detail = new NavigationPage(page);
+            if (Global.logedUser == null)
+            {
+                Application.Current.MainPage = new ESBX.Login();
+            }
+            else
+            {
+                Detail = new NavigationPage(page);
+            }
             IsPresented = false;
 
             MasterPage.ListView.SelectedItem = null;
