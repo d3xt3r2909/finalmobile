@@ -49,43 +49,48 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(66, 96);
+            this.label1.Location = new System.Drawing.Point(88, 118);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 16);
+            this.label1.Size = new System.Drawing.Size(231, 20);
             this.label1.TabIndex = 40;
             this.label1.Text = "Pregled zarade po mjesecima";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 121);
+            this.label2.Location = new System.Drawing.Point(92, 149);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 13);
+            this.label2.Size = new System.Drawing.Size(58, 17);
             this.label2.TabIndex = 41;
             this.label2.Text = "Godina:";
             // 
             // GodinaLbl
             // 
             this.GodinaLbl.AutoSize = true;
-            this.GodinaLbl.Location = new System.Drawing.Point(120, 121);
+            this.GodinaLbl.Location = new System.Drawing.Point(160, 149);
+            this.GodinaLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GodinaLbl.Name = "GodinaLbl";
-            this.GodinaLbl.Size = new System.Drawing.Size(0, 13);
+            this.GodinaLbl.Size = new System.Drawing.Size(0, 17);
             this.GodinaLbl.TabIndex = 42;
             // 
             // ZaradaGrid
             // 
             this.ZaradaGrid.AllowUserToAddRows = false;
             this.ZaradaGrid.AllowUserToDeleteRows = false;
+            this.ZaradaGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ZaradaGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ZaradaGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RedniBroj,
             this.Mjesec,
             this.BrojNarudzbi,
             this.UkupnaZarada});
-            this.ZaradaGrid.Location = new System.Drawing.Point(69, 150);
+            this.ZaradaGrid.Location = new System.Drawing.Point(92, 185);
+            this.ZaradaGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ZaradaGrid.Name = "ZaradaGrid";
             this.ZaradaGrid.ReadOnly = true;
-            this.ZaradaGrid.Size = new System.Drawing.Size(444, 343);
+            this.ZaradaGrid.Size = new System.Drawing.Size(592, 422);
             this.ZaradaGrid.TabIndex = 43;
             // 
             // RedniBroj
@@ -120,9 +125,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(556, 96);
+            this.label3.Location = new System.Drawing.Point(741, 118);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(225, 16);
+            this.label3.Size = new System.Drawing.Size(282, 20);
             this.label3.TabIndex = 44;
             this.label3.Text = "Grafički prikaz zarade po mjesecima";
             // 
@@ -135,7 +141,8 @@
             this.ZaradaChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.ZaradaChart.Legends.Add(legend1);
-            this.ZaradaChart.Location = new System.Drawing.Point(559, 150);
+            this.ZaradaChart.Location = new System.Drawing.Point(745, 185);
+            this.ZaradaChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ZaradaChart.Name = "ZaradaChart";
             this.ZaradaChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
@@ -144,20 +151,21 @@
             series1.XValueMember = "RedniBroj";
             series1.YValueMembers = "Zarada";
             this.ZaradaChart.Series.Add(series1);
-            this.ZaradaChart.Size = new System.Drawing.Size(684, 343);
+            this.ZaradaChart.Size = new System.Drawing.Size(912, 422);
             this.ZaradaChart.TabIndex = 45;
             // 
             // PregledStatistike
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1291, 550);
+            this.ClientSize = new System.Drawing.Size(1721, 677);
             this.Controls.Add(this.ZaradaChart);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ZaradaGrid);
             this.Controls.Add(this.GodinaLbl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PregledStatistike";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "r";

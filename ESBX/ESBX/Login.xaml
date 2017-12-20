@@ -1,70 +1,30 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESBX.Login"
-             NavigationPage.HasNavigationBar="false">
-
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ESBX.Login" NavigationPage.HasNavigationBar="false">
     <StackLayout VerticalOptions="CenterAndExpand">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-
+                <RowDefinition Height="*" />
                 <!--SLIKA-->
-                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto" />
                 <!--USER-->
-                <RowDefinition Height="2*"></RowDefinition>
-
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <BoxView Color="#303030" Grid.Row="0" Grid.ColumnSpan="2"/>
-            <Image 
-                Source="esslogo.png" 
-                Grid.Row="0" 
-                Grid.ColumnSpan="2">
-            </Image>
+            <BoxView Color="#303030" Grid.Row="0" Grid.ColumnSpan="2" />
+            <Image Source="esslogo.png" Grid.Row="0" Grid.ColumnSpan="2" />
             <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Margin="18,40,18,18">
-                <Label
-                Text="Email: " 
-                FontSize="18"  
-                VerticalTextAlignment="Center">
-                </Label>
-                <Entry 
-                x:Name="emailInput" 
-                Text="">
-                </Entry>
-                <Label 
-                Text="Lozinka: " 
-                FontSize="18"   
-                VerticalTextAlignment="Center">
-                </Label>
-                <Entry 
-                x:Name="lozinkaInput" 
-                Text="" 
-                FontSize="18"  
-                    IsPassword="True"
-                    >
-                </Entry>
+                <Label Text="Email: " FontSize="18" VerticalTextAlignment="Center" />
+                <Entry x:Name="emailInput" Text="korisnik@gmail.com" />
+                <Label Text="Lozinka: " FontSize="18" VerticalTextAlignment="Center" />
+                <Entry x:Name="lozinkaInput" Text="testtest" FontSize="18" IsPassword="True" />
             </StackLayout>
             <StackLayout Grid.Row="2" Grid.ColumnSpan="2" Margin="18">
-                <Button 
-                x:Name="prijavaButton" 
-                Text="Prijava"  
-                Clicked="prijavaButton_Clicked"
-                >
-                </Button>
-
-                <Label
-                    Text="ili"
-                    HorizontalTextAlignment="Center"
-                    ></Label>
-                <Button 
-                x:Name="registracijaButton"
-                Text="Registracija" 
-                Clicked="registracijaButton_Clicked" >
-                </Button>
+                <Button x:Name="prijavaButton" Text="Prijava" Clicked="prijavaButton_Clicked" />
+                <Label Text="ili" HorizontalTextAlignment="Center" />
+                <Button x:Name="registracijaButton" Text="Registracija" Clicked="registracijaButton_Clicked" />
             </StackLayout>
         </Grid>
     </StackLayout>

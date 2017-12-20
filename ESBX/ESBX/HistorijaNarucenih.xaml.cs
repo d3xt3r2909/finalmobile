@@ -19,6 +19,7 @@ namespace ESBX
 	{
         private WebAPIHelper salateService = new WebAPIHelper(WebApiRoutes.URL_ROUTE, "api/Narudzba");
         private List<NarudzbeVM> salate = null;
+
         public HistorijaNarucenih ()
 		{
             if (Global.logedUser == null)
@@ -44,6 +45,7 @@ namespace ESBX
 
             base.OnAppearing();
         }
+
         private async void KomentarSalate_Clicked(object sender, EventArgs e)
         {
             var item = (Xamarin.Forms.Button)sender;
@@ -53,10 +55,11 @@ namespace ESBX
             {
                 NarudzbeVM narudzba = salate.FirstOrDefault(salata => salata.SalataId == salataId);
 
-                KomentirajDialog komentirajDialog = new KomentirajDialog(narudzba.SalataId, narudzba.KorpaId ,narudzba.KorisnikId);
+                KomentirajDialog komentirajDialog = new KomentirajDialog(narudzba.SalataId, narudzba.KorpaId, narudzba.KorisnikId);
                 await PopupNavigation.PushAsync(komentirajDialog);
             }
         }
+
         private void DodajSalatu_Clicked(object sender,EventArgs e)
         {
             var item = (Xamarin.Forms.Button)sender;
@@ -74,7 +77,5 @@ namespace ESBX
                 DisplayAlert("Upozorenje",  "Dodgodila se greška. Salata nije dodana u korpu.", "OK");
             }
         }
-
-
      }
 }

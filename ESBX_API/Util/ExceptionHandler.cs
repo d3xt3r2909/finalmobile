@@ -19,7 +19,6 @@ namespace ExpressSaladBarDesktop_API.Util
 
         public static string HandleException(SqlException error)
         {
-            
             switch(error.Number)
             {
                 case 2601: 
@@ -43,9 +42,10 @@ namespace ExpressSaladBarDesktop_API.Util
             {
                 string uniqeName = newMessage.Substring(startIndexError + 1, endIndexError - startIndexError - 1);
 
-                if(uniqeName== "IX_Email")
-                    newMessage="email_unique";
+                if(uniqeName == "IX_Email")
+                    newMessage = "email_unique";
             }
+
             return newMessage;
         }
         

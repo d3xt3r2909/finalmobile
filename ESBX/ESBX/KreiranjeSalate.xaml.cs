@@ -49,19 +49,19 @@ namespace ESBX
                     return;
                 }
 
-                glavni = (Sastojci)GlavniPicker.SelectedItem;
-                dresing = (Sastojci)DresingPicker.SelectedItem;
+                glavni = (Sastojci) GlavniPicker.SelectedItem;
+                dresing = (Sastojci) DresingPicker.SelectedItem;
 
                 izabrani.Add(glavni);
                 izabrani.Add(dresing);
 
                 List<int> SastojciIds = new List<int>();
+
                 foreach (Sastojci i in izabrani)
                     SastojciIds.Add(i.Id);
 
                 if (SastojciIds != null)
                 {
-                  
                     KreiranaSalataVM k = new KreiranaSalataVM
                     {
                         listaIzabranih = SastojciIds,
@@ -136,7 +136,6 @@ namespace ESBX
 
                 if (izabraniSporedni != null)
                 {
-
                     this.updateLabelSporedni(izabraniSporedni);
                 }
             }
@@ -175,10 +174,10 @@ namespace ESBX
 
         protected override void OnDisappearing()
         {
-            glavni = (Sastojci)GlavniPicker.SelectedItem;
-            dresing = (Sastojci)DresingPicker.SelectedItem;
+            glavni = (Sastojci) GlavniPicker.SelectedItem;
+            dresing = (Sastojci) DresingPicker.SelectedItem;
 
-            if (Int32.TryParse(Kolicina.Text, out broj) == true)
+            if (Int32.TryParse(Kolicina.Text, out broj))
                 Kol = Convert.ToInt32(Kolicina.Text);
             else
                 Kol = 1;

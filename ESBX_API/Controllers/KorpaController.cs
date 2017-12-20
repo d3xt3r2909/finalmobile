@@ -265,11 +265,10 @@ namespace ESBX_API.Controllers
 
             }
 
-            
-
             MContext ctx = new MContext();
 
             List<KorpaStavke> conditionKs = ctx.KorpaStavke.Where(ks => ks.Korpa.Aktivna == true && ks.Korpa.KorisnikId == naruci.KorisnikId).ToList();
+           
             // Provjera da li je korisnicka korpa prazna - radi sigurnosti na server strani
             if (conditionKs.Count <= 0)
                 return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "Korisnicka korpa je prazna!");
@@ -287,7 +286,8 @@ namespace ESBX_API.Controllers
 
             // oduzmi sastojcima na stanju
             List<int> SalataIds = ctx.KorpaStavke.Where(x => x.KorpaId == korisnikKorpa.Id).Select(y => y.SalataId).ToList();
-            foreach(var i in SalataIds)
+
+            foreach (var i in SalataIds)
             {
                 List<int> sastojciIds = ctx.SalataStavke.Where(x => x.SalataId == i).Select(y => y.SastojakId).ToList();
                 foreach (var n in sastojciIds)
@@ -298,7 +298,6 @@ namespace ESBX_API.Controllers
                     ctx.SaveChanges();
                 }
             }
-            
 
             // Snimiti promjene
             ctx.SaveChanges();

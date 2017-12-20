@@ -38,6 +38,7 @@ namespace ESBX
 
         private List<KorpaMobileVm> getSourceForList()
         {
+            // dohvacanje listi stavke za korpu odredjenog korisnika
             HttpResponseMessage response = service.GetResponse(Global.logedUser.Id);
 
             if (response.IsSuccessStatusCode)
@@ -47,12 +48,16 @@ namespace ESBX
                 return JsonConvert.DeserializeObject<List<KorpaMobileVm>>(jsonObject.Result);
             }
 
+            // ukoliko nije pronadjena korpa vratit ce se null vrijednost
             return null;
         }
+
         protected override void OnAppearing()
         {
+            // sa API se povuce source lista koja treba biti ucitana
             List<KorpaMobileVm> firstSource = getSourceForList();
 
+            // ukoliko imaju stavke unutar korpe potrebno je prikazati ih unutar view-a i prikazati ukupnu cijenu 
             if (firstSource != null && firstSource.Count() != 0)
             {
                 source = new KorpaMobileVmList(firstSource);
@@ -63,6 +68,7 @@ namespace ESBX
             }
             else
             {
+                // ukoliko je korpa prazna tada se prikazuje odgovarajuca labela
                 lblPraznaKorpa.IsVisible = true;
                 bottomControl.IsVisible = false;
             }

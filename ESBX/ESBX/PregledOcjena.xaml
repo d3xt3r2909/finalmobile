@@ -6,20 +6,20 @@
              
              >
     <ContentPage.Content>
-        <StackLayout Margin="10" Padding="10">
+        <StackLayout>
             <ListView x:Name="listKomentari" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Grid>
+                        <ViewCell IsEnabled="False">
+                            <Grid Padding="15">
                                 <Grid.RowDefinitions>
-                                    <!--Email i vrijeme-->
+                                    <!--Email i ocjena-->
                                     <RowDefinition Height="*"></RowDefinition>
-                                    <!--Ocjena-->
+                                    
+                                    <!--Sat i vrijeme prije koliko -->
                                     <RowDefinition Height="*"></RowDefinition>
+                                    
                                     <!--Komentar labela-->
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <!--Komentar-->
                                     <RowDefinition Height="*"></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
@@ -27,11 +27,21 @@
                                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Label x:Name="Vrijeme" HorizontalOptions="End" Text="{Binding Vrijeme}" Grid.Row="0" Grid.Column="1"></Label>
-                                <Label x:Name="KorisnikEmail" Text="{Binding EmailKorisnika}" Grid.Row="0" Grid.Column="0"></Label>
-                                <Label x:Name="Ocjena" Text="{Binding Ocjena, StringFormat='Ocjena: {0}'}" Grid.Row="1" Grid.ColumnSpan="2"></Label>
-                                <Label x:Name="KomentarKorisnika" Text="Komentar:"  Grid.Row="2" Grid.ColumnSpan="2"></Label>
-                                <Label x:Name="Komentar" Text="{Binding Komentar}" Grid.Row="3" Grid.ColumnSpan="2"></Label>
+                                <Label x:Name="KorisnikEmail" Text="{Binding EmailKorisnika}" FontSize="17" FontAttributes="Bold" Grid.Row="0" Grid.Column="0"></Label>
+                                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                                    <Image Source="staricon.ico" HeightRequest="15" WidthRequest="15"></Image>
+                                    <Label x:Name="Ocjena" Text="{Binding Ocjena}" FontSize="16" ></Label>
+                                </StackLayout>
+                                   
+                                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2">
+                                    <Image Source="clock.png" HeightRequest="15" WidthRequest="15"></Image>
+                                    <Label x:Name="Vrijeme" Text="{Binding Vrijeme}"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2">
+                                    <Image Source="commenticon.png" HeightRequest="18" WidthRequest="18"></Image>
+                                    <Label x:Name="Komentar" Text="{Binding Komentar}" FontSize="16" ></Label>
+                                </StackLayout>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

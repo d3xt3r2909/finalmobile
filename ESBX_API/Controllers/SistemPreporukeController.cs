@@ -108,7 +108,7 @@ namespace ESBX_API.Controllers
 
                     if (!sastojciKojeNemaTrenutni.Contains(n))
                     {
-                        if(ctx.Sastojci.Where(x=>x.Id==n).Select(y=>y.VrstaSastojkaId).FirstOrDefault()!=1)
+                        if(ctx.Sastojci.Where(x=>x.Id==n).Select(y=>y.VrstaSastojka.Naziv).FirstOrDefault()!=Constants.SastojakGlavni)
                         sastojciKojeNemaTrenutni.Add(n);
                     }
                    

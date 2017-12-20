@@ -183,7 +183,6 @@ namespace ESBX_Client.Menadzer
                     stavkeUlaza.Add(s);
                     RefreshGrid();
                 }
-                
                 else
                     MessageBox.Show("Došlo je do greške");
             }

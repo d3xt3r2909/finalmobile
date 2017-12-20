@@ -5,7 +5,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Title="Registracija">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" Margin="18">
+    <StackLayout HorizontalOptions="CenterAndExpand" Margin="15">
         <!--<ToolbarItem Text="Komentari"></ToolbarItem>-->
 
         <Grid>

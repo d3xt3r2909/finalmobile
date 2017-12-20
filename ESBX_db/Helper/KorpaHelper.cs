@@ -138,6 +138,7 @@ namespace ESBX_db.Helper
             else return HttpStatusCode.NoContent;
             ctx.SaveChanges();
 
+            // @TODO treba razmisliti radi cuvanja historije mozda nije pametno ih brisati iz baze vec samo property ostaviti
             //// Brisanje stavki salate
             //List<SalataStavke> lss = ctx.SalataStavke.Where(x => x.SalataId == salataId).ToList();
             //if (lss.Count == 0)

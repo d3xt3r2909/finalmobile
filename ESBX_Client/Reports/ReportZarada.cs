@@ -45,5 +45,7 @@ namespace ESBX_Client.Reports
         {
             RefreshReport(DatumOdPicker.Value, DatumDoPicker.Value);
         }
+
+      
     }
 }

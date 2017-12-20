@@ -156,6 +156,42 @@
       <Name>ESBX_MyPLC</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\staricon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\commenticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\deleteicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\saladicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\leavecommenticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\addtocarticoon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\addtocarticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\garbageicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\systembackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\systembackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\saladsettingsicon.png" />
+  </ItemGroup>
   <Import Project="..\ESBX\ESBX.projitems" Label="Shared" Condition="Exists('..\ESBX\ESBX.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\..\packages\NETStandard.Library.2.0.1\build\netstandard2.0\NETStandard.Library.targets')" />

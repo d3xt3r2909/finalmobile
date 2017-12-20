@@ -13,15 +13,12 @@ namespace ESBX_API.Controllers
     public class KomentariController : ApiController
     {
 
-
         MContext ctx = new MContext();
 
         [HttpGet]
         [Route("api/Komentari")]
         public IHttpActionResult GetKomentari()
         {
-
-
             List<OcjeneKomentari> komentari = ctx.OcjeneKomentari.OrderByDescending(x => x.Datum).Take(10).ToList();
 
             List<KomentariMobileVM> kom = new List<KomentariMobileVM>();
@@ -29,7 +26,7 @@ namespace ESBX_API.Controllers
             {
                 KomentariMobileVM k = new KomentariMobileVM();
                 k.EmailKorisnika = i.Korisnik.Email;
-                k.Ocjena =i.Ocjena;
+                k.Ocjena = i.Ocjena;
                 k.Komentar = i.Komentar;
                 k.Vrijeme = Razlika(i.Datum).ToString();
                 kom.Add(k);
@@ -41,15 +38,16 @@ namespace ESBX_API.Controllers
         public string Razlika(DateTime datum)
         {
             DateTime danas = DateTime.Now;
-            double raz = Math.Round( (danas - datum).TotalMinutes,0);
+            double raz = Math.Round((danas - datum).TotalMinutes, 0);
             string rezultat;
+
             if (raz > 60)
             {
-                raz = Math.Round((danas - datum).TotalHours,0);
+                raz = Math.Round((danas - datum).TotalHours, 0);
                 rezultat = raz.ToString() + " h";
                 if (raz > 24)
                 {
-                    raz= Math.Round((danas - datum).TotalDays,0);
+                    raz = Math.Round((danas - datum).TotalDays, 0);
                     rezultat = raz.ToString() + " d";
                 }
             }
@@ -57,12 +55,8 @@ namespace ESBX_API.Controllers
             {
                 rezultat = raz.ToString() + " min";
             }
-
-        
             
-
-
-            return "prije "+rezultat;
+            return "prije " + rezultat;
         }
     }
 }

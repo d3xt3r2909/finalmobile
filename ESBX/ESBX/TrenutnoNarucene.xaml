@@ -4,38 +4,51 @@
              x:Class="ESBX.TrenutnoNarucene"
              Title="Naručene salate"
              >
-    <ContentPage.Content>
-        <StackLayout Margin="10">
-            <ListView x:Name="listTrenutne" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Text="Trenutno nemate niti jednu narudzbu aktivnu. Potrebno je da narucite minimalno jednu salatu iz Vase aktivne korpe." x:Name="lblPraznaTrenutna" IsVisible="False" />
+        <ListView x:Name="listTrenutne" HasUnevenRows="True" Grid.Row="0" Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="15">
+                            <Grid.RowDefinitions>
+                                <!--Cijena-->
+                                <RowDefinition Height="Auto" />
+                                <!--Kolicina-->
+                                <RowDefinition Height="Auto" />
+                                <!--Sastojci-->
+                                <RowDefinition Height="Auto" />
+                                <!--Button-->
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
 
-                                <Label x:Name="Cij" Text="Cijena:"  Grid.Row="1"></Label>
-                                <Label x:Name="Kol" Text="Količina:"  Grid.Row="2"></Label>
-                                <Label x:Name="Sas" Text="Sastojci:"   Grid.Row="3"></Label>
+                            <Image Source="saladicon.png" HeightRequest="50" WidthRequest="50" Grid.Column="0" Grid.Row="0"></Image>
+                            <Label x:Name="Sastojci" Text="{Binding Sastojci}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="17" Grid.Column="1" Grid.Row="0" />
 
-
-                                <Label x:Name="Cijena" Text="{Binding Cijena,StringFormat='{0} KM'}}"  Grid.Row="1"  Grid.Column="1"></Label>
-                                <Label x:Name="Kolicina" Text="{Binding Kolicina}" Grid.Row="2" Grid.Column="1"></Label>
-                                <Label x:Name="Sastojci" Text="{Binding Sastojci}" Grid.Row="3" Grid.Column="1"></Label>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Label x:Name="UkupnaCijena" Text="UKUPNO" FontAttributes="Bold"></Label>
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                                <Label x:Name="Kolicina" Text="{Binding Kolicina, StringFormat='{0} kom.'}"/>
+                                <Label x:Name="Cijena" Text="{Binding Cijena, StringFormat='- {0} KM'}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout x:Name="bottomControl" Padding="10" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" BackgroundColor="DodgerBlue">
+            <Label x:Name="UkupnaCijena" VerticalOptions="Center" TextColor="White" FontSize="17" FontAttributes="Bold" />
         </StackLayout>
-    </ContentPage.Content>
+    </Grid>
 </ContentPage>

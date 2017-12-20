@@ -108,8 +108,15 @@
     <None Include="ESBX.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addtocarticon.png" />
+    <Content Include="addtocarticoon.png" />
     <Content Include="Assets\esslogo.png" />
+    <Content Include="clock.png" />
+    <Content Include="commenticon.png" />
+    <Content Include="deleteicon.png" />
     <Content Include="esslogo.png" />
+    <Content Include="garbageicon.png" />
+    <Content Include="leavecommenticon.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />
@@ -138,6 +145,11 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="saladicon.png" />
+    <Content Include="saladsettingsicon.png" />
+    <AndroidResource Include="settingsback.png" />
+    <Content Include="staricon.ico" />
+    <Content Include="systembackground.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

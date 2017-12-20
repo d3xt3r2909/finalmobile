@@ -83,12 +83,6 @@ namespace ESBX_API.Controllers
         [Route(WebApiRoutes.GET_NAGRADNE_IGRE)]
         public HttpResponseMessage GetNagradnaIgra(GetNagradnaIgraRequest query)
         {
-
-            //Expression<Func<NagradnaIgra, bool>> whereClause;
-            //NagradnaIgra narudzbe = new NagradnaIgra();
-
-            //whereClause.Up
-
             List<GetNagradnaIgraResponse> result = ctx.NagradnaIgra.Where(
                                    igra => query.GetAll == true 
                                          || 

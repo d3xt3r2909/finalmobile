@@ -1,61 +1,53 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ESBX.KorisnickKorpa"
-             Title="Korisnicka korpa">
-
-    <Grid Margin="10" Padding="10">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="ESBX.KorisnickKorpa" Title="Korisnicka korpa">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <Label Text="Vasa korpa je prazna, potrebno je da kreirate barem jednu salatu kako bi ste izvrsili narudzbu" x:Name="lblPraznaKorpa" IsVisible="False"></Label>
+        <Label Text="Vasa korpa je prazna, potrebno je da kreirate barem jednu salatu kako bi ste izvrsili narudzbu" x:Name="lblPraznaKorpa" IsVisible="False" />
         <ListView x:Name="korpaList" HasUnevenRows="True" Grid.Row="0" Grid.ColumnSpan="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid>
+                        <Grid Padding="15">
                             <Grid.RowDefinitions>
-                                <!--Cijena-->
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <!--Kolicina-->
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <!--Sastojci-->
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <!--Button-->
-                                <RowDefinition Height="*"></RowDefinition>
+                                <!--Sastojci i slika ikonice za salatu-->
+                                <RowDefinition Height="Auto" />
+                                <!--Kolicina i cijena-->
+                                <RowDefinition Height="Auto" />
+                                <!--Button sastojci-->
+                                <RowDefinition Height="Auto" />
+                                <!--Emtpty row-->
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Label x:Name="lblCijena" Text="Cijena" Grid.Column="0" Grid.Row="0"></Label>
-                            <Label x:Name="inputCijena" Text="{Binding Cijena, StringFormat='{0} KM'}" Grid.Column="1" Grid.Row="0"></Label>
+                            <Image Source="saladicon.png" HeightRequest="50" WidthRequest="50" Grid.Column="0" Grid.Row="0"></Image>
+                            <Label x:Name="inputSastojci" Text="{Binding Sastojci}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="17" Grid.Column="1" Grid.Row="0" />
 
-                            <Label x:Name="lblKolicina" Text="Količina" Grid.Column="0" Grid.Row="1"></Label>
-                            <Label x:Name="inputKolicina" Text="{Binding Kolicina}" Grid.Column="1" Grid.Row="1"></Label>
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                                <Label x:Name="inputKolicina" Text="{Binding Kolicina, StringFormat='{0} kom.'}"/>
+                                <Label x:Name="inputCijena" Text="{Binding Cijena, StringFormat='- {0} KM'}"/>
+                            </StackLayout>
 
-                            <Label x:Name="lblSastojci" Text="Sastojci" Grid.Column="0" Grid.Row="2"></Label>
-                            <Label x:Name="inputSastojci" Text="{Binding Sastojci}" Grid.Column="1" Grid.Row="2"></Label>
-
-                            <Button Text="OBRIŠI" CommandParameter="{Binding StavkaId}" Clicked="DeleteClicked" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"></Button>
+                            <Button TextColor="White" Text="X" BackgroundColor="Red" HeightRequest="50" WidthRequest="50" CommandParameter="{Binding StavkaId}" Clicked="DeleteClicked" Grid.Column="2" Grid.Row="0" HorizontalOptions="End" />
                         </Grid>
-
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <StackLayout x:Name="bottomControl" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
-            <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " FontAttributes="Bold"></Label>
-            <Button x:Name="btnNaruci" Text="Naruči" Clicked="NaruciClicked" HorizontalOptions="EndAndExpand" BackgroundColor="Orange"></Button>
+        <StackLayout x:Name="bottomControl" Padding="10" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" BackgroundColor="DodgerBlue">
+            <Label x:Name="lblUkupno" VerticalOptions="Center" Text="Ukupno: " TextColor="White" FontSize="17" FontAttributes="Bold" />
+            <Button x:Name="btnNaruci" Text="Naruči" Clicked="NaruciClicked" HorizontalOptions="EndAndExpand" TextColor="White" BackgroundColor="#FF5722" />
         </StackLayout>
     </Grid>
 </ContentPage>

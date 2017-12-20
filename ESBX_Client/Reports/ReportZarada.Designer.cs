@@ -46,18 +46,21 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.DatumOdPicker);
-            this.groupBox1.Location = new System.Drawing.Point(38, 54);
+            this.groupBox1.Location = new System.Drawing.Point(51, 66);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1191, 500);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1588, 615);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Prikaz zarade";
             // 
             // GenerisiReportBtn
             // 
-            this.GenerisiReportBtn.Location = new System.Drawing.Point(1008, 69);
+            this.GenerisiReportBtn.Location = new System.Drawing.Point(1344, 85);
+            this.GenerisiReportBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GenerisiReportBtn.Name = "GenerisiReportBtn";
-            this.GenerisiReportBtn.Size = new System.Drawing.Size(132, 20);
+            this.GenerisiReportBtn.Size = new System.Drawing.Size(176, 25);
             this.GenerisiReportBtn.TabIndex = 11;
             this.GenerisiReportBtn.Text = "Generiši report";
             this.GenerisiReportBtn.UseVisualStyleBackColor = true;
@@ -66,26 +69,29 @@
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "ESBX_Client.Reports.Report2.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(27, 107);
+            this.reportViewer1.Location = new System.Drawing.Point(36, 132);
+            this.reportViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1113, 330);
+            this.reportViewer1.Size = new System.Drawing.Size(1483, 406);
             this.reportViewer1.TabIndex = 6;
             // 
             // DatumDoPicker
             // 
-            this.DatumDoPicker.Location = new System.Drawing.Point(278, 69);
+            this.DatumDoPicker.Location = new System.Drawing.Point(371, 85);
+            this.DatumDoPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DatumDoPicker.Name = "DatumDoPicker";
-            this.DatumDoPicker.Size = new System.Drawing.Size(213, 20);
+            this.DatumDoPicker.Size = new System.Drawing.Size(283, 22);
             this.DatumDoPicker.TabIndex = 10;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 42);
+            this.label1.Location = new System.Drawing.Point(32, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.Size = new System.Drawing.Size(82, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Datum od:";
             // 
@@ -93,25 +99,28 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(275, 42);
+            this.label2.Location = new System.Drawing.Point(367, 52);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "Datum do:";
             // 
             // DatumOdPicker
             // 
-            this.DatumOdPicker.Location = new System.Drawing.Point(27, 69);
+            this.DatumOdPicker.Location = new System.Drawing.Point(36, 85);
+            this.DatumOdPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DatumOdPicker.Name = "DatumOdPicker";
-            this.DatumOdPicker.Size = new System.Drawing.Size(213, 20);
+            this.DatumOdPicker.Size = new System.Drawing.Size(283, 22);
             this.DatumOdPicker.TabIndex = 9;
             // 
             // ReportZarada
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1291, 665);
+            this.ClientSize = new System.Drawing.Size(1721, 818);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ReportZarada";
             this.Text = "ReportZarada";
             this.groupBox1.ResumeLayout(false);

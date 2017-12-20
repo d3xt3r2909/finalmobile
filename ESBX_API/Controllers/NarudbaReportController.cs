@@ -23,7 +23,7 @@ namespace ESBX_API.Controllers
         public List<Narudzba_ReportResult> GetNarudzbe(string datumOdP, string datumDoP)
         {
             DateTime datumOd = Convert.ToDateTime(datumOdP);
-            DateTime datumDo= Convert.ToDateTime(datumDoP);
+            DateTime datumDo = Convert.ToDateTime(datumDoP);
 
             int brojac = 1;
             List<Narudzba_ReportResult> narudzbeList = new List<Narudzba_ReportResult>();

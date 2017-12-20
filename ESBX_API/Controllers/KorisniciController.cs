@@ -107,7 +107,7 @@ namespace ESBX_API.Controllers
                 
                     HttpResponseMessage error = ExceptionHandler.CreatedHttpResponseException(ExceptionHandler.HandleException(ex), HttpStatusCode.Conflict);
                     throw new HttpResponseException(error);
-                
+          
           }
 
             return StatusCode(HttpStatusCode.NoContent);

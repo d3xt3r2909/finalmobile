@@ -47,7 +47,10 @@ namespace ESBX
 
             FillForm();
            
-
+            this.lblLozinka.GestureRecognizers.Add(new TapGestureRecognizer
+                                                 {
+                                                     Command = new Command(() => this.lozinkaButton_Clicked() ),
+                                                 });
             base.OnAppearing();
         }
 
@@ -78,7 +81,7 @@ namespace ESBX
             k.Adresa = adresaInput.Text;
             k.DatumRodjenja= datumRodjenjaInput.Date;
             k.GradId=gradInput.SelectedIndex;
-            HttpResponseMessage response = profilService.PutResponse(k.Id,k);
+            HttpResponseMessage response = profilService.PutResponse(k.Id, k);
             if (response.IsSuccessStatusCode)
             {
                 DisplayAlert("Uspjeh", "Uspješno ste izmjenili podatke!", "OK");
@@ -96,7 +99,7 @@ namespace ESBX
             }
         }
 
-        private void lozinkaButton_Clicked(object sender, EventArgs e)
+        private void lozinkaButton_Clicked()
         {
             Navigation.PushAsync(new PodesavanjeLozinke());
         }

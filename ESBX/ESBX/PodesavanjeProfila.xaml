@@ -6,70 +6,61 @@
              Title="Podešavanje profila"
              >
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="CenterAndExpand" Margin="18">
-            <Grid>
+        <StackLayout>
+            <StackLayout BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand">
+                <Image Aspect="AspectFit" Margin="0,20,0,20" HeightRequest="150" Source="settingsback.png"></Image>
+            </StackLayout>
+            <Grid HorizontalOptions="FillAndExpand">
                 <Grid.RowDefinitions>
+                    <!--Korisnicki podaci labela i izmjena lozinke-->
                     <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--IME-->
+                    <!--Linija - divider-->
                     <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--PREZIME-->
+                    <!--Ime i prezime-->
                     <RowDefinition Height="Auto"></RowDefinition>
-
+                    <!--Email i rodjendan-->
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <!--Adresa-->
+                    <RowDefinition Height="Auto"></RowDefinition>
                     <!--Telefon-->
                     <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--EMAIL-->
-                    <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--Adresa stanovanja-->
-                    <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--Datum rodjenja-->
-                    <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--Grad-->
-                    <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--BUTTON SNIMI-->
-                    <RowDefinition Height="Auto"></RowDefinition>
-
-                    <!--LOZINKA-->
-                    <RowDefinition Height="Auto"></RowDefinition>
-
-
+                    <!--Button-->
+                    <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="Auto"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label x:Name="ime" Text="Ime:"></Label>
-                <Entry x:Name="imeInput" Grid.Column="1" ></Entry>
+                <Label Text="Korisnicki podaci" HorizontalOptions="Center" Margin="30,20,0,0" FontSize="25" FontFamily="Bold"></Label>
+                <Label Text="Izmjena lozinke" x:Name="lblLozinka" VerticalOptions="CenterAndExpand" Margin="0,20,30,0" HorizontalOptions="EndAndExpand" TextColor="YellowGreen" Grid.Column="2"></Label>
+                <BoxView 
+                    Grid.Row="1"
+                    Grid.ColumnSpan="3"
+                    HeightRequest="1" 
+                    Margin="30,10,30,0"
+                    BackgroundColor="LightGray" 
+                    HorizontalOptions="FillAndExpand" />
+                <Label />
 
-                <Label x:Name="prezime" Text="Prezime:" Grid.Row="1"></Label>
-                <Entry x:Name="prezimeInput"  Grid.Row="1" Grid.Column="1"></Entry>
+                <!-- PRVI RED (ime i prezime) -->
+                <Entry x:Name="imeInput" Margin="30,0,0,0" Placeholder="Ime" Grid.Row="2" Grid.Column="0"></Entry>
+                <Entry x:Name="prezimeInput" Placeholder="Prezime" Grid.Row="2" Margin="0,0,30,0" Grid.Column="1" Grid.ColumnSpan="2"></Entry>
 
-                <Label x:Name="Telefon" Text="Telefon:" Grid.Row="2"></Label>
-                <Entry x:Name="telefonInput"  Grid.Row="2" Grid.Column="1"></Entry>
+                <!-- DRUGI RED (EMAIL I RODJENDAN) -->
+                <Entry x:Name="emailInput" Margin="30,0,0,0" Placeholder="Email adresa" Grid.Row="3"></Entry>
+                <DatePicker x:Name="datumRodjenjaInput" Grid.Row="3" Grid.Column="1" Margin="0,0,30,0" MaximumDate="{x:Static sys:DateTime.Now}" Date="{x:Static sys:DateTime.Now}" Format="dd-MM-yyyy"  Grid.ColumnSpan="2"></DatePicker>
 
-                <Label x:Name="email" Text="Email:" Grid.Row="3"></Label>
-                <Entry x:Name="emailInput"  Grid.Row="3" Grid.Column="1"></Entry>
+                <!-- Address -->
+                <Picker x:Name="gradInput" Margin="30,0,0,0" Title="Odabir grada" Grid.Row="4"  Grid.ColumnSpan="2"></Picker>
+                <Entry x:Name="adresaInput" Placeholder="Prebivaliste" Grid.Row="4" Grid.Column="2" Margin="0,0,30,0"></Entry>
 
-                <Label x:Name="adresa" Text="Adresa:" Grid.Row="4"></Label>
-                <Entry x:Name="adresaInput"  Grid.Row="4" Grid.Column="1"></Entry>
+                <!-- Telephone -->
+                <Entry x:Name="telefonInput" Placeholder="Kontakt telefon" Grid.Row="5" Grid.ColumnSpan="3" Margin="30,0,30,0"></Entry>
 
-                <Label x:Name="datum" Text="Datum rođenja:" Grid.Row="5"></Label>
-                <DatePicker x:Name="datumRodjenjaInput" Grid.Row="5" MaximumDate="{x:Static sys:DateTime.Now}"  Format="dd-MM-yyyy"  Grid.Column="1"></DatePicker>
-
-                <Label x:Name="grad" Text="Grad:" Grid.Row="6"></Label>
-                <Picker x:Name="gradInput"  Grid.Row="6"  Grid.Column="1"></Picker>
-
-                <Button Text="SAČUVAJ" BackgroundColor="Orange" Grid.Row="9" Grid.ColumnSpan="2" x:Name="sacuvajAcc" Clicked="sacuvajAcc_Clicked"></Button>
-
-                <Button Text="PROMIJENI LOZINKU" Grid.Row="8" Grid.Column="1" x:Name="lozinkaButton" Clicked="lozinkaButton_Clicked"></Button>
-
+                <!-- Sacuvaj -->
+                <Button Text="Sacuvaj" Margin="30,0,30,0" HorizontalOptions="FillAndExpand" BackgroundColor="Orange" Grid.Row="6" Grid.ColumnSpan="3" x:Name="sacuvajAcc" Clicked="sacuvajAcc_Clicked"></Button>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

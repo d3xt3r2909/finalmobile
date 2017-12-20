@@ -93,16 +93,14 @@ namespace ESBX
                 Application.Current.MainPage = new Navigation.MyPage();
                 return;
             }
-            else
+
+            if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
             {
-                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
-                {
                     DisplayAlert("Upozorenje!", "Označeni ste kao nepovjerljiv gost, te narudžba nije moguća. Molimo Vas da provjerite svoj mail za detaljnije informacije.", "OK");
                     return;
-                }
-                DisplayAlert("Upozorenje!", response.ReasonPhrase, "OK");
-
             }
+
+            DisplayAlert("Upozorenje!", response.ReasonPhrase, "OK");
         }
     }
 }

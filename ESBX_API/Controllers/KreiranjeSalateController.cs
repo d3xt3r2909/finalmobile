@@ -35,8 +35,6 @@ namespace ESBX_API.Controllers
         [Route("api/KreiranjeSalate")]
         public IHttpActionResult PostSnimi(KreiranaSalataVM Salata)
         {
-            
-
             if (Salata != null)
             {
                 // Kreiranje nove salate - trenutni datum i note
@@ -45,6 +43,7 @@ namespace ESBX_API.Controllers
                     DatumKreiranja = DateTime.Now,
                     Napomena = Salata.Napomena
                 };
+
                 ctx.Salate.Add(s);
                 ctx.SaveChanges();
 
@@ -58,6 +57,7 @@ namespace ESBX_API.Controllers
                         SalataId = s.Id,
                         SastojakId = i
                     };
+
                     ctx.SalataStavke.Add(ss);
                 };
 
@@ -68,7 +68,7 @@ namespace ESBX_API.Controllers
                 #region DodavanjeSalateUKorpu
 
                 // Pretraga za korpom, da li korpa korisnika vec postoji i da li je ona aktivna 
-                var k = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.Korisnik.Id== Salata.KorisnikId);
+                var k = ctx.Korpa.FirstOrDefault(x => x.Aktivna && x.Korisnik.Id == Salata.KorisnikId);
 
                 // Ukoliko korisnik nema korpu, potrebno je kreirati novu i aktivirati je
                 if (k == null)
@@ -83,6 +83,7 @@ namespace ESBX_API.Controllers
                         VrijemeNarucivanja = DateTime.Now,
                         Sifra = Constants.GenerateUniqueKod(9)
                     };
+
                     ctx.Korpa.Add(k);
 
                     // Spasavanje promijena
@@ -104,14 +105,10 @@ namespace ESBX_API.Controllers
                 ctx.SaveChanges();
 
                 #endregion
-
-
                 return Ok();
             }
-            else
-            {
-                return NotFound();
-            }
+
+            return NotFound();
         }
     }
 }

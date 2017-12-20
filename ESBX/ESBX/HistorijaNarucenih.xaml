@@ -4,37 +4,49 @@
              x:Class="ESBX.HistorijaNarucenih"
              Title="Historija naručenih salata"
              >
-    <ContentPage.Content>
-        <StackLayout Margin="10" >
-            <ListView x:Name="listHistorija" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate >
-                        <ViewCell>
-                            <Grid Padding="10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" ></RowDefinition>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                    <RowDefinition Height="Auto"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Text="Historiju narudzbi nije moguce prikazati buduci da nemate niti jednu narudzbu oznacenu kao zavrsena." x:Name="lblPraznaKorpa" IsVisible="False" />
+        <ListView x:Name="listHistorija" HasUnevenRows="True" Grid.Row="0" Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="15">
+                            <Grid.RowDefinitions>
+                                <!--Sastojci-->
+                                <RowDefinition Height="Auto" />
+                                <!--Kolicina i cijena-->
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                                <Label x:Name="Sas" Text="Sastojci:"   Grid.Row="0"></Label>
-                                <Label x:Name="Cij" Text="Cijena:"  Grid.Row="1"></Label>
+                            <Image Source="saladicon.png" HeightRequest="50" WidthRequest="50" Grid.Column="0" Grid.Row="0"></Image>
+                            <Label x:Name="Sastojci" Text="{Binding Sastojci}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" FontSize="17" Grid.Column="1" Grid.Row="0" />
 
+                            <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                                <Label x:Name="Kolicina" Text="{Binding Kolicina, StringFormat='{0} kom.'}"/>
+                                <Label x:Name="Cijena" Text="{Binding Cijena, StringFormat='- {0} KM'}"/>
+                            </StackLayout>
 
-                                <Label x:Name="Sastojci" Text="{Binding Sastojci}" Grid.Row="0" Grid.Column="1"></Label>
-                                <Label x:Name="Cijena" Text="{Binding Cijena,StringFormat='{0} KM'}}"  Grid.Row="1"  Grid.Column="1"></Label>
+                            <Button x:Name="DodajSalatu" Image="addtocarticoon.png" HeightRequest="50" WidthRequest="50" CommandParameter="{Binding SalataId}" Clicked="DodajSalatu_Clicked" Grid.Row="0"  Grid.Column="2" BackgroundColor="White" BorderColor="White" BorderWidth="0" HorizontalOptions="End"></Button>
+                            <Button x:Name="KomentarSalate" Image="leavecommenticon.png" HeightRequest="50" WidthRequest="50" CommandParameter="{Binding SalataId}" Clicked="KomentarSalate_Clicked" Grid.Row="1"  Grid.Column="2" BackgroundColor="White" HorizontalOptions="End"></Button>
 
-                                <Button x:Name="KomentarSalate" Text="KOMENTIRAJ" CommandParameter="{Binding SalataId}" Clicked="KomentarSalate_Clicked" Grid.Row="2"  Grid.Column="0" BackgroundColor="Orange" HorizontalOptions="End"></Button>
-                                <Button x:Name="DodajSalatu" Text="DODAJ" CommandParameter="{Binding SalataId}" Clicked="DodajSalatu_Clicked" Grid.Row="2"  Grid.Column="1" BackgroundColor="Orange" HorizontalOptions="End"></Button>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
+                            <!--<Button TextColor="White" Text="X" BackgroundColor="Red" HeightRequest="50" WidthRequest="50" CommandParameter="{Binding StavkaId}" Clicked="DeleteClicked" Grid.Column="2" Grid.Row="0" HorizontalOptions="End" />-->
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </ContentPage>

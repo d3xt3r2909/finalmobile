@@ -33,7 +33,6 @@
             this.txtPoklonBon = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgIzdajRacun = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SastojakId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,15 +42,17 @@
             this.Kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VrijemeDolaska = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CijenaSalate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgIzdajRacun)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDownload
             // 
             this.btnDownload.Enabled = false;
-            this.btnDownload.Location = new System.Drawing.Point(838, 340);
+            this.btnDownload.Location = new System.Drawing.Point(1117, 418);
+            this.btnDownload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(113, 23);
+            this.btnDownload.Size = new System.Drawing.Size(151, 28);
             this.btnDownload.TabIndex = 1;
             this.btnDownload.Text = "PDF download";
             this.btnDownload.UseVisualStyleBackColor = true;
@@ -59,9 +60,10 @@
             // 
             // btnIzdaj
             // 
-            this.btnIzdaj.Location = new System.Drawing.Point(838, 369);
+            this.btnIzdaj.Location = new System.Drawing.Point(1117, 454);
+            this.btnIzdaj.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnIzdaj.Name = "btnIzdaj";
-            this.btnIzdaj.Size = new System.Drawing.Size(113, 23);
+            this.btnIzdaj.Size = new System.Drawing.Size(151, 28);
             this.btnIzdaj.TabIndex = 3;
             this.btnIzdaj.Text = "Zakljuci racun";
             this.btnIzdaj.UseVisualStyleBackColor = true;
@@ -69,22 +71,25 @@
             // 
             // txtPoklonBon
             // 
-            this.txtPoklonBon.Location = new System.Drawing.Point(838, 138);
+            this.txtPoklonBon.Location = new System.Drawing.Point(1117, 170);
+            this.txtPoklonBon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPoklonBon.Name = "txtPoklonBon";
-            this.txtPoklonBon.Size = new System.Drawing.Size(113, 20);
+            this.txtPoklonBon.Size = new System.Drawing.Size(149, 22);
             this.txtPoklonBon.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(838, 115);
+            this.label2.Location = new System.Drawing.Point(1117, 142);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.Size = new System.Drawing.Size(79, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Poklon bon";
             // 
             // dgIzdajRacun
             // 
+            this.dgIzdajRacun.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgIzdajRacun.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgIzdajRacun.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -96,21 +101,11 @@
             this.Kolicina,
             this.VrijemeDolaska,
             this.CijenaSalate});
-            this.dgIzdajRacun.Location = new System.Drawing.Point(69, 115);
+            this.dgIzdajRacun.Location = new System.Drawing.Point(92, 142);
+            this.dgIzdajRacun.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgIzdajRacun.Name = "dgIzdajRacun";
-            this.dgIzdajRacun.Size = new System.Drawing.Size(744, 277);
+            this.dgIzdajRacun.Size = new System.Drawing.Size(992, 341);
             this.dgIzdajRacun.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(305, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(262, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Izdavanje racuna kupcu";
             // 
             // Id
             // 
@@ -168,17 +163,30 @@
             this.CijenaSalate.HeaderText = "Cijena salate";
             this.CijenaSalate.Name = "CijenaSalate";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(407, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(323, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Izdavanje racuna kupcu";
+            // 
             // Kupon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 483);
+            this.ClientSize = new System.Drawing.Size(1284, 594);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPoklonBon);
             this.Controls.Add(this.btnIzdaj);
             this.Controls.Add(this.dgIzdajRacun);
             this.Controls.Add(this.btnDownload);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Kupon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kupon";
